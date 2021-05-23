@@ -43,5 +43,10 @@ namespace MDSF
             ds.Dispose();
             DataAccessCS.conn.Close();
         }
+
+        private void radGridView1_Click(object sender, EventArgs e)
+        {
+            //bhg
+        }
     }
 }

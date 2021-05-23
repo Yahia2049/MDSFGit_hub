@@ -59,6 +59,7 @@
             this.radGridView1.Name = "radGridView1";
             this.radGridView1.Size = new System.Drawing.Size(800, 450);
             this.radGridView1.TabIndex = 0;
+            this.radGridView1.Click += new System.EventHandler(this.radGridView1_Click);
             // 
             // mdsf_DataSet
             // 
