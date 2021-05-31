@@ -558,6 +558,7 @@
             this.rdb_Oil_trans.TabIndex = 278;
             this.rdb_Oil_trans.Text = "Oil Transaction";
             this.rdb_Oil_trans.UseVisualStyleBackColor = true;
+            this.rdb_Oil_trans.CheckedChanged += new System.EventHandler(this.rdb_Oil_trans_CheckedChanged);
             // 
             // panel2
             // 
@@ -595,7 +596,7 @@
             this.pnl_oil.Controls.Add(this.btn_new_invoice_oil);
             this.pnl_oil.Controls.Add(this.btn_remove_oil);
             this.pnl_oil.Controls.Add(this.btn_update_oil);
-            this.pnl_oil.Location = new System.Drawing.Point(4, 319);
+            this.pnl_oil.Location = new System.Drawing.Point(12, 475);
             this.pnl_oil.Name = "pnl_oil";
             this.pnl_oil.Size = new System.Drawing.Size(949, 99);
             this.pnl_oil.TabIndex = 276;
@@ -682,7 +683,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(13, 16);
+            this.label23.Location = new System.Drawing.Point(13, 15);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(38, 13);
             this.label23.TabIndex = 12;
@@ -735,7 +736,7 @@
             // 
             // txt_jou_id_oil
             // 
-            this.txt_jou_id_oil.Location = new System.Drawing.Point(9, 32);
+            this.txt_jou_id_oil.Location = new System.Drawing.Point(9, 31);
             this.txt_jou_id_oil.Name = "txt_jou_id_oil";
             this.txt_jou_id_oil.Size = new System.Drawing.Size(132, 20);
             this.txt_jou_id_oil.TabIndex = 4;

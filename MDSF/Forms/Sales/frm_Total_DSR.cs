@@ -1320,12 +1320,17 @@ namespace MDSF.Forms.Sales
                 // ----
                 if (chb_daybyday_pos.Checked == true)
                 {
+
+                    if (Chb_with_salesrep.Checked)
+                    { 
                     this.rpg_pos.RowGroupDescriptions.Add(new PropertyGroupDescription()
                     {
                         PropertyName = "SALESREP_NAME",
                         GroupComparer = new GroupNameComparer(),
                         AutoShowSubTotals = false
                     });
+                    
+                    }
                     this.rpg_pos.RowGroupDescriptions.Add(new PropertyGroupDescription()
                     {
                         PropertyName = "POS_NAME",
@@ -1346,12 +1351,15 @@ namespace MDSF.Forms.Sales
                 }
                 else
                 {
-                    this.rpg_pos.RowGroupDescriptions.Add(new PropertyGroupDescription()
+                    if (Chb_with_salesrep.Checked)
                     {
-                        PropertyName = "SALESREP_NAME",
-                        GroupComparer = new GroupNameComparer(),
-                        AutoShowSubTotals = false
-                    });
+                        this.rpg_pos.RowGroupDescriptions.Add(new PropertyGroupDescription()
+                        {
+                            PropertyName = "SALESREP_NAME",
+                            GroupComparer = new GroupNameComparer(),
+                            AutoShowSubTotals = false
+                        });
+                    }
                     this.rpg_pos.RowGroupDescriptions.Add(new PropertyGroupDescription()
                     {
                         PropertyName = "POS_NAME",

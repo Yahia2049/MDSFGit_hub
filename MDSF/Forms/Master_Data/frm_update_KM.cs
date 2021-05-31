@@ -50,6 +50,24 @@ namespace MDSF.Forms.Master_Data
                 ds.Dispose();
                 DataAccessCS.conn.Close();
 
+                ds = DataAccessCS.getdata("select  DISTINCT t.trans_id,t.trans_type from oil_trans_type t");
+                cmb_trans_type_oil.DataSource = ds.Tables[0];
+                cmb_trans_type_oil.DisplayMember = "trans_type";
+                cmb_trans_type_oil.ValueMember = "trans_id";
+                cmb_trans_type_oil.SelectedIndex = -1;
+                cmb_trans_type_oil.Text = "--Choose--";
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+
+                ds = DataAccessCS.getdata("select  DISTINCT t.type_id,t.type_desc from oil_types t");
+                cmb_oil_type.DataSource = ds.Tables[0];
+                cmb_oil_type.DisplayMember = "type_desc";
+                cmb_oil_type.ValueMember = "type_id";
+                cmb_oil_type.SelectedIndex = -1;
+                cmb_oil_type.Text = "--Choose--";
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+
                 //---------------------------------------
                 DataAccessCS.conn.Close();
                 //--------------------------------------
@@ -171,12 +189,7 @@ namespace MDSF.Forms.Master_Data
                 ds.Dispose();
                 DataAccessCS.conn.Close();
 
-                ds = DataAccessCS.getdata("select  DISTINCT VAN_ID,car_num from(van) where active=1 and branch_code=" + cmb_Region_Van.SelectedValue + "");
-                cmb_Van_ID.DataSource = ds.Tables[0];
-                cmb_Van_ID.DisplayMember = "VAN_ID";
-                cmb_Van_ID.ValueMember = "VAN_ID";
-                cmb_Van_ID.SelectedIndex = -1;
-                cmb_Van_ID.Text = "--Choose--";
+           
                 //--------------------------------------
             }
             catch (Exception ex)
@@ -270,11 +283,11 @@ namespace MDSF.Forms.Master_Data
                         if ((cmb_Van_ID.SelectedIndex > -1 && cmb_Plate_Number.SelectedIndex == -1) || (cmb_Van_ID.SelectedIndex > -1 && cmb_Plate_Number.SelectedIndex > -1))
                         {
                             //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                            ds = DataAccessCS.getdata("select v.van_id ,v.car_num,j.start_date, j.jou_seq,j.jou_id,j.BEG_KM,j.END_KM,j.END_KM-j.BEG_KM as Def_KM , j.jou_seq ,sales_ter_id,v.branch_code from journey@sales j ,van v where j.van_id =v.van_id and   j.van_id = '" + cmb_Van_ID.SelectedValue + "' and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) >= '" + from_date + "'  and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) <= '" + to_date + "' ");
+                            ds = DataAccessCS.getdata("select j.salesrep_id, v.van_id ,v.car_num,j.start_date, j.jou_seq,j.jou_id,j.BEG_KM,j.END_KM,j.END_KM-j.BEG_KM as Def_KM , j.jou_seq ,sales_ter_id,v.branch_code from journey@sales j ,van v where j.van_id =v.van_id and   j.van_id = '" + cmb_Van_ID.SelectedValue + "' and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) >= '" + from_date + "'  and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) <= '" + to_date + "' ");
                         }
                         else if (cmb_Van_ID.SelectedIndex == -1 && cmb_Plate_Number.SelectedIndex > -1)
                         {
-                            ds = DataAccessCS.getdata("select v.van_id ,v.car_num,j.start_date, j.jou_seq,j.jou_id,j.BEG_KM,j.END_KM,j.END_KM-j.BEG_KM as Def_KM  ,sales_ter_id,v.branch_code from journey@sales j ,van v where j.van_id =v.van_id and  j.van_id = '" + cmb_Plate_Number.SelectedValue + "' and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) >= 'from_date'  and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) <= '" + to_date + "'");
+                            ds = DataAccessCS.getdata("select j.salesrep_id,v.van_id ,v.car_num,j.start_date, j.jou_seq,j.jou_id,j.BEG_KM,j.END_KM,j.END_KM-j.BEG_KM as Def_KM  ,sales_ter_id,v.branch_code from journey@sales j ,van v where j.van_id =v.van_id and  j.van_id = '" + cmb_Plate_Number.SelectedValue + "' and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) >= 'from_date'  and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) <= '" + to_date + "'");
                         }
                         else
                         {
@@ -290,7 +303,7 @@ namespace MDSF.Forms.Master_Data
                         pnl_oil.Visible = false;
                         if (cmb_salesrep_salesman.SelectedIndex > -1)
                         {
-                            ds = DataAccessCS.getdata("select v.van_id ,v.car_num,j.start_date, j.jou_seq,j.jou_id,j.BEG_KM,j.END_KM,j.END_KM-j.BEG_KM as Def_KM  ,sales_ter_id,v.branch_code from journey@sales j ,van v where j.van_id =v.van_id and   j.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + "' and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) >= '" + from_date + "'  and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) <= '" + to_date + "' ");
+                            ds = DataAccessCS.getdata("select j.salesrep_id,v.van_id ,v.car_num,j.start_date, j.jou_seq,j.jou_id,j.BEG_KM,j.END_KM,j.END_KM-j.BEG_KM as Def_KM  ,sales_ter_id,v.branch_code from journey@sales j ,van v where j.van_id =v.van_id and   j.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + "' and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) >= '" + from_date + "'  and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) <= '" + to_date + "' ");
                         }
                         else
                         {
@@ -310,6 +323,7 @@ namespace MDSF.Forms.Master_Data
                             panel1.Visible = false;
                             btn_update_journey.Visible = false;
                             pnl_oil.Visible = true;
+
                         }
                         else
                         {
@@ -455,6 +469,11 @@ namespace MDSF.Forms.Master_Data
         private void txt_fuel_values_TextChanged(object sender, EventArgs e)
         {
             txt_fuel_liter.Text = (decimal.Parse(txt_fuel_values.Text) / decimal.Parse(cmb_fuel_type.SelectedValue.ToString())).ToString();
+        }
+
+        private void rdb_Oil_trans_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
