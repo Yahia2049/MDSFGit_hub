@@ -1544,7 +1544,9 @@ namespace MDSF.Forms.Sales
 
 
 
-                    D = "select s.* ,case when s.PROD_ID=30003 then  (sales_car /30)*0.006 else (sales_car /50)*0.01 end as million from sales_android_v4 s where call_status_id ='S'  and  branch_code in (" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    // D = "select s.* ,case when s.PROD_ID=30003 then  (sales_car /30)*0.006 else (sales_car /50)*0.01 end as million from sales_android_v4 s where call_status_id ='S'  and  branch_code in (" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select s.*  from sales_android_v4 s where call_status_id ='S'  and  branch_code in (" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+
                 }
                 else if (rchbdl_Region_Ter.CheckedItems.Count > 0 && chb_All_ter_ter.Checked)
                 {
@@ -1561,14 +1563,17 @@ namespace MDSF.Forms.Sales
                         }
                     }
                     //  D = "select * from sales_android_v4 where call_status_id ='S' and SALES_TER_ID in(" + x_ter_ter + ") and branch_code in(" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
-                    D = "select s.* ,case when s.PROD_ID=30003 then  (sales_car /30)*0.006 else (sales_car /50)*0.01 end as million from sales_android_v4 s where call_status_id ='S' and branch_code in(" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
-                   
+                   // D = "select s.* ,case when s.PROD_ID=30003 then  (sales_car /30)*0.006 else (sales_car /50)*0.01 end as million from sales_android_v4 s where call_status_id ='S' and branch_code in(" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select s.*  from sales_android_v4 s where call_status_id ='S' and branch_code in(" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+
 
                 }
                 else if (rchbdl_Territory_Ter.CheckedItems.Count > 0)
                 {
 
-                    D = "select s.* ,case when s.PROD_ID=30003 then  (sales_car /30)*0.006 else (sales_car /50)*0.01 end as million from sales_android_v4 s where call_status_id ='S' and  branch_code in (" + x_region_ter + ") and SALES_TER_ID in(" + x_ter_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                  //  D = "select s.* ,case when s.PROD_ID=30003 then  (sales_car /30)*0.006 else (sales_car /50)*0.01 end as million from sales_android_v4 s where call_status_id ='S' and  branch_code in (" + x_region_ter + ") and SALES_TER_ID in(" + x_ter_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select s.*  from sales_android_v4 s where call_status_id ='S' and  branch_code in (" + x_region_ter + ") and SALES_TER_ID in(" + x_ter_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+
                 }
                 else
                 {
