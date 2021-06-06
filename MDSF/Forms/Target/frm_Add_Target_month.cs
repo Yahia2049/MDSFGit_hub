@@ -553,7 +553,7 @@ namespace MDSF.Forms.Target
                 if (txt_branch_salesrep_del.Text != "" && txt_month_salesrep_del.Text != "" && txt_year_salesrep_del.Text != "")
                 {
                     DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am ')"+
-                        ", 'delete from salesrep_target for branche code= " + txt_branch_salesrep_del.Text + " month=" + txt_month_salesrep_del.Text + " year =" + txt_year_salesrep_del.Text + " ','','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
+                        ", 'delete from salesrep_target for branche_code= " + txt_branch_salesrep_del.Text + " month=" + txt_month_salesrep_del.Text + " year =" + txt_year_salesrep_del.Text + " ','','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                     DataAccessCS.conn.Close();
 
                     int branch_code_s = int.Parse(txt_branch_salesrep_del.Text);
@@ -930,6 +930,111 @@ namespace MDSF.Forms.Target
         private void radButton10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_import_excel_kpi_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();  //create openfileDialog Object
+                openFileDialog1.Filter = "XML Files (*.xml; *.xls; *.xlsx; *.xlsm; *.xlsb) |*.xml; *.xls; *.xlsx; *.xlsm; *.xlsb";//open file format define Excel Files(.xls)|*.xls| Excel Files(.xlsx)|*.xlsx| 
+                openFileDialog1.FilterIndex = 3;
+
+                openFileDialog1.Multiselect = false;        //not allow multiline selection at the file selection level
+                openFileDialog1.Title = "Open Text File-R13";   //define the name of openfileDialog
+                openFileDialog1.InitialDirectory = @"Desktop"; //define the initial directory
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)        //executing when file open
+                {
+                    string pathName = openFileDialog1.FileName;
+                    string fileName = System.IO.Path.GetFileNameWithoutExtension(openFileDialog1.FileName);
+                    DataTable tbContainer = new DataTable();
+                    string strConn = string.Empty;
+                    //string sheetName = fileName;
+                    string sheetName = "Sheet1";
+
+                    FileInfo file = new FileInfo(pathName);
+                    if (!file.Exists) { throw new Exception("Error, file doesn't exists!"); }
+                    string extension = file.Extension;
+                    switch (extension)
+                    {
+                        case ".xls":
+                            strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + pathName + ";Extended Properties='Excel 8.0;HDR=Yes;IMEX=1;'";
+                            break;
+                        case ".xlsx":
+                            strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + pathName + ";Extended Properties='Excel 12.0;HDR=Yes;IMEX=1;'";
+                            break;
+                        default:
+                            strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + pathName + ";Extended Properties='Excel 8.0;HDR=Yes;IMEX=1;'";
+                            break;
+                    }
+                    OleDbConnection cnnxls = new OleDbConnection(strConn);
+                    OleDbDataAdapter oda = new OleDbDataAdapter(string.Format("select * from [{0}$]", sheetName), cnnxls);
+                    oda.Fill(tbContainer);
+
+                    rgv_Salesrep_target.DataSource = tbContainer;
+                    rgv_Salesrep_target.BestFitColumns();
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error!");
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btn_save_sfis_kpi_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                for (int i = 0; i < rgv_kpi_insert.Rows.Count; i++)
+                {
+                    if (rgv_Salesrep_target.Rows[i].Cells["PROD_GROUP_ID"].Value.ToString() == "")
+                    {
+                        DataAccessCS.insert(" Insert into target_salesmen " +
+                  " (SALES_TER_ID,SALES_ID, YEAR, MONTH, PROD_ID, TARGET_SALES, ACTION, TRANS_FLAG, TARGET_TYPE_ID, BRANCH_CODE) " +
+                  " Values (" + rgv_Salesrep_target.Rows[i].Cells["SALES_TER_ID"].Value + ", " + rgv_Salesrep_target.Rows[i].Cells["SALES_ID"].Value + "," + rgv_Salesrep_target.Rows[i].Cells["YEAR"].Value +
+                  "," + rgv_Salesrep_target.Rows[i].Cells["MONTH"].Value + ", " + rgv_Salesrep_target.Rows[i].Cells["PROD_ID"].Value +
+                  ", " + rgv_Salesrep_target.Rows[i].Cells["TARGET_SALES"].Value + ", '" + rgv_Salesrep_target.Rows[i].Cells["ACTION"].Value +
+                  "', '" + rgv_Salesrep_target.Rows[i].Cells["TRANS_FLAG"].Value + "', " + rgv_Salesrep_target.Rows[i].Cells["TARGET_TYPE_ID"].Value +
+                  ", " + rgv_Salesrep_target.Rows[i].Cells["BRANCH_CODE"].Value + ") ");
+                        DataAccessCS.conn.Close();
+                    }
+                    else
+                    {
+                        DataAccessCS.insert(" Insert into target_salesmen " +
+                  " (SALES_TER_ID,SALES_ID, YEAR, MONTH, PROD_ID, TARGET_SALES, ACTION, TRANS_FLAG, TARGET_TYPE_ID, BRANCH_CODE, PROD_GROUP_ID) " +
+                  " Values (" + rgv_Salesrep_target.Rows[i].Cells["SALES_TER_ID"].Value + ", " + rgv_Salesrep_target.Rows[i].Cells["SALES_ID"].Value + "," + rgv_Salesrep_target.Rows[i].Cells["YEAR"].Value +
+                  "," + rgv_Salesrep_target.Rows[i].Cells["MONTH"].Value + ", " + rgv_Salesrep_target.Rows[i].Cells["PROD_ID"].Value +
+                  ", " + rgv_Salesrep_target.Rows[i].Cells["TARGET_SALES"].Value + ", '" + rgv_Salesrep_target.Rows[i].Cells["ACTION"].Value +
+                  "', '" + rgv_Salesrep_target.Rows[i].Cells["TRANS_FLAG"].Value + "', " + rgv_Salesrep_target.Rows[i].Cells["TARGET_TYPE_ID"].Value +
+                  ", " + rgv_Salesrep_target.Rows[i].Cells["BRANCH_CODE"].Value + ", " + rgv_Salesrep_target.Rows[i].Cells["PROD_GROUP_ID"].Value + ") ");
+                        DataAccessCS.conn.Close();
+                    }
+                }
+
+                MessageBox.Show("Done in SFIS Please Check");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void radButton10_Click_1(object sender, EventArgs e)
+        {
+            DataAccessCS.ExportExcelDGV(rgv_kpi_insert);
         }
     }
 }
