@@ -1241,5 +1241,13 @@ namespace MDSF
 
             this.Cursor = Cursors.Default;
         }
+
+        private void wrongDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var X_Form = new frm_wrong_date();
+            X_Form.Show();
+            X_Form.MdiParent = this;
+            X_Form.WindowState = FormWindowState.Maximized;
+        }
     }
 }
