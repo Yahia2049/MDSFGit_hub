@@ -32,8 +32,8 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Add_Target_month));
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -101,6 +101,8 @@
             this.btn_import_from_Excel_pos = new Telerik.WinControls.UI.RadButton();
             this.rgv_pos_target = new Telerik.WinControls.UI.RadGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.radButton10 = new Telerik.WinControls.UI.RadButton();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -113,8 +115,6 @@
             this.btn_import_excel_kpi = new Telerik.WinControls.UI.RadButton();
             this.rgv_kpi_insert = new Telerik.WinControls.UI.RadGridView();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
-            this.radButton10 = new Telerik.WinControls.UI.RadButton();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -160,13 +160,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgv_pos_target)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_pos_target.MasterTemplate)).BeginInit();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton10)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_remove_kpi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_save_sfis_kpi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton10)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -252,8 +252,13 @@
             // btn_ter_del
             // 
             this.btn_ter_del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_ter_del.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_ter_del.Location = new System.Drawing.Point(86, 89);
             this.btn_ter_del.Name = "btn_ter_del";
+            // 
+            // 
+            // 
+            this.btn_ter_del.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_ter_del.Size = new System.Drawing.Size(113, 37);
             this.btn_ter_del.TabIndex = 8;
             this.btn_ter_del.Text = "Remove";
@@ -292,8 +297,13 @@
             // btn_proc_sla_lux_salester
             // 
             this.btn_proc_sla_lux_salester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_lux_salester.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_lux_salester.Location = new System.Drawing.Point(372, 435);
             this.btn_proc_sla_lux_salester.Name = "btn_proc_sla_lux_salester";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_lux_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_lux_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_lux_salester.TabIndex = 14;
             this.btn_proc_sla_lux_salester.Text = "Luxor SLA";
@@ -303,8 +313,13 @@
             // btn_proc_sla_ism_salester
             // 
             this.btn_proc_sla_ism_salester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_ism_salester.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_ism_salester.Location = new System.Drawing.Point(372, 404);
             this.btn_proc_sla_ism_salester.Name = "btn_proc_sla_ism_salester";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_ism_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_ism_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_ism_salester.TabIndex = 8;
             this.btn_proc_sla_ism_salester.Text = "Ismailia SLA";
@@ -314,8 +329,13 @@
             // btn_proc_sla_cai_salester
             // 
             this.btn_proc_sla_cai_salester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_cai_salester.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_cai_salester.Location = new System.Drawing.Point(372, 374);
             this.btn_proc_sla_cai_salester.Name = "btn_proc_sla_cai_salester";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_cai_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_cai_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_cai_salester.TabIndex = 9;
             this.btn_proc_sla_cai_salester.Text = "Cairo SLA";
@@ -325,8 +345,13 @@
             // btn_proc_sla_Tanta_salester
             // 
             this.btn_proc_sla_Tanta_salester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_Tanta_salester.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_Tanta_salester.Location = new System.Drawing.Point(757, 404);
             this.btn_proc_sla_Tanta_salester.Name = "btn_proc_sla_Tanta_salester";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_Tanta_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_Tanta_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_Tanta_salester.TabIndex = 10;
             this.btn_proc_sla_Tanta_salester.Text = "Tanta SLA";
@@ -336,8 +361,13 @@
             // btn_proc_sla_assu_salester
             // 
             this.btn_proc_sla_assu_salester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_assu_salester.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_assu_salester.Location = new System.Drawing.Point(579, 404);
             this.btn_proc_sla_assu_salester.Name = "btn_proc_sla_assu_salester";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_assu_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_assu_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_assu_salester.TabIndex = 11;
             this.btn_proc_sla_assu_salester.Text = "Assiout SLA";
@@ -347,8 +377,13 @@
             // btn_proc_sla_alex_salester
             // 
             this.btn_proc_sla_alex_salester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_alex_salester.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_alex_salester.Location = new System.Drawing.Point(579, 374);
             this.btn_proc_sla_alex_salester.Name = "btn_proc_sla_alex_salester";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_alex_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_alex_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_alex_salester.TabIndex = 12;
             this.btn_proc_sla_alex_salester.Text = "Alex SLA";
@@ -358,8 +393,13 @@
             // btn_proc_sla_man_salester
             // 
             this.btn_proc_sla_man_salester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_man_salester.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_man_salester.Location = new System.Drawing.Point(757, 374);
             this.btn_proc_sla_man_salester.Name = "btn_proc_sla_man_salester";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_man_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_man_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_man_salester.TabIndex = 13;
             this.btn_proc_sla_man_salester.Text = "Mansoura SLA";
@@ -369,8 +409,13 @@
             // btn_save_sfis_salester
             // 
             this.btn_save_sfis_salester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_save_sfis_salester.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_save_sfis_salester.Location = new System.Drawing.Point(611, 331);
             this.btn_save_sfis_salester.Name = "btn_save_sfis_salester";
+            // 
+            // 
+            // 
+            this.btn_save_sfis_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_save_sfis_salester.Size = new System.Drawing.Size(113, 37);
             this.btn_save_sfis_salester.TabIndex = 7;
             this.btn_save_sfis_salester.Text = "Save In SFIS";
@@ -380,8 +425,13 @@
             // btn_import_excel_salester
             // 
             this.btn_import_excel_salester.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_import_excel_salester.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_import_excel_salester.Location = new System.Drawing.Point(382, 10);
             this.btn_import_excel_salester.Name = "btn_import_excel_salester";
+            // 
+            // 
+            // 
+            this.btn_import_excel_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_import_excel_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_import_excel_salester.TabIndex = 6;
             this.btn_import_excel_salester.Text = "Import from Excel";
@@ -393,12 +443,17 @@
             this.rgv_salester_target.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.rgv_salester_target.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.rgv_salester_target.Location = new System.Drawing.Point(1, 42);
             // 
             // 
             // 
             this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition6;
             this.rgv_salester_target.Name = "rgv_salester_target";
+            // 
+            // 
+            // 
+            this.rgv_salester_target.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
             this.rgv_salester_target.Size = new System.Drawing.Size(936, 283);
             this.rgv_salester_target.TabIndex = 5;
             this.rgv_salester_target.ThemeName = "TelerikMetro";
@@ -471,8 +526,13 @@
             // btn_target_salesrep_del
             // 
             this.btn_target_salesrep_del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_target_salesrep_del.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_target_salesrep_del.Location = new System.Drawing.Point(86, 89);
             this.btn_target_salesrep_del.Name = "btn_target_salesrep_del";
+            // 
+            // 
+            // 
+            this.btn_target_salesrep_del.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_target_salesrep_del.Size = new System.Drawing.Size(113, 37);
             this.btn_target_salesrep_del.TabIndex = 8;
             this.btn_target_salesrep_del.Text = "Remove";
@@ -503,8 +563,13 @@
             // btn_proc_sla_lux_salesrep
             // 
             this.btn_proc_sla_lux_salesrep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_lux_salesrep.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_lux_salesrep.Location = new System.Drawing.Point(374, 443);
             this.btn_proc_sla_lux_salesrep.Name = "btn_proc_sla_lux_salesrep";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_lux_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_lux_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_lux_salesrep.TabIndex = 4;
             this.btn_proc_sla_lux_salesrep.Text = "Luxor SLA";
@@ -514,8 +579,13 @@
             // btn_proc_sla_ism_salesrep
             // 
             this.btn_proc_sla_ism_salesrep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_ism_salesrep.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_ism_salesrep.Location = new System.Drawing.Point(374, 412);
             this.btn_proc_sla_ism_salesrep.Name = "btn_proc_sla_ism_salesrep";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_ism_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_ism_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_ism_salesrep.TabIndex = 3;
             this.btn_proc_sla_ism_salesrep.Text = "Ismailia SLA";
@@ -525,8 +595,13 @@
             // btn_proc_sla_cai_salesrep
             // 
             this.btn_proc_sla_cai_salesrep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_cai_salesrep.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_cai_salesrep.Location = new System.Drawing.Point(374, 382);
             this.btn_proc_sla_cai_salesrep.Name = "btn_proc_sla_cai_salesrep";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_cai_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_cai_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_cai_salesrep.TabIndex = 3;
             this.btn_proc_sla_cai_salesrep.Text = "Cairo SLA";
@@ -536,8 +611,13 @@
             // btn_proc_sla_Tant_salesrep
             // 
             this.btn_proc_sla_Tant_salesrep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_Tant_salesrep.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_Tant_salesrep.Location = new System.Drawing.Point(759, 411);
             this.btn_proc_sla_Tant_salesrep.Name = "btn_proc_sla_Tant_salesrep";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_Tant_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_Tant_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_Tant_salesrep.TabIndex = 3;
             this.btn_proc_sla_Tant_salesrep.Text = "Tanta SLA";
@@ -547,8 +627,13 @@
             // btn_proc_sla_assu_salesrep
             // 
             this.btn_proc_sla_assu_salesrep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_assu_salesrep.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_assu_salesrep.Location = new System.Drawing.Point(581, 411);
             this.btn_proc_sla_assu_salesrep.Name = "btn_proc_sla_assu_salesrep";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_assu_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_assu_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_assu_salesrep.TabIndex = 3;
             this.btn_proc_sla_assu_salesrep.Text = "Assiout SLA";
@@ -558,8 +643,13 @@
             // btn_proc_sla_Alex_salesrep
             // 
             this.btn_proc_sla_Alex_salesrep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_Alex_salesrep.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_Alex_salesrep.Location = new System.Drawing.Point(581, 381);
             this.btn_proc_sla_Alex_salesrep.Name = "btn_proc_sla_Alex_salesrep";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_Alex_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_Alex_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_Alex_salesrep.TabIndex = 3;
             this.btn_proc_sla_Alex_salesrep.Text = "Alex SLA";
@@ -569,8 +659,13 @@
             // btn_proc_sla_Man_salesrep
             // 
             this.btn_proc_sla_Man_salesrep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_proc_sla_Man_salesrep.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_proc_sla_Man_salesrep.Location = new System.Drawing.Point(759, 381);
             this.btn_proc_sla_Man_salesrep.Name = "btn_proc_sla_Man_salesrep";
+            // 
+            // 
+            // 
+            this.btn_proc_sla_Man_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_proc_sla_Man_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_Man_salesrep.TabIndex = 3;
             this.btn_proc_sla_Man_salesrep.Text = "Mansoura SLA";
@@ -580,8 +675,13 @@
             // radButton2
             // 
             this.radButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radButton2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.radButton2.Location = new System.Drawing.Point(581, 332);
             this.radButton2.Name = "radButton2";
+            // 
+            // 
+            // 
+            this.radButton2.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.radButton2.Size = new System.Drawing.Size(172, 43);
             this.radButton2.TabIndex = 2;
             this.radButton2.Text = "Save In SFIS";
@@ -591,8 +691,13 @@
             // btn_import_from_Excel_salesrep
             // 
             this.btn_import_from_Excel_salesrep.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_import_from_Excel_salesrep.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_import_from_Excel_salesrep.Location = new System.Drawing.Point(384, 6);
             this.btn_import_from_Excel_salesrep.Name = "btn_import_from_Excel_salesrep";
+            // 
+            // 
+            // 
+            this.btn_import_from_Excel_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_import_from_Excel_salesrep.Size = new System.Drawing.Size(172, 35);
             this.btn_import_from_Excel_salesrep.TabIndex = 1;
             this.btn_import_from_Excel_salesrep.Text = "Import from Excel";
@@ -604,12 +709,17 @@
             this.rgv_Salesrep_target.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.rgv_Salesrep_target.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.rgv_Salesrep_target.Location = new System.Drawing.Point(3, 49);
             // 
             // 
             // 
             this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition7;
             this.rgv_Salesrep_target.Name = "rgv_Salesrep_target";
+            // 
+            // 
+            // 
+            this.rgv_Salesrep_target.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
             this.rgv_Salesrep_target.Size = new System.Drawing.Size(936, 277);
             this.rgv_Salesrep_target.TabIndex = 0;
             this.rgv_Salesrep_target.ThemeName = "TelerikMetro";
@@ -704,8 +814,13 @@
             // btn_save_sfis_pos
             // 
             this.btn_save_sfis_pos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_save_sfis_pos.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_save_sfis_pos.Location = new System.Drawing.Point(685, 18);
             this.btn_save_sfis_pos.Name = "btn_save_sfis_pos";
+            // 
+            // 
+            // 
+            this.btn_save_sfis_pos.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_save_sfis_pos.Size = new System.Drawing.Size(138, 31);
             this.btn_save_sfis_pos.TabIndex = 20;
             this.btn_save_sfis_pos.Text = "Save In SFIS";
@@ -761,8 +876,13 @@
             // radButton1
             // 
             this.radButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radButton1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.radButton1.Location = new System.Drawing.Point(228, 30);
             this.radButton1.Name = "radButton1";
+            // 
+            // 
+            // 
+            this.radButton1.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.radButton1.Size = new System.Drawing.Size(113, 37);
             this.radButton1.TabIndex = 8;
             this.radButton1.Text = "Remove";
@@ -793,8 +913,13 @@
             // radButton3
             // 
             this.radButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.radButton3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.radButton3.Location = new System.Drawing.Point(372, 435);
             this.radButton3.Name = "radButton3";
+            // 
+            // 
+            // 
+            this.radButton3.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.radButton3.Size = new System.Drawing.Size(172, 24);
             this.radButton3.TabIndex = 27;
             this.radButton3.Text = "Luxor SLA";
@@ -804,8 +929,13 @@
             // radButton4
             // 
             this.radButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.radButton4.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.radButton4.Location = new System.Drawing.Point(372, 404);
             this.radButton4.Name = "radButton4";
+            // 
+            // 
+            // 
+            this.radButton4.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.radButton4.Size = new System.Drawing.Size(172, 24);
             this.radButton4.TabIndex = 21;
             this.radButton4.Text = "Ismailia SLA";
@@ -815,8 +945,13 @@
             // radButton5
             // 
             this.radButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.radButton5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.radButton5.Location = new System.Drawing.Point(372, 374);
             this.radButton5.Name = "radButton5";
+            // 
+            // 
+            // 
+            this.radButton5.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.radButton5.Size = new System.Drawing.Size(172, 24);
             this.radButton5.TabIndex = 22;
             this.radButton5.Text = "Cairo SLA";
@@ -826,8 +961,13 @@
             // radButton6
             // 
             this.radButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.radButton6.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.radButton6.Location = new System.Drawing.Point(757, 403);
             this.radButton6.Name = "radButton6";
+            // 
+            // 
+            // 
+            this.radButton6.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.radButton6.Size = new System.Drawing.Size(172, 24);
             this.radButton6.TabIndex = 23;
             this.radButton6.Text = "Tanta SLA";
@@ -837,8 +977,13 @@
             // radButton7
             // 
             this.radButton7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.radButton7.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.radButton7.Location = new System.Drawing.Point(579, 403);
             this.radButton7.Name = "radButton7";
+            // 
+            // 
+            // 
+            this.radButton7.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.radButton7.Size = new System.Drawing.Size(172, 24);
             this.radButton7.TabIndex = 24;
             this.radButton7.Text = "Assiout SLA";
@@ -848,8 +993,13 @@
             // radButton8
             // 
             this.radButton8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.radButton8.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.radButton8.Location = new System.Drawing.Point(579, 373);
             this.radButton8.Name = "radButton8";
+            // 
+            // 
+            // 
+            this.radButton8.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.radButton8.Size = new System.Drawing.Size(172, 24);
             this.radButton8.TabIndex = 25;
             this.radButton8.Text = "Alex SLA";
@@ -859,8 +1009,13 @@
             // radButton9
             // 
             this.radButton9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.radButton9.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.radButton9.Location = new System.Drawing.Point(757, 373);
             this.radButton9.Name = "radButton9";
+            // 
+            // 
+            // 
+            this.radButton9.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.radButton9.Size = new System.Drawing.Size(172, 24);
             this.radButton9.TabIndex = 26;
             this.radButton9.Text = "Mansoura SLA";
@@ -870,8 +1025,13 @@
             // btn_import_from_Excel_pos
             // 
             this.btn_import_from_Excel_pos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_import_from_Excel_pos.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_import_from_Excel_pos.Location = new System.Drawing.Point(382, 9);
             this.btn_import_from_Excel_pos.Name = "btn_import_from_Excel_pos";
+            // 
+            // 
+            // 
+            this.btn_import_from_Excel_pos.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_import_from_Excel_pos.Size = new System.Drawing.Size(172, 24);
             this.btn_import_from_Excel_pos.TabIndex = 19;
             this.btn_import_from_Excel_pos.Text = "Import from Excel";
@@ -883,12 +1043,17 @@
             this.rgv_pos_target.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.rgv_pos_target.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.rgv_pos_target.Location = new System.Drawing.Point(1, 39);
             // 
             // 
             // 
             this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition8;
             this.rgv_pos_target.Name = "rgv_pos_target";
+            // 
+            // 
+            // 
+            this.rgv_pos_target.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
             this.rgv_pos_target.Size = new System.Drawing.Size(936, 256);
             this.rgv_pos_target.TabIndex = 18;
             this.rgv_pos_target.ThemeName = "TelerikMetro";
@@ -908,6 +1073,34 @@
             this.tabPage4.Text = "KPI";
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // radButton10
+            // 
+            this.radButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.radButton10.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radButton10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radButton10.CausesValidation = false;
+            this.radButton10.ImageIndex = 0;
+            this.radButton10.ImageList = this.imageList1;
+            this.radButton10.Location = new System.Drawing.Point(752, 3);
+            this.radButton10.Name = "radButton10";
+            // 
+            // 
+            // 
+            this.radButton10.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.radButton10.Size = new System.Drawing.Size(69, 38);
+            this.radButton10.TabIndex = 265;
+            this.radButton10.Text = "Excel";
+            this.radButton10.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.radButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.radButton10.ThemeName = "TelerikMetro";
+            this.radButton10.Click += new System.EventHandler(this.radButton10_Click_1);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "excel_logo.png");
             // 
             // groupBox5
             // 
@@ -956,8 +1149,13 @@
             // btn_remove_kpi
             // 
             this.btn_remove_kpi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_remove_kpi.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_remove_kpi.Location = new System.Drawing.Point(86, 89);
             this.btn_remove_kpi.Name = "btn_remove_kpi";
+            // 
+            // 
+            // 
+            this.btn_remove_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_remove_kpi.Size = new System.Drawing.Size(113, 37);
             this.btn_remove_kpi.TabIndex = 8;
             this.btn_remove_kpi.Text = "Remove";
@@ -988,8 +1186,13 @@
             // btn_save_sfis_kpi
             // 
             this.btn_save_sfis_kpi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_save_sfis_kpi.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_save_sfis_kpi.Location = new System.Drawing.Point(579, 330);
             this.btn_save_sfis_kpi.Name = "btn_save_sfis_kpi";
+            // 
+            // 
+            // 
+            this.btn_save_sfis_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_save_sfis_kpi.Size = new System.Drawing.Size(172, 43);
             this.btn_save_sfis_kpi.TabIndex = 20;
             this.btn_save_sfis_kpi.Text = "Save In SFIS";
@@ -999,8 +1202,13 @@
             // btn_import_excel_kpi
             // 
             this.btn_import_excel_kpi.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_import_excel_kpi.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_import_excel_kpi.Location = new System.Drawing.Point(382, 4);
             this.btn_import_excel_kpi.Name = "btn_import_excel_kpi";
+            // 
+            // 
+            // 
+            this.btn_import_excel_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_import_excel_kpi.Size = new System.Drawing.Size(172, 35);
             this.btn_import_excel_kpi.TabIndex = 19;
             this.btn_import_excel_kpi.Text = "Import from Excel";
@@ -1012,38 +1220,20 @@
             this.rgv_kpi_insert.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.rgv_kpi_insert.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.rgv_kpi_insert.Location = new System.Drawing.Point(1, 47);
             // 
             // 
             // 
             this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition5;
             this.rgv_kpi_insert.Name = "rgv_kpi_insert";
+            // 
+            // 
+            // 
+            this.rgv_kpi_insert.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
             this.rgv_kpi_insert.Size = new System.Drawing.Size(936, 277);
             this.rgv_kpi_insert.TabIndex = 18;
             this.rgv_kpi_insert.ThemeName = "TelerikMetro";
-            // 
-            // radButton10
-            // 
-            this.radButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.radButton10.CausesValidation = false;
-            this.radButton10.ImageIndex = 0;
-            this.radButton10.ImageList = this.imageList1;
-            this.radButton10.Location = new System.Drawing.Point(752, 3);
-            this.radButton10.Name = "radButton10";
-            this.radButton10.Size = new System.Drawing.Size(69, 38);
-            this.radButton10.TabIndex = 265;
-            this.radButton10.Text = "Excel";
-            this.radButton10.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.radButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.radButton10.ThemeName = "TelerikMetro";
-            this.radButton10.Click += new System.EventHandler(this.radButton10_Click_1);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "excel_logo.png");
             // 
             // frm_Add_Target_month
             // 
@@ -1104,6 +1294,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgv_pos_target.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_pos_target)).EndInit();
             this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radButton10)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_remove_kpi)).EndInit();
@@ -1111,7 +1302,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton10)).EndInit();
             this.ResumeLayout(false);
 
         }

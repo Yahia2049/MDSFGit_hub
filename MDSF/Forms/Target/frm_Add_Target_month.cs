@@ -21,6 +21,15 @@ namespace MDSF.Forms.Target
         public frm_Add_Target_month()
         {
             InitializeComponent();
+
+            DataSet dsT = new DataSet();
+            dsT = DataAccessCS.getdata("select * from salesman_targets where branch_code=0");
+            DataAccessCS.conn.Close();
+            rgv_kpi_insert.DataSource = dsT.Tables[0];
+            //rgv_kpi_insert.AutoResizeColumns();
+            dsT.Dispose();
+
+            DataAccessCS.conn.Close();
         }
 
         private void btn_import_excel_salester_Click(object sender, EventArgs e)
@@ -722,9 +731,10 @@ namespace MDSF.Forms.Target
             cmb_target_type.Text = "--Choose--";
             ds.Dispose();
             DataAccessCS.conn.Close();
-            //--------------------------------------
+                //--------------------------------------
+               
 
-        }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -934,7 +944,7 @@ namespace MDSF.Forms.Target
 
         private void tabPage4_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btn_import_excel_kpi_Click(object sender, EventArgs e)
@@ -997,31 +1007,16 @@ namespace MDSF.Forms.Target
             {
                 for (int i = 0; i < rgv_kpi_insert.Rows.Count; i++)
                 {
-                    if (rgv_Salesrep_target.Rows[i].Cells["PROD_GROUP_ID"].Value.ToString() == "")
-                    {
-                        DataAccessCS.insert(" Insert into target_salesmen " +
-                  " (SALES_TER_ID,SALES_ID, YEAR, MONTH, PROD_ID, TARGET_SALES, ACTION, TRANS_FLAG, TARGET_TYPE_ID, BRANCH_CODE) " +
-                  " Values (" + rgv_Salesrep_target.Rows[i].Cells["SALES_TER_ID"].Value + ", " + rgv_Salesrep_target.Rows[i].Cells["SALES_ID"].Value + "," + rgv_Salesrep_target.Rows[i].Cells["YEAR"].Value +
-                  "," + rgv_Salesrep_target.Rows[i].Cells["MONTH"].Value + ", " + rgv_Salesrep_target.Rows[i].Cells["PROD_ID"].Value +
-                  ", " + rgv_Salesrep_target.Rows[i].Cells["TARGET_SALES"].Value + ", '" + rgv_Salesrep_target.Rows[i].Cells["ACTION"].Value +
-                  "', '" + rgv_Salesrep_target.Rows[i].Cells["TRANS_FLAG"].Value + "', " + rgv_Salesrep_target.Rows[i].Cells["TARGET_TYPE_ID"].Value +
-                  ", " + rgv_Salesrep_target.Rows[i].Cells["BRANCH_CODE"].Value + ") ");
-                        DataAccessCS.conn.Close();
-                    }
-                    else
-                    {
-                        DataAccessCS.insert(" Insert into target_salesmen " +
-                  " (SALES_TER_ID,SALES_ID, YEAR, MONTH, PROD_ID, TARGET_SALES, ACTION, TRANS_FLAG, TARGET_TYPE_ID, BRANCH_CODE, PROD_GROUP_ID) " +
-                  " Values (" + rgv_Salesrep_target.Rows[i].Cells["SALES_TER_ID"].Value + ", " + rgv_Salesrep_target.Rows[i].Cells["SALES_ID"].Value + "," + rgv_Salesrep_target.Rows[i].Cells["YEAR"].Value +
-                  "," + rgv_Salesrep_target.Rows[i].Cells["MONTH"].Value + ", " + rgv_Salesrep_target.Rows[i].Cells["PROD_ID"].Value +
-                  ", " + rgv_Salesrep_target.Rows[i].Cells["TARGET_SALES"].Value + ", '" + rgv_Salesrep_target.Rows[i].Cells["ACTION"].Value +
-                  "', '" + rgv_Salesrep_target.Rows[i].Cells["TRANS_FLAG"].Value + "', " + rgv_Salesrep_target.Rows[i].Cells["TARGET_TYPE_ID"].Value +
-                  ", " + rgv_Salesrep_target.Rows[i].Cells["BRANCH_CODE"].Value + ", " + rgv_Salesrep_target.Rows[i].Cells["PROD_GROUP_ID"].Value + ") ");
-                        DataAccessCS.conn.Close();
-                    }
+                    String cmdkpi = "Insert into select* from salesman_targets_test  ( BRANCH_CODE ,SALES_TER_ID,SALES_ID,SALESMAN_NAME,DVD_TARGET_SALES,TIME_TARGET_SALES,HAYAT_TARGET_SALES,EFFECTIVE_TIME,EFFECTIVE_DVD,MON,YEAR,WORK_DAYS) VALUES (' " + rgv_kpi_insert.Rows[i].Cells["BRANCH_CODE"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["SALES_TER_ID"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["SALES_ID"].Value +
+                   "','" + rgv_kpi_insert.Rows[i].Cells["SALESMAN_NAME"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["DVD_TARGET_SALES"].Value +
+                   "','" + rgv_kpi_insert.Rows[i].Cells["TIME_TARGET_SALES"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["HAYAT_TARGET_SALES"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_TIME"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_DVD"].Value +
+                     "','" + rgv_kpi_insert.Rows[i].Cells["MON"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["YEAR"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["WORK_DAYS"].Value + "')";
+                    DataAccessCS.insert(cmdkpi);
+                    DataAccessCS.conn.Close();
+
                 }
 
-                MessageBox.Show("Done in SFIS Please Check");
+                MessageBox.Show("save success");
 
             }
             catch (Exception ex)
@@ -1034,7 +1029,20 @@ namespace MDSF.Forms.Target
 
         private void radButton10_Click_1(object sender, EventArgs e)
         {
-            DataAccessCS.ExportExcelDGV(rgv_kpi_insert);
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataAccessCS.ExportExcelDGV(rgv_kpi_insert);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+         
         }
+
+       
     }
 }
