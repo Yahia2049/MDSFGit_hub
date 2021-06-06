@@ -978,8 +978,8 @@ namespace MDSF.Forms.Target
                     OleDbDataAdapter oda = new OleDbDataAdapter(string.Format("select * from [{0}$]", sheetName), cnnxls);
                     oda.Fill(tbContainer);
 
-                    rgv_Salesrep_target.DataSource = tbContainer;
-                    rgv_Salesrep_target.BestFitColumns();
+                    rgv_kpi_insert.DataSource = tbContainer;
+                    rgv_kpi_insert.BestFitColumns();
                 }
 
             }
