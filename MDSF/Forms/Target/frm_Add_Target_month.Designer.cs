@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Add_Target_month));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -98,26 +100,21 @@
             this.radButton9 = new Telerik.WinControls.UI.RadButton();
             this.btn_import_from_Excel_pos = new Telerik.WinControls.UI.RadButton();
             this.rgv_pos_target = new Telerik.WinControls.UI.RadGridView();
-            this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.btn_remove_kpi = new Telerik.WinControls.UI.RadButton();
+            this.txt_month_kpi = new System.Windows.Forms.TextBox();
+            this.txt_year_kpi = new System.Windows.Forms.TextBox();
+            this.txt_branch_kpi = new System.Windows.Forms.TextBox();
+            this.btn_save_sfis_kpi = new Telerik.WinControls.UI.RadButton();
+            this.btn_import_excel_kpi = new Telerik.WinControls.UI.RadButton();
+            this.rgv_kpi_insert = new Telerik.WinControls.UI.RadGridView();
+            this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
             this.radButton10 = new Telerik.WinControls.UI.RadButton();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.radButton11 = new Telerik.WinControls.UI.RadButton();
-            this.radButton12 = new Telerik.WinControls.UI.RadButton();
-            this.radButton13 = new Telerik.WinControls.UI.RadButton();
-            this.radButton14 = new Telerik.WinControls.UI.RadButton();
-            this.radButton15 = new Telerik.WinControls.UI.RadButton();
-            this.radButton16 = new Telerik.WinControls.UI.RadButton();
-            this.radButton17 = new Telerik.WinControls.UI.RadButton();
-            this.radButton18 = new Telerik.WinControls.UI.RadButton();
-            this.radButton19 = new Telerik.WinControls.UI.RadButton();
-            this.radGridView1 = new Telerik.WinControls.UI.RadGridView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -164,18 +161,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgv_pos_target.MasterTemplate)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_remove_kpi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_save_sfis_kpi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radGridView1.MasterTemplate)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -904,17 +895,11 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.radButton10);
             this.tabPage4.Controls.Add(this.groupBox5);
-            this.tabPage4.Controls.Add(this.radButton11);
-            this.tabPage4.Controls.Add(this.radButton12);
-            this.tabPage4.Controls.Add(this.radButton13);
-            this.tabPage4.Controls.Add(this.radButton14);
-            this.tabPage4.Controls.Add(this.radButton15);
-            this.tabPage4.Controls.Add(this.radButton16);
-            this.tabPage4.Controls.Add(this.radButton17);
-            this.tabPage4.Controls.Add(this.radButton18);
-            this.tabPage4.Controls.Add(this.radButton19);
-            this.tabPage4.Controls.Add(this.radGridView1);
+            this.tabPage4.Controls.Add(this.btn_save_sfis_kpi);
+            this.tabPage4.Controls.Add(this.btn_import_excel_kpi);
+            this.tabPage4.Controls.Add(this.rgv_kpi_insert);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -922,6 +907,7 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "KPI";
             this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
             // groupBox5
             // 
@@ -929,10 +915,10 @@
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.radButton10);
-            this.groupBox5.Controls.Add(this.textBox4);
-            this.groupBox5.Controls.Add(this.textBox5);
-            this.groupBox5.Controls.Add(this.textBox6);
+            this.groupBox5.Controls.Add(this.btn_remove_kpi);
+            this.groupBox5.Controls.Add(this.txt_month_kpi);
+            this.groupBox5.Controls.Add(this.txt_year_kpi);
+            this.groupBox5.Controls.Add(this.txt_branch_kpi);
             this.groupBox5.Location = new System.Drawing.Point(19, 329);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(288, 135);
@@ -967,142 +953,97 @@
             this.label13.TabIndex = 9;
             this.label13.Text = "Branch Code";
             // 
-            // radButton10
+            // btn_remove_kpi
             // 
-            this.radButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radButton10.Location = new System.Drawing.Point(86, 89);
-            this.radButton10.Name = "radButton10";
-            this.radButton10.Size = new System.Drawing.Size(113, 37);
-            this.radButton10.TabIndex = 8;
-            this.radButton10.Text = "Remove";
-            this.radButton10.ThemeName = "TelerikMetro";
-            this.radButton10.Click += new System.EventHandler(this.radButton10_Click);
+            this.btn_remove_kpi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_remove_kpi.Location = new System.Drawing.Point(86, 89);
+            this.btn_remove_kpi.Name = "btn_remove_kpi";
+            this.btn_remove_kpi.Size = new System.Drawing.Size(113, 37);
+            this.btn_remove_kpi.TabIndex = 8;
+            this.btn_remove_kpi.Text = "Remove";
+            this.btn_remove_kpi.ThemeName = "TelerikMetro";
+            this.btn_remove_kpi.Click += new System.EventHandler(this.radButton10_Click);
             // 
-            // textBox4
+            // txt_month_kpi
             // 
-            this.textBox4.Location = new System.Drawing.Point(125, 61);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 2;
+            this.txt_month_kpi.Location = new System.Drawing.Point(125, 61);
+            this.txt_month_kpi.Name = "txt_month_kpi";
+            this.txt_month_kpi.Size = new System.Drawing.Size(100, 20);
+            this.txt_month_kpi.TabIndex = 2;
             // 
-            // textBox5
+            // txt_year_kpi
             // 
-            this.textBox5.Location = new System.Drawing.Point(125, 38);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 1;
+            this.txt_year_kpi.Location = new System.Drawing.Point(125, 38);
+            this.txt_year_kpi.Name = "txt_year_kpi";
+            this.txt_year_kpi.Size = new System.Drawing.Size(100, 20);
+            this.txt_year_kpi.TabIndex = 1;
             // 
-            // textBox6
+            // txt_branch_kpi
             // 
-            this.textBox6.Location = new System.Drawing.Point(125, 15);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 0;
+            this.txt_branch_kpi.Location = new System.Drawing.Point(125, 15);
+            this.txt_branch_kpi.Name = "txt_branch_kpi";
+            this.txt_branch_kpi.Size = new System.Drawing.Size(100, 20);
+            this.txt_branch_kpi.TabIndex = 0;
             // 
-            // radButton11
+            // btn_save_sfis_kpi
             // 
-            this.radButton11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton11.Location = new System.Drawing.Point(372, 441);
-            this.radButton11.Name = "radButton11";
-            this.radButton11.Size = new System.Drawing.Size(172, 24);
-            this.radButton11.TabIndex = 27;
-            this.radButton11.Text = "Luxor SLA";
-            this.radButton11.ThemeName = "TelerikMetro";
+            this.btn_save_sfis_kpi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_save_sfis_kpi.Location = new System.Drawing.Point(579, 330);
+            this.btn_save_sfis_kpi.Name = "btn_save_sfis_kpi";
+            this.btn_save_sfis_kpi.Size = new System.Drawing.Size(172, 43);
+            this.btn_save_sfis_kpi.TabIndex = 20;
+            this.btn_save_sfis_kpi.Text = "Save In SFIS";
+            this.btn_save_sfis_kpi.ThemeName = "TelerikMetro";
+            this.btn_save_sfis_kpi.Click += new System.EventHandler(this.btn_save_sfis_kpi_Click);
             // 
-            // radButton12
+            // btn_import_excel_kpi
             // 
-            this.radButton12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton12.Location = new System.Drawing.Point(372, 410);
-            this.radButton12.Name = "radButton12";
-            this.radButton12.Size = new System.Drawing.Size(172, 24);
-            this.radButton12.TabIndex = 21;
-            this.radButton12.Text = "Ismailia SLA";
-            this.radButton12.ThemeName = "TelerikMetro";
+            this.btn_import_excel_kpi.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_import_excel_kpi.Location = new System.Drawing.Point(382, 4);
+            this.btn_import_excel_kpi.Name = "btn_import_excel_kpi";
+            this.btn_import_excel_kpi.Size = new System.Drawing.Size(172, 35);
+            this.btn_import_excel_kpi.TabIndex = 19;
+            this.btn_import_excel_kpi.Text = "Import from Excel";
+            this.btn_import_excel_kpi.ThemeName = "TelerikMetro";
+            this.btn_import_excel_kpi.Click += new System.EventHandler(this.btn_import_excel_kpi_Click);
             // 
-            // radButton13
+            // rgv_kpi_insert
             // 
-            this.radButton13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton13.Location = new System.Drawing.Point(372, 380);
-            this.radButton13.Name = "radButton13";
-            this.radButton13.Size = new System.Drawing.Size(172, 24);
-            this.radButton13.TabIndex = 22;
-            this.radButton13.Text = "Cairo SLA";
-            this.radButton13.ThemeName = "TelerikMetro";
-            // 
-            // radButton14
-            // 
-            this.radButton14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton14.Location = new System.Drawing.Point(757, 409);
-            this.radButton14.Name = "radButton14";
-            this.radButton14.Size = new System.Drawing.Size(172, 24);
-            this.radButton14.TabIndex = 23;
-            this.radButton14.Text = "Tanta SLA";
-            this.radButton14.ThemeName = "TelerikMetro";
-            // 
-            // radButton15
-            // 
-            this.radButton15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton15.Location = new System.Drawing.Point(579, 409);
-            this.radButton15.Name = "radButton15";
-            this.radButton15.Size = new System.Drawing.Size(172, 24);
-            this.radButton15.TabIndex = 24;
-            this.radButton15.Text = "Assiout SLA";
-            this.radButton15.ThemeName = "TelerikMetro";
-            // 
-            // radButton16
-            // 
-            this.radButton16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton16.Location = new System.Drawing.Point(579, 379);
-            this.radButton16.Name = "radButton16";
-            this.radButton16.Size = new System.Drawing.Size(172, 24);
-            this.radButton16.TabIndex = 25;
-            this.radButton16.Text = "Alex SLA";
-            this.radButton16.ThemeName = "TelerikMetro";
-            // 
-            // radButton17
-            // 
-            this.radButton17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton17.Location = new System.Drawing.Point(757, 379);
-            this.radButton17.Name = "radButton17";
-            this.radButton17.Size = new System.Drawing.Size(172, 24);
-            this.radButton17.TabIndex = 26;
-            this.radButton17.Text = "Mansoura SLA";
-            this.radButton17.ThemeName = "TelerikMetro";
-            // 
-            // radButton18
-            // 
-            this.radButton18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radButton18.Location = new System.Drawing.Point(579, 330);
-            this.radButton18.Name = "radButton18";
-            this.radButton18.Size = new System.Drawing.Size(172, 43);
-            this.radButton18.TabIndex = 20;
-            this.radButton18.Text = "Save In SFIS";
-            this.radButton18.ThemeName = "TelerikMetro";
-            // 
-            // radButton19
-            // 
-            this.radButton19.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.radButton19.Location = new System.Drawing.Point(382, 4);
-            this.radButton19.Name = "radButton19";
-            this.radButton19.Size = new System.Drawing.Size(172, 35);
-            this.radButton19.TabIndex = 19;
-            this.radButton19.Text = "Import from Excel";
-            this.radButton19.ThemeName = "TelerikMetro";
-            // 
-            // radGridView1
-            // 
-            this.radGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.rgv_kpi_insert.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.radGridView1.Location = new System.Drawing.Point(1, 47);
+            this.rgv_kpi_insert.Location = new System.Drawing.Point(1, 47);
             // 
             // 
             // 
-            this.radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition5;
-            this.radGridView1.Name = "radGridView1";
-            this.radGridView1.Size = new System.Drawing.Size(936, 277);
-            this.radGridView1.TabIndex = 18;
-            this.radGridView1.ThemeName = "TelerikMetro";
+            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition5;
+            this.rgv_kpi_insert.Name = "rgv_kpi_insert";
+            this.rgv_kpi_insert.Size = new System.Drawing.Size(936, 277);
+            this.rgv_kpi_insert.TabIndex = 18;
+            this.rgv_kpi_insert.ThemeName = "TelerikMetro";
+            // 
+            // radButton10
+            // 
+            this.radButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.radButton10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radButton10.CausesValidation = false;
+            this.radButton10.ImageIndex = 0;
+            this.radButton10.ImageList = this.imageList1;
+            this.radButton10.Location = new System.Drawing.Point(752, 3);
+            this.radButton10.Name = "radButton10";
+            this.radButton10.Size = new System.Drawing.Size(69, 38);
+            this.radButton10.TabIndex = 265;
+            this.radButton10.Text = "Excel";
+            this.radButton10.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.radButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.radButton10.ThemeName = "TelerikMetro";
+            this.radButton10.Click += new System.EventHandler(this.radButton10_Click_1);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "excel_logo.png");
             // 
             // frm_Add_Target_month
             // 
@@ -1165,18 +1106,12 @@
             this.tabPage4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_remove_kpi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_save_sfis_kpi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radGridView1.MasterTemplate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1255,19 +1190,14 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private Telerik.WinControls.UI.RadButton btn_remove_kpi;
+        private System.Windows.Forms.TextBox txt_month_kpi;
+        private System.Windows.Forms.TextBox txt_year_kpi;
+        private System.Windows.Forms.TextBox txt_branch_kpi;
+        private Telerik.WinControls.UI.RadButton btn_save_sfis_kpi;
+        private Telerik.WinControls.UI.RadButton btn_import_excel_kpi;
+        private Telerik.WinControls.UI.RadGridView rgv_kpi_insert;
         private Telerik.WinControls.UI.RadButton radButton10;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private Telerik.WinControls.UI.RadButton radButton11;
-        private Telerik.WinControls.UI.RadButton radButton12;
-        private Telerik.WinControls.UI.RadButton radButton13;
-        private Telerik.WinControls.UI.RadButton radButton14;
-        private Telerik.WinControls.UI.RadButton radButton15;
-        private Telerik.WinControls.UI.RadButton radButton16;
-        private Telerik.WinControls.UI.RadButton radButton17;
-        private Telerik.WinControls.UI.RadButton radButton18;
-        private Telerik.WinControls.UI.RadButton radButton19;
-        private Telerik.WinControls.UI.RadGridView radGridView1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
