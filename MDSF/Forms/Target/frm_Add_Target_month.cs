@@ -939,7 +939,13 @@ namespace MDSF.Forms.Target
 
         private void radButton10_Click(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < rgv_kpi_insert.Rows.Count; i++)
+            {
+                String cmdDelTarget = "Delete from  salesman_targets_test  WHERE BRANCH_CODE = " + rgv_kpi_insert.Rows[i].Cells["BRANCH_CODE"].Value + " AND MON = " + rgv_kpi_insert.Rows[i].Cells["MON"].Value + " AND YEAR = " + rgv_kpi_insert.Rows[i].Cells["YEAR"].Value; 
+                DataAccessCS.delete(cmdDelTarget);
+                DataAccessCS.conn.Close();
+            }
+                
         }
 
         private void tabPage4_Click(object sender, EventArgs e)
