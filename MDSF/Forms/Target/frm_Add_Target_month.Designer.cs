@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Add_Target_month));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -258,7 +258,7 @@
             // 
             // 
             // 
-            this.btn_ter_del.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_ter_del.RootElement.ControlBounds = new System.Drawing.Rectangle(86, 89, 110, 24);
             this.btn_ter_del.Size = new System.Drawing.Size(113, 37);
             this.btn_ter_del.TabIndex = 8;
             this.btn_ter_del.Text = "Remove";
@@ -303,7 +303,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_lux_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_lux_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(372, 435, 110, 24);
             this.btn_proc_sla_lux_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_lux_salester.TabIndex = 14;
             this.btn_proc_sla_lux_salester.Text = "Luxor SLA";
@@ -319,7 +319,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_ism_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_ism_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(372, 404, 110, 24);
             this.btn_proc_sla_ism_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_ism_salester.TabIndex = 8;
             this.btn_proc_sla_ism_salester.Text = "Ismailia SLA";
@@ -335,7 +335,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_cai_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_cai_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(372, 374, 110, 24);
             this.btn_proc_sla_cai_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_cai_salester.TabIndex = 9;
             this.btn_proc_sla_cai_salester.Text = "Cairo SLA";
@@ -351,7 +351,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_Tanta_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_Tanta_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(757, 404, 110, 24);
             this.btn_proc_sla_Tanta_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_Tanta_salester.TabIndex = 10;
             this.btn_proc_sla_Tanta_salester.Text = "Tanta SLA";
@@ -367,7 +367,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_assu_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_assu_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(579, 404, 110, 24);
             this.btn_proc_sla_assu_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_assu_salester.TabIndex = 11;
             this.btn_proc_sla_assu_salester.Text = "Assiout SLA";
@@ -383,7 +383,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_alex_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_alex_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(579, 374, 110, 24);
             this.btn_proc_sla_alex_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_alex_salester.TabIndex = 12;
             this.btn_proc_sla_alex_salester.Text = "Alex SLA";
@@ -399,7 +399,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_man_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_man_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(757, 374, 110, 24);
             this.btn_proc_sla_man_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_man_salester.TabIndex = 13;
             this.btn_proc_sla_man_salester.Text = "Mansoura SLA";
@@ -415,7 +415,7 @@
             // 
             // 
             // 
-            this.btn_save_sfis_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_save_sfis_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(611, 331, 110, 24);
             this.btn_save_sfis_salester.Size = new System.Drawing.Size(113, 37);
             this.btn_save_sfis_salester.TabIndex = 7;
             this.btn_save_sfis_salester.Text = "Save In SFIS";
@@ -431,7 +431,7 @@
             // 
             // 
             // 
-            this.btn_import_excel_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_import_excel_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(382, 10, 110, 24);
             this.btn_import_excel_salester.Size = new System.Drawing.Size(172, 24);
             this.btn_import_excel_salester.TabIndex = 6;
             this.btn_import_excel_salester.Text = "Import from Excel";
@@ -448,12 +448,12 @@
             // 
             // 
             // 
-            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.rgv_salester_target.Name = "rgv_salester_target";
             // 
             // 
             // 
-            this.rgv_salester_target.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
+            this.rgv_salester_target.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 42, 240, 150);
             this.rgv_salester_target.Size = new System.Drawing.Size(936, 283);
             this.rgv_salester_target.TabIndex = 5;
             this.rgv_salester_target.ThemeName = "TelerikMetro";
@@ -532,7 +532,7 @@
             // 
             // 
             // 
-            this.btn_target_salesrep_del.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_target_salesrep_del.RootElement.ControlBounds = new System.Drawing.Rectangle(86, 89, 110, 24);
             this.btn_target_salesrep_del.Size = new System.Drawing.Size(113, 37);
             this.btn_target_salesrep_del.TabIndex = 8;
             this.btn_target_salesrep_del.Text = "Remove";
@@ -569,7 +569,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_lux_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_lux_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(374, 443, 110, 24);
             this.btn_proc_sla_lux_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_lux_salesrep.TabIndex = 4;
             this.btn_proc_sla_lux_salesrep.Text = "Luxor SLA";
@@ -585,7 +585,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_ism_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_ism_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(374, 412, 110, 24);
             this.btn_proc_sla_ism_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_ism_salesrep.TabIndex = 3;
             this.btn_proc_sla_ism_salesrep.Text = "Ismailia SLA";
@@ -601,7 +601,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_cai_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_cai_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(374, 382, 110, 24);
             this.btn_proc_sla_cai_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_cai_salesrep.TabIndex = 3;
             this.btn_proc_sla_cai_salesrep.Text = "Cairo SLA";
@@ -617,7 +617,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_Tant_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_Tant_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(759, 411, 110, 24);
             this.btn_proc_sla_Tant_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_Tant_salesrep.TabIndex = 3;
             this.btn_proc_sla_Tant_salesrep.Text = "Tanta SLA";
@@ -633,7 +633,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_assu_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_assu_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(581, 411, 110, 24);
             this.btn_proc_sla_assu_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_assu_salesrep.TabIndex = 3;
             this.btn_proc_sla_assu_salesrep.Text = "Assiout SLA";
@@ -649,7 +649,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_Alex_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_Alex_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(581, 381, 110, 24);
             this.btn_proc_sla_Alex_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_Alex_salesrep.TabIndex = 3;
             this.btn_proc_sla_Alex_salesrep.Text = "Alex SLA";
@@ -665,7 +665,7 @@
             // 
             // 
             // 
-            this.btn_proc_sla_Man_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_proc_sla_Man_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(759, 381, 110, 24);
             this.btn_proc_sla_Man_salesrep.Size = new System.Drawing.Size(172, 24);
             this.btn_proc_sla_Man_salesrep.TabIndex = 3;
             this.btn_proc_sla_Man_salesrep.Text = "Mansoura SLA";
@@ -681,7 +681,7 @@
             // 
             // 
             // 
-            this.radButton2.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.radButton2.RootElement.ControlBounds = new System.Drawing.Rectangle(581, 332, 110, 24);
             this.radButton2.Size = new System.Drawing.Size(172, 43);
             this.radButton2.TabIndex = 2;
             this.radButton2.Text = "Save In SFIS";
@@ -697,7 +697,7 @@
             // 
             // 
             // 
-            this.btn_import_from_Excel_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_import_from_Excel_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(384, 6, 110, 24);
             this.btn_import_from_Excel_salesrep.Size = new System.Drawing.Size(172, 35);
             this.btn_import_from_Excel_salesrep.TabIndex = 1;
             this.btn_import_from_Excel_salesrep.Text = "Import from Excel";
@@ -714,12 +714,12 @@
             // 
             // 
             // 
-            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition7;
+            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.rgv_Salesrep_target.Name = "rgv_Salesrep_target";
             // 
             // 
             // 
-            this.rgv_Salesrep_target.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
+            this.rgv_Salesrep_target.RootElement.ControlBounds = new System.Drawing.Rectangle(3, 49, 240, 150);
             this.rgv_Salesrep_target.Size = new System.Drawing.Size(936, 277);
             this.rgv_Salesrep_target.TabIndex = 0;
             this.rgv_Salesrep_target.ThemeName = "TelerikMetro";
@@ -820,7 +820,7 @@
             // 
             // 
             // 
-            this.btn_save_sfis_pos.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_save_sfis_pos.RootElement.ControlBounds = new System.Drawing.Rectangle(685, 18, 110, 24);
             this.btn_save_sfis_pos.Size = new System.Drawing.Size(138, 31);
             this.btn_save_sfis_pos.TabIndex = 20;
             this.btn_save_sfis_pos.Text = "Save In SFIS";
@@ -882,7 +882,7 @@
             // 
             // 
             // 
-            this.radButton1.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.radButton1.RootElement.ControlBounds = new System.Drawing.Rectangle(228, 30, 110, 24);
             this.radButton1.Size = new System.Drawing.Size(113, 37);
             this.radButton1.TabIndex = 8;
             this.radButton1.Text = "Remove";
@@ -919,7 +919,7 @@
             // 
             // 
             // 
-            this.radButton3.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.radButton3.RootElement.ControlBounds = new System.Drawing.Rectangle(372, 435, 110, 24);
             this.radButton3.Size = new System.Drawing.Size(172, 24);
             this.radButton3.TabIndex = 27;
             this.radButton3.Text = "Luxor SLA";
@@ -935,7 +935,7 @@
             // 
             // 
             // 
-            this.radButton4.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.radButton4.RootElement.ControlBounds = new System.Drawing.Rectangle(372, 404, 110, 24);
             this.radButton4.Size = new System.Drawing.Size(172, 24);
             this.radButton4.TabIndex = 21;
             this.radButton4.Text = "Ismailia SLA";
@@ -951,7 +951,7 @@
             // 
             // 
             // 
-            this.radButton5.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.radButton5.RootElement.ControlBounds = new System.Drawing.Rectangle(372, 374, 110, 24);
             this.radButton5.Size = new System.Drawing.Size(172, 24);
             this.radButton5.TabIndex = 22;
             this.radButton5.Text = "Cairo SLA";
@@ -967,7 +967,7 @@
             // 
             // 
             // 
-            this.radButton6.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.radButton6.RootElement.ControlBounds = new System.Drawing.Rectangle(757, 403, 110, 24);
             this.radButton6.Size = new System.Drawing.Size(172, 24);
             this.radButton6.TabIndex = 23;
             this.radButton6.Text = "Tanta SLA";
@@ -983,7 +983,7 @@
             // 
             // 
             // 
-            this.radButton7.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.radButton7.RootElement.ControlBounds = new System.Drawing.Rectangle(579, 403, 110, 24);
             this.radButton7.Size = new System.Drawing.Size(172, 24);
             this.radButton7.TabIndex = 24;
             this.radButton7.Text = "Assiout SLA";
@@ -999,7 +999,7 @@
             // 
             // 
             // 
-            this.radButton8.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.radButton8.RootElement.ControlBounds = new System.Drawing.Rectangle(579, 373, 110, 24);
             this.radButton8.Size = new System.Drawing.Size(172, 24);
             this.radButton8.TabIndex = 25;
             this.radButton8.Text = "Alex SLA";
@@ -1015,7 +1015,7 @@
             // 
             // 
             // 
-            this.radButton9.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.radButton9.RootElement.ControlBounds = new System.Drawing.Rectangle(757, 373, 110, 24);
             this.radButton9.Size = new System.Drawing.Size(172, 24);
             this.radButton9.TabIndex = 26;
             this.radButton9.Text = "Mansoura SLA";
@@ -1031,7 +1031,7 @@
             // 
             // 
             // 
-            this.btn_import_from_Excel_pos.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_import_from_Excel_pos.RootElement.ControlBounds = new System.Drawing.Rectangle(382, 9, 110, 24);
             this.btn_import_from_Excel_pos.Size = new System.Drawing.Size(172, 24);
             this.btn_import_from_Excel_pos.TabIndex = 19;
             this.btn_import_from_Excel_pos.Text = "Import from Excel";
@@ -1048,12 +1048,12 @@
             // 
             // 
             // 
-            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition8;
+            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.rgv_pos_target.Name = "rgv_pos_target";
             // 
             // 
             // 
-            this.rgv_pos_target.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
+            this.rgv_pos_target.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 39, 240, 150);
             this.rgv_pos_target.Size = new System.Drawing.Size(936, 256);
             this.rgv_pos_target.TabIndex = 18;
             this.rgv_pos_target.ThemeName = "TelerikMetro";
@@ -1087,7 +1087,7 @@
             // 
             // 
             // 
-            this.radButton10.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.radButton10.RootElement.ControlBounds = new System.Drawing.Rectangle(752, 3, 110, 24);
             this.radButton10.Size = new System.Drawing.Size(69, 38);
             this.radButton10.TabIndex = 265;
             this.radButton10.Text = "Excel";
@@ -1117,7 +1117,7 @@
             this.groupBox5.Size = new System.Drawing.Size(288, 135);
             this.groupBox5.TabIndex = 28;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Remove Salesman Target ";
+            this.groupBox5.Text = "Remove KPI ";
             // 
             // label11
             // 
@@ -1155,7 +1155,7 @@
             // 
             // 
             // 
-            this.btn_remove_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_remove_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(86, 89, 110, 24);
             this.btn_remove_kpi.Size = new System.Drawing.Size(113, 37);
             this.btn_remove_kpi.TabIndex = 8;
             this.btn_remove_kpi.Text = "Remove";
@@ -1192,7 +1192,7 @@
             // 
             // 
             // 
-            this.btn_save_sfis_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_save_sfis_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(579, 330, 110, 24);
             this.btn_save_sfis_kpi.Size = new System.Drawing.Size(172, 43);
             this.btn_save_sfis_kpi.TabIndex = 20;
             this.btn_save_sfis_kpi.Text = "Save In SFIS";
@@ -1208,7 +1208,7 @@
             // 
             // 
             // 
-            this.btn_import_excel_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_import_excel_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(382, 4, 110, 24);
             this.btn_import_excel_kpi.Size = new System.Drawing.Size(172, 35);
             this.btn_import_excel_kpi.TabIndex = 19;
             this.btn_import_excel_kpi.Text = "Import from Excel";
@@ -1225,12 +1225,12 @@
             // 
             // 
             // 
-            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition5;
+            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.rgv_kpi_insert.Name = "rgv_kpi_insert";
             // 
             // 
             // 
-            this.rgv_kpi_insert.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
+            this.rgv_kpi_insert.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 47, 240, 150);
             this.rgv_kpi_insert.Size = new System.Drawing.Size(936, 277);
             this.rgv_kpi_insert.TabIndex = 18;
             this.rgv_kpi_insert.ThemeName = "TelerikMetro";
