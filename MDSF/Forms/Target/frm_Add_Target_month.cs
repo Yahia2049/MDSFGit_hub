@@ -939,12 +939,20 @@ namespace MDSF.Forms.Target
 
         private void radButton10_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < rgv_kpi_insert.Rows.Count; i++)
-            {
-                String cmdDelTarget = "Delete from  salesman_targets_test  WHERE BRANCH_CODE = " + rgv_kpi_insert.Rows[i].Cells["BRANCH_CODE"].Value + " AND MON = " + rgv_kpi_insert.Rows[i].Cells["MON"].Value + " AND YEAR = " + rgv_kpi_insert.Rows[i].Cells["YEAR"].Value; 
-                DataAccessCS.delete(cmdDelTarget);
-                DataAccessCS.conn.Close();
-            }
+          
+             
+                if (txt_branch_kpi.Text == "" || txt_month_kpi.Text == "" || txt_year_kpi.Text == "")
+                {
+                    MessageBox.Show("you must enter branch code , mon and year ");
+                }
+                else
+                {
+                    String cmdDelTarget = "Delete from  salesman_targets_test  WHERE BRANCH_CODE = " + txt_branch_kpi.Text + " AND MON = " + txt_month_kpi.Text + " AND YEAR = " + txt_year_kpi.Text;
+                    DataAccessCS.delete(cmdDelTarget);
+                    DataAccessCS.conn.Close();
+                    MessageBox.Show("Deleted Successful");
+                }
+            
                 
         }
 
@@ -1035,7 +1043,7 @@ namespace MDSF.Forms.Target
                     string SUCC_CALLS_TARGET = rgv_kpi_insert.Rows[i].Cells["SUCC_CALLS_TARGET"].Value.ToString();
                     string TARGET_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["TARGET_TARGET_SALES"].Value.ToString();
                     string EFFECTIVE_TARGET = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_TARGET"].Value.ToString();
-                    string WEST_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["WEST_TARGET_SALES"].Value.ToString();
+                    string WEST_TARGTET_SALES = rgv_kpi_insert.Rows[i].Cells["WEST_TARGTET_SALES"].Value.ToString();
                     string PREV_DVD_TARGET = rgv_kpi_insert.Rows[i].Cells["PREV_DVD_TARGET"].Value.ToString();
                     string PREV_TIME_TARGET = rgv_kpi_insert.Rows[i].Cells["PREV_TIME_TARGET"].Value.ToString();
                     string PREV_DVD_EFF = rgv_kpi_insert.Rows[i].Cells["PREV_DVD_EFF"].Value.ToString();
@@ -1059,17 +1067,14 @@ namespace MDSF.Forms.Target
                     string DROP_SIZE_TARGET = rgv_kpi_insert.Rows[i].Cells["DROP_SIZE_TARGET"].Value.ToString();
                     string EFFECTIVE_ALL = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_ALL"].Value.ToString();
                     //--------
-                    if (BRANCH_CODE == "") BRANCH_CODE = DBNull.Value.ToString();
-                    if (SALES_TER_ID == "") SALES_TER_ID = DBNull.Value.ToString();                 
-                    if (SALES_ID == "") SALES_ID = DBNull.Value.ToString();
-                    if (SALESMAN_NAME == "") SALESMAN_NAME = DBNull.Value.ToString();
+                   
+
                     if (DVD_TARGET_SALES == "") DVD_TARGET_SALES = DBNull.Value.ToString();
                     if (TIME_TARGET_SALES == "") TIME_TARGET_SALES = DBNull.Value.ToString();
                     if (HAYAT_TARGET_SALES == "") HAYAT_TARGET_SALES = DBNull.Value.ToString();
                     if (EFFECTIVE_TIME == "") EFFECTIVE_TIME = DBNull.Value.ToString();
                     if (EFFECTIVE_DVD == "") EFFECTIVE_DVD = DBNull.Value.ToString();
-                    if (MON == "") MON = DBNull.Value.ToString();
-                    if (YEAR == "") YEAR = DBNull.Value.ToString();
+                    
                     if (WORK_DAYS == "") WORK_DAYS = DBNull.Value.ToString();
                     //-------
                     if (COVERAGE == "") COVERAGE = DBNull.Value.ToString();
@@ -1080,7 +1085,7 @@ namespace MDSF.Forms.Target
                     if (SUCC_CALLS_TARGET == "") SUCC_CALLS_TARGET = DBNull.Value.ToString();
                     if (TARGET_TARGET_SALES == "") TARGET_TARGET_SALES = DBNull.Value.ToString();
                     if (EFFECTIVE_TARGET == "") EFFECTIVE_TARGET = DBNull.Value.ToString();
-                    if (WEST_TARGET_SALES == "") WEST_TARGET_SALES = DBNull.Value.ToString();
+                    if (WEST_TARGTET_SALES == "") WEST_TARGTET_SALES = DBNull.Value.ToString();
                     if (PREV_DVD_TARGET == "") PREV_DVD_TARGET = DBNull.Value.ToString();
                     if (PREV_TIME_TARGET == "") PREV_TIME_TARGET = DBNull.Value.ToString();
                     if (PREV_DVD_EFF == "") PREV_DVD_EFF = DBNull.Value.ToString();
@@ -1107,21 +1112,28 @@ namespace MDSF.Forms.Target
                     if (DROP_SIZE_TARGET == "") DROP_SIZE_TARGET = DBNull.Value.ToString();
                     if (EFFECTIVE_ALL == "") EFFECTIVE_ALL = DBNull.Value.ToString();
 
-                    String cmdkpi = "Insert into salesman_targets_test  ( BRANCH_CODE ,SALES_TER_ID,SALES_ID,SALESMAN_NAME,DVD_TARGET_SALES,TIME_TARGET_SALES,HAYAT_TARGET_SALES,EFFECTIVE_TIME,EFFECTIVE_DVD,MON,YEAR,WORK_DAYS) VALUES (' "
+                    if (BRANCH_CODE == "" || SALES_TER_ID == "" || SALES_ID == "" || SALESMAN_NAME == "" || MON == "" || YEAR == "")
+                    {
+                        MessageBox.Show("you must enter branch code , sealester_id ,sales_id,salesman_name,mon and year ");
+                    }
+                    else
+                    {
+                       
+                        String cmdkpi = "Insert into salesman_targets_test  ( BRANCH_CODE ,SALES_TER_ID,SALES_ID,SALESMAN_NAME,DVD_TARGET_SALES,TIME_TARGET_SALES,HAYAT_TARGET_SALES,EFFECTIVE_TIME,EFFECTIVE_DVD,MON,YEAR,WORK_DAYS, COVERAGE,EFFECTIVE_ASSAL,GV_EFFECTIVE,GV_TARGET_SALES,MOLASSES_HANDLERS,SUCC_CALLS_TARGET,TARGET_TARGET_SALES,EFFECTIVE_TARGET,WEST_TARGTET_SALES,PREV_DVD_TARGET,PREV_TIME_TARGET, PREV_DVD_EFF,PREV_TIME_EFF,EFFECTIVE_WEST,BAT_TARGET_SALES,EFFECTIVE_ROTH,EFFECTIVE_VICE,EFFECTIVE_PALL,VICE_TARGET_SALES,EFFECTIVE_KENT,EFFECTIVE_ANY,ITG_TARGET_SALES,ROYAL_TARGET_SALES,EFFECTIVE_ROYAL,EFFECTIVE_DUNHILL_MASTER,EFFECTIVE_DVD_HALF_OUTER,CORE_TARGET_SALES,KPI_HALF_OUTER,KPI_EIGHTY_PER_TCO,DROP_SIZE_TARGET,EFFECTIVE_ALL) VALUES (' "
                    + BRANCH_CODE +
                    "','" + SALES_TER_ID +
                    "','" + SALES_ID +
                    "','" + SALESMAN_NAME +
                    "','" + DVD_TARGET_SALES +
                    "','" + TIME_TARGET_SALES +
-                   "','" + HAYAT_TARGET_SALES + 
+                   "','" + HAYAT_TARGET_SALES +
                    "','" + EFFECTIVE_TIME +
                    "','" + EFFECTIVE_DVD +
                    "','" + MON +
                    "','" + YEAR +
                    "','" + WORK_DAYS +
 
-                
+
                    "','" + COVERAGE +
                    "','" + EFFECTIVE_ASSAL +
                    "','" + GV_EFFECTIVE +
@@ -1130,10 +1142,10 @@ namespace MDSF.Forms.Target
                    "','" + SUCC_CALLS_TARGET +
                    "','" + TARGET_TARGET_SALES +
                    "','" + EFFECTIVE_TARGET +
-                   "','" + WEST_TARGET_SALES +
+                   "','" + WEST_TARGTET_SALES +
                    "','" + PREV_DVD_TARGET +
                    "','" + PREV_TIME_TARGET +
-                   
+
                    "','" + PREV_DVD_EFF +
                    "','" + PREV_TIME_EFF +
                    "','" + EFFECTIVE_WEST +
@@ -1155,16 +1167,18 @@ namespace MDSF.Forms.Target
                    "','" + KPI_EIGHTY_PER_TCO +
                    "','" + DROP_SIZE_TARGET +
                    "','" + EFFECTIVE_ALL +
-                
+
 
 
                    "')";
-                    DataAccessCS.insert(cmdkpi);
-                    DataAccessCS.conn.Close();
-
+                        DataAccessCS.insert(cmdkpi);
+                        DataAccessCS.conn.Close();
+                  
+                    }
+                   
                 }
-
                 MessageBox.Show("save success");
+
 
             }
             catch (Exception ex)
