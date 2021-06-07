@@ -1014,22 +1014,45 @@ namespace MDSF.Forms.Target
                 
                 for (int i = 0; i < rgv_kpi_insert.Rows.Count; i++)
                 {
+                    string BRANCH_CODE = rgv_kpi_insert.Rows[i].Cells["BRANCH_CODE"].Value.ToString();
                     string SALES_TER_ID = rgv_kpi_insert.Rows[i].Cells["SALES_TER_ID"].Value.ToString();
-                    if (SALES_TER_ID == "") SALES_TER_ID = DBNull.Value.ToString();
+                    string SALES_ID = rgv_kpi_insert.Rows[i].Cells["SALES_ID"].Value.ToString();
+                    string SALESMAN_NAME = rgv_kpi_insert.Rows[i].Cells["SALESMAN_NAME"].Value.ToString();
+                    string DVD_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["DVD_TARGET_SALES"].Value.ToString();
+                    string TIME_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["TIME_TARGET_SALES"].Value.ToString();
+                    string HAYAT_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["HAYAT_TARGET_SALES"].Value.ToString();
+                    string EFFECTIVE_TIME = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_TIME"].Value.ToString();
+                    string EFFECTIVE_DVD = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_DVD"].Value.ToString();
+                    string MON = rgv_kpi_insert.Rows[i].Cells["MON"].Value.ToString();
+                    string YEAR = rgv_kpi_insert.Rows[i].Cells["YEAR"].Value.ToString();
+                    string WORK_DAYS = rgv_kpi_insert.Rows[i].Cells["WORK_DAYS"].Value.ToString();
 
+                    if (BRANCH_CODE == "") BRANCH_CODE = DBNull.Value.ToString();
+                    if (SALES_TER_ID == "") SALES_TER_ID = DBNull.Value.ToString();                 
+                    if (SALES_ID == "") SALES_ID = DBNull.Value.ToString();
+                    if (SALESMAN_NAME == "") SALESMAN_NAME = DBNull.Value.ToString();
+                    if (DVD_TARGET_SALES == "") DVD_TARGET_SALES = DBNull.Value.ToString();
+                    if (TIME_TARGET_SALES == "") TIME_TARGET_SALES = DBNull.Value.ToString();
+                    if (HAYAT_TARGET_SALES == "") HAYAT_TARGET_SALES = DBNull.Value.ToString();
+                    if (EFFECTIVE_TIME == "") EFFECTIVE_TIME = DBNull.Value.ToString();
+                    if (EFFECTIVE_DVD == "") EFFECTIVE_DVD = DBNull.Value.ToString();
+                    if (MON == "") MON = DBNull.Value.ToString();
+                    if (YEAR == "") YEAR = DBNull.Value.ToString();
+                    if (WORK_DAYS == "") WORK_DAYS = DBNull.Value.ToString();
 
-                    String cmdkpi = "Insert into select* from salesman_targets_test  ( BRANCH_CODE ,SALES_TER_ID,SALES_ID,SALESMAN_NAME,DVD_TARGET_SALES,TIME_TARGET_SALES,HAYAT_TARGET_SALES,EFFECTIVE_TIME,EFFECTIVE_DVD,MON,YEAR,WORK_DAYS) VALUES (' " + rgv_kpi_insert.Rows[i].Cells["BRANCH_CODE"].Value +
+                    String cmdkpi = "Insert into salesman_targets_test  ( BRANCH_CODE ,SALES_TER_ID,SALES_ID,SALESMAN_NAME,DVD_TARGET_SALES,TIME_TARGET_SALES,HAYAT_TARGET_SALES,EFFECTIVE_TIME,EFFECTIVE_DVD,MON,YEAR,WORK_DAYS) VALUES (' "
+                   + BRANCH_CODE +
                    "','" + SALES_TER_ID +
-                   "','" + rgv_kpi_insert.Rows[i].Cells["SALES_ID"].Value +
-                   "','" + rgv_kpi_insert.Rows[i].Cells["SALESMAN_NAME"].Value +
-                   "','" + rgv_kpi_insert.Rows[i].Cells["DVD_TARGET_SALES"].Value +
-                   "','" + rgv_kpi_insert.Rows[i].Cells["TIME_TARGET_SALES"].Value +
-                   "','" + rgv_kpi_insert.Rows[i].Cells["HAYAT_TARGET_SALES"].Value + 
-                   "','" + rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_TIME"].Value +
-                   "','" + rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_DVD"].Value +
-                   "','" + rgv_kpi_insert.Rows[i].Cells["MON"].Value +
-                   "','" + rgv_kpi_insert.Rows[i].Cells["YEAR"].Value +
-                   "','" + rgv_kpi_insert.Rows[i].Cells["WORK_DAYS"].Value + "')";
+                   "','" + SALES_ID +
+                   "','" + SALESMAN_NAME +
+                   "','" + DVD_TARGET_SALES +
+                   "','" + TIME_TARGET_SALES +
+                   "','" + HAYAT_TARGET_SALES + 
+                   "','" + EFFECTIVE_TIME +
+                   "','" + EFFECTIVE_DVD +
+                   "','" + MON +
+                   "','" + YEAR +
+                   "','" + WORK_DAYS + "')";
                     DataAccessCS.insert(cmdkpi);
                     DataAccessCS.conn.Close();
 
