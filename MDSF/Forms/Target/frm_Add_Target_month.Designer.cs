@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Add_Target_month));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -448,7 +448,7 @@
             // 
             // 
             // 
-            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition6;
             this.rgv_salester_target.Name = "rgv_salester_target";
             // 
             // 
@@ -714,7 +714,7 @@
             // 
             // 
             // 
-            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition7;
             this.rgv_Salesrep_target.Name = "rgv_Salesrep_target";
             // 
             // 
@@ -1048,7 +1048,7 @@
             // 
             // 
             // 
-            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition8;
             this.rgv_pos_target.Name = "rgv_pos_target";
             // 
             // 
@@ -1082,15 +1082,15 @@
             this.radButton10.CausesValidation = false;
             this.radButton10.ImageIndex = 0;
             this.radButton10.ImageList = this.imageList1;
-            this.radButton10.Location = new System.Drawing.Point(752, 3);
+            this.radButton10.Location = new System.Drawing.Point(687, 3);
             this.radButton10.Name = "radButton10";
             // 
             // 
             // 
             this.radButton10.RootElement.ControlBounds = new System.Drawing.Rectangle(752, 3, 110, 24);
-            this.radButton10.Size = new System.Drawing.Size(69, 38);
+            this.radButton10.Size = new System.Drawing.Size(187, 38);
             this.radButton10.TabIndex = 265;
-            this.radButton10.Text = "Excel";
+            this.radButton10.Text = "Export KPI Templet To Excel";
             this.radButton10.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.radButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.radButton10.ThemeName = "TelerikMetro";
@@ -1203,6 +1203,7 @@
             // 
             this.btn_import_excel_kpi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_import_excel_kpi.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_import_excel_kpi.ImageList = this.imageList1;
             this.btn_import_excel_kpi.Location = new System.Drawing.Point(382, 4);
             this.btn_import_excel_kpi.Name = "btn_import_excel_kpi";
             // 
@@ -1211,7 +1212,8 @@
             this.btn_import_excel_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(382, 4, 110, 24);
             this.btn_import_excel_kpi.Size = new System.Drawing.Size(172, 35);
             this.btn_import_excel_kpi.TabIndex = 19;
-            this.btn_import_excel_kpi.Text = "Import from Excel";
+            this.btn_import_excel_kpi.Text = "Import KPI from Excel";
+            this.btn_import_excel_kpi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_import_excel_kpi.ThemeName = "TelerikMetro";
             this.btn_import_excel_kpi.Click += new System.EventHandler(this.btn_import_excel_kpi_Click);
             // 
@@ -1225,7 +1227,7 @@
             // 
             // 
             // 
-            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition5;
             this.rgv_kpi_insert.Name = "rgv_kpi_insert";
             // 
             // 
