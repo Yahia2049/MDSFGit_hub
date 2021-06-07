@@ -1011,12 +1011,25 @@ namespace MDSF.Forms.Target
             this.Cursor = Cursors.WaitCursor;
             try
             {
+                
                 for (int i = 0; i < rgv_kpi_insert.Rows.Count; i++)
                 {
-                    String cmdkpi = "Insert into select* from salesman_targets_test  ( BRANCH_CODE ,SALES_TER_ID,SALES_ID,SALESMAN_NAME,DVD_TARGET_SALES,TIME_TARGET_SALES,HAYAT_TARGET_SALES,EFFECTIVE_TIME,EFFECTIVE_DVD,MON,YEAR,WORK_DAYS) VALUES (' " + rgv_kpi_insert.Rows[i].Cells["BRANCH_CODE"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["SALES_TER_ID"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["SALES_ID"].Value +
-                   "','" + rgv_kpi_insert.Rows[i].Cells["SALESMAN_NAME"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["DVD_TARGET_SALES"].Value +
-                   "','" + rgv_kpi_insert.Rows[i].Cells["TIME_TARGET_SALES"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["HAYAT_TARGET_SALES"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_TIME"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_DVD"].Value +
-                     "','" + rgv_kpi_insert.Rows[i].Cells["MON"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["YEAR"].Value + "','" + rgv_kpi_insert.Rows[i].Cells["WORK_DAYS"].Value + "')";
+                    string SALES_TER_ID = rgv_kpi_insert.Rows[i].Cells["SALES_TER_ID"].Value.ToString();
+                    if (SALES_TER_ID == "") SALES_TER_ID = DBNull.Value.ToString();
+
+
+                    String cmdkpi = "Insert into select* from salesman_targets_test  ( BRANCH_CODE ,SALES_TER_ID,SALES_ID,SALESMAN_NAME,DVD_TARGET_SALES,TIME_TARGET_SALES,HAYAT_TARGET_SALES,EFFECTIVE_TIME,EFFECTIVE_DVD,MON,YEAR,WORK_DAYS) VALUES (' " + rgv_kpi_insert.Rows[i].Cells["BRANCH_CODE"].Value +
+                   "','" + SALES_TER_ID +
+                   "','" + rgv_kpi_insert.Rows[i].Cells["SALES_ID"].Value +
+                   "','" + rgv_kpi_insert.Rows[i].Cells["SALESMAN_NAME"].Value +
+                   "','" + rgv_kpi_insert.Rows[i].Cells["DVD_TARGET_SALES"].Value +
+                   "','" + rgv_kpi_insert.Rows[i].Cells["TIME_TARGET_SALES"].Value +
+                   "','" + rgv_kpi_insert.Rows[i].Cells["HAYAT_TARGET_SALES"].Value + 
+                   "','" + rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_TIME"].Value +
+                   "','" + rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_DVD"].Value +
+                   "','" + rgv_kpi_insert.Rows[i].Cells["MON"].Value +
+                   "','" + rgv_kpi_insert.Rows[i].Cells["YEAR"].Value +
+                   "','" + rgv_kpi_insert.Rows[i].Cells["WORK_DAYS"].Value + "')";
                     DataAccessCS.insert(cmdkpi);
                     DataAccessCS.conn.Close();
 
