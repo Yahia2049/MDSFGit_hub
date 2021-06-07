@@ -1026,7 +1026,39 @@ namespace MDSF.Forms.Target
                     string MON = rgv_kpi_insert.Rows[i].Cells["MON"].Value.ToString();
                     string YEAR = rgv_kpi_insert.Rows[i].Cells["YEAR"].Value.ToString();
                     string WORK_DAYS = rgv_kpi_insert.Rows[i].Cells["WORK_DAYS"].Value.ToString();
-
+                    //
+                    string COVERAGE = rgv_kpi_insert.Rows[i].Cells["COVERAGE"].Value.ToString();
+                    string EFFECTIVE_ASSAL = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_ASSAL"].Value.ToString();
+                    string GV_EFFECTIVE = rgv_kpi_insert.Rows[i].Cells["GV_EFFECTIVE"].Value.ToString();
+                    string GV_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["GV_TARGET_SALES"].Value.ToString();
+                    string MOLASSES_HANDLERS = rgv_kpi_insert.Rows[i].Cells["MOLASSES_HANDLERS"].Value.ToString();
+                    string SUCC_CALLS_TARGET = rgv_kpi_insert.Rows[i].Cells["SUCC_CALLS_TARGET"].Value.ToString();
+                    string TARGET_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["TARGET_TARGET_SALES"].Value.ToString();
+                    string EFFECTIVE_TARGET = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_TARGET"].Value.ToString();
+                    string WEST_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["WEST_TARGET_SALES"].Value.ToString();
+                    string PREV_DVD_TARGET = rgv_kpi_insert.Rows[i].Cells["PREV_DVD_TARGET"].Value.ToString();
+                    string PREV_TIME_TARGET = rgv_kpi_insert.Rows[i].Cells["PREV_TIME_TARGET"].Value.ToString();
+                    string PREV_DVD_EFF = rgv_kpi_insert.Rows[i].Cells["PREV_DVD_EFF"].Value.ToString();
+                    string PREV_TIME_EFF = rgv_kpi_insert.Rows[i].Cells["PREV_TIME_EFF"].Value.ToString();
+                    string EFFECTIVE_WEST = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_WEST"].Value.ToString();
+                    string BAT_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["BAT_TARGET_SALES"].Value.ToString();
+                    string EFFECTIVE_ROTH = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_ROTH"].Value.ToString();
+                    string EFFECTIVE_VICE = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_VICE"].Value.ToString();
+                    string EFFECTIVE_PALL = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_PALL"].Value.ToString();
+                    string VICE_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["VICE_TARGET_SALES"].Value.ToString();
+                    string EFFECTIVE_KENT = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_KENT"].Value.ToString();
+                    string EFFECTIVE_ANY = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_ANY"].Value.ToString();
+                    string ITG_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["ITG_TARGET_SALES"].Value.ToString();
+                    string ROYAL_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["ROYAL_TARGET_SALES"].Value.ToString();
+                    string EFFECTIVE_ROYAL = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_ROYAL"].Value.ToString();
+                    string EFFECTIVE_DUNHILL_MASTER = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_DUNHILL_MASTER"].Value.ToString();
+                    string EFFECTIVE_DVD_HALF_OUTER = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_DVD_HALF_OUTER"].Value.ToString();
+                    string CORE_TARGET_SALES = rgv_kpi_insert.Rows[i].Cells["CORE_TARGET_SALES"].Value.ToString();
+                    string KPI_HALF_OUTER = rgv_kpi_insert.Rows[i].Cells["KPI_HALF_OUTER"].Value.ToString();
+                    string KPI_EIGHTY_PER_TCO = rgv_kpi_insert.Rows[i].Cells["KPI_EIGHTY_PER_TCO"].Value.ToString();
+                    string DROP_SIZE_TARGET = rgv_kpi_insert.Rows[i].Cells["DROP_SIZE_TARGET"].Value.ToString();
+                    string EFFECTIVE_ALL = rgv_kpi_insert.Rows[i].Cells["EFFECTIVE_ALL"].Value.ToString();
+                    //--------
                     if (BRANCH_CODE == "") BRANCH_CODE = DBNull.Value.ToString();
                     if (SALES_TER_ID == "") SALES_TER_ID = DBNull.Value.ToString();                 
                     if (SALES_ID == "") SALES_ID = DBNull.Value.ToString();
@@ -1039,6 +1071,41 @@ namespace MDSF.Forms.Target
                     if (MON == "") MON = DBNull.Value.ToString();
                     if (YEAR == "") YEAR = DBNull.Value.ToString();
                     if (WORK_DAYS == "") WORK_DAYS = DBNull.Value.ToString();
+                    //-------
+                    if (COVERAGE == "") COVERAGE = DBNull.Value.ToString();
+                    if (EFFECTIVE_ASSAL == "") EFFECTIVE_ASSAL = DBNull.Value.ToString();
+                    if (GV_EFFECTIVE == "") GV_EFFECTIVE = DBNull.Value.ToString();
+                    if (GV_TARGET_SALES == "") GV_TARGET_SALES = DBNull.Value.ToString();
+                    if (MOLASSES_HANDLERS == "") MOLASSES_HANDLERS = DBNull.Value.ToString();
+                    if (SUCC_CALLS_TARGET == "") SUCC_CALLS_TARGET = DBNull.Value.ToString();
+                    if (TARGET_TARGET_SALES == "") TARGET_TARGET_SALES = DBNull.Value.ToString();
+                    if (EFFECTIVE_TARGET == "") EFFECTIVE_TARGET = DBNull.Value.ToString();
+                    if (WEST_TARGET_SALES == "") WEST_TARGET_SALES = DBNull.Value.ToString();
+                    if (PREV_DVD_TARGET == "") PREV_DVD_TARGET = DBNull.Value.ToString();
+                    if (PREV_TIME_TARGET == "") PREV_TIME_TARGET = DBNull.Value.ToString();
+                    if (PREV_DVD_EFF == "") PREV_DVD_EFF = DBNull.Value.ToString();
+
+                    if (PREV_TIME_EFF == "") PREV_TIME_EFF = DBNull.Value.ToString();
+                    if (EFFECTIVE_WEST == "") EFFECTIVE_WEST = DBNull.Value.ToString();
+                    if (BAT_TARGET_SALES == "") BAT_TARGET_SALES = DBNull.Value.ToString();
+                    if (EFFECTIVE_ROTH == "") EFFECTIVE_ROTH = DBNull.Value.ToString();
+                    if (EFFECTIVE_VICE == "") EFFECTIVE_VICE = DBNull.Value.ToString();
+                    if (EFFECTIVE_PALL == "") EFFECTIVE_PALL = DBNull.Value.ToString();
+                    if (VICE_TARGET_SALES == "") VICE_TARGET_SALES = DBNull.Value.ToString();
+                
+                    if (EFFECTIVE_KENT == "") EFFECTIVE_KENT = DBNull.Value.ToString();
+                    if (EFFECTIVE_ANY == "") EFFECTIVE_ANY = DBNull.Value.ToString();
+                    if (ITG_TARGET_SALES == "") ITG_TARGET_SALES = DBNull.Value.ToString();
+
+                    if (ROYAL_TARGET_SALES == "") ROYAL_TARGET_SALES = DBNull.Value.ToString();
+                    if (EFFECTIVE_ROYAL == "") EFFECTIVE_ROYAL = DBNull.Value.ToString();
+                    if (EFFECTIVE_DUNHILL_MASTER == "") EFFECTIVE_DUNHILL_MASTER = DBNull.Value.ToString();
+                    if (EFFECTIVE_DVD_HALF_OUTER == "") EFFECTIVE_DVD_HALF_OUTER = DBNull.Value.ToString();
+                    if (CORE_TARGET_SALES == "") CORE_TARGET_SALES = DBNull.Value.ToString();
+                    if (KPI_HALF_OUTER == "") KPI_HALF_OUTER = DBNull.Value.ToString();
+                    if (KPI_EIGHTY_PER_TCO == "") KPI_EIGHTY_PER_TCO = DBNull.Value.ToString();
+                    if (DROP_SIZE_TARGET == "") DROP_SIZE_TARGET = DBNull.Value.ToString();
+                    if (EFFECTIVE_ALL == "") EFFECTIVE_ALL = DBNull.Value.ToString();
 
                     String cmdkpi = "Insert into salesman_targets_test  ( BRANCH_CODE ,SALES_TER_ID,SALES_ID,SALESMAN_NAME,DVD_TARGET_SALES,TIME_TARGET_SALES,HAYAT_TARGET_SALES,EFFECTIVE_TIME,EFFECTIVE_DVD,MON,YEAR,WORK_DAYS) VALUES (' "
                    + BRANCH_CODE +
@@ -1052,7 +1119,46 @@ namespace MDSF.Forms.Target
                    "','" + EFFECTIVE_DVD +
                    "','" + MON +
                    "','" + YEAR +
-                   "','" + WORK_DAYS + "')";
+                   "','" + WORK_DAYS +
+
+                
+                   "','" + COVERAGE +
+                   "','" + EFFECTIVE_ASSAL +
+                   "','" + GV_EFFECTIVE +
+                   "','" + GV_TARGET_SALES +
+                   "','" + MOLASSES_HANDLERS +
+                   "','" + SUCC_CALLS_TARGET +
+                   "','" + TARGET_TARGET_SALES +
+                   "','" + EFFECTIVE_TARGET +
+                   "','" + WEST_TARGET_SALES +
+                   "','" + PREV_DVD_TARGET +
+                   "','" + PREV_TIME_TARGET +
+                   
+                   "','" + PREV_DVD_EFF +
+                   "','" + PREV_TIME_EFF +
+                   "','" + EFFECTIVE_WEST +
+                   "','" + BAT_TARGET_SALES +
+                   "','" + EFFECTIVE_ROTH +
+                   "','" + EFFECTIVE_VICE +
+                   "','" + EFFECTIVE_PALL +
+                   "','" + VICE_TARGET_SALES +
+                   "','" + EFFECTIVE_KENT +
+                   "','" + EFFECTIVE_ANY +
+                   "','" + ITG_TARGET_SALES +
+
+                   "','" + ROYAL_TARGET_SALES +
+                   "','" + EFFECTIVE_ROYAL +
+                   "','" + EFFECTIVE_DUNHILL_MASTER +
+                   "','" + EFFECTIVE_DVD_HALF_OUTER +
+                   "','" + CORE_TARGET_SALES +
+                   "','" + KPI_HALF_OUTER +
+                   "','" + KPI_EIGHTY_PER_TCO +
+                   "','" + DROP_SIZE_TARGET +
+                   "','" + EFFECTIVE_ALL +
+                
+
+
+                   "')";
                     DataAccessCS.insert(cmdkpi);
                     DataAccessCS.conn.Close();
 
