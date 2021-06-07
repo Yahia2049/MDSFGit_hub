@@ -1569,6 +1569,7 @@
             // 
             this.dailyActivityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.wrongDateToolStripMenuItem});
+            this.dailyActivityToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.dailyActivityToolStripMenuItem.Name = "dailyActivityToolStripMenuItem";
             this.dailyActivityToolStripMenuItem.Size = new System.Drawing.Size(167, 25);
             this.dailyActivityToolStripMenuItem.Text = "Daily Activity";
@@ -1576,6 +1577,8 @@
             // 
             // wrongDateToolStripMenuItem
             // 
+            this.wrongDateToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.wrongDateToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.wrongDateToolStripMenuItem.Name = "wrongDateToolStripMenuItem";
             this.wrongDateToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.wrongDateToolStripMenuItem.Text = "Wrong Date";
