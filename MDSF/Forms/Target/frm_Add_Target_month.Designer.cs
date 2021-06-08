@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Add_Target_month));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -115,6 +115,14 @@
             this.btn_import_excel_kpi = new Telerik.WinControls.UI.RadButton();
             this.rgv_kpi_insert = new Telerik.WinControls.UI.RadGridView();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btn_kpi_search = new Telerik.WinControls.UI.RadButton();
+            this.txt_month_kpi_search = new System.Windows.Forms.TextBox();
+            this.txt_Year_kpi_search = new System.Windows.Forms.TextBox();
+            this.txt_branch_kpi_search = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -167,6 +175,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).BeginInit();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_kpi_search)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -448,7 +458,7 @@
             // 
             // 
             // 
-            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.rgv_salester_target.Name = "rgv_salester_target";
             // 
             // 
@@ -714,7 +724,7 @@
             // 
             // 
             // 
-            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition7;
+            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.rgv_Salesrep_target.Name = "rgv_Salesrep_target";
             // 
             // 
@@ -1048,7 +1058,7 @@
             // 
             // 
             // 
-            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition8;
+            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.rgv_pos_target.Name = "rgv_pos_target";
             // 
             // 
@@ -1060,6 +1070,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.groupBox6);
             this.tabPage4.Controls.Add(this.radButton10);
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Controls.Add(this.btn_save_sfis_kpi);
@@ -1087,7 +1098,7 @@
             // 
             // 
             // 
-            this.radButton10.RootElement.ControlBounds = new System.Drawing.Rectangle(752, 3, 110, 24);
+            this.radButton10.RootElement.ControlBounds = new System.Drawing.Rectangle(687, 3, 110, 24);
             this.radButton10.Size = new System.Drawing.Size(187, 38);
             this.radButton10.TabIndex = 265;
             this.radButton10.Text = "Export KPI Templet To Excel";
@@ -1223,19 +1234,99 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rgv_kpi_insert.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rgv_kpi_insert.Location = new System.Drawing.Point(1, 47);
+            this.rgv_kpi_insert.Location = new System.Drawing.Point(1, 96);
             // 
             // 
             // 
-            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition5;
+            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.rgv_kpi_insert.Name = "rgv_kpi_insert";
             // 
             // 
             // 
-            this.rgv_kpi_insert.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 47, 240, 150);
-            this.rgv_kpi_insert.Size = new System.Drawing.Size(936, 277);
+            this.rgv_kpi_insert.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 81, 936, 243);
+            this.rgv_kpi_insert.Size = new System.Drawing.Size(936, 228);
             this.rgv_kpi_insert.TabIndex = 18;
             this.rgv_kpi_insert.ThemeName = "TelerikMetro";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Controls.Add(this.label16);
+            this.groupBox6.Controls.Add(this.btn_kpi_search);
+            this.groupBox6.Controls.Add(this.txt_month_kpi_search);
+            this.groupBox6.Controls.Add(this.txt_Year_kpi_search);
+            this.groupBox6.Controls.Add(this.txt_branch_kpi_search);
+            this.groupBox6.Location = new System.Drawing.Point(3, 41);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(465, 45);
+            this.groupBox6.TabIndex = 29;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Search KPI";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(138, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(37, 13);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Month";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(230, 17);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(29, 13);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "Year";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 17);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(68, 13);
+            this.label16.TabIndex = 9;
+            this.label16.Text = "Branch Code";
+            // 
+            // btn_kpi_search
+            // 
+            this.btn_kpi_search.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_kpi_search.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_kpi_search.Location = new System.Drawing.Point(335, 13);
+            this.btn_kpi_search.Name = "btn_kpi_search";
+            // 
+            // 
+            // 
+            this.btn_kpi_search.RootElement.ControlBounds = new System.Drawing.Rectangle(86, 89, 110, 24);
+            this.btn_kpi_search.Size = new System.Drawing.Size(113, 21);
+            this.btn_kpi_search.TabIndex = 8;
+            this.btn_kpi_search.Text = "Search";
+            this.btn_kpi_search.ThemeName = "TelerikMetro";
+            this.btn_kpi_search.Click += new System.EventHandler(this.btn_kpi_search_Click);
+            // 
+            // txt_month_kpi_search
+            // 
+            this.txt_month_kpi_search.Location = new System.Drawing.Point(179, 14);
+            this.txt_month_kpi_search.Name = "txt_month_kpi_search";
+            this.txt_month_kpi_search.Size = new System.Drawing.Size(42, 20);
+            this.txt_month_kpi_search.TabIndex = 2;
+            // 
+            // txt_Year_kpi_search
+            // 
+            this.txt_Year_kpi_search.Location = new System.Drawing.Point(265, 13);
+            this.txt_Year_kpi_search.Name = "txt_Year_kpi_search";
+            this.txt_Year_kpi_search.Size = new System.Drawing.Size(58, 20);
+            this.txt_Year_kpi_search.TabIndex = 1;
+            // 
+            // txt_branch_kpi_search
+            // 
+            this.txt_branch_kpi_search.Location = new System.Drawing.Point(80, 14);
+            this.txt_branch_kpi_search.Name = "txt_branch_kpi_search";
+            this.txt_branch_kpi_search.Size = new System.Drawing.Size(44, 20);
+            this.txt_branch_kpi_search.TabIndex = 0;
             // 
             // frm_Add_Target_month
             // 
@@ -1304,6 +1395,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_kpi_search)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1391,5 +1485,13 @@
         private Telerik.WinControls.UI.RadGridView rgv_kpi_insert;
         private Telerik.WinControls.UI.RadButton radButton10;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private Telerik.WinControls.UI.RadButton btn_kpi_search;
+        private System.Windows.Forms.TextBox txt_month_kpi_search;
+        private System.Windows.Forms.TextBox txt_Year_kpi_search;
+        private System.Windows.Forms.TextBox txt_branch_kpi_search;
     }
 }
