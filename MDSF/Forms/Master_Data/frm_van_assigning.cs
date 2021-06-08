@@ -249,7 +249,12 @@ namespace MDSF.Forms.Master_Data
                 cmb_Van_ID.SelectedIndex = -1;
                 cmb_Van_ID.Text = "--Choose--";
 
-                
+                cmb_Plate_Number.DataSource = ds.Tables[0];
+                cmb_Plate_Number.DisplayMember = "car_num";
+                cmb_Plate_Number.ValueMember = "VAN_ID";
+                cmb_Plate_Number.SelectedIndex = -1;
+                cmb_Plate_Number.Text = "--Choose--";
+
                 ds.Dispose();
                 DataAccessCS.conn.Close();
                 //--------------------------------------
@@ -564,27 +569,28 @@ namespace MDSF.Forms.Master_Data
 
         private void cmb_Van_ID_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            try
-            {
-                DataSet ds = new DataSet();
-                //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                ds = DataAccessCS.getdata("select VAN_ID,car_num from van where van_id=" + cmb_Van_ID.SelectedValue + "and branch_code="+ cmb_Region_Van.SelectedValue +"");
-                cmb_Plate_Number.DataSource = ds.Tables[0];
-                cmb_Plate_Number.DisplayMember = "car_num";
-                cmb_Plate_Number.ValueMember = "VAN_ID";
-                cmb_Plate_Number.SelectedIndex = -1;
-                cmb_Plate_Number.Text = "--Choose--";
+            //this.Cursor = Cursors.WaitCursor;
+            //try
+            //{
+            //    DataSet ds = new DataSet();
 
-                ds.Dispose();
-                DataAccessCS.conn.Close();
-                //--------------------------------------
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            this.Cursor = Cursors.Default;
+            //    ds = DataAccessCS.getdata("select VAN_ID,car_num from van where van_id=" + cmb_Van_ID.SelectedValue + "and branch_code=" + cmb_Region_Van.SelectedValue + "");
+            //    cmb_Plate_Number.DataSource = ds.Tables[0];
+            //    cmb_Plate_Number.DisplayMember = "car_num";
+            //    cmb_Plate_Number.ValueMember = "VAN_ID";
+            //    cmb_Plate_Number.SelectedIndex = -1;
+            //    cmb_Plate_Number.Text = "--Choose--";
+
+
+            //    ds.Dispose();
+            //    DataAccessCS.conn.Close();
+            //    //--------------------------------------
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //this.Cursor = Cursors.Default;
         }
     }
    
