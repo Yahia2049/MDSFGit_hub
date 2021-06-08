@@ -65,11 +65,11 @@ namespace MDSF.Forms.Master_Data
             }
             this.Cursor = Cursors.Default;
         }
-        private void Fill_cmb_SalesTer_salesman()
+        public void Fill_cmb_SalesTer_salesman()
         {
             try
             {
-                cmb_sales_ter_Salesman.Items.Clear();
+               
                 //--------------------------------------
                 DataSet ds = new DataSet();
                 ds = DataAccessCS.getdata("select  t.SALES_TER_ID,t.NAME from sales_territories_active t where t.BRANCH_CODE in(" + cmb_Region_salesman.SelectedValue + ") and  t.SALES_TER_ID in (" + DataAccessCS.x_sales_ter + ")  order by t.NAME asc ");
@@ -89,11 +89,11 @@ namespace MDSF.Forms.Master_Data
             }
             this.Cursor = Cursors.Default;
         }
-        private void Fill_cmb_SalesTer_Dis()
+        public void Fill_cmb_SalesTer_Dis()
         {
             try
             {
-                cmb_sales_ter_Dis.Items.Clear();
+               
                 //--------------------------------------
                 DataSet ds = new DataSet();
                 ds = DataAccessCS.getdata("select  t.SALES_TER_ID,t.NAME from sales_territories_active t where t.BRANCH_CODE in(" + cmb_Region_Dis.SelectedValue + ") and  t.SALES_TER_ID in (" + DataAccessCS.x_sales_ter + ")  order by t.NAME asc ");
@@ -141,7 +141,7 @@ namespace MDSF.Forms.Master_Data
             }
             this.Cursor = Cursors.Default;
         }
-        private void Fill_cmb_Salesrep_Dis()
+        public void Fill_cmb_Salesrep_Dis()
         {
             try
             {
@@ -249,12 +249,7 @@ namespace MDSF.Forms.Master_Data
                 cmb_Van_ID.SelectedIndex = -1;
                 cmb_Van_ID.Text = "--Choose--";
 
-                cmb_Plate_Number.DataSource = ds.Tables[0];
-                cmb_Plate_Number.DisplayMember = "car_num";
-                cmb_Plate_Number.ValueMember = "VAN_ID";
-                cmb_Plate_Number.SelectedIndex = -1;
-                cmb_Plate_Number.Text = "--Choose--";
-
+                
                 ds.Dispose();
                 DataAccessCS.conn.Close();
                 //--------------------------------------
@@ -558,6 +553,38 @@ namespace MDSF.Forms.Master_Data
         private void cmb_Region_Dis_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_separate_Click(object sender, EventArgs e)
+        {
+            frm_NotActive_Salesrep_van x = new frm_NotActive_Salesrep_van();
+            x.Show();
+           
+        }
+
+        private void cmb_Van_ID_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataSet ds = new DataSet();
+                //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
+                ds = DataAccessCS.getdata("select VAN_ID,car_num from van where van_id=" + cmb_Van_ID.SelectedValue + "and branch_code="+ cmb_Region_Van.SelectedValue +"");
+                cmb_Plate_Number.DataSource = ds.Tables[0];
+                cmb_Plate_Number.DisplayMember = "car_num";
+                cmb_Plate_Number.ValueMember = "VAN_ID";
+                cmb_Plate_Number.SelectedIndex = -1;
+                cmb_Plate_Number.Text = "--Choose--";
+
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+                //--------------------------------------
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
         }
     }
    

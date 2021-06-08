@@ -194,6 +194,12 @@
     <Compile Include="Forms\Daily Activity\frm_wrong_date.Designer.cs">
       <DependentUpon>frm_wrong_date.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Master_Data\frm_NotActive_Salesrep_van.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master_Data\frm_NotActive_Salesrep_van.Designer.cs">
+      <DependentUpon>frm_NotActive_Salesrep_van.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Master_Data\frm_pricelist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Daily Activity\frm_wrong_date.resx">
       <DependentUpon>frm_wrong_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master_Data\frm_NotActive_Salesrep_van.resx">
+      <DependentUpon>frm_NotActive_Salesrep_van.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master_Data\frm_pricelist.resx">
       <DependentUpon>frm_pricelist.cs</DependentUpon>
