@@ -64,7 +64,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pct_photo.Location = new System.Drawing.Point(7, 3);
             this.pct_photo.Name = "pct_photo";
-            this.pct_photo.Size = new System.Drawing.Size(1019, 392);
+            this.pct_photo.Size = new System.Drawing.Size(1019, 393);
             this.pct_photo.TabIndex = 0;
             this.pct_photo.TabStop = false;
             // 
@@ -88,14 +88,14 @@
             this.panel1.Controls.Add(this.pct_photo);
             this.panel1.Location = new System.Drawing.Point(5, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1029, 446);
+            this.panel1.Size = new System.Drawing.Size(1029, 447);
             this.panel1.TabIndex = 3;
             this.panel1.Visible = false;
             // 
             // btn_back
             // 
             this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_back.Location = new System.Drawing.Point(470, 401);
+            this.btn_back.Location = new System.Drawing.Point(470, 402);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(75, 42);
             this.btn_back.TabIndex = 1;

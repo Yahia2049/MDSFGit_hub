@@ -135,7 +135,7 @@ namespace MDSF.Forms.POS
                                     "(select   listagg ( ANSWER, ',') WITHIN GROUP  (ORDER BY ANSWER)  from v_survey_tax where pos_code = d.pos_code ) type ,PHOTO " +
                                     "from doc_photo d , pos@sfis p where d.survey_id = 100 and d.doc_type_id = 1 " +
                                     "and  ter_id= Substr(d.pos_code, 1, Instr(d.pos_code, '_') - 1) and pos_id = Substr(d.pos_code, Instr(d.pos_code, '_') + 1) " +
-                                    "and  d.pos_code =" + txt_pos_code.Text + "' ";
+                                    "and  d.pos_code ='" + txt_pos_code.Text + "' ";
                         //ds = DataAccessCS.getdata(c);
                         ds = DataAccessCS.getdata_sales(c);
                         dgv_pos_photo.DataSource = ds.Tables[0];
