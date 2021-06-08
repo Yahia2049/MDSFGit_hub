@@ -950,7 +950,7 @@ namespace MDSF.Forms.Target
                     String cmdDelTarget = "Delete from  salesman_targets_test  WHERE BRANCH_CODE = " + txt_branch_kpi.Text + " AND MON = " + txt_month_kpi.Text + " AND YEAR = " + txt_year_kpi.Text;
                     DataAccessCS.delete(cmdDelTarget);
                     DataAccessCS.conn.Close();
-                    MessageBox.Show("Deleted Successful");
+                    MessageBox.Show("Deleted Successfull");
                 }
             
                 
@@ -1205,6 +1205,26 @@ namespace MDSF.Forms.Target
          
         }
 
-       
+        private void btn_kpi_search_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataSet dsT = new DataSet();
+                dsT = DataAccessCS.getdata("select * from salesman_targets_test where branch_code= "+txt_branch_kpi_search.Text+" and mon="+txt_month_kpi_search.Text+" and year ="+txt_Year_kpi_search.Text+"");
+                DataAccessCS.conn.Close();
+                rgv_kpi_insert.DataSource = dsT.Tables[0];
+                //rgv_kpi_insert.AutoResizeColumns();
+                dsT.Dispose();
+
+                DataAccessCS.conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
     }
 }
