@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.label33 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -122,7 +122,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.08614F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.91386F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 415F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 416F));
             this.tableLayoutPanel1.Controls.Add(this.panel6, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 1);
@@ -143,21 +143,26 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.rgv_destination_van);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(518, 130);
+            this.panel6.Location = new System.Drawing.Point(517, 130);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(410, 294);
+            this.panel6.Size = new System.Drawing.Size(411, 294);
             this.panel6.TabIndex = 5;
             // 
             // rgv_destination_van
             // 
+            this.rgv_destination_van.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.rgv_destination_van.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rgv_destination_van.Location = new System.Drawing.Point(0, 0);
             // 
             // 
             // 
-            this.rgv_destination_van.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.rgv_destination_van.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.rgv_destination_van.Name = "rgv_destination_van";
-            this.rgv_destination_van.Size = new System.Drawing.Size(408, 292);
+            // 
+            // 
+            // 
+            this.rgv_destination_van.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
+            this.rgv_destination_van.Size = new System.Drawing.Size(409, 292);
             this.rgv_destination_van.TabIndex = 0;
             // 
             // panel5
@@ -166,7 +171,7 @@
             this.panel5.Controls.Add(this.btn_TO_DES);
             this.panel5.Controls.Add(this.btn_From_DES);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(421, 130);
+            this.panel5.Location = new System.Drawing.Point(420, 130);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(91, 294);
             this.panel5.TabIndex = 4;
@@ -211,25 +216,30 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 130);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(412, 294);
+            this.panel4.Size = new System.Drawing.Size(411, 294);
             this.panel4.TabIndex = 3;
             // 
             // rgv_Active_Vans
             // 
+            this.rgv_Active_Vans.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.rgv_Active_Vans.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rgv_Active_Vans.Location = new System.Drawing.Point(0, 0);
             // 
             // 
             // 
-            this.rgv_Active_Vans.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.rgv_Active_Vans.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.rgv_Active_Vans.Name = "rgv_Active_Vans";
-            this.rgv_Active_Vans.Size = new System.Drawing.Size(410, 292);
+            // 
+            // 
+            // 
+            this.rgv_Active_Vans.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
+            this.rgv_Active_Vans.Size = new System.Drawing.Size(409, 292);
             this.rgv_Active_Vans.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(421, 3);
+            this.panel3.Location = new System.Drawing.Point(420, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(91, 121);
             this.panel3.TabIndex = 2;
@@ -242,7 +252,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(412, 121);
+            this.panel2.Size = new System.Drawing.Size(411, 121);
             this.panel2.TabIndex = 1;
             // 
             // Label_CountH
@@ -291,9 +301,9 @@
             this.panel1.Controls.Add(this.cmb_Region_Dis);
             this.panel1.Controls.Add(this.label33);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(518, 3);
+            this.panel1.Location = new System.Drawing.Point(517, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(410, 121);
+            this.panel1.Size = new System.Drawing.Size(411, 121);
             this.panel1.TabIndex = 0;
             // 
             // label9
@@ -355,6 +365,7 @@
             this.cmb_Region_Dis.Name = "cmb_Region_Dis";
             this.cmb_Region_Dis.Size = new System.Drawing.Size(257, 21);
             this.cmb_Region_Dis.TabIndex = 239;
+            this.cmb_Region_Dis.SelectedIndexChanged += new System.EventHandler(this.cmb_Region_Dis_SelectedIndexChanged);
             this.cmb_Region_Dis.SelectionChangeCommitted += new System.EventHandler(this.cmb_Region_Dis_SelectionChangeCommitted);
             // 
             // cmb_salesrep_salesman
@@ -408,6 +419,7 @@
             this.cmb_Region_salesman.Name = "cmb_Region_salesman";
             this.cmb_Region_salesman.Size = new System.Drawing.Size(257, 21);
             this.cmb_Region_salesman.TabIndex = 245;
+            this.cmb_Region_salesman.SelectedIndexChanged += new System.EventHandler(this.cmb_Region_salesman_SelectedIndexChanged);
             this.cmb_Region_salesman.SelectionChangeCommitted += new System.EventHandler(this.cmb_Region_salesman_SelectionChangeCommitted);
             // 
             // label3

@@ -549,6 +549,16 @@ namespace MDSF.Forms.Master_Data
             }
             this.Cursor = Cursors.Default;
         }
+
+        private void cmb_Region_salesman_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_Region_Dis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
    
 }
