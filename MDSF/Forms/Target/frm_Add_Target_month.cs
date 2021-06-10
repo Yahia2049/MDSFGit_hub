@@ -1226,5 +1226,10 @@ namespace MDSF.Forms.Target
 
             this.Cursor = Cursors.Default;
         }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

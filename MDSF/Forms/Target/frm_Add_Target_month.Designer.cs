@@ -101,6 +101,14 @@
             this.btn_import_from_Excel_pos = new Telerik.WinControls.UI.RadButton();
             this.rgv_pos_target = new Telerik.WinControls.UI.RadGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btn_kpi_search = new Telerik.WinControls.UI.RadButton();
+            this.txt_month_kpi_search = new System.Windows.Forms.TextBox();
+            this.txt_Year_kpi_search = new System.Windows.Forms.TextBox();
+            this.txt_branch_kpi_search = new System.Windows.Forms.TextBox();
             this.radButton10 = new Telerik.WinControls.UI.RadButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -115,14 +123,6 @@
             this.btn_import_excel_kpi = new Telerik.WinControls.UI.RadButton();
             this.rgv_kpi_insert = new Telerik.WinControls.UI.RadGridView();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.btn_kpi_search = new Telerik.WinControls.UI.RadButton();
-            this.txt_month_kpi_search = new System.Windows.Forms.TextBox();
-            this.txt_Year_kpi_search = new System.Windows.Forms.TextBox();
-            this.txt_branch_kpi_search = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -168,6 +168,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgv_pos_target)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_pos_target.MasterTemplate)).BeginInit();
             this.tabPage4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_kpi_search)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton10)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_remove_kpi)).BeginInit();
@@ -175,8 +177,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).BeginInit();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_kpi_search)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -771,6 +771,7 @@
             this.groupBox4.TabIndex = 29;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "SFIS";
+            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // lbl_target_type
             // 
@@ -1085,6 +1086,86 @@
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Controls.Add(this.label16);
+            this.groupBox6.Controls.Add(this.btn_kpi_search);
+            this.groupBox6.Controls.Add(this.txt_month_kpi_search);
+            this.groupBox6.Controls.Add(this.txt_Year_kpi_search);
+            this.groupBox6.Controls.Add(this.txt_branch_kpi_search);
+            this.groupBox6.Location = new System.Drawing.Point(3, 41);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(465, 45);
+            this.groupBox6.TabIndex = 29;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Search KPI";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(138, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(37, 13);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Month";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(230, 17);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(29, 13);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "Year";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 17);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(68, 13);
+            this.label16.TabIndex = 9;
+            this.label16.Text = "Branch Code";
+            // 
+            // btn_kpi_search
+            // 
+            this.btn_kpi_search.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_kpi_search.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_kpi_search.Location = new System.Drawing.Point(335, 13);
+            this.btn_kpi_search.Name = "btn_kpi_search";
+            // 
+            // 
+            // 
+            this.btn_kpi_search.RootElement.ControlBounds = new System.Drawing.Rectangle(335, 13, 110, 24);
+            this.btn_kpi_search.Size = new System.Drawing.Size(113, 21);
+            this.btn_kpi_search.TabIndex = 8;
+            this.btn_kpi_search.Text = "Search";
+            this.btn_kpi_search.ThemeName = "TelerikMetro";
+            this.btn_kpi_search.Click += new System.EventHandler(this.btn_kpi_search_Click);
+            // 
+            // txt_month_kpi_search
+            // 
+            this.txt_month_kpi_search.Location = new System.Drawing.Point(179, 14);
+            this.txt_month_kpi_search.Name = "txt_month_kpi_search";
+            this.txt_month_kpi_search.Size = new System.Drawing.Size(42, 20);
+            this.txt_month_kpi_search.TabIndex = 2;
+            // 
+            // txt_Year_kpi_search
+            // 
+            this.txt_Year_kpi_search.Location = new System.Drawing.Point(265, 13);
+            this.txt_Year_kpi_search.Name = "txt_Year_kpi_search";
+            this.txt_Year_kpi_search.Size = new System.Drawing.Size(58, 20);
+            this.txt_Year_kpi_search.TabIndex = 1;
+            // 
+            // txt_branch_kpi_search
+            // 
+            this.txt_branch_kpi_search.Location = new System.Drawing.Point(80, 14);
+            this.txt_branch_kpi_search.Name = "txt_branch_kpi_search";
+            this.txt_branch_kpi_search.Size = new System.Drawing.Size(44, 20);
+            this.txt_branch_kpi_search.TabIndex = 0;
+            // 
             // radButton10
             // 
             this.radButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1243,90 +1324,10 @@
             // 
             // 
             // 
-            this.rgv_kpi_insert.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 81, 936, 243);
+            this.rgv_kpi_insert.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 96, 240, 150);
             this.rgv_kpi_insert.Size = new System.Drawing.Size(936, 228);
             this.rgv_kpi_insert.TabIndex = 18;
             this.rgv_kpi_insert.ThemeName = "TelerikMetro";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label14);
-            this.groupBox6.Controls.Add(this.label15);
-            this.groupBox6.Controls.Add(this.label16);
-            this.groupBox6.Controls.Add(this.btn_kpi_search);
-            this.groupBox6.Controls.Add(this.txt_month_kpi_search);
-            this.groupBox6.Controls.Add(this.txt_Year_kpi_search);
-            this.groupBox6.Controls.Add(this.txt_branch_kpi_search);
-            this.groupBox6.Location = new System.Drawing.Point(3, 41);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(465, 45);
-            this.groupBox6.TabIndex = 29;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Search KPI";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(138, 16);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(37, 13);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "Month";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(230, 17);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(29, 13);
-            this.label15.TabIndex = 10;
-            this.label15.Text = "Year";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 17);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(68, 13);
-            this.label16.TabIndex = 9;
-            this.label16.Text = "Branch Code";
-            // 
-            // btn_kpi_search
-            // 
-            this.btn_kpi_search.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_kpi_search.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_kpi_search.Location = new System.Drawing.Point(335, 13);
-            this.btn_kpi_search.Name = "btn_kpi_search";
-            // 
-            // 
-            // 
-            this.btn_kpi_search.RootElement.ControlBounds = new System.Drawing.Rectangle(86, 89, 110, 24);
-            this.btn_kpi_search.Size = new System.Drawing.Size(113, 21);
-            this.btn_kpi_search.TabIndex = 8;
-            this.btn_kpi_search.Text = "Search";
-            this.btn_kpi_search.ThemeName = "TelerikMetro";
-            this.btn_kpi_search.Click += new System.EventHandler(this.btn_kpi_search_Click);
-            // 
-            // txt_month_kpi_search
-            // 
-            this.txt_month_kpi_search.Location = new System.Drawing.Point(179, 14);
-            this.txt_month_kpi_search.Name = "txt_month_kpi_search";
-            this.txt_month_kpi_search.Size = new System.Drawing.Size(42, 20);
-            this.txt_month_kpi_search.TabIndex = 2;
-            // 
-            // txt_Year_kpi_search
-            // 
-            this.txt_Year_kpi_search.Location = new System.Drawing.Point(265, 13);
-            this.txt_Year_kpi_search.Name = "txt_Year_kpi_search";
-            this.txt_Year_kpi_search.Size = new System.Drawing.Size(58, 20);
-            this.txt_Year_kpi_search.TabIndex = 1;
-            // 
-            // txt_branch_kpi_search
-            // 
-            this.txt_branch_kpi_search.Location = new System.Drawing.Point(80, 14);
-            this.txt_branch_kpi_search.Name = "txt_branch_kpi_search";
-            this.txt_branch_kpi_search.Size = new System.Drawing.Size(44, 20);
-            this.txt_branch_kpi_search.TabIndex = 0;
             // 
             // frm_Add_Target_month
             // 
@@ -1387,6 +1388,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgv_pos_target.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_pos_target)).EndInit();
             this.tabPage4.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_kpi_search)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton10)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -1395,9 +1399,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).EndInit();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_kpi_search)).EndInit();
             this.ResumeLayout(false);
 
         }

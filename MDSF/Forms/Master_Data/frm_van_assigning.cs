@@ -417,7 +417,7 @@ namespace MDSF.Forms.Master_Data
                     {
                         Max_Assign_ID = DataAccessCS.getvalue("select max(ASSIGNING_ID)+1 as MAX_ASS_Id from VEHICLE_ASSIGNING");
                         DataAccessCS.conn.Close();
-                        Max_Ending_KM = DataAccessCS.getvalue("select select max(ending_km)ending_km from vehicle_assigning where van_id=" + rgv_Active_Vans.CurrentRow.Cells[2].Value + "");
+                        Max_Ending_KM = DataAccessCS.getvalue(" select max(ending_km) as Max_Ending_KM from vehicle_assigning where van_id=" + rgv_Active_Vans.CurrentRow.Cells["VAN_ID"].Value.ToString() + ""); 
                         DataAccessCS.conn.Close();
                         DataAccessCS.insert("insert into VEHICLE_ASSIGNING values (" + Max_Assign_ID + "," + rgv_Active_Vans.CurrentRow.Cells[0].Value + "," + cmb_salesrep_Dis.SelectedValue + ", Sysdate,''," +Max_Ending_KM+ ",'',"+ rgv_Active_Vans.CurrentRow.Cells[4].Value + ")");
                         DataAccessCS.conn.Close();
