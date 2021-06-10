@@ -440,7 +440,7 @@
             this.txt_branch.Dock = System.Windows.Forms.DockStyle.Top;
             this.txt_branch.Location = new System.Drawing.Point(0, 0);
             this.txt_branch.Name = "txt_branch";
-            this.txt_branch.Size = new System.Drawing.Size(1165, 505);
+            this.txt_branch.Size = new System.Drawing.Size(1165, 59);
             this.txt_branch.TabIndex = 271;
             this.txt_branch.Visible = false;
             this.txt_branch.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_New_POS_Paint_1);
