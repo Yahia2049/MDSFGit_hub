@@ -1249,5 +1249,13 @@ namespace MDSF
             X_Form.MdiParent = this;
             X_Form.WindowState = FormWindowState.Maximized;
         }
+
+        private void reassignRoutesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var X_Form = new frm_reassign_pos_routes();
+            X_Form.Show();
+            X_Form.MdiParent = this;
+            X_Form.WindowState = FormWindowState.Maximized;
+        }
     }
 }

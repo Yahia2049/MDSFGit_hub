@@ -206,6 +206,12 @@
     <Compile Include="Forms\Master_Data\frm_pricelist.designer.cs">
       <DependentUpon>frm_pricelist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Master_Data\frm_reassign_pos_routes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master_Data\frm_reassign_pos_routes.Designer.cs">
+      <DependentUpon>frm_reassign_pos_routes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Master_Data\frm_update_KM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master_Data\frm_pricelist.resx">
       <DependentUpon>frm_pricelist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master_Data\frm_reassign_pos_routes.resx">
+      <DependentUpon>frm_reassign_pos_routes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master_Data\frm_update_KM.resx">
       <DependentUpon>frm_update_KM.cs</DependentUpon>
