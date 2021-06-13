@@ -459,7 +459,7 @@ namespace MDSF.Forms.Master_Data
                         }
                         //--------------------------------------------------------------
                         MessageBox.Show("The Car has been assigned , تم تخصيص السيارة ");
-                        ds = DataAccessCS.getdata("SELECT  VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT");
+                        ds = DataAccessCS.getdata("SELECT  VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT where VAN_ID=" + rgv_Active_Vans.CurrentRow.Cells["VAN_ID"].Value.ToString()  );
                         rgv_Active_Vans.DataSource = ds.Tables[0];
                         ds.Dispose();
                         DataAccessCS.conn.Close();
@@ -529,14 +529,14 @@ namespace MDSF.Forms.Master_Data
                 }
                 //--------------------------------------------------------------
                 MessageBox.Show("The Car is now De-Assigned , تمت عملية أخلاء السيارة");
-                ds = DataAccessCS.getdata("SELECT  VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT");
+                ds = DataAccessCS.getdata("SELECT  VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT where VAN_ID=" + rgv_Active_Vans.CurrentRow.Cells["VAN_ID"].Value.ToString() );
                 rgv_Active_Vans.DataSource = ds.Tables[0];
                 ds.Dispose();
                 DataAccessCS.conn.Close();
                 rgv_Active_Vans.BestFitColumns();
                 Label_CountH.Text = rgv_Active_Vans.RowCount.ToString();
 
-                rgv_destination_van.Rows.Clear();
+               // rgv_destination_van.Rows.Clear();
                 lbl_count_dis.Text = "0";
 
             
@@ -591,6 +591,31 @@ namespace MDSF.Forms.Master_Data
             //    MessageBox.Show(ex.Message);
             //}
             //this.Cursor = Cursors.Default;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_sales_ter_Salesman_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_salesrep_salesman_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
         }
     }
    

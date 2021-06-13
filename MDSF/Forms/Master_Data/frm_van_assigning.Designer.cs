@@ -122,7 +122,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.08614F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.91386F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 418F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 420F));
             this.tableLayoutPanel1.Controls.Add(this.panel6, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 1);
@@ -143,9 +143,9 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.rgv_destination_van);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(515, 130);
+            this.panel6.Location = new System.Drawing.Point(513, 130);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(413, 294);
+            this.panel6.Size = new System.Drawing.Size(415, 294);
             this.panel6.TabIndex = 5;
             // 
             // rgv_destination_van
@@ -162,7 +162,7 @@
             // 
             // 
             this.rgv_destination_van.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
-            this.rgv_destination_van.Size = new System.Drawing.Size(411, 292);
+            this.rgv_destination_van.Size = new System.Drawing.Size(413, 292);
             this.rgv_destination_van.TabIndex = 0;
             // 
             // panel5
@@ -171,9 +171,9 @@
             this.panel5.Controls.Add(this.btn_TO_DES);
             this.panel5.Controls.Add(this.btn_From_DES);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(418, 130);
+            this.panel5.Location = new System.Drawing.Point(417, 130);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(91, 294);
+            this.panel5.Size = new System.Drawing.Size(90, 294);
             this.panel5.TabIndex = 4;
             // 
             // button6
@@ -186,6 +186,7 @@
             this.button6.Text = "Clear";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Visible = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // btn_TO_DES
             // 
@@ -216,7 +217,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 130);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(409, 294);
+            this.panel4.Size = new System.Drawing.Size(408, 294);
             this.panel4.TabIndex = 3;
             // 
             // rgv_Active_Vans
@@ -233,15 +234,15 @@
             // 
             // 
             this.rgv_Active_Vans.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
-            this.rgv_Active_Vans.Size = new System.Drawing.Size(407, 292);
+            this.rgv_Active_Vans.Size = new System.Drawing.Size(406, 292);
             this.rgv_Active_Vans.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(418, 3);
+            this.panel3.Location = new System.Drawing.Point(417, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(91, 121);
+            this.panel3.Size = new System.Drawing.Size(90, 121);
             this.panel3.TabIndex = 2;
             // 
             // panel2
@@ -252,7 +253,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(409, 121);
+            this.panel2.Size = new System.Drawing.Size(408, 121);
             this.panel2.TabIndex = 1;
             // 
             // Label_CountH
@@ -301,9 +302,9 @@
             this.panel1.Controls.Add(this.cmb_Region_Dis);
             this.panel1.Controls.Add(this.label33);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(515, 3);
+            this.panel1.Location = new System.Drawing.Point(513, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(413, 121);
+            this.panel1.Size = new System.Drawing.Size(415, 121);
             this.panel1.TabIndex = 0;
             // 
             // label9
@@ -376,6 +377,7 @@
             this.cmb_salesrep_salesman.Name = "cmb_salesrep_salesman";
             this.cmb_salesrep_salesman.Size = new System.Drawing.Size(257, 21);
             this.cmb_salesrep_salesman.TabIndex = 243;
+            this.cmb_salesrep_salesman.SelectedIndexChanged += new System.EventHandler(this.cmb_salesrep_salesman_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -388,6 +390,7 @@
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 241;
             this.label1.Text = "Sales Rep";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // cmb_sales_ter_Salesman
             // 
@@ -397,6 +400,7 @@
             this.cmb_sales_ter_Salesman.Name = "cmb_sales_ter_Salesman";
             this.cmb_sales_ter_Salesman.Size = new System.Drawing.Size(257, 21);
             this.cmb_sales_ter_Salesman.TabIndex = 244;
+            this.cmb_sales_ter_Salesman.SelectedIndexChanged += new System.EventHandler(this.cmb_sales_ter_Salesman_SelectedIndexChanged);
             this.cmb_sales_ter_Salesman.SelectionChangeCommitted += new System.EventHandler(this.cmb_sales_ter_Salesman_SelectionChangeCommitted);
             // 
             // label2
@@ -410,6 +414,7 @@
             this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 240;
             this.label2.Text = "Sales Territory";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // cmb_Region_salesman
             // 
