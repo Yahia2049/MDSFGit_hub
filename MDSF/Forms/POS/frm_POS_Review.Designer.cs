@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_POS_Review));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.Label1 = new System.Windows.Forms.Label();
             this.txt_pos_code_temp = new System.Windows.Forms.TextBox();
             this.Label2 = new System.Windows.Forms.Label();
@@ -132,6 +132,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_search_by = new System.Windows.Forms.TextBox();
             this.cmb_search_by = new System.Windows.Forms.ComboBox();
+            this.txt_search_by_name = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.rchbdl_salesrep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rchbdl_salester)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rchbdl_Region)).BeginInit();
@@ -212,7 +214,7 @@
             // btn_search
             // 
             this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_search.Location = new System.Drawing.Point(508, 43);
+            this.btn_search.Location = new System.Drawing.Point(517, 34);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(178, 32);
             this.btn_search.TabIndex = 257;
@@ -355,7 +357,7 @@
             // 
             // 
             // 
-            this.Grid_ALL_New.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.Grid_ALL_New.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.Grid_ALL_New.Name = "Grid_ALL_New";
             this.Grid_ALL_New.Size = new System.Drawing.Size(1144, 240);
             this.Grid_ALL_New.TabIndex = 269;
@@ -370,7 +372,7 @@
             // 
             // 
             // 
-            this.Grid_Existing_POS.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.Grid_Existing_POS.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.Grid_Existing_POS.Name = "Grid_Existing_POS";
             this.Grid_Existing_POS.Size = new System.Drawing.Size(1144, 111);
             this.Grid_Existing_POS.TabIndex = 270;
@@ -440,7 +442,7 @@
             this.txt_branch.Dock = System.Windows.Forms.DockStyle.Top;
             this.txt_branch.Location = new System.Drawing.Point(0, 0);
             this.txt_branch.Name = "txt_branch";
-            this.txt_branch.Size = new System.Drawing.Size(1165, 59);
+            this.txt_branch.Size = new System.Drawing.Size(1165, 583);
             this.txt_branch.TabIndex = 271;
             this.txt_branch.Visible = false;
             this.txt_branch.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_New_POS_Paint_1);
@@ -1032,7 +1034,7 @@
             // 
             this.chk_all_newPOS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chk_all_newPOS.AutoSize = true;
-            this.chk_all_newPOS.Location = new System.Drawing.Point(547, 79);
+            this.chk_all_newPOS.Location = new System.Drawing.Point(707, 42);
             this.chk_all_newPOS.Name = "chk_all_newPOS";
             this.chk_all_newPOS.Size = new System.Drawing.Size(84, 17);
             this.chk_all_newPOS.TabIndex = 283;
@@ -1088,11 +1090,30 @@
             this.cmb_search_by.Size = new System.Drawing.Size(121, 21);
             this.cmb_search_by.TabIndex = 0;
             // 
+            // txt_search_by_name
+            // 
+            this.txt_search_by_name.Location = new System.Drawing.Point(478, 71);
+            this.txt_search_by_name.Name = "txt_search_by_name";
+            this.txt_search_by_name.Size = new System.Drawing.Size(127, 20);
+            this.txt_search_by_name.TabIndex = 285;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(387, 76);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(85, 13);
+            this.label41.TabIndex = 286;
+            this.label41.Text = "Search by Name";
+            this.label41.Click += new System.EventHandler(this.label41_Click);
+            // 
             // frm_POS_Review
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1165, 585);
+            this.Controls.Add(this.label41);
+            this.Controls.Add(this.txt_search_by_name);
             this.Controls.Add(this.txt_branch);
             this.Controls.Add(this.Grid_Existing_POS);
             this.Controls.Add(this.Grid_ALL_New);
@@ -1250,5 +1271,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmb_search_by;
         private System.Windows.Forms.TextBox txt_search_by;
+        private System.Windows.Forms.TextBox txt_search_by_name;
+        private System.Windows.Forms.Label label41;
     }
 }
