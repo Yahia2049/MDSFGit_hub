@@ -144,7 +144,7 @@ namespace MDSF.Forms.Daily_Activity
                 {
                     DataAccessCS.update("update journey@sales j set j.beg_km=" + txt_new_KM.Text + "  where j.van_id=" + lbl_Van_ID.Text + " and j.beg_km >" + txt_new_KM.Text + " ");
                     DataAccessCS.conn.Close();
-                    DataAccessCS.update("update van j set j.ending_km=" + txt_new_KM.Text + "  where j.van_id=" + lbl_Van_ID.Text + " and j.ending_km >" + txt_new_KM.Text + " and branch_code="+cmb_region_km+" ");
+                    DataAccessCS.update("update van j set j.ending_km=" + txt_new_KM.Text + "  where j.van_id=" + lbl_Van_ID.Text + " and branch_code="+cmb_region_km.SelectedValue+" ");
                     DataAccessCS.conn.Close();
                     int branch_code = Convert.ToInt32(cmb_region_km.SelectedValue);
                     if (branch_code == 1)
