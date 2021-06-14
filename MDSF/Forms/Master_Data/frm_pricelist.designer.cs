@@ -46,6 +46,9 @@
             this.btn_UpdatePrice = new System.Windows.Forms.Button();
             this.txtPack = new System.Windows.Forms.TextBox();
             this.btn_Add_price = new System.Windows.Forms.Button();
+            this.btnadd = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textline = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_priceList)).BeginInit();
             this.GroupBox10.SuspendLayout();
             this.SuspendLayout();
@@ -141,6 +144,9 @@
             // 
             // GroupBox10
             // 
+            this.GroupBox10.Controls.Add(this.textline);
+            this.GroupBox10.Controls.Add(this.label8);
+            this.GroupBox10.Controls.Add(this.btnadd);
             this.GroupBox10.Controls.Add(this.label7);
             this.GroupBox10.Controls.Add(this.txtCarton);
             this.GroupBox10.Controls.Add(this.label6);
@@ -160,7 +166,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(209, 37);
+            this.label7.Location = new System.Drawing.Point(337, 37);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 272;
@@ -168,16 +174,16 @@
             // 
             // txtCarton
             // 
-            this.txtCarton.Location = new System.Drawing.Point(260, 34);
+            this.txtCarton.Location = new System.Drawing.Point(388, 34);
             this.txtCarton.Name = "txtCarton";
-            this.txtCarton.Size = new System.Drawing.Size(133, 20);
+            this.txtCarton.Size = new System.Drawing.Size(72, 20);
             this.txtCarton.TabIndex = 271;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 37);
+            this.label6.Location = new System.Drawing.Point(196, 37);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 270;
@@ -185,16 +191,16 @@
             // 
             // txtCase
             // 
-            this.txtCase.Location = new System.Drawing.Point(58, 34);
+            this.txtCase.Location = new System.Drawing.Point(236, 34);
             this.txtCase.Name = "txtCase";
-            this.txtCase.Size = new System.Drawing.Size(133, 20);
+            this.txtCase.Size = new System.Drawing.Size(75, 20);
             this.txtCase.TabIndex = 269;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(410, 37);
+            this.label5.Location = new System.Drawing.Point(484, 37);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 268;
@@ -202,9 +208,9 @@
             // 
             // btn_UpdatePrice
             // 
-            this.btn_UpdatePrice.Location = new System.Drawing.Point(736, 28);
+            this.btn_UpdatePrice.Location = new System.Drawing.Point(766, 28);
             this.btn_UpdatePrice.Name = "btn_UpdatePrice";
-            this.btn_UpdatePrice.Size = new System.Drawing.Size(132, 30);
+            this.btn_UpdatePrice.Size = new System.Drawing.Size(84, 30);
             this.btn_UpdatePrice.TabIndex = 267;
             this.btn_UpdatePrice.Text = "Update Price";
             this.btn_UpdatePrice.UseVisualStyleBackColor = true;
@@ -212,20 +218,47 @@
             // 
             // txtPack
             // 
-            this.txtPack.Location = new System.Drawing.Point(452, 34);
+            this.txtPack.Location = new System.Drawing.Point(524, 34);
             this.txtPack.Name = "txtPack";
-            this.txtPack.Size = new System.Drawing.Size(133, 20);
+            this.txtPack.Size = new System.Drawing.Size(76, 20);
             this.txtPack.TabIndex = 266;
             // 
             // btn_Add_price
             // 
-            this.btn_Add_price.Location = new System.Drawing.Point(606, 28);
+            this.btn_Add_price.Location = new System.Drawing.Point(646, 28);
             this.btn_Add_price.Name = "btn_Add_price";
             this.btn_Add_price.Size = new System.Drawing.Size(101, 30);
             this.btn_Add_price.TabIndex = 267;
-            this.btn_Add_price.Text = "Add Price";
+            this.btn_Add_price.Text = "Update Zero Price";
             this.btn_Add_price.UseVisualStyleBackColor = true;
             this.btn_Add_price.Click += new System.EventHandler(this.btn_Add_price_Click);
+            // 
+            // btnadd
+            // 
+            this.btnadd.Location = new System.Drawing.Point(856, 28);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(75, 30);
+            this.btnadd.TabIndex = 273;
+            this.btnadd.Text = "Add Price";
+            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(15, 37);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 13);
+            this.label8.TabIndex = 274;
+            this.label8.Text = "Line Price";
+            // 
+            // textline
+            // 
+            this.textline.Location = new System.Drawing.Point(82, 34);
+            this.textline.Name = "textline";
+            this.textline.Size = new System.Drawing.Size(79, 20);
+            this.textline.TabIndex = 275;
             // 
             // frm_pricelist
             // 
@@ -273,5 +306,8 @@
         private System.Windows.Forms.Button btn_UpdatePrice;
         private System.Windows.Forms.TextBox txtPack;
         private System.Windows.Forms.Button btn_Add_price;
+        private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.TextBox textline;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -132,7 +132,7 @@ namespace MDSF.Forms.Master_Data
             else
             {
                 DataSet dst = new DataSet();
-                dst = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT where branch_code = (" + cmb_Region_Dis.SelectedValue + ") and salesrep_id= (" + cmb_salesrep_Dis.SelectedValue + ") ");
+                dst = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT where branch_code = (" + cmb_Region_Dis.SelectedValue + ") ");
                 DataAccessCS.conn.Close();
                 dgv_notactivevan.DataSource = dst.Tables[0];
                 dgv_notactivevan.AutoResizeColumns();
@@ -200,7 +200,7 @@ namespace MDSF.Forms.Master_Data
 
                 //--------------------------------------------------------------
 
-
+                MessageBox.Show("تم فك السيارة بنجاح");
 
 
             }
