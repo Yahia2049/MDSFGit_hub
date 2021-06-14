@@ -49,6 +49,7 @@
             this.btnadd = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.textline = new System.Windows.Forms.TextBox();
+            this.btn_del = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_priceList)).BeginInit();
             this.GroupBox10.SuspendLayout();
             this.SuspendLayout();
@@ -128,7 +129,7 @@
             this.dgv_priceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_priceList.Location = new System.Drawing.Point(22, 208);
             this.dgv_priceList.Name = "dgv_priceList";
-            this.dgv_priceList.Size = new System.Drawing.Size(949, 345);
+            this.dgv_priceList.Size = new System.Drawing.Size(986, 345);
             this.dgv_priceList.TabIndex = 7;
             this.dgv_priceList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_priceList_CellClick);
             // 
@@ -144,6 +145,7 @@
             // 
             // GroupBox10
             // 
+            this.GroupBox10.Controls.Add(this.btn_del);
             this.GroupBox10.Controls.Add(this.textline);
             this.GroupBox10.Controls.Add(this.label8);
             this.GroupBox10.Controls.Add(this.btnadd);
@@ -157,7 +159,7 @@
             this.GroupBox10.Controls.Add(this.btn_Add_price);
             this.GroupBox10.Location = new System.Drawing.Point(22, 115);
             this.GroupBox10.Name = "GroupBox10";
-            this.GroupBox10.Size = new System.Drawing.Size(949, 73);
+            this.GroupBox10.Size = new System.Drawing.Size(998, 73);
             this.GroupBox10.TabIndex = 266;
             this.GroupBox10.TabStop = false;
             this.GroupBox10.Text = "Edit price list";
@@ -208,7 +210,7 @@
             // 
             // btn_UpdatePrice
             // 
-            this.btn_UpdatePrice.Location = new System.Drawing.Point(766, 28);
+            this.btn_UpdatePrice.Location = new System.Drawing.Point(742, 28);
             this.btn_UpdatePrice.Name = "btn_UpdatePrice";
             this.btn_UpdatePrice.Size = new System.Drawing.Size(84, 30);
             this.btn_UpdatePrice.TabIndex = 267;
@@ -225,7 +227,7 @@
             // 
             // btn_Add_price
             // 
-            this.btn_Add_price.Location = new System.Drawing.Point(646, 28);
+            this.btn_Add_price.Location = new System.Drawing.Point(622, 28);
             this.btn_Add_price.Name = "btn_Add_price";
             this.btn_Add_price.Size = new System.Drawing.Size(101, 30);
             this.btn_Add_price.TabIndex = 267;
@@ -235,7 +237,7 @@
             // 
             // btnadd
             // 
-            this.btnadd.Location = new System.Drawing.Point(856, 28);
+            this.btnadd.Location = new System.Drawing.Point(832, 28);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(75, 30);
             this.btnadd.TabIndex = 273;
@@ -260,11 +262,21 @@
             this.textline.Size = new System.Drawing.Size(79, 20);
             this.textline.TabIndex = 275;
             // 
+            // btn_del
+            // 
+            this.btn_del.Location = new System.Drawing.Point(913, 28);
+            this.btn_del.Name = "btn_del";
+            this.btn_del.Size = new System.Drawing.Size(75, 30);
+            this.btn_del.TabIndex = 276;
+            this.btn_del.Text = "Delete";
+            this.btn_del.UseVisualStyleBackColor = true;
+            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
+            // 
             // frm_pricelist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 558);
+            this.ClientSize = new System.Drawing.Size(1026, 558);
             this.Controls.Add(this.GroupBox10);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dgv_priceList);
@@ -309,5 +321,6 @@
         private System.Windows.Forms.Button btnadd;
         private System.Windows.Forms.TextBox textline;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btn_del;
     }
 }

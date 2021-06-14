@@ -245,6 +245,7 @@ namespace MDSF.Forms.Master_Data
             this.Cursor = Cursors.WaitCursor;
             try
             {
+                DataSet ds = new DataSet();
                 DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am ')" +
                       ", 'Insert product price list for product_id =" + textProduct.Text + " ','product_price_list','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                 DataAccessCS.conn.Close();
@@ -257,13 +258,20 @@ namespace MDSF.Forms.Master_Data
                     else
                     {
                         String insertNewPricelist = "Insert into product_price_list ( LINE_PRICE_ID ,PRODUCT_ID,pricelist_case,pricelist_carton,pricelist_pack,BBo_PRICE,BBO_TAX,GIFT_PRICE_SLA,PRODUCT_TAX,TAX_PERCENTAGE,PRODUCT_TAX_RT,PRODUCT_TAX_WS,FROM_DATE,TO_DATE) VALUES (' "
-                 + textline.Text + "','" + textProduct.Text + "','" + txtCase.Text + "','" + txtCarton.Text + "','" + txtPack.Text + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 06 / 13 / 2021 + "','" + 12 / 31 / 2099 + "')";
+                 + textline.Text + "','" + textProduct.Text + "','" + txtCase.Text + "','" + txtCarton.Text + "','" + txtPack.Text + "','" + 0.00 + "','" + 0.00 + "','" + 0.00 + "','" + 0.00 + "','" + 0.00 + "','" + 0 + "','" + 0 + "',TO_DATE('06/13/2021', 'MM/DD/YYYY'), TO_DATE('12/30/2099', 'MM/DD/YYYY'))";
                         DataAccessCS.insert(insertNewPricelist);
                         DataAccessCS.conn.Close();
-                        MessageBox.Show("تمت الاضافة بنجاح");
-                    }
+                        MessageBox.Show("تمت الاضافة بنجاح"); 
+                }
 
-                
+          
+                ds = DataAccessCS.getdata("select  product_price_list.line_price_id,price_list_mst.accounts,price_list_mst.pos_type ,products.Name ,product_price_list.product_id,product_price_list.pricelist_case,product_price_list.pricelist_carton,product_price_list.pricelist_pack  from products   INNER JOIN product_price_list ON  products.PROD_ID = product_price_list.PRODUCT_ID Inner join price_list_mst ON product_price_list.line_price_id=price_list_mst.price_list_id where  prod_id in (" + textProduct.Text + ")");
+                DataAccessCS.conn.Close();
+                dgv_priceList.DataSource = ds.Tables[0];
+                dgv_priceList.AutoResizeColumns();
+                ds.Dispose();
+                //  dgv_priceList.Text = DataAccessCS.getvalue("select s.salesrep_van_id from to_sfa_salesrep_android@to_sla_cai s where s.salesrep_id=" + salesrep_id + "");
+                DataAccessCS.conn.Close();
             }
             catch (Exception ex)
             {
@@ -271,6 +279,29 @@ namespace MDSF.Forms.Master_Data
             }
             this.Cursor = Cursors.Default;
 
+        }
+
+        private void btn_del_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                String cmd = "delete from product_price_list where product_id=" + dgv_priceList.CurrentRow.Cells["product_id"].Value.ToString() + " and line_price_id=" + dgv_priceList.CurrentRow.Cells["line_price_id"].Value.ToString();
+                DataAccessCS.update(cmd);
+                DataAccessCS.conn.Close();
+                MessageBox.Show("تم المسح بنجاح");
+                DataSet ds = new DataSet();
+                ds = DataAccessCS.getdata("select  product_price_list.line_price_id,price_list_mst.accounts,price_list_mst.pos_type ,products.Name ,product_price_list.product_id,product_price_list.pricelist_case,product_price_list.pricelist_carton,product_price_list.pricelist_pack  from products   INNER JOIN product_price_list ON  products.PROD_ID = product_price_list.PRODUCT_ID Inner join price_list_mst ON product_price_list.line_price_id=price_list_mst.price_list_id where  prod_id in (" + textProduct.Text + ")");
+                DataAccessCS.conn.Close();
+                dgv_priceList.DataSource = ds.Tables[0];
+                dgv_priceList.AutoResizeColumns();
+                ds.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
         }
     }
 }
