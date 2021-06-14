@@ -82,6 +82,7 @@
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 247;
             this.label1.Text = "Sales Rep";
+            this.label1.Visible = false;
             // 
             // label2
             // 
@@ -94,6 +95,7 @@
             this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 246;
             this.label2.Text = "Sales Territory";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -112,6 +114,7 @@
             this.cmb_salesrep_Dis.Name = "cmb_salesrep_Dis";
             this.cmb_salesrep_Dis.Size = new System.Drawing.Size(257, 21);
             this.cmb_salesrep_Dis.TabIndex = 249;
+            this.cmb_salesrep_Dis.Visible = false;
             // 
             // cmb_sales_ter_Dis
             // 
@@ -120,6 +123,7 @@
             this.cmb_sales_ter_Dis.Name = "cmb_sales_ter_Dis";
             this.cmb_sales_ter_Dis.Size = new System.Drawing.Size(257, 21);
             this.cmb_sales_ter_Dis.TabIndex = 250;
+            this.cmb_sales_ter_Dis.Visible = false;
             this.cmb_sales_ter_Dis.SelectionChangeCommitted += new System.EventHandler(this.cmb_sales_ter_Dis_SelectionChangeCommitted);
             // 
             // cmb_Region_Dis

@@ -35,6 +35,8 @@ namespace MDSF.Forms.Master_Data
                 ds.Dispose();
                 DataAccessCS.conn.Close();
 
+
+
             }
             catch (Exception ex)
             {
@@ -47,11 +49,11 @@ namespace MDSF.Forms.Master_Data
         {
             try
             {
-           
+
                 //--------------------------------------
                 DataSet ds = new DataSet();
-                 ds = DataAccessCS.getdata("select  Name , PROD_ID from products where enable =0 and  prod_cat_id in (select prod_cat_id from prod_categories where family_id in  (select family_id from prod_family where company_id in  (" + cmbCompany.SelectedValue + "))) order by name ");
-              
+                ds = DataAccessCS.getdata("select  Name , PROD_ID from products where enable =0 and  prod_cat_id in (select prod_cat_id from prod_categories where family_id in  (select family_id from prod_family where company_id in  (" + cmbCompany.SelectedValue + "))) order by name ");
+
                 cmb_Product_Name.DataSource = ds.Tables[0];
                 cmb_Product_Name.DisplayMember = "NAME";
                 cmb_Product_Name.ValueMember = "PROD_ID";
@@ -80,14 +82,15 @@ namespace MDSF.Forms.Master_Data
             try
             {
 
-                if (textProduct.Text=="" && cmbCompany.SelectedIndex == -1 && cmb_Product_Name.SelectedIndex == -1)
+
+                if (textProduct.Text == "" && cmbCompany.SelectedIndex == -1 && cmb_Product_Name.SelectedIndex == -1)
                 {
                     MessageBox.Show("برجاء اخيار الشركه و المنتج اولاً");
                     this.Cursor = Cursors.Default;
                     return;
                 }
 
-                else if(textProduct.Text != "")
+                else if (textProduct.Text != "")
                 {
                     DataSet ds = new DataSet();
                     ds = DataAccessCS.getdata("select  product_price_list.line_price_id , price_list_mst.accounts,price_list_mst.pos_type, products.Name ,product_price_list.product_id,product_price_list.pricelist_case,product_price_list.pricelist_carton,product_price_list.pricelist_pack   from products   INNER JOIN product_price_list ON  products.PROD_ID = product_price_list.PRODUCT_ID Inner join price_list_mst ON product_price_list.line_price_id=price_list_mst.price_list_id where  prod_id in (" + textProduct.Text + ")");
@@ -106,10 +109,12 @@ namespace MDSF.Forms.Master_Data
                     dgv_priceList.DataSource = ds.Tables[0];
                     dgv_priceList.AutoResizeColumns();
                     ds.Dispose();
-                  //  dgv_priceList.Text = DataAccessCS.getvalue("select s.salesrep_van_id from to_sfa_salesrep_android@to_sla_cai s where s.salesrep_id=" + salesrep_id + "");
+                    //  dgv_priceList.Text = DataAccessCS.getvalue("select s.salesrep_van_id from to_sfa_salesrep_android@to_sla_cai s where s.salesrep_id=" + salesrep_id + "");
                     DataAccessCS.conn.Close();
                 }
-              
+
+
+
             }
             catch (Exception ex)
             {
@@ -120,9 +125,9 @@ namespace MDSF.Forms.Master_Data
 
         private void btn_UpdatePrice_Click(object sender, EventArgs e)
         {
-           
 
-          
+
+
         }
 
         private void dgv_priceList_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -140,15 +145,15 @@ namespace MDSF.Forms.Master_Data
             try
             {
                 DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am ')" +
-                      ", 'Insert product price list for product_id ="+ textProduct.Text + " ','product_price_list','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
+                      ", 'Insert product price list for product_id =" + textProduct.Text + " ','product_price_list','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                 DataAccessCS.conn.Close();
                 for (int i = 0; i < (dgv_priceList.Rows.Count - 1); i++)
                 {
-                  
-                        if (Convert.ToInt32(dgv_priceList.Rows[i].Cells["pricelist_case"].Value) == 0 &&
-                        Convert.ToInt32(dgv_priceList.Rows[i].Cells["pricelist_carton"].Value) == 0 &&
-                        Convert.ToInt32(dgv_priceList.Rows[i].Cells["pricelist_pack"].Value) == 0)
-                        {
+
+                    if (Convert.ToInt32(dgv_priceList.Rows[i].Cells["pricelist_case"].Value) == 0 &&
+                    Convert.ToInt32(dgv_priceList.Rows[i].Cells["pricelist_carton"].Value) == 0 &&
+                    Convert.ToInt32(dgv_priceList.Rows[i].Cells["pricelist_pack"].Value) == 0)
+                    {
                         String cmd = "update product_price_list set pricelist_case=" + txtCase.Text + "  where product_id=" + textProduct.Text;
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
@@ -169,8 +174,8 @@ namespace MDSF.Forms.Master_Data
                     }
                     MessageBox.Show("تمت الاضافة بنجاح");
                 }
-              
-               
+
+
             }
             catch (Exception ex)
             {
@@ -178,6 +183,7 @@ namespace MDSF.Forms.Master_Data
             }
             this.Cursor = Cursors.Default;
         }
+
 
         private void btn_UpdatePrice_Click_1(object sender, EventArgs e)
         {
@@ -231,5 +237,62 @@ namespace MDSF.Forms.Master_Data
             }
             this.Cursor = Cursors.Default;
         }
+
+
+
+        private void btnadd_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am ')" +
+                      ", 'Insert product price list for product_id =" + textProduct.Text + " ','product_price_list','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
+                DataAccessCS.conn.Close();
+            
+
+                    if (textline.Text == "" && txtPack.Text == "" && txtCase.Text == "" && txtCarton.Text == "")
+                    {
+                        MessageBox.Show("برجاء ادخال البيانات");
+                    }
+                    else
+                    {
+                        String insertNewPricelist = "Insert into product_price_list ( LINE_PRICE_ID ,PRODUCT_ID,pricelist_case,pricelist_carton,pricelist_pack,BBo_PRICE,BBO_TAX,GIFT_PRICE_SLA,PRODUCT_TAX,TAX_PERCENTAGE,PRODUCT_TAX_RT,PRODUCT_TAX_WS,FROM_DATE,TO_DATE) VALUES (' "
+                 + textline.Text + "','" + textProduct.Text + "','" + txtCase.Text + "','" + txtCarton.Text + "','" + txtPack.Text + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 06 / 13 / 2021 + "','" + 12 / 31 / 2099 + "')";
+                        DataAccessCS.insert(insertNewPricelist);
+                        DataAccessCS.conn.Close();
+                        MessageBox.Show("تمت الاضافة بنجاح");
+                    }
+
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+
+        }
     }
 }
+
+
+//enable txtline textbox
+//                foreach (DataGridViewRow rw in this.dgv_priceList.Rows)
+//                {
+//    for (int k = 0; k < rw.Cells.Count; k++)
+//    {
+//        if (rw.Cells[k].Value == null)
+
+//        {
+
+//            textline.Enabled = true;
+//        }
+//        else
+//        {
+//            textline.Enabled = false;
+//        }
+
+//    }
+//}
+
+
