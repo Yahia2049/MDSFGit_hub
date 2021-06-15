@@ -1,6 +1,7 @@
 ﻿using MDSF.Forms.Android_Support;
 using MDSF.Forms.Daily_Activity;
 using MDSF.Forms.Incentives;
+using MDSF.Forms.Inventory;
 using MDSF.Forms.Master_Data;
 using MDSF.Forms.POS;
 using MDSF.Forms.Sales;
@@ -1256,6 +1257,14 @@ namespace MDSF
             X_Form.Show();
             X_Form.MdiParent = this;
             X_Form.WindowState = FormWindowState.Maximized;
+        }
+
+        private void aLLSendToSAPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var X_Form = new frm_send_to_sap_all();
+            X_Form.Show();
+            X_Form.MdiParent = this;
+           // X_Form.WindowState = FormWindowState.Maximized;
         }
     }
 }

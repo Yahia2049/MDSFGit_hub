@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_POS_Review));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.Label1 = new System.Windows.Forms.Label();
             this.txt_pos_code_temp = new System.Windows.Forms.TextBox();
             this.Label2 = new System.Windows.Forms.Label();
@@ -357,7 +357,7 @@
             // 
             // 
             // 
-            this.Grid_ALL_New.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.Grid_ALL_New.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.Grid_ALL_New.Name = "Grid_ALL_New";
             this.Grid_ALL_New.Size = new System.Drawing.Size(1144, 240);
             this.Grid_ALL_New.TabIndex = 269;
@@ -372,7 +372,7 @@
             // 
             // 
             // 
-            this.Grid_Existing_POS.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.Grid_Existing_POS.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.Grid_Existing_POS.Name = "Grid_Existing_POS";
             this.Grid_Existing_POS.Size = new System.Drawing.Size(1144, 111);
             this.Grid_Existing_POS.TabIndex = 270;
@@ -1112,8 +1112,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1165, 585);
-            this.Controls.Add(this.label41);
-            this.Controls.Add(this.txt_search_by_name);
             this.Controls.Add(this.txt_branch);
             this.Controls.Add(this.Grid_Existing_POS);
             this.Controls.Add(this.Grid_ALL_New);
@@ -1149,6 +1147,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label39);
             this.Controls.Add(this.txt_meter);
+            this.Controls.Add(this.label41);
+            this.Controls.Add(this.txt_search_by_name);
             this.Name = "frm_POS_Review";
             this.Text = "New POS Review";
             this.Load += new System.EventHandler(this.frm_POS_Review_Load);
