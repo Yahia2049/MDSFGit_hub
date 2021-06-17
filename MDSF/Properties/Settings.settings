@@ -18,5 +18,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=SFISBI.mansourgroup.corp:1521/orcl.mansourgroup.corp;User ID=sales;Unicode=True</Value>
     </Setting>
+    <Setting Name="MDSF_WebReference1_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.1.100.108/sapintegration/service.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

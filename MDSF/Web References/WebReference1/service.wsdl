@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="webservice" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="webservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="webservice">
+      <s:element name="CreateCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="companyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesOrganization" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="distributionChannel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reconciliationAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentTerms" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pricingProcedure" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="statisticsGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="taxClassification" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerAccountGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="houseNumberAndStreet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telephoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="faxNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerClassification" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="industryKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesOffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="priceGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="priceListType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromPlant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="partnerFunction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerNumberOfBusinessPartner" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="taxCategory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="taxCategory2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shippingConditions" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="region" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateCustomerResult" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Response">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="message2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="message3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="table">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="table2">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="success" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="companyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesOrganization" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="distributionChannel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reconciliationAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentTerms" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pricingProcedure" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="statisticsGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="taxClassification" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerAccountGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="houseNumberAndStreet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telephoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="faxNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerClassification" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="industryKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesOffice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="priceGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="priceListType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromPlant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="partnerFunction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerNumberOfBusinessPartner" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="taxCategory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="taxCategory2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shippingConditions" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="region" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCustomerResult" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSalesRep">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="salesRep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customers" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSalesRepResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateSalesRepResult" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="materialNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="languageKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="conditionType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="materialType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="materialType2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="materialType3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadAllResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadFillUp">
+        <s:complexType />
+      </s:element>
+      <s:element name="DownloadFillUpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadFillUpResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateReturnOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="salesDocumentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesOrganization" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="distributionChannel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="division" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="partnerFunction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerNumber2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="originatingDocument" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="txtItems" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="txtConditions" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateReturnOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateReturnOrderResult" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIndirectSalesOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="salesDocumentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesOrganization" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="distributionChannel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="division" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="partnerFunction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerNumber2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="originatingDocument" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="txtItems" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="txtConditions" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIndirectSalesOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateIndirectSalesOrderResult" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIndirectSalesOrderFood">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="salesDocumentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesOrganization" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="distributionChannel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="division" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="partnerFunction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerNumber2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="originatingDocument" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="txtItems" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="txtConditions" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIndirectSalesOrderFoodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateIndirectSalesOrderFoodResult" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSettlement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fillupOrder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtSettlementHeader">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtPickedItems">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtIssusedItems">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtConditions">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSettlementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateSettlementResult" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSettlement2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fillupOrder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtSettlementHeader">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtPickedItems">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtIssusedItems">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtConditions">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSettlement2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateSettlement2Result" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSettlement3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fillupOrder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtSettlementHeader">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtPickedItems">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtIssusedItems">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtConditions">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSettlement3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateSettlement3Result" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSettlementTobacco">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fillupOrder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtSettlementHeader">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtPickedItems">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtIssusedItems">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dtConditions">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSettlementTobaccoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateSettlementTobaccoResult" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDataTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fillUpOrder" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDataTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDataTableResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSalesRepSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSalesRep" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSalesRepSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSalesRepResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadAllSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadAll" />
+  </wsdl:message>
+  <wsdl:message name="DownloadAllSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadFillUpSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadFillUp" />
+  </wsdl:message>
+  <wsdl:message name="DownloadFillUpSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadFillUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateReturnOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateReturnOrder" />
+  </wsdl:message>
+  <wsdl:message name="CreateReturnOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateReturnOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateIndirectSalesOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateIndirectSalesOrder" />
+  </wsdl:message>
+  <wsdl:message name="CreateIndirectSalesOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateIndirectSalesOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateIndirectSalesOrderFoodSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateIndirectSalesOrderFood" />
+  </wsdl:message>
+  <wsdl:message name="CreateIndirectSalesOrderFoodSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateIndirectSalesOrderFoodResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSettlementSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSettlement" />
+  </wsdl:message>
+  <wsdl:message name="CreateSettlementSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSettlementResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSettlement2SoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSettlement2" />
+  </wsdl:message>
+  <wsdl:message name="CreateSettlement2SoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSettlement2Response" />
+  </wsdl:message>
+  <wsdl:message name="CreateSettlement3SoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSettlement3" />
+  </wsdl:message>
+  <wsdl:message name="CreateSettlement3SoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSettlement3Response" />
+  </wsdl:message>
+  <wsdl:message name="CreateSettlementTobaccoSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSettlementTobacco" />
+  </wsdl:message>
+  <wsdl:message name="CreateSettlementTobaccoSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSettlementTobaccoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDataTableSoapIn">
+    <wsdl:part name="parameters" element="tns:getDataTable" />
+  </wsdl:message>
+  <wsdl:message name="getDataTableSoapOut">
+    <wsdl:part name="parameters" element="tns:getDataTableResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="CreateCustomer">
+      <wsdl:input message="tns:CreateCustomerSoapIn" />
+      <wsdl:output message="tns:CreateCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input message="tns:UpdateCustomerSoapIn" />
+      <wsdl:output message="tns:UpdateCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesRep">
+      <wsdl:input message="tns:UpdateSalesRepSoapIn" />
+      <wsdl:output message="tns:UpdateSalesRepSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAll">
+      <wsdl:input message="tns:DownloadAllSoapIn" />
+      <wsdl:output message="tns:DownloadAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFillUp">
+      <wsdl:input message="tns:DownloadFillUpSoapIn" />
+      <wsdl:output message="tns:DownloadFillUpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReturnOrder">
+      <wsdl:input message="tns:CreateReturnOrderSoapIn" />
+      <wsdl:output message="tns:CreateReturnOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateIndirectSalesOrder">
+      <wsdl:input message="tns:CreateIndirectSalesOrderSoapIn" />
+      <wsdl:output message="tns:CreateIndirectSalesOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateIndirectSalesOrderFood">
+      <wsdl:input message="tns:CreateIndirectSalesOrderFoodSoapIn" />
+      <wsdl:output message="tns:CreateIndirectSalesOrderFoodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSettlement">
+      <wsdl:input message="tns:CreateSettlementSoapIn" />
+      <wsdl:output message="tns:CreateSettlementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSettlement2">
+      <wsdl:input message="tns:CreateSettlement2SoapIn" />
+      <wsdl:output message="tns:CreateSettlement2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSettlement3">
+      <wsdl:input message="tns:CreateSettlement3SoapIn" />
+      <wsdl:output message="tns:CreateSettlement3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSettlementTobacco">
+      <wsdl:input message="tns:CreateSettlementTobaccoSoapIn" />
+      <wsdl:output message="tns:CreateSettlementTobaccoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataTable">
+      <wsdl:input message="tns:getDataTableSoapIn" />
+      <wsdl:output message="tns:getDataTableSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateCustomer">
+      <soap:operation soapAction="webservice/CreateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap:operation soapAction="webservice/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesRep">
+      <soap:operation soapAction="webservice/UpdateSalesRep" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAll">
+      <soap:operation soapAction="webservice/DownloadAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFillUp">
+      <soap:operation soapAction="webservice/DownloadFillUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReturnOrder">
+      <soap:operation soapAction="webservice/CreateReturnOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIndirectSalesOrder">
+      <soap:operation soapAction="webservice/CreateIndirectSalesOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIndirectSalesOrderFood">
+      <soap:operation soapAction="webservice/CreateIndirectSalesOrderFood" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSettlement">
+      <soap:operation soapAction="webservice/CreateSettlement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSettlement2">
+      <soap:operation soapAction="webservice/CreateSettlement2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSettlement3">
+      <soap:operation soapAction="webservice/CreateSettlement3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSettlementTobacco">
+      <soap:operation soapAction="webservice/CreateSettlementTobacco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataTable">
+      <soap:operation soapAction="webservice/getDataTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateCustomer">
+      <soap12:operation soapAction="webservice/CreateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap12:operation soapAction="webservice/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSalesRep">
+      <soap12:operation soapAction="webservice/UpdateSalesRep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAll">
+      <soap12:operation soapAction="webservice/DownloadAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFillUp">
+      <soap12:operation soapAction="webservice/DownloadFillUp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReturnOrder">
+      <soap12:operation soapAction="webservice/CreateReturnOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIndirectSalesOrder">
+      <soap12:operation soapAction="webservice/CreateIndirectSalesOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIndirectSalesOrderFood">
+      <soap12:operation soapAction="webservice/CreateIndirectSalesOrderFood" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSettlement">
+      <soap12:operation soapAction="webservice/CreateSettlement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSettlement2">
+      <soap12:operation soapAction="webservice/CreateSettlement2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSettlement3">
+      <soap12:operation soapAction="webservice/CreateSettlement3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSettlementTobacco">
+      <soap12:operation soapAction="webservice/CreateSettlementTobacco" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataTable">
+      <soap12:operation soapAction="webservice/getDataTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://10.1.100.108/sapintegration/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://10.1.100.108/sapintegration/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -52,6 +52,10 @@
             this.Label_TotalPOS = new System.Windows.Forms.Label();
             this.Label10 = new System.Windows.Forms.Label();
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.txt_jou_seq = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_loading_no = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inventory)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +66,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Panel1.Controls.Add(this.txt_loading_no);
+            this.Panel1.Controls.Add(this.label9);
+            this.Panel1.Controls.Add(this.txt_jou_seq);
+            this.Panel1.Controls.Add(this.label8);
             this.Panel1.Controls.Add(this.cmb_Region);
             this.Panel1.Controls.Add(this.label7);
             this.Panel1.Controls.Add(this.btn_approve);
@@ -123,14 +131,15 @@
             this.btn_approve.TabIndex = 130;
             this.btn_approve.Text = "موافق";
             this.btn_approve.UseVisualStyleBackColor = true;
+            this.btn_approve.Click += new System.EventHandler(this.btn_approve_Click);
             // 
             // btn_search
             // 
             this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_search.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_search.Location = new System.Drawing.Point(476, 49);
+            this.btn_search.Location = new System.Drawing.Point(571, 54);
             this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(92, 26);
+            this.btn_search.Size = new System.Drawing.Size(92, 27);
             this.btn_search.TabIndex = 130;
             this.btn_search.Text = "بحث";
             this.btn_search.UseVisualStyleBackColor = true;
@@ -232,7 +241,7 @@
             // 
             // DSR_Txt
             // 
-            this.DSR_Txt.Location = new System.Drawing.Point(132, 59);
+            this.DSR_Txt.Location = new System.Drawing.Point(119, 54);
             this.DSR_Txt.Name = "DSR_Txt";
             this.DSR_Txt.ReadOnly = true;
             this.DSR_Txt.Size = new System.Drawing.Size(172, 20);
@@ -244,16 +253,16 @@
             this.Label3.AutoSize = true;
             this.Label3.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label3.Location = new System.Drawing.Point(310, 62);
+            this.Label3.Location = new System.Drawing.Point(69, 57);
             this.Label3.Name = "Label3";
             this.Label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Label3.Size = new System.Drawing.Size(54, 13);
+            this.Label3.Size = new System.Drawing.Size(46, 13);
             this.Label3.TabIndex = 124;
-            this.Label3.Text = "كود البيع:";
+            this.Label3.Text = "DSR ID";
             // 
             // Inc_Differente
             // 
-            this.Inc_Differente.Location = new System.Drawing.Point(228, 35);
+            this.Inc_Differente.Location = new System.Drawing.Point(320, 31);
             this.Inc_Differente.Name = "Inc_Differente";
             this.Inc_Differente.ReadOnly = true;
             this.Inc_Differente.Size = new System.Drawing.Size(76, 20);
@@ -266,7 +275,7 @@
             this.Label1.AutoSize = true;
             this.Label1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label1.Location = new System.Drawing.Point(310, 38);
+            this.Label1.Location = new System.Drawing.Point(402, 34);
             this.Label1.Name = "Label1";
             this.Label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Label1.Size = new System.Drawing.Size(109, 13);
@@ -275,7 +284,7 @@
             // 
             // SalesRep_Code
             // 
-            this.SalesRep_Code.Location = new System.Drawing.Point(228, 7);
+            this.SalesRep_Code.Location = new System.Drawing.Point(320, 6);
             this.SalesRep_Code.Name = "SalesRep_Code";
             this.SalesRep_Code.ReadOnly = true;
             this.SalesRep_Code.Size = new System.Drawing.Size(76, 20);
@@ -287,7 +296,7 @@
             this.Label2.AutoSize = true;
             this.Label2.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label2.Location = new System.Drawing.Point(310, 10);
+            this.Label2.Location = new System.Drawing.Point(402, 9);
             this.Label2.Name = "Label2";
             this.Label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Label2.Size = new System.Drawing.Size(72, 13);
@@ -312,7 +321,7 @@
             this.Label_GridCount.AutoSize = true;
             this.Label_GridCount.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label_GridCount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label_GridCount.Location = new System.Drawing.Point(68, 67);
+            this.Label_GridCount.Location = new System.Drawing.Point(367, 60);
             this.Label_GridCount.Name = "Label_GridCount";
             this.Label_GridCount.Size = new System.Drawing.Size(14, 13);
             this.Label_GridCount.TabIndex = 110;
@@ -323,7 +332,7 @@
             this.Label_TotalPOS.AutoSize = true;
             this.Label_TotalPOS.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label_TotalPOS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label_TotalPOS.Location = new System.Drawing.Point(24, 66);
+            this.Label_TotalPOS.Location = new System.Drawing.Point(323, 59);
             this.Label_TotalPOS.Name = "Label_TotalPOS";
             this.Label_TotalPOS.Size = new System.Drawing.Size(40, 13);
             this.Label_TotalPOS.TabIndex = 109;
@@ -350,6 +359,48 @@
             this.DateTimePicker.Name = "DateTimePicker";
             this.DateTimePicker.Size = new System.Drawing.Size(245, 20);
             this.DateTimePicker.TabIndex = 104;
+            // 
+            // txt_jou_seq
+            // 
+            this.txt_jou_seq.Location = new System.Drawing.Point(119, 29);
+            this.txt_jou_seq.Name = "txt_jou_seq";
+            this.txt_jou_seq.ReadOnly = true;
+            this.txt_jou_seq.Size = new System.Drawing.Size(172, 20);
+            this.txt_jou_seq.TabIndex = 134;
+            this.txt_jou_seq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(4, 33);
+            this.label8.Name = "label8";
+            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label8.Size = new System.Drawing.Size(111, 13);
+            this.label8.TabIndex = 133;
+            this.label8.Text = "Journey Sequance";
+            // 
+            // txt_loading_no
+            // 
+            this.txt_loading_no.Location = new System.Drawing.Point(119, 5);
+            this.txt_loading_no.Name = "txt_loading_no";
+            this.txt_loading_no.ReadOnly = true;
+            this.txt_loading_no.Size = new System.Drawing.Size(172, 20);
+            this.txt_loading_no.TabIndex = 136;
+            this.txt_loading_no.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(17, 10);
+            this.label9.Name = "label9";
+            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label9.Size = new System.Drawing.Size(98, 13);
+            this.label9.TabIndex = 135;
+            this.label9.Text = "Loading number";
             // 
             // frm_send_to_sap_all
             // 
@@ -393,5 +444,9 @@
         private System.Windows.Forms.DataGridView dgv_inventory;
         private System.Windows.Forms.ComboBox cmb_Region;
         internal System.Windows.Forms.Label label7;
+        internal System.Windows.Forms.TextBox txt_loading_no;
+        internal System.Windows.Forms.Label label9;
+        internal System.Windows.Forms.TextBox txt_jou_seq;
+        internal System.Windows.Forms.Label label8;
     }
 }
