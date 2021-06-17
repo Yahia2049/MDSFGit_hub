@@ -147,6 +147,8 @@
             this.devAndroidSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyActivityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wrongDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iNVENTORYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aLLSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -1284,7 +1286,8 @@
             this.iNCENTIVESToolStripMenuItem,
             this.targetToolStripMenuItem,
             this.androidSupportToolStripMenuItem,
-            this.dailyActivityToolStripMenuItem});
+            this.dailyActivityToolStripMenuItem,
+            this.iNVENTORYToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(110, 49);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1598,6 +1601,29 @@
             this.wrongDateToolStripMenuItem.Text = "Wrong Date";
             this.wrongDateToolStripMenuItem.Click += new System.EventHandler(this.wrongDateToolStripMenuItem_Click);
             // 
+            // iNVENTORYToolStripMenuItem
+            // 
+            this.iNVENTORYToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aLLSendToSAPToolStripMenuItem});
+            this.iNVENTORYToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
+            this.iNVENTORYToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("iNVENTORYToolStripMenuItem.Image")));
+            this.iNVENTORYToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iNVENTORYToolStripMenuItem.Name = "iNVENTORYToolStripMenuItem";
+            this.iNVENTORYToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
+            this.iNVENTORYToolStripMenuItem.Text = "INVENTORY";
+            // 
+            // aLLSendToSAPToolStripMenuItem
+            // 
+            this.aLLSendToSAPToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.aLLSendToSAPToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aLLSendToSAPToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.aLLSendToSAPToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aLLSendToSAPToolStripMenuItem.Image")));
+            this.aLLSendToSAPToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.aLLSendToSAPToolStripMenuItem.Name = "aLLSendToSAPToolStripMenuItem";
+            this.aLLSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(189, 32);
+            this.aLLSendToSAPToolStripMenuItem.Text = "ALL Send to SAP";
+            this.aLLSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.aLLSendToSAPToolStripMenuItem_Click);
+            // 
             // Main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1762,6 +1788,8 @@
         private System.Windows.Forms.ToolStripMenuItem dailyActivityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wrongDateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reassignRoutesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iNVENTORYToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aLLSendToSAPToolStripMenuItem;
     }
 }
 

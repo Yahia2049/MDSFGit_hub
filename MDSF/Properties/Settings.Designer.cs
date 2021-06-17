@@ -44,5 +44,15 @@ namespace MDSF.Properties {
                 return ((string)(this["Conn_sales"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.1.100.108/sapintegration/service.asmx")]
+        public string MDSF_WebReference1_Service {
+            get {
+                return ((string)(this["MDSF_WebReference1_Service"]));
+            }
+        }
     }
 }
