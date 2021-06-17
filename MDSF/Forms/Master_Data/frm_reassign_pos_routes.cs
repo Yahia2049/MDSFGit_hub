@@ -117,13 +117,10 @@ namespace MDSF.Forms.Master_Data
 
                 //--------------------------------------
                 DataSet ds = new DataSet();
-                ds = DataAccessCS.getdata("select distinct p.sales_id SALESREP_ID , p.name SALESREP_NAME  from salesmen s , salesman  p  where s.SALES_TER_ID in  (" + cmb_sales_ter_source.SelectedValue + ") and s.TO_DATE is null " +
-                    //" and (s.TO_DATE is null or s.TO_DATE >= TO_DATE('" + dtp_todate_dsr.Value.Month + "/" + dtp_todate_dsr.Value.Day + "/" + dtp_todate_dsr.Value.Year + "','mm/dd/yyyy')) " +
-                    // "   and s.FROM_DATE <= TO_DATE('" + dtp_formdate_dsr.Value.Month + "/" + dtp_formdate_dsr.Value.Day + "/" + dtp_formdate_dsr.Value.Year + "','mm/dd/yyyy')" +
-                    "   and s.manger_id is not null  and p.SALES_ID = s.SALEs_ID order by p.name");
+                ds = DataAccessCS.getdata("select Distinct route_id , ROUTE_name   ,CURR_SALES_ID , TER_ID   from Route_Day_Name where branch_code =" + cmb_Region_source.SelectedValue +  "and curr_sales_id =" + cmb_salesrep_source.SelectedValue  );
                 cmb_route_source.DataSource = ds.Tables[0];
-                cmb_route_source.DisplayMember = "SALESREP_NAME";
-                cmb_route_source.ValueMember = "SALESREP_ID";
+                cmb_route_source.DisplayMember = "ROUTE_name";
+                cmb_route_source.ValueMember = "route_id";
                 cmb_route_source.SelectedIndex = -1;
                 cmb_route_source.Text = "--Choose--";
                 ds.Dispose();
@@ -165,7 +162,7 @@ namespace MDSF.Forms.Master_Data
 
         private void cmb_salesrep_des_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            Fill_cmb_Route();
+            //
         }
 
         private void cmb_route_source_SelectedIndexChanged(object sender, EventArgs e)

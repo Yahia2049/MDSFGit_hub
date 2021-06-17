@@ -463,7 +463,37 @@ namespace MDSF.Forms.Master_Data
 
         private void btn_update_kmt_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                
+               // String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "" ;
+                String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "";
+                DataAccessCS.update(cmd);
+                    DataAccessCS.conn.Close();
 
+                
+               
+                   
+                    //----insert into SLA
+                    if (cmb_Region_salesman.SelectedValue.ToString() == "Cairo")
+                    {
+
+                  cmd = "update km_transactions@to_sla_cai set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type=" + cmb_fuel_type.Text + ", fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString();
+                    DataAccessCS.update(cmd);
+                    DataAccessCS.conn.Close();
+                    }
+                   
+                
+                MessageBox.Show("تم التعديل بنجاح");
+                Lood();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
         }
 
         private void txt_fuel_values_TextChanged(object sender, EventArgs e)
@@ -473,6 +503,20 @@ namespace MDSF.Forms.Master_Data
 
         private void rdb_Oil_trans_CheckedChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void rgv_KM_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+          int  indexRow = e.RowIndex;
+            DataGridViewRow row = rgv_KM.Rows[indexRow];
+            txt_salesrep_id.Text = row.Cells["salesrep_id"].Value.ToString();
+            txt_jou_id.Text = row.Cells["jou_id"].Value.ToString();
+            txt_start_km.Text = row.Cells["start_km"].Value.ToString();
+            txt_current_km.Text = row.Cells["current_km"].Value.ToString();
+            cmb_fuel_type.Text=  row.Cells["fuel_type"].Value.ToString();
+            txt_fuel_values.Text = row.Cells["fuel_values"].Value.ToString();
+           dtp_fuel_time.Value = Convert.ToDateTime(row.Cells["fuel_time"].Value.ToString()) ;
 
         }
     }

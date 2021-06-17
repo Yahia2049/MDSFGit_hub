@@ -116,8 +116,13 @@
             // btn_update_journey
             // 
             this.btn_update_journey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_update_journey.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_update_journey.Location = new System.Drawing.Point(854, 484);
             this.btn_update_journey.Name = "btn_update_journey";
+            // 
+            // 
+            // 
+            this.btn_update_journey.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_update_journey.Size = new System.Drawing.Size(110, 36);
             this.btn_update_journey.TabIndex = 238;
             this.btn_update_journey.Text = "Update KM";
@@ -314,8 +319,13 @@
             // btn_search
             // 
             this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_search.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_search.Location = new System.Drawing.Point(692, 77);
             this.btn_search.Name = "btn_search";
+            // 
+            // 
+            // 
+            this.btn_search.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_search.Size = new System.Drawing.Size(126, 40);
             this.btn_search.TabIndex = 272;
             this.btn_search.Text = "Search";
@@ -332,6 +342,7 @@
             this.rgv_KM.Name = "rgv_KM";
             this.rgv_KM.Size = new System.Drawing.Size(962, 299);
             this.rgv_KM.TabIndex = 273;
+            this.rgv_KM.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rgv_KM_CellClick);
             // 
             // panel1
             // 
@@ -496,32 +507,52 @@
             // 
             // btn_print_kmt
             // 
+            this.btn_print_kmt.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_print_kmt.Location = new System.Drawing.Point(696, 66);
             this.btn_print_kmt.Name = "btn_print_kmt";
+            // 
+            // 
+            // 
+            this.btn_print_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_print_kmt.Size = new System.Drawing.Size(110, 23);
             this.btn_print_kmt.TabIndex = 2;
             this.btn_print_kmt.Text = "Print Invoices";
             // 
             // btn_save_inv_kmt
             // 
+            this.btn_save_inv_kmt.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_save_inv_kmt.Location = new System.Drawing.Point(575, 66);
             this.btn_save_inv_kmt.Name = "btn_save_inv_kmt";
+            // 
+            // 
+            // 
+            this.btn_save_inv_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_save_inv_kmt.Size = new System.Drawing.Size(110, 23);
             this.btn_save_inv_kmt.TabIndex = 1;
             this.btn_save_inv_kmt.Text = "ADD New Invoice";
             // 
             // btn_remove_kmt
             // 
+            this.btn_remove_kmt.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_remove_kmt.Location = new System.Drawing.Point(445, 66);
             this.btn_remove_kmt.Name = "btn_remove_kmt";
+            // 
+            // 
+            // 
+            this.btn_remove_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_remove_kmt.Size = new System.Drawing.Size(116, 23);
             this.btn_remove_kmt.TabIndex = 1;
             this.btn_remove_kmt.Text = "Remove";
             // 
             // btn_update_kmt
             // 
+            this.btn_update_kmt.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_update_kmt.Location = new System.Drawing.Point(323, 66);
             this.btn_update_kmt.Name = "btn_update_kmt";
+            // 
+            // 
+            // 
+            this.btn_update_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_update_kmt.Size = new System.Drawing.Size(110, 23);
             this.btn_update_kmt.TabIndex = 0;
             this.btn_update_kmt.Text = "Update ";
@@ -750,32 +781,52 @@
             // 
             // btn_print_oil
             // 
+            this.btn_print_oil.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_print_oil.Location = new System.Drawing.Point(696, 66);
             this.btn_print_oil.Name = "btn_print_oil";
+            // 
+            // 
+            // 
+            this.btn_print_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_print_oil.Size = new System.Drawing.Size(110, 23);
             this.btn_print_oil.TabIndex = 2;
             this.btn_print_oil.Text = "Print Invoices";
             // 
             // btn_new_invoice_oil
             // 
+            this.btn_new_invoice_oil.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_new_invoice_oil.Location = new System.Drawing.Point(575, 66);
             this.btn_new_invoice_oil.Name = "btn_new_invoice_oil";
+            // 
+            // 
+            // 
+            this.btn_new_invoice_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_new_invoice_oil.Size = new System.Drawing.Size(110, 23);
             this.btn_new_invoice_oil.TabIndex = 1;
             this.btn_new_invoice_oil.Text = "ADD New Invoice";
             // 
             // btn_remove_oil
             // 
+            this.btn_remove_oil.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_remove_oil.Location = new System.Drawing.Point(445, 66);
             this.btn_remove_oil.Name = "btn_remove_oil";
+            // 
+            // 
+            // 
+            this.btn_remove_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_remove_oil.Size = new System.Drawing.Size(116, 23);
             this.btn_remove_oil.TabIndex = 1;
             this.btn_remove_oil.Text = "Remove";
             // 
             // btn_update_oil
             // 
+            this.btn_update_oil.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_update_oil.Location = new System.Drawing.Point(323, 66);
             this.btn_update_oil.Name = "btn_update_oil";
+            // 
+            // 
+            // 
+            this.btn_update_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
             this.btn_update_oil.Size = new System.Drawing.Size(110, 23);
             this.btn_update_oil.TabIndex = 0;
             this.btn_update_oil.Text = "Update ";

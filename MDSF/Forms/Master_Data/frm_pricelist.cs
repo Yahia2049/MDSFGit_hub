@@ -130,6 +130,7 @@ namespace MDSF.Forms.Master_Data
 
         }
 
+        //To select current row
         private void dgv_priceList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             indexRow = e.RowIndex;

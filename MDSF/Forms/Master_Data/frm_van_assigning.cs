@@ -375,10 +375,10 @@ namespace MDSF.Forms.Master_Data
             try
             {
                 DataSet ds = new DataSet();
-                
-                    //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                    ds = DataAccessCS.getdata("SELECT  VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT where  salesrep_id =" + cmb_salesrep_Dis.SelectedValue + " and SALESREP_NAME <> 'pool van'");
-                    rgv_destination_van.DataSource = ds.Tables[0];
+
+                ds = DataAccessCS.getdata("select  * from INT_VANS_CURRENT_2 v where v.salesrep_id =" + cmb_salesrep_Dis.SelectedValue + " and  v.DE_ASSIGNING_DATE is null");
+                //ds = DataAccessCS.getdata("SELECT  VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT where  salesrep_id =" + cmb_salesrep_Dis.SelectedValue + " and SALESREP_NAME <> 'pool van'");
+                rgv_destination_van.DataSource = ds.Tables[0];
                     ds.Dispose();
                     DataAccessCS.conn.Close();
                     rgv_destination_van.BestFitColumns();
@@ -417,7 +417,7 @@ namespace MDSF.Forms.Master_Data
                     {
                         Max_Assign_ID = DataAccessCS.getvalue("select max(ASSIGNING_ID)+1 as MAX_ASS_Id from VEHICLE_ASSIGNING");
                         DataAccessCS.conn.Close();
-                        Max_Ending_KM = DataAccessCS.getvalue(" select max(ending_km) as Max_Ending_KM from vehicle_assigning where van_id=" + rgv_Active_Vans.CurrentRow.Cells["VAN_ID"].Value.ToString() + ""); 
+                        Max_Ending_KM = DataAccessCS.getvalue(" select max(nvl(ending_km,0)) as Max_Ending_KM from VAN where van_id=" + rgv_Active_Vans.CurrentRow.Cells["VAN_ID"].Value.ToString() + ""); 
                         DataAccessCS.conn.Close();
                         DataAccessCS.insert("insert into VEHICLE_ASSIGNING values (" + Max_Assign_ID + "," + rgv_Active_Vans.CurrentRow.Cells[0].Value + "," + cmb_salesrep_Dis.SelectedValue + ", Sysdate,''," +Max_Ending_KM+ ",'',"+ rgv_Active_Vans.CurrentRow.Cells[4].Value + ")");
                         DataAccessCS.conn.Close();
