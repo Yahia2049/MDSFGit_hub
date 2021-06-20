@@ -298,11 +298,11 @@ namespace MDSF.Forms.Master_Data
                     if ((cmb_Van_ID.SelectedIndex > -1 && cmb_Plate_Number.SelectedIndex == -1) || (cmb_Van_ID.SelectedIndex > -1 && cmb_Plate_Number.SelectedIndex > -1))
                     {
                         //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                        ds = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT where  van_id='" + cmb_Van_ID.SelectedValue + "'");
+                        ds = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT_2 where  van_id='" + cmb_Van_ID.SelectedValue + "'");
                     }
                     else if (cmb_Van_ID.SelectedIndex == -1 && cmb_Plate_Number.SelectedIndex > -1)
                     {
-                        ds = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT where  van_id='" + cmb_Plate_Number.SelectedValue + "'");
+                        ds = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT_2 where  van_id='" + cmb_Plate_Number.SelectedValue + "'");
                     }
                     else
                     {
@@ -315,7 +315,7 @@ namespace MDSF.Forms.Master_Data
                 {
                     if (cmb_salesrep_salesman.SelectedIndex > -1)
                     {
-                        ds = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT where  salesrep_id ='" + cmb_salesrep_salesman.SelectedValue + "'");
+                        ds = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT_2 where  salesrep_id ='" + cmb_salesrep_salesman.SelectedValue + "'");
                     }
                     else
                     {
