@@ -117,9 +117,10 @@ namespace MDSF.Forms.Master_Data
 
                 //--------------------------------------
                 DataSet ds = new DataSet();
-                ds = DataAccessCS.getdata("select Distinct route_id , ROUTE_name   ,CURR_SALES_ID , TER_ID   from Route_Day_Name where branch_code =" + cmb_Region_source.SelectedValue +  "and curr_sales_id =" + cmb_salesrep_source.SelectedValue  );
+                ds = DataAccessCS.getdata("select distinct ird.route_id,ird.routedays,r.curr_sales_id salesrep_id,r.sales_ter_id from int_route_day ird , routes r where r.active =1 and r.route_id=ird.route_id and  r.curr_sales_id= " + cmb_salesrep_source.SelectedValue + "and r.SALES_TER_ID =" +cmb_sales_ter_source.SelectedValue );
+                // ds = DataAccessCS.getdata("select Distinct route_id , ROUTE_name   ,CURR_SALES_ID , TER_ID   from Route_Day_Name where branch_code =" + cmb_Region_source.SelectedValue +  "and curr_sales_id =" + cmb_salesrep_source.SelectedValue  );
                 cmb_route_source.DataSource = ds.Tables[0];
-                cmb_route_source.DisplayMember = "ROUTE_name";
+                cmb_route_source.DisplayMember = "routedays";
                 cmb_route_source.ValueMember = "route_id";
                 cmb_route_source.SelectedIndex = -1;
                 cmb_route_source.Text = "--Choose--";
