@@ -38,6 +38,10 @@
             this.dgv_priceList = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.GroupBox10 = new System.Windows.Forms.GroupBox();
+            this.btn_del = new System.Windows.Forms.Button();
+            this.textline = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnadd = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCarton = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,10 +50,18 @@
             this.btn_UpdatePrice = new System.Windows.Forms.Button();
             this.txtPack = new System.Windows.Forms.TextBox();
             this.btn_Add_price = new System.Windows.Forms.Button();
-            this.btnadd = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textline = new System.Windows.Forms.TextBox();
-            this.btn_del = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txt_rt = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txt_ws = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txt_percentage = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dtp_to_date = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dtp_from_date = new System.Windows.Forms.DateTimePicker();
+            this.ProductTax = new System.Windows.Forms.Label();
+            this.txt_productTax = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_priceList)).BeginInit();
             this.GroupBox10.SuspendLayout();
             this.SuspendLayout();
@@ -127,9 +139,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_priceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_priceList.Location = new System.Drawing.Point(22, 208);
+            this.dgv_priceList.Location = new System.Drawing.Point(22, 275);
             this.dgv_priceList.Name = "dgv_priceList";
-            this.dgv_priceList.Size = new System.Drawing.Size(986, 345);
+            this.dgv_priceList.Size = new System.Drawing.Size(986, 278);
             this.dgv_priceList.TabIndex = 7;
             this.dgv_priceList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_priceList_CellClick);
             // 
@@ -145,6 +157,18 @@
             // 
             // GroupBox10
             // 
+            this.GroupBox10.Controls.Add(this.ProductTax);
+            this.GroupBox10.Controls.Add(this.txt_productTax);
+            this.GroupBox10.Controls.Add(this.label12);
+            this.GroupBox10.Controls.Add(this.dtp_to_date);
+            this.GroupBox10.Controls.Add(this.label13);
+            this.GroupBox10.Controls.Add(this.dtp_from_date);
+            this.GroupBox10.Controls.Add(this.label11);
+            this.GroupBox10.Controls.Add(this.txt_rt);
+            this.GroupBox10.Controls.Add(this.label10);
+            this.GroupBox10.Controls.Add(this.txt_ws);
+            this.GroupBox10.Controls.Add(this.label9);
+            this.GroupBox10.Controls.Add(this.txt_percentage);
             this.GroupBox10.Controls.Add(this.btn_del);
             this.GroupBox10.Controls.Add(this.textline);
             this.GroupBox10.Controls.Add(this.label8);
@@ -159,91 +183,27 @@
             this.GroupBox10.Controls.Add(this.btn_Add_price);
             this.GroupBox10.Location = new System.Drawing.Point(22, 115);
             this.GroupBox10.Name = "GroupBox10";
-            this.GroupBox10.Size = new System.Drawing.Size(998, 73);
+            this.GroupBox10.Size = new System.Drawing.Size(998, 142);
             this.GroupBox10.TabIndex = 266;
             this.GroupBox10.TabStop = false;
             this.GroupBox10.Text = "Edit price list";
             // 
-            // label7
+            // btn_del
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(337, 37);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
-            this.label7.TabIndex = 272;
-            this.label7.Text = "Carton";
+            this.btn_del.Location = new System.Drawing.Point(819, 87);
+            this.btn_del.Name = "btn_del";
+            this.btn_del.Size = new System.Drawing.Size(75, 30);
+            this.btn_del.TabIndex = 276;
+            this.btn_del.Text = "Delete";
+            this.btn_del.UseVisualStyleBackColor = true;
+            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
             // 
-            // txtCarton
+            // textline
             // 
-            this.txtCarton.Location = new System.Drawing.Point(388, 34);
-            this.txtCarton.Name = "txtCarton";
-            this.txtCarton.Size = new System.Drawing.Size(72, 20);
-            this.txtCarton.TabIndex = 271;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(196, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 13);
-            this.label6.TabIndex = 270;
-            this.label6.Text = "Case";
-            // 
-            // txtCase
-            // 
-            this.txtCase.Location = new System.Drawing.Point(236, 34);
-            this.txtCase.Name = "txtCase";
-            this.txtCase.Size = new System.Drawing.Size(75, 20);
-            this.txtCase.TabIndex = 269;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(484, 37);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
-            this.label5.TabIndex = 268;
-            this.label5.Text = "Pack";
-            // 
-            // btn_UpdatePrice
-            // 
-            this.btn_UpdatePrice.Location = new System.Drawing.Point(742, 28);
-            this.btn_UpdatePrice.Name = "btn_UpdatePrice";
-            this.btn_UpdatePrice.Size = new System.Drawing.Size(84, 30);
-            this.btn_UpdatePrice.TabIndex = 267;
-            this.btn_UpdatePrice.Text = "Update Price";
-            this.btn_UpdatePrice.UseVisualStyleBackColor = true;
-            this.btn_UpdatePrice.Click += new System.EventHandler(this.btn_UpdatePrice_Click_1);
-            // 
-            // txtPack
-            // 
-            this.txtPack.Location = new System.Drawing.Point(524, 34);
-            this.txtPack.Name = "txtPack";
-            this.txtPack.Size = new System.Drawing.Size(76, 20);
-            this.txtPack.TabIndex = 266;
-            // 
-            // btn_Add_price
-            // 
-            this.btn_Add_price.Location = new System.Drawing.Point(622, 28);
-            this.btn_Add_price.Name = "btn_Add_price";
-            this.btn_Add_price.Size = new System.Drawing.Size(101, 30);
-            this.btn_Add_price.TabIndex = 267;
-            this.btn_Add_price.Text = "Update Zero Price";
-            this.btn_Add_price.UseVisualStyleBackColor = true;
-            this.btn_Add_price.Click += new System.EventHandler(this.btn_Add_price_Click);
-            // 
-            // btnadd
-            // 
-            this.btnadd.Location = new System.Drawing.Point(832, 28);
-            this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(75, 30);
-            this.btnadd.TabIndex = 273;
-            this.btnadd.Text = "Add Price";
-            this.btnadd.UseVisualStyleBackColor = true;
-            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
+            this.textline.Location = new System.Drawing.Point(82, 34);
+            this.textline.Name = "textline";
+            this.textline.Size = new System.Drawing.Size(50, 20);
+            this.textline.TabIndex = 275;
             // 
             // label8
             // 
@@ -255,22 +215,190 @@
             this.label8.TabIndex = 274;
             this.label8.Text = "Line Price";
             // 
-            // textline
+            // btnadd
             // 
-            this.textline.Location = new System.Drawing.Point(82, 34);
-            this.textline.Name = "textline";
-            this.textline.Size = new System.Drawing.Size(79, 20);
-            this.textline.TabIndex = 275;
+            this.btnadd.Location = new System.Drawing.Point(738, 87);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(75, 30);
+            this.btnadd.TabIndex = 273;
+            this.btnadd.Text = "Add Price";
+            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
-            // btn_del
+            // label7
             // 
-            this.btn_del.Location = new System.Drawing.Point(913, 28);
-            this.btn_del.Name = "btn_del";
-            this.btn_del.Size = new System.Drawing.Size(75, 30);
-            this.btn_del.TabIndex = 276;
-            this.btn_del.Text = "Delete";
-            this.btn_del.UseVisualStyleBackColor = true;
-            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(288, 37);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.TabIndex = 272;
+            this.label7.Text = "Carton";
+            // 
+            // txtCarton
+            // 
+            this.txtCarton.Location = new System.Drawing.Point(333, 34);
+            this.txtCarton.Name = "txtCarton";
+            this.txtCarton.Size = new System.Drawing.Size(72, 20);
+            this.txtCarton.TabIndex = 271;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(155, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(34, 13);
+            this.label6.TabIndex = 270;
+            this.label6.Text = "Case";
+            // 
+            // txtCase
+            // 
+            this.txtCase.Location = new System.Drawing.Point(195, 34);
+            this.txtCase.Name = "txtCase";
+            this.txtCase.Size = new System.Drawing.Size(65, 20);
+            this.txtCase.TabIndex = 269;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(417, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 268;
+            this.label5.Text = "Pack";
+            // 
+            // btn_UpdatePrice
+            // 
+            this.btn_UpdatePrice.Location = new System.Drawing.Point(648, 87);
+            this.btn_UpdatePrice.Name = "btn_UpdatePrice";
+            this.btn_UpdatePrice.Size = new System.Drawing.Size(84, 30);
+            this.btn_UpdatePrice.TabIndex = 267;
+            this.btn_UpdatePrice.Text = "Update Price";
+            this.btn_UpdatePrice.UseVisualStyleBackColor = true;
+            this.btn_UpdatePrice.Click += new System.EventHandler(this.btn_UpdatePrice_Click_1);
+            // 
+            // txtPack
+            // 
+            this.txtPack.Location = new System.Drawing.Point(457, 34);
+            this.txtPack.Name = "txtPack";
+            this.txtPack.Size = new System.Drawing.Size(52, 20);
+            this.txtPack.TabIndex = 266;
+            // 
+            // btn_Add_price
+            // 
+            this.btn_Add_price.Location = new System.Drawing.Point(528, 87);
+            this.btn_Add_price.Name = "btn_Add_price";
+            this.btn_Add_price.Size = new System.Drawing.Size(101, 30);
+            this.btn_Add_price.TabIndex = 267;
+            this.btn_Add_price.Text = "Update Zero Price";
+            this.btn_Add_price.UseVisualStyleBackColor = true;
+            this.btn_Add_price.Click += new System.EventHandler(this.btn_Add_price_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(207, 96);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 290;
+            this.label11.Text = "Tax Rt";
+            // 
+            // txt_rt
+            // 
+            this.txt_rt.Location = new System.Drawing.Point(257, 93);
+            this.txt_rt.Name = "txt_rt";
+            this.txt_rt.Size = new System.Drawing.Size(76, 20);
+            this.txt_rt.TabIndex = 289;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(356, 96);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.TabIndex = 288;
+            this.label10.Text = "Tax WS";
+            // 
+            // txt_ws
+            // 
+            this.txt_ws.Location = new System.Drawing.Point(420, 93);
+            this.txt_ws.Name = "txt_ws";
+            this.txt_ws.Size = new System.Drawing.Size(76, 20);
+            this.txt_ws.TabIndex = 287;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 96);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 13);
+            this.label9.TabIndex = 286;
+            this.label9.Text = "Tax Percentage";
+            // 
+            // txt_percentage
+            // 
+            this.txt_percentage.Location = new System.Drawing.Point(113, 93);
+            this.txt_percentage.Name = "txt_percentage";
+            this.txt_percentage.Size = new System.Drawing.Size(76, 20);
+            this.txt_percentage.TabIndex = 285;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(689, 53);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(45, 13);
+            this.label12.TabIndex = 294;
+            this.label12.Text = "To Date";
+            // 
+            // dtp_to_date
+            // 
+            this.dtp_to_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtp_to_date.Location = new System.Drawing.Point(771, 48);
+            this.dtp_to_date.Name = "dtp_to_date";
+            this.dtp_to_date.Size = new System.Drawing.Size(200, 20);
+            this.dtp_to_date.TabIndex = 293;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(689, 26);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 13);
+            this.label13.TabIndex = 292;
+            this.label13.Text = "From Date";
+            // 
+            // dtp_from_date
+            // 
+            this.dtp_from_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtp_from_date.Location = new System.Drawing.Point(771, 23);
+            this.dtp_from_date.Name = "dtp_from_date";
+            this.dtp_from_date.Size = new System.Drawing.Size(200, 20);
+            this.dtp_from_date.TabIndex = 291;
+            // 
+            // ProductTax
+            // 
+            this.ProductTax.AutoSize = true;
+            this.ProductTax.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductTax.Location = new System.Drawing.Point(525, 37);
+            this.ProductTax.Name = "ProductTax";
+            this.ProductTax.Size = new System.Drawing.Size(75, 13);
+            this.ProductTax.TabIndex = 296;
+            this.ProductTax.Text = "Product Tax";
+            // 
+            // txt_productTax
+            // 
+            this.txt_productTax.Location = new System.Drawing.Point(606, 34);
+            this.txt_productTax.Name = "txt_productTax";
+            this.txt_productTax.Size = new System.Drawing.Size(50, 20);
+            this.txt_productTax.TabIndex = 295;
             // 
             // frm_pricelist
             // 
@@ -322,5 +450,17 @@
         private System.Windows.Forms.TextBox textline;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_del;
+        private System.Windows.Forms.Label ProductTax;
+        private System.Windows.Forms.TextBox txt_productTax;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker dtp_to_date;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DateTimePicker dtp_from_date;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txt_rt;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txt_ws;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txt_percentage;
     }
 }
