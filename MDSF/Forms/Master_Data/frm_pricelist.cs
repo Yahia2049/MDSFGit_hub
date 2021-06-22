@@ -93,18 +93,18 @@ namespace MDSF.Forms.Master_Data
                 else if (textProduct.Text != "")
                 {
                     DataSet ds = new DataSet();
-                    ds = DataAccessCS.getdata("select  product_price_list.line_price_id , price_list_mst.accounts,price_list_mst.pos_type, products.Name ,product_price_list.product_id,product_price_list.pricelist_case,product_price_list.pricelist_carton,product_price_list.pricelist_pack   from products   INNER JOIN product_price_list ON  products.PROD_ID = product_price_list.PRODUCT_ID Inner join price_list_mst ON product_price_list.line_price_id=price_list_mst.price_list_id where  prod_id in (" + textProduct.Text + ")");
+                    ds = DataAccessCS.getdata("select  product_price_list.line_price_id , price_list_mst.accounts,price_list_mst.pos_type, products.Name ,product_price_list.product_id,product_price_list.pricelist_case,product_price_list.pricelist_carton,product_price_list.pricelist_pack,product_price_list.product_tax,product_price_list.tax_percentage,product_price_list.product_tax_rt,product_price_list.product_tax_ws,product_price_list.from_date,product_price_list.to_date   from products   INNER JOIN product_price_list ON  products.PROD_ID = product_price_list.PRODUCT_ID Inner join price_list_mst ON product_price_list.line_price_id=price_list_mst.price_list_id where  prod_id in (" + textProduct.Text + ")");
                     DataAccessCS.conn.Close();
                     dgv_priceList.DataSource = ds.Tables[0];
                     dgv_priceList.AutoResizeColumns();
                     ds.Dispose();
-                    //  dgv_priceList.Text = DataAccessCS.getvalue("select s.salesrep_van_id from to_sfa_salesrep_android@to_sla_cai s where s.salesrep_id=" + salesrep_id + "");
+                    //  dgv_priceList.Text = DataAccessCS.getvalue("select s.salesrep_van_id from to_sfa_salesrep_android@to_sla_cai s where s.salesrep_id=" + salesrep_id + "");  
                     DataAccessCS.conn.Close();
                 }
                 else
                 {
                     DataSet ds = new DataSet();
-                    ds = DataAccessCS.getdata("select  product_price_list.line_price_id,price_list_mst.accounts,price_list_mst.pos_type ,products.Name ,product_price_list.product_id,product_price_list.pricelist_case,product_price_list.pricelist_carton,product_price_list.pricelist_pack  from products   INNER JOIN product_price_list ON  products.PROD_ID = product_price_list.PRODUCT_ID Inner join price_list_mst ON product_price_list.line_price_id=price_list_mst.price_list_id where  prod_id in (" + cmb_Product_Name.SelectedValue + ")");
+                    ds = DataAccessCS.getdata("select  product_price_list.line_price_id,price_list_mst.accounts,price_list_mst.pos_type ,products.Name ,product_price_list.product_id,product_price_list.pricelist_case,product_price_list.pricelist_carton,product_price_list.pricelist_pack,product_price_list.product_tax,product_price_list.tax_percentage,product_price_list.product_tax_rt,product_price_list.product_tax_ws,product_price_list.from_date,product_price_list.to_date  from products   INNER JOIN product_price_list ON  products.PROD_ID = product_price_list.PRODUCT_ID Inner join price_list_mst ON product_price_list.line_price_id=price_list_mst.price_list_id where  prod_id in (" + cmb_Product_Name.SelectedValue + ")");
                     DataAccessCS.conn.Close();
                     dgv_priceList.DataSource = ds.Tables[0];
                     dgv_priceList.AutoResizeColumns();
@@ -138,6 +138,12 @@ namespace MDSF.Forms.Master_Data
             txtPack.Text = row.Cells["pricelist_pack"].Value.ToString();
             txtCase.Text = row.Cells["pricelist_case"].Value.ToString();
             txtCarton.Text = row.Cells["pricelist_carton"].Value.ToString();
+            txt_productTax.Text = row.Cells["product_tax"].Value.ToString();
+            txt_percentage.Text = row.Cells["tax_percentage"].Value.ToString();
+            txt_rt.Text = row.Cells["product_tax_rt"].Value.ToString();
+            txt_ws.Text = row.Cells["product_tax_ws"].Value.ToString();
+            dtp_from_date.Text= row.Cells["from_date"].Value.ToString();
+            dtp_to_date.Text = row.Cells["to_date"].Value.ToString();
         }
 
         private void btn_Add_price_Click(object sender, EventArgs e)
@@ -197,14 +203,14 @@ namespace MDSF.Forms.Master_Data
 
                 if (txtPack.Text != "")
                 {
-                    String cmd = "update product_price_list set pricelist_pack=" + txtPack.Text + "  where product_id=" + dgv_priceList.CurrentRow.Cells["product_id"].Value.ToString() + " and line_price_id=" + dgv_priceList.CurrentRow.Cells["line_price_id"].Value.ToString();
+                    String cmd = "update product_price_list set pricelist_pack=" + txtPack.Text + ", product_tax="+txt_productTax.Text + ",tax_percentage=" +txt_percentage.Text +  "where product_id=" + dgv_priceList.CurrentRow.Cells["product_id"].Value.ToString() + " and line_price_id=" + dgv_priceList.CurrentRow.Cells["line_price_id"].Value.ToString();
                     DataAccessCS.update(cmd);
                     DataAccessCS.conn.Close();
 
                 }
                 if (txtCase.Text != "")
                 {
-                    String cmd = "update product_price_list set pricelist_case=" + txtCase.Text + "  where product_id=" + dgv_priceList.CurrentRow.Cells["product_id"].Value.ToString() + " and line_price_id=" + dgv_priceList.CurrentRow.Cells["line_price_id"].Value.ToString();
+                    String cmd = "update product_price_list set pricelist_case=" + txtCase.Text + " , product_tax_rt=" +txt_rt.Text+ ",product_tax_ws=" +txt_ws.Text+ " where product_id=" + dgv_priceList.CurrentRow.Cells["product_id"].Value.ToString() + " and line_price_id=" + dgv_priceList.CurrentRow.Cells["line_price_id"].Value.ToString();
                     DataAccessCS.update(cmd);
                     DataAccessCS.conn.Close();
 
@@ -272,8 +278,8 @@ namespace MDSF.Forms.Master_Data
                         MessageBox.Show("تمت الاضافة بنجاح"); 
                 }
 
-          
-                ds = DataAccessCS.getdata("select  product_price_list.line_price_id,price_list_mst.accounts,price_list_mst.pos_type ,products.Name ,product_price_list.product_id,product_price_list.pricelist_case,product_price_list.pricelist_carton,product_price_list.pricelist_pack  from products   INNER JOIN product_price_list ON  products.PROD_ID = product_price_list.PRODUCT_ID Inner join price_list_mst ON product_price_list.line_price_id=price_list_mst.price_list_id where  prod_id in (" + textProduct.Text + ")");
+
+                ds = DataAccessCS.getdata("select  product_price_list.line_price_id , price_list_mst.accounts,price_list_mst.pos_type, products.Name ,product_price_list.product_id,product_price_list.pricelist_case,product_price_list.pricelist_carton,product_price_list.pricelist_pack,product_price_list.product_tax,product_price_list.tax_percentage,product_price_list.product_tax_rt,product_price_list.product_tax_ws,product_price_list.from_date,product_price_list.to_date   from products   INNER JOIN product_price_list ON  products.PROD_ID = product_price_list.PRODUCT_ID Inner join price_list_mst ON product_price_list.line_price_id=price_list_mst.price_list_id where  prod_id in (" + textProduct.Text + ")");
                 DataAccessCS.conn.Close();
                 dgv_priceList.DataSource = ds.Tables[0];
                 dgv_priceList.AutoResizeColumns();
