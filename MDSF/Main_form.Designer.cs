@@ -149,6 +149,7 @@
             this.wrongDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNVENTORYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aLLSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -1604,14 +1605,15 @@
             // iNVENTORYToolStripMenuItem
             // 
             this.iNVENTORYToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aLLSendToSAPToolStripMenuItem});
+            this.aLLSendToSAPToolStripMenuItem,
+            this.fineSendToSAPToolStripMenuItem});
             this.iNVENTORYToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
             this.iNVENTORYToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("iNVENTORYToolStripMenuItem.Image")));
             this.iNVENTORYToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iNVENTORYToolStripMenuItem.Name = "iNVENTORYToolStripMenuItem";
             this.iNVENTORYToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
             this.iNVENTORYToolStripMenuItem.Text = "INVENTORY";
-            this.iNVENTORYToolStripMenuItem.Visible = false;
+            this.iNVENTORYToolStripMenuItem.Click += new System.EventHandler(this.iNVENTORYToolStripMenuItem_Click);
             // 
             // aLLSendToSAPToolStripMenuItem
             // 
@@ -1621,9 +1623,20 @@
             this.aLLSendToSAPToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aLLSendToSAPToolStripMenuItem.Image")));
             this.aLLSendToSAPToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.aLLSendToSAPToolStripMenuItem.Name = "aLLSendToSAPToolStripMenuItem";
-            this.aLLSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(189, 32);
+            this.aLLSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(192, 32);
             this.aLLSendToSAPToolStripMenuItem.Text = "ALL Send to SAP";
             this.aLLSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.aLLSendToSAPToolStripMenuItem_Click);
+            // 
+            // fineSendToSAPToolStripMenuItem
+            // 
+            this.fineSendToSAPToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.fineSendToSAPToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fineSendToSAPToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.fineSendToSAPToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fineSendToSAPToolStripMenuItem.Image")));
+            this.fineSendToSAPToolStripMenuItem.Name = "fineSendToSAPToolStripMenuItem";
+            this.fineSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(192, 32);
+            this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
+            this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
             // 
             // Main_form
             // 
@@ -1791,6 +1804,7 @@
         private System.Windows.Forms.ToolStripMenuItem reassignRoutesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iNVENTORYToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aLLSendToSAPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fineSendToSAPToolStripMenuItem;
     }
 }
 
