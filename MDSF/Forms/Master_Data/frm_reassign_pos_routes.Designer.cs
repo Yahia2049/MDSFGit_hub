@@ -53,6 +53,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cmb_region_des = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.Label_CountH = new System.Windows.Forms.Label();
+            this.Label_CountS = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Label_CountD = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_source)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_des)).BeginInit();
             this.SuspendLayout();
@@ -311,11 +315,59 @@
             this.label10.TabIndex = 267;
             this.label10.Text = "Region";
             // 
+            // Label_CountH
+            // 
+            this.Label_CountH.AutoSize = true;
+            this.Label_CountH.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Label_CountH.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Label_CountH.Location = new System.Drawing.Point(41, 178);
+            this.Label_CountH.Name = "Label_CountH";
+            this.Label_CountH.Size = new System.Drawing.Size(40, 13);
+            this.Label_CountH.TabIndex = 270;
+            this.Label_CountH.Text = "Count";
+            // 
+            // Label_CountS
+            // 
+            this.Label_CountS.AutoSize = true;
+            this.Label_CountS.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Label_CountS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Label_CountS.Location = new System.Drawing.Point(87, 178);
+            this.Label_CountS.Name = "Label_CountS";
+            this.Label_CountS.Size = new System.Drawing.Size(14, 13);
+            this.Label_CountS.TabIndex = 269;
+            this.Label_CountS.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(576, 178);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(40, 13);
+            this.label11.TabIndex = 272;
+            this.label11.Text = "Count";
+            // 
+            // Label_CountD
+            // 
+            this.Label_CountD.AutoSize = true;
+            this.Label_CountD.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.Label_CountD.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Label_CountD.Location = new System.Drawing.Point(622, 178);
+            this.Label_CountD.Name = "Label_CountD";
+            this.Label_CountD.Size = new System.Drawing.Size(14, 13);
+            this.Label_CountD.TabIndex = 271;
+            this.Label_CountD.Text = "0";
+            // 
             // frm_reassign_pos_routes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 482);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.Label_CountD);
+            this.Controls.Add(this.Label_CountH);
+            this.Controls.Add(this.Label_CountS);
             this.Controls.Add(this.cmb_region_des);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cmb_Region_source);
@@ -378,5 +430,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmb_region_des;
         private System.Windows.Forms.Label label10;
+        internal System.Windows.Forms.Label Label_CountH;
+        internal System.Windows.Forms.Label Label_CountS;
+        internal System.Windows.Forms.Label label11;
+        internal System.Windows.Forms.Label Label_CountD;
     }
 }

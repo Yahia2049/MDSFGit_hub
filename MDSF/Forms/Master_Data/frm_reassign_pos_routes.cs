@@ -12,6 +12,29 @@ namespace MDSF.Forms.Master_Data
 {
     public partial class frm_reassign_pos_routes : Form
     {
+        #region  Variables 
+        DataView dv_DataView;
+        DataView dv_Combo_SalesTer;
+        DataView dv_Combo_SalesRep;
+        DataView dv_combo_Routes;
+        DataView dv_combo_salesRep_DES;
+        DataView dv_combo_Routes_DES;
+        DataView dv_check;
+        DataView dv_combo_driver;
+        int countgrid;
+        int g = 0;
+        DataTable dt = new DataTable();
+        DataTable dt1 = new DataTable();
+        DataSet ds1 = new DataSet();
+        string newDsr;
+        string newJourney;
+        DataView dv_journey_seq;
+        DataView dv_Loading_journey_seq;
+        DataView dv_Loading_journey_seq_des;
+        DataView dv_Loading_H_Open;
+        DataView dv_sfa_journey_seq;
+        DataView dv_Combo_SalesTer_des;
+        #endregion
         public frm_reassign_pos_routes()
         {
             InitializeComponent();
@@ -277,9 +300,112 @@ namespace MDSF.Forms.Master_Data
 
         private void btn_TO_DES_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                int ii = 0;
+                try
+                {
+                    string u1 = "insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), ' Open Re-Assigning Routes_Form -> Press Button(>)',' ','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "')";
+                    DataAccessCS.insert(u1);
+                    DataAccessCS.conn.Close();
+                    var loopTo = dgv_source.SelectedRows.Count - 1;
+                    for (ii = 0; ii <= loopTo; ii++)
+                    {
+                        int c = dgv_source.Rows.Count;
+                        CounterOfSource(c);
+                    }
+
+                    count_grid();
+                }
+                // Grid_POS_Destination.Rows.Add()
+                // Grid_POS_Destination.Item("POS_ID", g).Value = DBGrid_POS_source.Item("POS_Id", i).Value
+                // Grid_POS_Destination.Item("POS_name", g).Value = DBGrid_POS_source.Item("POS_name", i).Value
+                // g = g + 1
+                // Grid_POS_Destination.Rows.GetFirstRow(DataGridViewElementStates.Selected)
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+                {
+                    var withBlock = dgv_des;
+                    withBlock.DataSource = dt;
+                    withBlock.Columns["Ter_ID"].Visible = false;
+                    withBlock.Columns["POS_Id"].Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
+        #region  Remove from source (( CounterOfSource)
+        public void CounterOfSource(int c)
+        {
+            try
+            {
+                int i = 0;
+                DataRow dr;
+                var loopTo = c - 1;
+                for (i = 0; i <= loopTo; i++)
+                {
+                    if (dgv_source.Rows[i].Selected == true)
+                    {
+                        string sc = "Select * from ROUTE_POS_REASSIGN where POS_ID= '" + dgv_source.Rows[i].Cells["POS_ID"].Value + "' and TER_ID='" + dgv_source.Rows[i].Cells["Ter_Id"].Value + "' and salester_id_source = " + cmb_sales_ter_source.SelectedValue + "  and ASSIGN_DATE=to_date('" +DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year + "','mm/dd/yyyy') ";
+                        DataSet dsc = DataAccessCS.getdata(sc);
+                        DataAccessCS.conn.Close();
+                        var dvc = new DataView(dsc.Tables[0]);
+                        if (dvc.Count <= 0)
+                        {
+                            dr = dt.NewRow();
+                            dr[0] = dgv_source.Rows[i].Cells["POS_CODE"].Value;
+                            dr[1] = dgv_source.Rows[i].Cells["POS_name"].Value;
+                            dr[2] = dgv_source.Rows[i].Cells["Ter_ID"].Value;
+                            dr[3] = dgv_source.Rows[i].Cells["POS_Id"].Value;
+                            dt.Rows.Add(dr);
+                            ds1.Tables[0].Rows.RemoveAt(i);
+
+                            // DBGrid_POS_source.SelectedRows.Item(i).Visible = False
+                            // DBGrid_POS_source.DataSource = ds1.Tables(0)
+                            dgv_source.Refresh();
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("  لا يمكن تحويل المحل " + dgv_source.Rows[i].Cells["POS_name"].Value + " حيث انه تم تحويله الى مندوب اخر   ");
+                        }
+                    }
+                }
+
+                count_grid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
+        #region  count grid and sum POS  
+
+        public void count_grid()
+        {
+            try
+            {
+                countgrid = dgv_source.Rows.Count;
+                Label_CountS.Text = dgv_source.Rows.Count.ToString();
+                Label_CountD.Text = dgv_des.Rows.Count.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion
+
+
     }
-    
+
 }
