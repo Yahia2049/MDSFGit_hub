@@ -111,7 +111,7 @@ namespace MDSF.Forms.Master_Data
             }
             this.Cursor = Cursors.Default;
         }
-       
+
         private void Fill_cmb_Salesrep_salesman()
         {
             try
@@ -140,7 +140,7 @@ namespace MDSF.Forms.Master_Data
             }
             this.Cursor = Cursors.Default;
         }
-       
+
         private void rdb_By_Vehicle_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -189,7 +189,7 @@ namespace MDSF.Forms.Master_Data
                 ds.Dispose();
                 DataAccessCS.conn.Close();
 
-           
+
                 //--------------------------------------
             }
             catch (Exception ex)
@@ -220,7 +220,7 @@ namespace MDSF.Forms.Master_Data
                 cmb_Region_Van.Enabled = false;
                 cmb_Van_ID.Enabled = false;
                 cmb_Plate_Number.Enabled = false;
-            }  
+            }
             else
             {
                 cmb_Region_salesman.Enabled = false;
@@ -283,7 +283,7 @@ namespace MDSF.Forms.Master_Data
                         if ((cmb_Van_ID.SelectedIndex > -1 && cmb_Plate_Number.SelectedIndex == -1) || (cmb_Van_ID.SelectedIndex > -1 && cmb_Plate_Number.SelectedIndex > -1))
                         {
                             //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                            ds = DataAccessCS.getdata("select distinct j.salesrep_id, v.van_id ,v.car_num,j.start_date, j.jou_seq,j.jou_id,j.BEG_KM,j.END_KM,j.END_KM-j.BEG_KM as Def_KM , j.jou_seq ,v.branch_code from journey@sales j ,van v where j.van_id =v.van_id and   j.van_id = '" + cmb_Van_ID.SelectedValue + "' and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) >= '" + from_date + "'  and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) <= '" + to_date + "' and branch_code ="+cmb_Region_Van.SelectedValue+" ");
+                            ds = DataAccessCS.getdata("select distinct j.salesrep_id, v.van_id ,v.car_num,j.start_date, j.jou_seq,j.jou_id,j.BEG_KM,j.END_KM,j.END_KM-j.BEG_KM as Def_KM , j.jou_seq ,v.branch_code from journey@sales j ,van v where j.van_id =v.van_id and   j.van_id = '" + cmb_Van_ID.SelectedValue + "' and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) >= '" + from_date + "'  and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) <= '" + to_date + "' and branch_code =" + cmb_Region_Van.SelectedValue + " ");
                         }
                         else if (cmb_Van_ID.SelectedIndex == -1 && cmb_Plate_Number.SelectedIndex > -1)
                         {
@@ -357,9 +357,9 @@ namespace MDSF.Forms.Master_Data
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                for (int i = 0; i < rgv_KM.RowCount-1; i++)
+                for (int i = 0; i < rgv_KM.RowCount - 1; i++)
                 {
-                    DataAccessCS.update("update journey@sales set BEG_KM ="+ rgv_KM.Rows[i].Cells["BEG_KM"].Value + ", END_KM="+ rgv_KM.Rows[i].Cells["END_KM"].Value + " where jou_seq ='"+rgv_KM.Rows[i].Cells["jou_seq"].Value+"'  ");
+                    DataAccessCS.update("update journey@sales set BEG_KM =" + rgv_KM.Rows[i].Cells["BEG_KM"].Value + ", END_KM=" + rgv_KM.Rows[i].Cells["END_KM"].Value + " where jou_seq ='" + rgv_KM.Rows[i].Cells["jou_seq"].Value + "'  ");
                     DataAccessCS.conn.Close();
                     DataAccessCS.update("update Van set  ENDING_KM=" + rgv_KM.Rows[i].Cells["END_KM"].Value + " where van_id =" + rgv_KM.Rows[i].Cells["van_id"].Value + "  ");
                     DataAccessCS.conn.Close();
@@ -466,25 +466,25 @@ namespace MDSF.Forms.Master_Data
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                
-               // String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "" ;
+
+                // String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "" ;
                 String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "";
                 DataAccessCS.update(cmd);
-                    DataAccessCS.conn.Close();
+                DataAccessCS.conn.Close();
 
-                
-               
-                   
-                    //----insert into SLA
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "Cairo")
-                    {
 
-                  cmd = "update km_transactions@to_sla_cai set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type=" + cmb_fuel_type.Text + ", fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString();
+
+
+                //----insert into SLA
+                if (cmb_Region_salesman.SelectedValue.ToString() == "Cairo")
+                {
+
+                    cmd = "update km_transactions@to_sla_cai set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type=" + cmb_fuel_type.Text + ", fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString();
                     DataAccessCS.update(cmd);
                     DataAccessCS.conn.Close();
-                    }
-                   
-                
+                }
+
+
                 MessageBox.Show("تم التعديل بنجاح");
                 Lood();
             }
@@ -505,20 +505,26 @@ namespace MDSF.Forms.Master_Data
         {
 
         }
-
+        
+            
         private void rgv_KM_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-          int  indexRow = e.RowIndex;
-            DataGridViewRow row = rgv_KM.Rows[indexRow];
-            txt_salesrep_id.Text = row.Cells["salesrep_id"].Value.ToString();
-            txt_jou_id.Text = row.Cells["jou_id"].Value.ToString();
-            txt_start_km.Text = row.Cells["start_km"].Value.ToString();
-            txt_current_km.Text = row.Cells["current_km"].Value.ToString();
-            cmb_fuel_type.Text=  row.Cells["fuel_type"].Value.ToString();
-            txt_fuel_values.Text = row.Cells["fuel_values"].Value.ToString();
-           dtp_fuel_time.Value = Convert.ToDateTime(row.Cells["fuel_time"].Value.ToString()) ;
 
+            //if (rdb_km_trans.Checked)
+            //{
+            //    int indexRow = e.RowIndex;
+            //    DataGridViewRow row = rgv_KM.Rows[indexRow];
+            //    txt_salesrep_id.Text = row.Cells["salesrep_id"].Value.ToString();
+            //    txt_jou_id.Text = row.Cells["jou_id"].Value.ToString();
+            //    txt_start_km.Text = row.Cells["start_km"].Value.ToString();
+            //    txt_current_km.Text = row.Cells["current_km"].Value.ToString();
+            //    cmb_fuel_type.Text = row.Cells["fuel_type"].Value.ToString();
+            //    txt_fuel_values.Text = row.Cells["fuel_values"].Value.ToString();
+            //    dtp_fuel_time.Value = Convert.ToDateTime(row.Cells["fuel_time"].Value.ToString());
+
+            //}
         }
+    
     }
 }
 

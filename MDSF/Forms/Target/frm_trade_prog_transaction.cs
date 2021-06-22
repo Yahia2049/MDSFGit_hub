@@ -113,56 +113,56 @@ namespace MDSF.Forms.Target
                     {
                         //Update POS table test
                         //  cmd = "UPDATE POS SET EXC=" + cmb_trade_program.SelectedValue + " WHERE TER_ID=" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " )";
-                        //String cmd = "UPDATE  pos_test_y set  SIGNED_POS='Y' ,  EXC= " + cmb_trade_program.SelectedValue + " WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
-                        //DataAccessCS.update(cmd);
-                        //DataAccessCS.conn.Close();
+                        String cmd = "UPDATE  pos_test_y set  SIGNED_POS='Y' ,  EXC= " + cmb_trade_program.SelectedValue + " WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
 
-                        //Add to pos_program_transactions_test Table test
-                        //     String cmdInsrtProgTrans = "Insert into pos_program_transactions_test ( BRANCH_CODE ,TER_ID,POS_ID,MON,YEAR,PROG_ID,TRANS_TYPE) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
-                        //"','" + rgv_Trade_prog.Rows[i].Cells["MON"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["YEAR"].Value +
-                        //"','" + rgv_Trade_prog.Rows[i].Cells["PROG_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TRANS_TYPE"].Value + "')";
-                        //     DataAccessCS.insert(cmdInsrtProgTrans);
-                        //     DataAccessCS.conn.Close();
+                      //  Add to pos_program_transactions_test Table test
+                             String cmdInsrtProgTrans = "Insert into pos_program_transactions_test ( BRANCH_CODE ,TER_ID,POS_ID,MON,YEAR,PROG_ID,TRANS_TYPE) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
+                        "','" + rgv_Trade_prog.Rows[i].Cells["MON"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["YEAR"].Value +
+                        "','" + rgv_Trade_prog.Rows[i].Cells["PROG_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TRANS_TYPE"].Value + "')";
+                        DataAccessCS.insert(cmdInsrtProgTrans);
+                        DataAccessCS.conn.Close();
 
-                        //     //Delete data from Tp_seg "segmntation" test
-                        //String cmdDelSeg = "Delete from  tp_seg_test  WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
-                        //DataAccessCS.delete(cmdDelSeg);
-                        //DataAccessCS.conn.Close();
+                        //Delete data from Tp_seg "segmntation" test
+                        String cmdDelSeg = "Delete from  tp_seg_test  WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
+                        DataAccessCS.delete(cmdDelSeg);
+                        DataAccessCS.conn.Close();
 
-                        //     //Insert into Tp_seg "segmntation" test
-                        //     String cmdInsertSeg = "Insert into tp_seg_test (BRANCH_CODE ,TER_ID,POS_ID,NAME,SEG,DISPLAY_INC) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
-                        //"','" + rgv_Trade_prog.Rows[i].Cells["NAME"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["SEG"].Value +
-                        //"','" + rgv_Trade_prog.Rows[i].Cells["DISPLAY_INC"].Value + "')";
-                        //     DataAccessCS.insert(cmdInsertSeg);
-                        //     DataAccessCS.conn.Close();
+                        //Insert into Tp_seg "segmntation" test
+                        String cmdInsertSeg = "Insert into tp_seg_test (BRANCH_CODE ,TER_ID,POS_ID,NAME,SEG,DISPLAY_INC) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
+                   "','" + rgv_Trade_prog.Rows[i].Cells["NAME"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["SEG"].Value +
+                   "','" + rgv_Trade_prog.Rows[i].Cells["DISPLAY_INC"].Value + "')";
+                        DataAccessCS.insert(cmdInsertSeg);
+                        DataAccessCS.conn.Close();
 
 
                         //------------------------------------------------------------------------------
                         //Actual tables
                         //Update POS table 
                         //  cmd = "UPDATE POS SET EXC=" + cmb_trade_program.SelectedValue + " WHERE TER_ID=" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " )";
-                        String cmd = "UPDATE  pos set  SIGNED_POS='Y' ,  EXC= " + cmb_trade_program.SelectedValue + " WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
-                        DataAccessCS.update(cmd);
-                        DataAccessCS.conn.Close();
+                        //String cmd = "UPDATE  pos set  SIGNED_POS='Y' ,  EXC= " + cmb_trade_program.SelectedValue + " WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
+                        //DataAccessCS.update(cmd);
+                        //DataAccessCS.conn.Close();
 
                         //Add to pos_program_transactions Table 
-                        String cmdInsrtProgTrans = "Insert into pos_program_transactions ( BRANCH_CODE ,TER_ID,POS_ID,MON,YEAR,PROG_ID,TRANS_TYPE) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
-                   "','" + rgv_Trade_prog.Rows[i].Cells["MON"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["YEAR"].Value +
-                   "','" + rgv_Trade_prog.Rows[i].Cells["PROG_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TRANS_TYPE"].Value + "')";
-                        DataAccessCS.insert(cmdInsrtProgTrans);
-                        DataAccessCS.conn.Close();
+                   //     String cmdInsrtProgTrans = "Insert into pos_program_transactions ( BRANCH_CODE ,TER_ID,POS_ID,MON,YEAR,PROG_ID,TRANS_TYPE) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
+                   //"','" + rgv_Trade_prog.Rows[i].Cells["MON"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["YEAR"].Value +
+                   //"','" + rgv_Trade_prog.Rows[i].Cells["PROG_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TRANS_TYPE"].Value + "')";
+                   //     DataAccessCS.insert(cmdInsrtProgTrans);
+                   //     DataAccessCS.conn.Close();
 
                         //     //Delete data from Tp_seg "segmntation" 
-                        String cmdDelSeg = "Delete from  tp_seg  WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
-                        DataAccessCS.delete(cmdDelSeg);
-                        DataAccessCS.conn.Close();
+                        //String cmdDelSeg = "Delete from  tp_seg  WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
+                        //DataAccessCS.delete(cmdDelSeg);
+                        //DataAccessCS.conn.Close();
 
                         //     //Insert into Tp_seg "segmntation" 
-                        String cmdInsertSeg = "Insert into tp_seg (BRANCH_CODE ,TER_ID,POS_ID,NAME,SEG,DISPLAY_INC) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
-                   "','" + rgv_Trade_prog.Rows[i].Cells["NAME"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["SEG"].Value +
-                   "','" + rgv_Trade_prog.Rows[i].Cells["DISPLAY_INC"].Value + "')";
-                        DataAccessCS.insert(cmdInsertSeg);
-                        DataAccessCS.conn.Close();
+                   //     String cmdInsertSeg = "Insert into tp_seg (BRANCH_CODE ,TER_ID,POS_ID,NAME,SEG,DISPLAY_INC) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
+                   //"','" + rgv_Trade_prog.Rows[i].Cells["NAME"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["SEG"].Value +
+                   //"','" + rgv_Trade_prog.Rows[i].Cells["DISPLAY_INC"].Value + "')";
+                   //     DataAccessCS.insert(cmdInsertSeg);
+                   //     DataAccessCS.conn.Close();
 
 
                     }
@@ -199,14 +199,36 @@ namespace MDSF.Forms.Target
                     //test tables
 
 
-                    //  String  cmd = "update pos_test_y set  SIGNED_POS='C' ,  EXC='' where ter_id= " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value  ;
-                    //    DataAccessCS.update(cmd);
+                    String cmd = "update pos_test_y set  SIGNED_POS='C' ,  EXC='' where ter_id= " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
+                    DataAccessCS.update(cmd);
+                    DataAccessCS.conn.Close();
+
+
+                   // Add to pos_program_transactions_test(Remove)
+
+                    String cmdPosTrans = "Insert into pos_program_transactions_test ( BRANCH_CODE ,TER_ID,POS_ID,MON,YEAR,PROG_ID,TRANS_TYPE) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
+                                              "','" + rgv_Trade_prog.Rows[i].Cells["MON"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["YEAR"].Value +
+                                              "','" + rgv_Trade_prog.Rows[i].Cells["PROG_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TRANS_TYPE"].Value + "')";
+                    DataAccessCS.insert(cmdPosTrans);
+                    DataAccessCS.conn.Close();
+
+                    //Delete data from Tp_seg "segmntation"
+
+                    String cmdDelSeg = "Delete from  tp_seg_test  WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
+                    DataAccessCS.delete(cmdDelSeg);
+                    DataAccessCS.conn.Close();
+
+                    //-----------------------------------------------------------------------------
+                    //Actual tables
+
+                    //String cmd = "update pos set  SIGNED_POS='C' ,  EXC='' where ter_id= " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
+                    //DataAccessCS.update(cmd);
                     //DataAccessCS.conn.Close();
 
 
-                    //Add to pos_program_transactions_test (Remove)
+                    //Add to pos_program_transactions (Remove)
 
-                    //String cmdPosTrans = "Insert into pos_program_transactions_test ( BRANCH_CODE ,TER_ID,POS_ID,MON,YEAR,PROG_ID,TRANS_TYPE) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
+                    //String cmdPosTrans = "Insert into pos_program_transactions ( BRANCH_CODE ,TER_ID,POS_ID,MON,YEAR,PROG_ID,TRANS_TYPE) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
                     //                          "','" + rgv_Trade_prog.Rows[i].Cells["MON"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["YEAR"].Value +
                     //                          "','" + rgv_Trade_prog.Rows[i].Cells["PROG_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TRANS_TYPE"].Value + "')";
                     //DataAccessCS.insert(cmdPosTrans);
@@ -214,31 +236,9 @@ namespace MDSF.Forms.Target
 
                     //     //Delete data from Tp_seg "segmntation"
 
-                    //String cmdDelSeg = "Delete from  tp_seg_test  WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
+                    //String cmdDelSeg = "Delete from  tp_seg  WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
                     //DataAccessCS.delete(cmdDelSeg);
                     //DataAccessCS.conn.Close();
-
-                    //-----------------------------------------------------------------------------
-                    //Actual tables
-
-                    String cmd = "update pos set  SIGNED_POS='C' ,  EXC='' where ter_id= " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
-                    DataAccessCS.update(cmd);
-                    DataAccessCS.conn.Close();
-
-
-                    //Add to pos_program_transactions (Remove)
-
-                    String cmdPosTrans = "Insert into pos_program_transactions ( BRANCH_CODE ,TER_ID,POS_ID,MON,YEAR,PROG_ID,TRANS_TYPE) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
-                                              "','" + rgv_Trade_prog.Rows[i].Cells["MON"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["YEAR"].Value +
-                                              "','" + rgv_Trade_prog.Rows[i].Cells["PROG_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TRANS_TYPE"].Value + "')";
-                    DataAccessCS.insert(cmdPosTrans);
-                    DataAccessCS.conn.Close();
-
-                    //     //Delete data from Tp_seg "segmntation"
-
-                    String cmdDelSeg = "Delete from  tp_seg  WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value;
-                    DataAccessCS.delete(cmdDelSeg);
-                    DataAccessCS.conn.Close();
 
                 }
                 MessageBox.Show("تم الحذف من برامج التجار");
