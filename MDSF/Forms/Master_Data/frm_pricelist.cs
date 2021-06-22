@@ -246,6 +246,8 @@ namespace MDSF.Forms.Master_Data
             this.Cursor = Cursors.WaitCursor;
             try
             {
+                string from_date = dtp_from_date.Value.ToString("dd-MMM-yyyy");
+                string to_date = dtp_to_date.Value.ToString("dd-MMM-yyyy");
                 DataSet ds = new DataSet();
                 DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am ')" +
                       ", 'Insert product price list for product_id =" + textProduct.Text + " ','product_price_list','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
@@ -258,9 +260,14 @@ namespace MDSF.Forms.Master_Data
                     }
                     else
                     {
-                        String insertNewPricelist = "Insert into product_price_list ( LINE_PRICE_ID ,PRODUCT_ID,pricelist_case,pricelist_carton,pricelist_pack,BBo_PRICE,BBO_TAX,GIFT_PRICE_SLA,PRODUCT_TAX,TAX_PERCENTAGE,PRODUCT_TAX_RT,PRODUCT_TAX_WS,FROM_DATE,TO_DATE) VALUES (' "
-                 + textline.Text + "','" + textProduct.Text + "','" + txtCase.Text + "','" + txtCarton.Text + "','" + txtPack.Text + "','" + 0.00 + "','" + 0.00 + "','" + 0.00 + "','" + 0.00 + "','" + 0.00 + "','" + 0 + "','" + 0 + "',TO_DATE('06/13/2021', 'MM/DD/YYYY'), TO_DATE('12/30/2099', 'MM/DD/YYYY'))";
-                        DataAccessCS.insert(insertNewPricelist);
+                    //       String insertNewPricelist = "Insert into product_price_list ( LINE_PRICE_ID ,PRODUCT_ID,pricelist_case,pricelist_carton,pricelist_pack,BBo_PRICE,BBO_TAX,GIFT_PRICE_SLA,PRODUCT_TAX,TAX_PERCENTAGE,PRODUCT_TAX_RT,PRODUCT_TAX_WS,FROM_DATE,TO_DATE) VALUES (' "
+                    //+ textline.Text + "','" + textProduct.Text + "','" + txtCase.Text + "','" + txtCarton.Text + "','" + txtPack.Text + "','" + 0.00 + "','" + 0.00 + "','" + 0.00 + "','" + 0.00 + "','" + 0.00 + "','" + 0 + "','" + 0 + "',TO_DATE('06/13/2021', 'MM/DD/YYYY'), TO_DATE('12/30/2099', 'MM/DD/YYYY'))";
+                    String insertNewPricelist = "Insert into product_price_list ( LINE_PRICE_ID ,PRODUCT_ID,pricelist_case,pricelist_carton,pricelist_pack,BBo_PRICE,BBO_TAX,GIFT_PRICE_SLA,PRODUCT_TAX,TAX_PERCENTAGE,PRODUCT_TAX_RT,PRODUCT_TAX_WS,FROM_DATE,TO_DATE) VALUES (' "
+                   + textline.Text + "','" + textProduct.Text + "','" + txtCase.Text + "','" + txtCarton.Text + "','" + txtPack.Text + "','" + 0.00 + "','" + 0.00 + "','" + 0.00 + "','" + txt_productTax.Text + "','" + txt_percentage.Text + "','" + txt_rt.Text + "','" + txt_ws.Text + "', '" + from_date + "' ,'" + to_date + "' )";
+                    DataAccessCS.insert(insertNewPricelist);
+                    DataAccessCS.conn.Close();
+                    MessageBox.Show("تمت الاضافة بنجاح");
+                    DataAccessCS.insert(insertNewPricelist);
                         DataAccessCS.conn.Close();
                         MessageBox.Show("تمت الاضافة بنجاح"); 
                 }

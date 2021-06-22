@@ -148,6 +148,7 @@
             this.cmb_route_des.Name = "cmb_route_des";
             this.cmb_route_des.Size = new System.Drawing.Size(257, 21);
             this.cmb_route_des.TabIndex = 256;
+            this.cmb_route_des.SelectedIndexChanged += new System.EventHandler(this.cmb_route_des_SelectedIndexChanged);
             // 
             // label6
             // 
