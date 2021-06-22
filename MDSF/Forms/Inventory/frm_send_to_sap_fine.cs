@@ -1545,7 +1545,8 @@ namespace MDSF.Forms.Inventory
                         // '*************************************************************************
 
                         string item_details_retail_KA = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.POS_CODE,iis.SALESCALL_ID,iis.vdatu" + " " +
-                            "from  INT_INVENTORY_SOLD_RETAIL_KA_A@TO_SLA_ISM iis " + " where    iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  and iis.LOADING_NO= " + max_load + "";
+                            "from  INT_INVENTORY_SOLD_RETAIL_KA_A@TO_SLA_ISM iis " + " " +
+                            "where    iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  and iis.LOADING_NO= " + max_load + "";
 
 
                         DataSet ds_item_details_KA = DataAccessCS.getdata(item_details_retail_KA);
