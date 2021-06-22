@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>30</ApplicationRevision>
+    <ApplicationRevision>32</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -184,6 +184,12 @@
     </Compile>
     <Compile Include="Forms\Daily Activity\frm_wrong_date.Designer.cs">
       <DependentUpon>frm_wrong_date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Inventory\frm_send_to_sap_fine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Inventory\frm_send_to_sap_fine.Designer.cs">
+      <DependentUpon>frm_send_to_sap_fine.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Inventory\frm_send_to_sap_all.cs">
       <SubType>Form</SubType>
@@ -363,6 +369,9 @@
     <EmbeddedResource Include="Forms\Daily Activity\frm_wrong_date.resx">
       <DependentUpon>frm_wrong_date.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Inventory\frm_send_to_sap_fine.resx">
+      <DependentUpon>frm_send_to_sap_fine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory\frm_send_to_sap_all.resx">
       <DependentUpon>frm_send_to_sap_all.cs</DependentUpon>
     </EmbeddedResource>
@@ -441,7 +450,6 @@
     <EmbeddedResource Include="Main_form.resx">
       <DependentUpon>Main_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -573,5 +581,6 @@
       <CachedSettingsPropName>MDSF_WebReference1_Service</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

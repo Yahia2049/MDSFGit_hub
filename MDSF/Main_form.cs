@@ -233,19 +233,46 @@ namespace MDSF
 
         private void Main_form_Load(object sender, EventArgs e)
         {
-            string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            toolStripStatusLabel.Text = "USER : "+ DataAccessCS.x_salesrep_name + " :::  Mansour Distribution Salesforce  ::  Version : " + version + "                                                     Mansour group Copyrights @2021";
-            toolStripStatusLabel.ForeColor = Color.White;
-            menuStrip.ForeColor = Color.White;
-            menuStrip.BackColor = Color.DarkGreen;
+            
+            try
+            {
 
-            menuStrip2.ForeColor = Color.White;
-            menuStrip2.BackColor = Color.DarkGreen;
-            menuStrip2.RightToLeft = RightToLeft.No;
+                string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                toolStripStatusLabel.Text = "USER : " + DataAccessCS.x_salesrep_name + " :::  Mansour Distribution Salesforce  ::  Version : " + version + "                                                     Mansour group Copyrights @2021";
+                toolStripStatusLabel.ForeColor = Color.White;
+                menuStrip.ForeColor = Color.White;
+                menuStrip.BackColor = Color.DarkGreen;
 
-            menuStrip2.Visible = true;
-           // NBC_Menu.Visible = false;
-           
+                menuStrip2.ForeColor = Color.White;
+                menuStrip2.BackColor = Color.DarkGreen;
+                menuStrip2.RightToLeft = RightToLeft.No;
+
+                menuStrip2.Visible = true;
+                // NBC_Menu.Visible = false;
+
+                //--------------------------------------------------------------
+                //---- Inventory
+                string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                     "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=7000 ");
+                DataAccessCS.conn.Close();
+                if (check != "0")
+                {
+                    iNVENTORYToolStripMenuItem.Visible = true;
+                }
+                else
+                {
+                    iNVENTORYToolStripMenuItem.Visible = false;
+                   
+                    this.Cursor = Cursors.Default;
+                    return;
+                }
+
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
 
 
@@ -1261,10 +1288,73 @@ namespace MDSF
 
         private void aLLSendToSAPToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var X_Form = new frm_send_to_sap_all();
-            X_Form.Show();
-            X_Form.MdiParent = this;
-           // X_Form.WindowState = FormWindowState.Maximized;
+           
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                     "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=7001 ");
+                DataAccessCS.conn.Close();
+                if (check != "0")
+                {
+                    var X_Form = new frm_send_to_sap_all();
+                    X_Form.Show();
+                    X_Form.MdiParent = this;
+                    // X_Form.WindowState = FormWindowState.Maximized;
+                }
+                else
+                {
+                    MessageBox.Show("غير مسموح بإستخدام الشاشة المختارة");
+                    this.Cursor = Cursors.Default;
+                    return;
+                }
+
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private void fineSendToSAPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                     "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=7005 ");
+                DataAccessCS.conn.Close();
+                if (check != "0")
+                {
+                    var X_Form = new frm_send_to_sap_fine();
+                    X_Form.Show();
+                    X_Form.MdiParent = this;
+                    // X_Form.WindowState = FormWindowState.Maximized;
+                }
+                else
+                {
+                    MessageBox.Show("غير مسموح بإستخدام الشاشة المختارة");
+                    this.Cursor = Cursors.Default;
+                    return;
+                }
+
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void iNVENTORYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+         
         }
     }
 }
