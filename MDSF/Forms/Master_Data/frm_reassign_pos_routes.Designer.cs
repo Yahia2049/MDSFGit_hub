@@ -44,8 +44,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btn_TO_DES = new System.Windows.Forms.Button();
             this.btn_From_DES = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_move_all = new System.Windows.Forms.Button();
+            this.btn_back_all = new System.Windows.Forms.Button();
             this.dgv_source = new System.Windows.Forms.DataGridView();
             this.dgv_des = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
@@ -214,6 +214,7 @@
             this.btn_TO_DES.TabIndex = 259;
             this.btn_TO_DES.Text = ">";
             this.btn_TO_DES.UseVisualStyleBackColor = true;
+            this.btn_TO_DES.Click += new System.EventHandler(this.btn_TO_DES_Click);
             // 
             // btn_From_DES
             // 
@@ -225,25 +226,25 @@
             this.btn_From_DES.Text = "<";
             this.btn_From_DES.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_move_all
             // 
-            this.button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(441, 308);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 35);
-            this.button1.TabIndex = 260;
-            this.button1.Text = ">>";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_move_all.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_move_all.Location = new System.Drawing.Point(441, 308);
+            this.btn_move_all.Name = "btn_move_all";
+            this.btn_move_all.Size = new System.Drawing.Size(75, 35);
+            this.btn_move_all.TabIndex = 260;
+            this.btn_move_all.Text = ">>";
+            this.btn_move_all.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_back_all
             // 
-            this.button2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(441, 349);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 35);
-            this.button2.TabIndex = 261;
-            this.button2.Text = "<<";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_back_all.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back_all.Location = new System.Drawing.Point(441, 349);
+            this.btn_back_all.Name = "btn_back_all";
+            this.btn_back_all.Size = new System.Drawing.Size(75, 35);
+            this.btn_back_all.TabIndex = 261;
+            this.btn_back_all.Text = "<<";
+            this.btn_back_all.UseVisualStyleBackColor = true;
             // 
             // dgv_source
             // 
@@ -322,8 +323,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dgv_des);
             this.Controls.Add(this.dgv_source);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_back_all);
+            this.Controls.Add(this.btn_move_all);
             this.Controls.Add(this.btn_TO_DES);
             this.Controls.Add(this.btn_From_DES);
             this.Controls.Add(this.cmb_route_des);
@@ -368,8 +369,8 @@
         internal System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_TO_DES;
         private System.Windows.Forms.Button btn_From_DES;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_move_all;
+        private System.Windows.Forms.Button btn_back_all;
         private System.Windows.Forms.DataGridView dgv_source;
         private System.Windows.Forms.DataGridView dgv_des;
         private System.Windows.Forms.Button button3;
