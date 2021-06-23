@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_send_to_sap_all));
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.txt_loading_no = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txt_jou_seq = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.cmb_Region = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_approve = new System.Windows.Forms.Button();
@@ -52,10 +57,6 @@
             this.Label_TotalPOS = new System.Windows.Forms.Label();
             this.Label10 = new System.Windows.Forms.Label();
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.txt_jou_seq = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt_loading_no = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inventory)).BeginInit();
             this.SuspendLayout();
@@ -98,11 +99,53 @@
             this.Panel1.Size = new System.Drawing.Size(1021, 715);
             this.Panel1.TabIndex = 49;
             // 
+            // txt_loading_no
+            // 
+            this.txt_loading_no.Location = new System.Drawing.Point(119, 5);
+            this.txt_loading_no.Name = "txt_loading_no";
+            this.txt_loading_no.ReadOnly = true;
+            this.txt_loading_no.Size = new System.Drawing.Size(172, 20);
+            this.txt_loading_no.TabIndex = 136;
+            this.txt_loading_no.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(17, 10);
+            this.label9.Name = "label9";
+            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label9.Size = new System.Drawing.Size(98, 13);
+            this.label9.TabIndex = 135;
+            this.label9.Text = "Loading number";
+            // 
+            // txt_jou_seq
+            // 
+            this.txt_jou_seq.Location = new System.Drawing.Point(119, 29);
+            this.txt_jou_seq.Name = "txt_jou_seq";
+            this.txt_jou_seq.ReadOnly = true;
+            this.txt_jou_seq.Size = new System.Drawing.Size(172, 20);
+            this.txt_jou_seq.TabIndex = 134;
+            this.txt_jou_seq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(4, 33);
+            this.label8.Name = "label8";
+            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label8.Size = new System.Drawing.Size(111, 13);
+            this.label8.TabIndex = 133;
+            this.label8.Text = "Journey Sequance";
+            // 
             // cmb_Region
             // 
             this.cmb_Region.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_Region.FormattingEnabled = true;
-            this.cmb_Region.Location = new System.Drawing.Point(786, 5);
+            this.cmb_Region.Location = new System.Drawing.Point(600, 6);
             this.cmb_Region.Name = "cmb_Region";
             this.cmb_Region.Size = new System.Drawing.Size(128, 21);
             this.cmb_Region.TabIndex = 132;
@@ -115,7 +158,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(955, 10);
+            this.label7.Location = new System.Drawing.Point(734, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 131;
@@ -125,7 +168,7 @@
             // 
             this.btn_approve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_approve.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_approve.Location = new System.Drawing.Point(895, 682);
+            this.btn_approve.Location = new System.Drawing.Point(873, 682);
             this.btn_approve.Name = "btn_approve";
             this.btn_approve.Size = new System.Drawing.Size(97, 28);
             this.btn_approve.TabIndex = 130;
@@ -137,7 +180,7 @@
             // 
             this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_search.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_search.Location = new System.Drawing.Point(571, 54);
+            this.btn_search.Location = new System.Drawing.Point(836, 54);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(92, 27);
             this.btn_search.TabIndex = 130;
@@ -149,9 +192,9 @@
             // 
             this.cmb_salesrep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_salesrep.FormattingEnabled = true;
-            this.cmb_salesrep.Location = new System.Drawing.Point(669, 59);
+            this.cmb_salesrep.Location = new System.Drawing.Point(600, 32);
             this.cmb_salesrep.Name = "cmb_salesrep";
-            this.cmb_salesrep.Size = new System.Drawing.Size(245, 21);
+            this.cmb_salesrep.Size = new System.Drawing.Size(328, 21);
             this.cmb_salesrep.TabIndex = 129;
             this.cmb_salesrep.SelectionChangeCommitted += new System.EventHandler(this.cmb_salesrep_SelectionChangeCommitted);
             // 
@@ -310,7 +353,7 @@
             this.Label_SalesRep.BackColor = System.Drawing.Color.Transparent;
             this.Label_SalesRep.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label_SalesRep.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label_SalesRep.Location = new System.Drawing.Point(955, 64);
+            this.Label_SalesRep.Location = new System.Drawing.Point(934, 29);
             this.Label_SalesRep.Name = "Label_SalesRep";
             this.Label_SalesRep.Size = new System.Drawing.Size(48, 13);
             this.Label_SalesRep.TabIndex = 115;
@@ -321,7 +364,7 @@
             this.Label_GridCount.AutoSize = true;
             this.Label_GridCount.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label_GridCount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label_GridCount.Location = new System.Drawing.Point(367, 60);
+            this.Label_GridCount.Location = new System.Drawing.Point(565, 69);
             this.Label_GridCount.Name = "Label_GridCount";
             this.Label_GridCount.Size = new System.Drawing.Size(14, 13);
             this.Label_GridCount.TabIndex = 110;
@@ -332,7 +375,7 @@
             this.Label_TotalPOS.AutoSize = true;
             this.Label_TotalPOS.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label_TotalPOS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label_TotalPOS.Location = new System.Drawing.Point(323, 59);
+            this.Label_TotalPOS.Location = new System.Drawing.Point(521, 68);
             this.Label_TotalPOS.Name = "Label_TotalPOS";
             this.Label_TotalPOS.Size = new System.Drawing.Size(40, 13);
             this.Label_TotalPOS.TabIndex = 109;
@@ -345,7 +388,7 @@
             this.Label10.BackColor = System.Drawing.Color.Transparent;
             this.Label10.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label10.Location = new System.Drawing.Point(931, 38);
+            this.Label10.Location = new System.Drawing.Point(934, 10);
             this.Label10.Name = "Label10";
             this.Label10.Size = new System.Drawing.Size(76, 13);
             this.Label10.TabIndex = 103;
@@ -355,52 +398,10 @@
             // 
             this.DateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DateTimePicker.Checked = false;
-            this.DateTimePicker.Location = new System.Drawing.Point(669, 32);
+            this.DateTimePicker.Location = new System.Drawing.Point(776, 6);
             this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(245, 20);
+            this.DateTimePicker.Size = new System.Drawing.Size(152, 20);
             this.DateTimePicker.TabIndex = 104;
-            // 
-            // txt_jou_seq
-            // 
-            this.txt_jou_seq.Location = new System.Drawing.Point(119, 29);
-            this.txt_jou_seq.Name = "txt_jou_seq";
-            this.txt_jou_seq.ReadOnly = true;
-            this.txt_jou_seq.Size = new System.Drawing.Size(172, 20);
-            this.txt_jou_seq.TabIndex = 134;
-            this.txt_jou_seq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(4, 33);
-            this.label8.Name = "label8";
-            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(111, 13);
-            this.label8.TabIndex = 133;
-            this.label8.Text = "Journey Sequance";
-            // 
-            // txt_loading_no
-            // 
-            this.txt_loading_no.Location = new System.Drawing.Point(119, 5);
-            this.txt_loading_no.Name = "txt_loading_no";
-            this.txt_loading_no.ReadOnly = true;
-            this.txt_loading_no.Size = new System.Drawing.Size(172, 20);
-            this.txt_loading_no.TabIndex = 136;
-            this.txt_loading_no.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(17, 10);
-            this.label9.Name = "label9";
-            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label9.Size = new System.Drawing.Size(98, 13);
-            this.label9.TabIndex = 135;
-            this.label9.Text = "Loading number";
             // 
             // frm_send_to_sap_all
             // 
@@ -408,6 +409,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 720);
             this.Controls.Add(this.Panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_send_to_sap_all";
             this.Text = "تصفية إذن مجمع";
             this.Load += new System.EventHandler(this.frm_send_to_sap_all_Load);

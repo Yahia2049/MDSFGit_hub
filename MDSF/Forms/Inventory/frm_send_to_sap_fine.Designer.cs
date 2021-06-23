@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_send_to_sap_fine));
             this.Panel1 = new System.Windows.Forms.Panel();
             this.txt_loading_no = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -410,6 +411,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 720);
             this.Controls.Add(this.Panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_send_to_sap_fine";
             this.Text = "تصفية إذن فاين";
             this.Load += new System.EventHandler(this.frm_send_to_sap_fine_Load);
