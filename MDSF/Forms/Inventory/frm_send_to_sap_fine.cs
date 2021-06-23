@@ -154,6 +154,7 @@ namespace MDSF.Forms.Inventory
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             try
             {
                 DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), ' Open  Send to SAP ALL_Form -> Press Button(بحث) ','','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
@@ -326,8 +327,8 @@ namespace MDSF.Forms.Inventory
             {
                 MessageBox.Show(ex.Message);
             }
-
-            
+            dgv_inventory.ReadOnly = true;
+            this.Cursor = Cursors.Default;
         }
         #region  Count 
         public void Count()
@@ -345,7 +346,7 @@ namespace MDSF.Forms.Inventory
 
         private void cmb_salesrep_SelectionChangeCommitted(object sender, EventArgs e)
         {
-           
+            this.Cursor = Cursors.WaitCursor;
             try
             {
                 SalesRep_Code.Text = cmb_salesrep.SelectedValue.ToString();
@@ -370,12 +371,13 @@ namespace MDSF.Forms.Inventory
             {
                 MessageBox.Show(ex.Message);
             }
-           
 
+            this.Cursor = Cursors.Default;
         }
 
         private void btn_approve_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             try
             {
                 bool flag;
@@ -411,9 +413,9 @@ namespace MDSF.Forms.Inventory
                         dtSettlementHeader.Columns.Add("31");
                     }
 
-                    if (!dtSettlementHeader.Columns.Contains("00_21"))
+                    if (!dtSettlementHeader.Columns.Contains("00_25"))
                     {
-                        dtSettlementHeader.Columns.Add("00_21");
+                        dtSettlementHeader.Columns.Add("00_25");
                     }
 
                     if (!dtSettlementHeader.Columns.Contains("Salesrep_id1"))
@@ -448,10 +450,10 @@ namespace MDSF.Forms.Inventory
 
                     DataRow drSettlementHeader;
                     drSettlementHeader = dtSettlementHeader.NewRow();
-                    drSettlementHeader["YPK_YSO"] = "YPK1";
+                    drSettlementHeader["YPK_YSO"] = "YPK";
                     drSettlementHeader["3000"] = "3000";
                     drSettlementHeader["31"] = "31";
-                    drSettlementHeader["00_21"] = "21";
+                    drSettlementHeader["00_25"] = "25";
                     drSettlementHeader["Salesrep_id1"] = salesrep_id;
                     drSettlementHeader["null1"] = "SB";
                     drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -654,10 +656,10 @@ namespace MDSF.Forms.Inventory
                             //{
                             //    // ' Dim drSettlementHeader As DataRow
                             //    drSettlementHeader = dtSettlementHeader.NewRow();
-                            //    drSettlementHeader["YPK_YSO"] = "YSO2";
+                            //    drSettlementHeader["YPK_YSO"] = "YSO";
                             //    drSettlementHeader["3000"] = "3000";
                             //    drSettlementHeader["31"] = "31";
-                            //    drSettlementHeader["00_21"] = "21";
+                            //    drSettlementHeader["00_25"] = "25";
                             //    drSettlementHeader["Salesrep_id1"] = salesrep_id;
                             //    drSettlementHeader["null1"] = "SB";
                             //    drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -901,10 +903,10 @@ namespace MDSF.Forms.Inventory
                             if (dv_item_details_Retail.Count > 0)
                             {
                                 drSettlementHeader = dtSettlementHeader.NewRow();
-                                drSettlementHeader["YPK_YSO"] = "YSO2";
+                                drSettlementHeader["YPK_YSO"] = "YSO";
                                 drSettlementHeader["3000"] = "3000";
                                 drSettlementHeader["31"] = "31";
-                                drSettlementHeader["00_21"] = "21";
+                                drSettlementHeader["00_25"] = "25";
                                 drSettlementHeader["Salesrep_id1"] = salesrep_id;
                                 drSettlementHeader["null1"] = "SB";
                                 drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -1135,10 +1137,10 @@ namespace MDSF.Forms.Inventory
                                     dv_item_details_Retail_KA.RowFilter = "";
                                     dv_item_details_Retail_KA.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
                                     drSettlementHeader = dtSettlementHeader.NewRow();
-                                    drSettlementHeader["YPK_YSO"] = "YSO2";
+                                    drSettlementHeader["YPK_YSO"] = "YSO";
                                     drSettlementHeader["3000"] = "3000";
                                     drSettlementHeader["31"] = "31";
-                                    drSettlementHeader["00_21"] = "21";
+                                    drSettlementHeader["00_25"] = "25";
                                     drSettlementHeader["Salesrep_id1"] = dv_POS_COUNT[count]["POS_CODE"];
                                     drSettlementHeader["null1"] = "SB";
                                     drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -1376,10 +1378,10 @@ namespace MDSF.Forms.Inventory
                         if (dv_item_details_Retail.Count > 0)
                         {
                             drSettlementHeader = dtSettlementHeader.NewRow();
-                            drSettlementHeader["YPK_YSO"] = "YSO2";
+                            drSettlementHeader["YPK_YSO"] = "YSO";
                             drSettlementHeader["3000"] = "3000";
                             drSettlementHeader["31"] = "31";
-                            drSettlementHeader["00_21"] = "21";
+                            drSettlementHeader["00_25"] = "25";
                             drSettlementHeader["Salesrep_id1"] = salesrep_id;
                             drSettlementHeader["null1"] = "SB";
                             drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -1579,10 +1581,10 @@ namespace MDSF.Forms.Inventory
                                 dv_item_details_Retail_KA.RowFilter = "";
                                 dv_item_details_Retail_KA.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
                                 drSettlementHeader = dtSettlementHeader.NewRow();
-                                drSettlementHeader["YPK_YSO"] = "YSO2";
+                                drSettlementHeader["YPK_YSO"] = "YSO";
                                 drSettlementHeader["3000"] = "3000";
                                 drSettlementHeader["31"] = "31";
-                                drSettlementHeader["00_21"] = "21";
+                                drSettlementHeader["00_25"] = "25";
                                 drSettlementHeader["Salesrep_id1"] = dv_POS_COUNT[count]["POS_CODE"];
                                 drSettlementHeader["null1"] = "SB";
                                 drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -1766,7 +1768,7 @@ namespace MDSF.Forms.Inventory
                                 }
 
 
-                                // ' item_flag = test.CreateIssueOrder("YSO2", "3000", "31", "09", dv_item_details_Retail_KA(0)("POS_CODE"), "SB", salesrep_id, dv_item_details_Retail_KA(0)("LOADING_NO"), dv_item_details_Retail_KA(0)("SALESCALL_ID"), dv_item_details_Retail_KA(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
+                                // ' item_flag = test.CreateIssueOrder("YSO", "3000", "31", "09", dv_item_details_Retail_KA(0)("POS_CODE"), "SB", salesrep_id, dv_item_details_Retail_KA(0)("LOADING_NO"), dv_item_details_Retail_KA(0)("SALESCALL_ID"), dv_item_details_Retail_KA(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
                             }
                         }
 
@@ -1821,10 +1823,10 @@ namespace MDSF.Forms.Inventory
                                 dv_item_details_KA_WS.RowFilter = "";
                                 dv_item_details_KA_WS.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
                                 drSettlementHeader = dtSettlementHeader.NewRow();
-                                drSettlementHeader["YPK_YSO"] = "YSO2";
+                                drSettlementHeader["YPK_YSO"] = "YSO";
                                 drSettlementHeader["3000"] = "3000";
                                 drSettlementHeader["31"] = "31";
-                                drSettlementHeader["00_21"] = "21";
+                                drSettlementHeader["00_25"] = "25";
                                 drSettlementHeader["Salesrep_id1"] = dv_POS_COUNT[count]["POS_CODE"];
                                 drSettlementHeader["null1"] = "SB";
                                 drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -2012,7 +2014,7 @@ namespace MDSF.Forms.Inventory
 
 
 
-                                // ' item_flag = test.CreateIssueOrder("YSO2", "3000", "31", "09", dv_item_details_KA_WS(0)("POS_CODE"), "SB", salesrep_id, dv_item_details_KA_WS(0)("LOADING_NO"), dv_item_details_KA_WS(0)("salescall_id"), dv_item_details_KA_WS(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
+                                // ' item_flag = test.CreateIssueOrder("YSO", "3000", "31", "09", dv_item_details_KA_WS(0)("POS_CODE"), "SB", salesrep_id, dv_item_details_KA_WS(0)("LOADING_NO"), dv_item_details_KA_WS(0)("salescall_id"), dv_item_details_KA_WS(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
                             }
                         }
 
@@ -2020,7 +2022,7 @@ namespace MDSF.Forms.Inventory
 
 
                         // ' Dim item_flag As Boolean
-                        // 'item_flag = test.CreateIssueOrder("YSO2", "3000", "31", "09", salesrep_id, "", "", dv_item_details_Retail(0)("LOADING_NO"), "1", dv_item_details_Retail(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
+                        // 'item_flag = test.CreateIssueOrder("YSO", "3000", "31", "09", salesrep_id, "", "", dv_item_details_Retail(0)("LOADING_NO"), "1", dv_item_details_Retail(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
 
                     }
                     // If item_flag =
@@ -2071,7 +2073,7 @@ namespace MDSF.Forms.Inventory
                         try
                         {
                             string c_h;
-                            c_h = "insert into dtSettlementHeader_s@TO_SLA_ISM (FILLUPORDER,AUART,VKORG,VTWEG,SPART,KUNNR,PARVW,PARVW_KUNNR,REFERENCE, VKGRP, VDATU, USER_ID,USER_NAME,TRANS_DATE, TRANS_TYPE, MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtSettlementHeader.Rows[t1][0] + "','" + dtSettlementHeader.Rows[t1][1] + "','" + dtSettlementHeader.Rows[t1][2] + "','" + dtSettlementHeader.Rows[t1][3] + "' ,'" + dtSettlementHeader.Rows[t1][4] + "','" + dtSettlementHeader.Rows[t1][5] + "','" + dtSettlementHeader.Rows[t1][6] + "','" + dtSettlementHeader.Rows[t1][7] + "','" + dtSettlementHeader.Rows[t1][8] + "', '" + d + "','" + DataAccessCS.x_user_id + "' ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
+                            c_h = "insert into dtSettlementHeader_s(FILLUPORDER,AUART,VKORG,VTWEG,SPART,KUNNR,PARVW,PARVW_KUNNR,REFERENCE, VKGRP, VDATU, USER_ID,USER_NAME,TRANS_DATE, TRANS_TYPE, MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtSettlementHeader.Rows[t1][0] + "','" + dtSettlementHeader.Rows[t1][1] + "','" + dtSettlementHeader.Rows[t1][2] + "','" + dtSettlementHeader.Rows[t1][3] + "' ,'" + dtSettlementHeader.Rows[t1][4] + "','" + dtSettlementHeader.Rows[t1][5] + "','" + dtSettlementHeader.Rows[t1][6] + "','" + dtSettlementHeader.Rows[t1][7] + "','" + dtSettlementHeader.Rows[t1][8] + "', '" + d + "','" + DataAccessCS.x_user_id + "' ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
                             DataAccessCS.insert(c_h);
                             DataAccessCS.conn.Close();
 
@@ -2110,7 +2112,7 @@ namespace MDSF.Forms.Inventory
                         try
                         {
                             string c_p;
-                            c_p = "insert into dtPickedItems_s@TO_SLA_ISM ( FILLUPORDER ,  MATNR,KWMENG,VRKME,POSNR,USER_ID,USER_NAME,TRANS_DATE,TRANS_TYPE,MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtPickedItems.Rows[t2][0] + "' ,'" + dtPickedItems.Rows[t2][1] + "','" + dtPickedItems.Rows[t2][2] + "','" + dtPickedItems.Rows[t2][3] + "' ,'" + DataAccessCS.x_user_id + "' ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
+                            c_p = "insert into dtPickedItems_s( FILLUPORDER ,  MATNR,KWMENG,VRKME,POSNR,USER_ID,USER_NAME,TRANS_DATE,TRANS_TYPE,MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtPickedItems.Rows[t2][0] + "' ,'" + dtPickedItems.Rows[t2][1] + "','" + dtPickedItems.Rows[t2][2] + "','" + dtPickedItems.Rows[t2][3] + "' ,'" + DataAccessCS.x_user_id + "' ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
                             DataAccessCS.insert(c_p);
                             DataAccessCS.conn.Close();
                         }
@@ -2149,7 +2151,7 @@ namespace MDSF.Forms.Inventory
                         try
                         {
                             string c_I;
-                            c_I = "insert into dtIssusedItems_s@TO_SLA_ISM ( FILLUPORDER ,  MATNR,KWMENG,VRKME,POSNR,KUNNR,USER_ID,USER_NAME,TRANS_DATE,TRANS_TYPE,MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtIssusedItems.Rows[t3][0] + "' ,'" + dtIssusedItems.Rows[t3][1] + "','" + dtIssusedItems.Rows[t3][2] + "'," + dtIssusedItems.Rows[t3][3] + " ,'" + dtIssusedItems.Rows[t3][4] + "'," + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
+                            c_I = "insert into dtIssusedItems_s ( FILLUPORDER ,  MATNR,KWMENG,VRKME,POSNR,KUNNR,USER_ID,USER_NAME,TRANS_DATE,TRANS_TYPE,MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtIssusedItems.Rows[t3][0] + "' ,'" + dtIssusedItems.Rows[t3][1] + "','" + dtIssusedItems.Rows[t3][2] + "'," + dtIssusedItems.Rows[t3][3] + " ,'" + dtIssusedItems.Rows[t3][4] + "'," + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
                             DataAccessCS.insert(c_I);
                             DataAccessCS.conn.Close();
                         }
@@ -2193,7 +2195,7 @@ namespace MDSF.Forms.Inventory
                         try
                         {
                             string c_c;
-                            c_c = "insert into dtConditions_s@TO_SLA_ISM ( FILLUPORDER , POSNR,KSCHL,KWERT,WAERS,KUNNR,USER_ID,USER_NAME,TRANS_DATE,TRANS_TYPE,MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtConditions.Rows[t4][0] + "' ,'" + dtConditions.Rows[t4][1] + "','" + dtConditions.Rows[t4][2] + "','" + dtConditions.Rows[t4][3] + "' ,'" + dtConditions.Rows[t4][4] + "'," + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
+                            c_c = "insert into dtConditions_s ( FILLUPORDER , POSNR,KSCHL,KWERT,WAERS,KUNNR,USER_ID,USER_NAME,TRANS_DATE,TRANS_TYPE,MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtConditions.Rows[t4][0] + "' ,'" + dtConditions.Rows[t4][1] + "','" + dtConditions.Rows[t4][2] + "','" + dtConditions.Rows[t4][3] + "' ,'" + dtConditions.Rows[t4][4] + "'," + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
                             DataAccessCS.insert(c_c);
                             DataAccessCS.conn.Close();
                         }
@@ -2239,7 +2241,7 @@ namespace MDSF.Forms.Inventory
                             Inc_Differente.Text = (INCENTIVE_TEST - dt_inc).ToString();
 
                             // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
-                            string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله' )";
+                            string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
                             MessageBox.Show("لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله  ");
@@ -2267,7 +2269,7 @@ namespace MDSF.Forms.Inventory
                             Inc_Differente.Text = (INCENTIVE_TEST - dt_inc).ToString();
 
                             // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
-                            string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله' )";
+                            string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله' )";
                             DataAccessCS.insert(inv);
                             MessageBox.Show("لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله  ");
                             // MsgBox("Error Code: MNS10001")
@@ -2290,7 +2292,7 @@ namespace MDSF.Forms.Inventory
                     if (total_HH != total_sla)
                     {
                         // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
-                        string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع البيانات ارج الانظار عشر دقائق حتى تصل البيانات كامله' )";
+                        string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع البيانات ارج الانظار عشر دقائق حتى تصل البيانات كامله' )";
                         DataAccessCS.insert(inv);
                         MessageBox.Show("لم يتم ارسال جميع البيانات ارج الانظار عشر دقائق حتى تصل البيانات كامله");
                         DataAccessCS.conn.Close();
@@ -2308,7 +2310,7 @@ namespace MDSF.Forms.Inventory
                         {
                             // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
                             string Z = "تم ارسال البيع " + "  رقم امر الارتجاع  " + test_res.message3;
-                            string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
+                            string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
                             MessageBox.Show("تم ارسال البيع " + "  رقم امر الارتجاع  " + test_res.message3);
@@ -2317,7 +2319,7 @@ namespace MDSF.Forms.Inventory
                         {
                             // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
                             string Z = "تم ارسال البيع " + " رقم اذن الارتجاع " + test_res.message2 + "  رقم امر الارتجاع  " + test_res.message3;
-                            string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
+                            string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
                             MessageBox.Show("تم ارسال البيع " + " رقم اذن الارتجاع " + test_res.message2 + "  رقم امر الارتجاع  " + test_res.message3);
@@ -2326,7 +2328,7 @@ namespace MDSF.Forms.Inventory
                     else if (test_res.success == "95")
                     {
                         // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
-                        string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S', 'تم ارسال البيع من قبل' )";
+                        string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S', 'تم ارسال البيع من قبل' )";
                         DataAccessCS.insert(inv);
                         DataAccessCS.conn.Close();
                         MessageBox.Show("تم ارسال البيع من قبل");
@@ -2335,7 +2337,7 @@ namespace MDSF.Forms.Inventory
                     {
                         // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
                         string Z = "خطأ في ارسال البيع  " + test_res.message;
-                        string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F','" + Z + "' )";
+                        string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F','" + Z + "' )";
                         DataAccessCS.insert(inv);
                         DataAccessCS.conn.Close();
                         MessageBox.Show("خطأ في ارسال البيع" + test_res.message);
@@ -2464,7 +2466,7 @@ namespace MDSF.Forms.Inventory
 
                 MessageBox.Show(ex.Message);
             }
-           
+            this.Cursor = Cursors.Default;
         }
 
         private void DateTimePicker_ValueChanged(object sender, EventArgs e)

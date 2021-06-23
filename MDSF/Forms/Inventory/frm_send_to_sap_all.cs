@@ -114,8 +114,10 @@ namespace MDSF.Forms.Inventory
 
         private void cmb_Region_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             DataAccessCS.conn.Close();
             Fill_cmb_salesrep();
+            this.Cursor = Cursors.Default;
         }
         private void Fill_cmb_salesrep()
         {
@@ -155,8 +157,10 @@ namespace MDSF.Forms.Inventory
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             try
             {
+                
                 DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), ' Open  Send to SAP ALL_Form -> Press Button(بحث) ','','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                 DataAccessCS.conn.Close();
 
@@ -343,8 +347,9 @@ namespace MDSF.Forms.Inventory
             {
                 MessageBox.Show(ex.Message);
             }
+            this.Cursor = Cursors.Default;
+            dgv_inventory.ReadOnly = true;
 
-            
         }
         #region  Count 
         public void Count()
@@ -391,6 +396,7 @@ namespace MDSF.Forms.Inventory
 
         private void btn_approve_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             try
             {
                 bool flag;
@@ -1378,7 +1384,7 @@ namespace MDSF.Forms.Inventory
 
                         // Yahia 05-07-2018 To Add Gift of All product
                         string item_gift_retail = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE ,iis.vdatu " + " " +
-                            "from  INT_INVENTORY_GIFT_RETAIL_A@TO_SLA_ISM iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_No= " + max_load + "";
+                            "from  INT_INVENTORY_GIFT_RETAIL_A iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_No= " + max_load + "";
 
 
                         DataSet ds_gift_details = DataAccessCS.getdata(item_gift_retail);
@@ -2086,7 +2092,7 @@ namespace MDSF.Forms.Inventory
                         try
                         {
                             string c_h;
-                            c_h = "insert into dtSettlementHeader_s@TO_SLA_ISM (FILLUPORDER,AUART,VKORG,VTWEG,SPART,KUNNR,PARVW,PARVW_KUNNR,REFERENCE, VKGRP, VDATU, USER_ID,USER_NAME,TRANS_DATE, TRANS_TYPE, MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtSettlementHeader.Rows[t1][0] + "','" + dtSettlementHeader.Rows[t1][1] + "','" + dtSettlementHeader.Rows[t1][2] + "','" + dtSettlementHeader.Rows[t1][3] + "' ,'" + dtSettlementHeader.Rows[t1][4] + "','" + dtSettlementHeader.Rows[t1][5] + "','" + dtSettlementHeader.Rows[t1][6] + "','" + dtSettlementHeader.Rows[t1][7] + "','" + dtSettlementHeader.Rows[t1][8] + "', '" + d + "','" + DataAccessCS.x_user_id + "' ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
+                            c_h = "insert into dtSettlementHeader_s (FILLUPORDER,AUART,VKORG,VTWEG,SPART,KUNNR,PARVW,PARVW_KUNNR,REFERENCE, VKGRP, VDATU, USER_ID,USER_NAME,TRANS_DATE, TRANS_TYPE, MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtSettlementHeader.Rows[t1][0] + "','" + dtSettlementHeader.Rows[t1][1] + "','" + dtSettlementHeader.Rows[t1][2] + "','" + dtSettlementHeader.Rows[t1][3] + "' ,'" + dtSettlementHeader.Rows[t1][4] + "','" + dtSettlementHeader.Rows[t1][5] + "','" + dtSettlementHeader.Rows[t1][6] + "','" + dtSettlementHeader.Rows[t1][7] + "','" + dtSettlementHeader.Rows[t1][8] + "', '" + d + "','" + DataAccessCS.x_user_id + "' ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
                             DataAccessCS.insert(c_h);
                             DataAccessCS.conn.Close();
 
@@ -2125,7 +2131,7 @@ namespace MDSF.Forms.Inventory
                         try
                         {
                             string c_p;
-                            c_p = "insert into dtPickedItems_s@TO_SLA_ISM ( FILLUPORDER ,  MATNR,KWMENG,VRKME,POSNR,USER_ID,USER_NAME,TRANS_DATE,TRANS_TYPE,MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtPickedItems.Rows[t2][0] + "' ,'" + dtPickedItems.Rows[t2][1] + "','" + dtPickedItems.Rows[t2][2] + "','" + dtPickedItems.Rows[t2][3] + "' ,'" + DataAccessCS.x_user_id + "' ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
+                            c_p = "insert into dtPickedItems_s ( FILLUPORDER ,  MATNR,KWMENG,VRKME,POSNR,USER_ID,USER_NAME,TRANS_DATE,TRANS_TYPE,MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtPickedItems.Rows[t2][0] + "' ,'" + dtPickedItems.Rows[t2][1] + "','" + dtPickedItems.Rows[t2][2] + "','" + dtPickedItems.Rows[t2][3] + "' ,'" + DataAccessCS.x_user_id + "' ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
                             DataAccessCS.insert(c_p);
                             DataAccessCS.conn.Close();
                         }
@@ -2164,7 +2170,7 @@ namespace MDSF.Forms.Inventory
                         try
                         {
                             string c_I;
-                            c_I = "insert into dtIssusedItems_s@TO_SLA_ISM ( FILLUPORDER ,  MATNR,KWMENG,VRKME,POSNR,KUNNR,USER_ID,USER_NAME,TRANS_DATE,TRANS_TYPE,MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtIssusedItems.Rows[t3][0] + "' ,'" + dtIssusedItems.Rows[t3][1] + "','" + dtIssusedItems.Rows[t3][2] + "'," + dtIssusedItems.Rows[t3][3] + " ,'" + dtIssusedItems.Rows[t3][4] + "'," + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
+                            c_I = "insert into dtIssusedItems_s ( FILLUPORDER ,  MATNR,KWMENG,VRKME,POSNR,KUNNR,USER_ID,USER_NAME,TRANS_DATE,TRANS_TYPE,MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtIssusedItems.Rows[t3][0] + "' ,'" + dtIssusedItems.Rows[t3][1] + "','" + dtIssusedItems.Rows[t3][2] + "'," + dtIssusedItems.Rows[t3][3] + " ,'" + dtIssusedItems.Rows[t3][4] + "'," + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
                             DataAccessCS.insert(c_I);
                             DataAccessCS.conn.Close();
                         }
@@ -2208,7 +2214,7 @@ namespace MDSF.Forms.Inventory
                         try
                         {
                             string c_c;
-                            c_c = "insert into dtConditions_s@TO_SLA_ISM ( FILLUPORDER , POSNR,KSCHL,KWERT,WAERS,KUNNR,USER_ID,USER_NAME,TRANS_DATE,TRANS_TYPE,MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtConditions.Rows[t4][0] + "' ,'" + dtConditions.Rows[t4][1] + "','" + dtConditions.Rows[t4][2] + "','" + dtConditions.Rows[t4][3] + "' ,'" + dtConditions.Rows[t4][4] + "'," + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
+                            c_c = "insert into dtConditions_s ( FILLUPORDER , POSNR,KSCHL,KWERT,WAERS,KUNNR,USER_ID,USER_NAME,TRANS_DATE,TRANS_TYPE,MACHINE_NAME) values" + "('" + fillupOrder + "','" + dtConditions.Rows[t4][0] + "' ,'" + dtConditions.Rows[t4][1] + "','" + dtConditions.Rows[t4][2] + "','" + dtConditions.Rows[t4][3] + "' ,'" + dtConditions.Rows[t4][4] + "'," + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '),'Tobacco','" + System.Environment.MachineName + "') ";
                             DataAccessCS.insert(c_c);
                             DataAccessCS.conn.Close();
                         }
@@ -2254,7 +2260,7 @@ namespace MDSF.Forms.Inventory
                             Inc_Differente.Text = (INCENTIVE_TEST - dt_inc).ToString();
 
                             // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
-                            string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله' )";
+                            string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
                             MessageBox.Show("لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله  ");
@@ -2282,7 +2288,7 @@ namespace MDSF.Forms.Inventory
                             Inc_Differente.Text = (INCENTIVE_TEST - dt_inc).ToString();
 
                             // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
-                            string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله' )";
+                            string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله' )";
                             DataAccessCS.insert(inv);
                             MessageBox.Show("لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله  ");
                             // MsgBox("Error Code: MNS10001")
@@ -2305,7 +2311,7 @@ namespace MDSF.Forms.Inventory
                     if (total_HH != total_sla)
                     {
                         // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
-                        string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع البيانات ارج الانظار عشر دقائق حتى تصل البيانات كامله' )";
+                        string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع البيانات ارج الانظار عشر دقائق حتى تصل البيانات كامله' )";
                         DataAccessCS.insert(inv);
                         MessageBox.Show("لم يتم ارسال جميع البيانات ارج الانظار عشر دقائق حتى تصل البيانات كامله");
                         DataAccessCS.conn.Close();
@@ -2323,7 +2329,7 @@ namespace MDSF.Forms.Inventory
                         {
                             // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
                             string Z = "تم ارسال البيع " + "  رقم امر الارتجاع  " + test_res.message3;
-                            string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
+                            string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
                             MessageBox.Show("تم ارسال البيع " + "  رقم امر الارتجاع  " + test_res.message3);
@@ -2332,7 +2338,7 @@ namespace MDSF.Forms.Inventory
                         {
                             // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
                             string Z = "تم ارسال البيع " + " رقم اذن الارتجاع " + test_res.message2 + "  رقم امر الارتجاع  " + test_res.message3;
-                            string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
+                            string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
                             MessageBox.Show("تم ارسال البيع " + " رقم اذن الارتجاع " + test_res.message2 + "  رقم امر الارتجاع  " + test_res.message3);
@@ -2341,7 +2347,7 @@ namespace MDSF.Forms.Inventory
                     else if (test_res.success == "95")
                     {
                         // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
-                        string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S', 'تم ارسال البيع من قبل' )";
+                        string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S', 'تم ارسال البيع من قبل' )";
                         DataAccessCS.insert(inv);
                         DataAccessCS.conn.Close();
                         MessageBox.Show("تم ارسال البيع من قبل");
@@ -2350,7 +2356,7 @@ namespace MDSF.Forms.Inventory
                     {
                         // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
                         string Z = "خطأ في ارسال البيع  " + test_res.message;
-                        string inv = "insert into trac_log_inv@TO_SLA_ISM values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F','" + Z + "' )";
+                        string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F','" + Z + "' )";
                         DataAccessCS.insert(inv);
                         DataAccessCS.conn.Close();
                         MessageBox.Show("خطأ في ارسال البيع" + test_res.message);
@@ -2479,6 +2485,7 @@ namespace MDSF.Forms.Inventory
 
                 MessageBox.Show(ex.Message);
             }
+            this.Cursor = Cursors.Default;
         }
     }
 }
