@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_responsible_name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.upseg = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_Trade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_Trade_prog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_Trade_prog.MasterTemplate)).BeginInit();
@@ -149,11 +150,22 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Responsible name";
             // 
+            // upseg
+            // 
+            this.upseg.Location = new System.Drawing.Point(678, 453);
+            this.upseg.Name = "upseg";
+            this.upseg.Size = new System.Drawing.Size(75, 23);
+            this.upseg.TabIndex = 15;
+            this.upseg.Text = "update seg and inc";
+            this.upseg.UseVisualStyleBackColor = true;
+            this.upseg.Click += new System.EventHandler(this.upseg_Click);
+            // 
             // frm_trade_prog_transaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 492);
+            this.Controls.Add(this.upseg);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_responsible_name);
             this.Controls.Add(this.label1);
@@ -185,5 +197,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_responsible_name;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button upseg;
     }
 }

@@ -257,7 +257,38 @@ namespace MDSF.Forms.Target
             this.Cursor = Cursors.Default;
         }
 
+        private void upseg_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
 
+                
+                for (int i = 0; i < rgv_Trade_prog.Rows.Count; i++)
+                {
+
+
+
+                    //-----------------------------------------------------------------------------
+                    //Actual tables
+
+                    String cmd = "update tp_seg set  SEG='"+ rgv_Trade_prog.Rows[i].Cells["SEG"].Value + "',  DISPLAY_INC="+ rgv_Trade_prog.Rows[i].Cells["DISPLAY_INC"].Value + " where ter_id= " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value + " AND BRANCH_CODE = " + rgv_Trade_prog.Rows[i].Cells["BRANCH_CODE"].Value;
+                   // String cmd = "update tp_seg set  SEG='" + rgv_Trade_prog.Rows[i].Cells["SEG"].Value + "',  DISPLAY_INC=" + rgv_Trade_prog.Rows[i].Cells["DISPLAY_INC"].Value + " where ter_id= " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value ;
+                    DataAccessCS.update(cmd);
+                    DataAccessCS.conn.Close();
+
+
+                   
+
+                }
+                MessageBox.Show("تم التعديل");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
     }
 
 }
