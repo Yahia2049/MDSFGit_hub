@@ -1211,7 +1211,7 @@ namespace MDSF.Forms.Target
             try
             {
                 DataSet dsT = new DataSet();
-                dsT = DataAccessCS.getdata("select * from salesman_targets_test where branch_code= "+txt_branch_kpi_search.Text+" and mon="+txt_month_kpi_search.Text+" and year ="+txt_Year_kpi_search.Text+"");
+                dsT = DataAccessCS.getdata("select * from salesman_targets where branch_code= "+txt_branch_kpi_search.Text+" and mon="+txt_month_kpi_search.Text+" and year ="+txt_Year_kpi_search.Text+"");
                 DataAccessCS.conn.Close();
                 rgv_kpi_insert.DataSource = dsT.Tables[0];
                 //rgv_kpi_insert.AutoResizeColumns();
