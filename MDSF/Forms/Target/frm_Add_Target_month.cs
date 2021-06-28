@@ -1231,5 +1231,37 @@ namespace MDSF.Forms.Target
         {
 
         }
+
+        private void btn_up_targetsales_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                for (int i = 0; i < rgv_pos_target.Rows.Count; i++)
+                {
+
+                    String cmd = " UPDATE  target_retail_pos set target_sales = " + rgv_pos_target.Rows[i].Cells["DVD_Target"].Value + " WHERE TER_ID = " + rgv_pos_target.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_pos_target.Rows[i].Cells["POS_ID"].Value + " AND MONTH = " + rgv_pos_target.Rows[i].Cells["MONTH"].Value + " AND YEAR = " + rgv_pos_target.Rows[i].Cells["YEAR"].Value +  " AND target_type_id = 27 " ;
+                    DataAccessCS.update(cmd);
+                    DataAccessCS.conn.Close();
+
+                    cmd = " UPDATE  target_retail_pos set target_sales= " + rgv_pos_target.Rows[i].Cells["Time_Target"].Value + " WHERE TER_ID = " + rgv_pos_target.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_pos_target.Rows[i].Cells["POS_ID"].Value + " AND MONTH = " + rgv_pos_target.Rows[i].Cells["MONTH"].Value + " AND YEAR = " + rgv_pos_target.Rows[i].Cells["YEAR"].Value +  " AND target_type_id = 37 ";
+                    DataAccessCS.update(cmd);
+                    DataAccessCS.conn.Close();
+
+                    cmd = " UPDATE  target_retail_pos set target_sales= " + rgv_pos_target.Rows[i].Cells["Target_Target"].Value + " WHERE TER_ID = " + rgv_pos_target.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_pos_target.Rows[i].Cells["POS_ID"].Value + " AND MONTH = " + rgv_pos_target.Rows[i].Cells["MONTH"].Value + " AND YEAR = " + rgv_pos_target.Rows[i].Cells["YEAR"].Value + " AND target_type_id = 39 ";
+                    DataAccessCS.update(cmd);
+                    DataAccessCS.conn.Close();
+                }
+
+                MessageBox.Show("target sales changed successfully");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
     }
 }

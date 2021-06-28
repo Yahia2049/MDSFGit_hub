@@ -229,6 +229,7 @@
             this.btn_From_DES.TabIndex = 258;
             this.btn_From_DES.Text = "<";
             this.btn_From_DES.UseVisualStyleBackColor = true;
+            this.btn_From_DES.Click += new System.EventHandler(this.btn_From_DES_Click);
             // 
             // btn_move_all
             // 
@@ -239,6 +240,7 @@
             this.btn_move_all.TabIndex = 260;
             this.btn_move_all.Text = ">>";
             this.btn_move_all.UseVisualStyleBackColor = true;
+            this.btn_move_all.Click += new System.EventHandler(this.btn_move_all_Click);
             // 
             // btn_back_all
             // 
@@ -249,6 +251,7 @@
             this.btn_back_all.TabIndex = 261;
             this.btn_back_all.Text = "<<";
             this.btn_back_all.UseVisualStyleBackColor = true;
+            this.btn_back_all.Click += new System.EventHandler(this.btn_back_all_Click);
             // 
             // dgv_source
             // 

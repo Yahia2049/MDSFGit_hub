@@ -305,9 +305,9 @@ namespace MDSF.Forms.Master_Data
                 int ii = 0;
                 try
                 {
-                    string u1 = "insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), ' Open Re-Assigning Routes_Form -> Press Button(>)',' ','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "')";
-                    DataAccessCS.insert(u1);
-                    DataAccessCS.conn.Close();
+                    //string u1 = "insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), ' Open Re-Assigning Routes_Form -> Press Button(>)',' ','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "')";
+                    //DataAccessCS.insert(u1);
+                    //DataAccessCS.conn.Close();
                     var loopTo = dgv_source.SelectedRows.Count - 1;
                     for (ii = 0; ii <= loopTo; ii++)
                     {
@@ -331,8 +331,9 @@ namespace MDSF.Forms.Master_Data
                 {
                     var withBlock = dgv_des;
                     withBlock.DataSource = dt;
-                    withBlock.Columns["Ter_ID"].Visible = false;
-                    withBlock.Columns["POS_Id"].Visible = false;
+                    withBlock.Columns["SALES_TERRITORY_ID"].Visible = false;
+                    // withBlock.Columns["POS_Id"].Visible = false;
+                    withBlock.Columns["POS_Code"].Visible = false;
                 }
             }
             catch (Exception ex)
@@ -353,7 +354,7 @@ namespace MDSF.Forms.Master_Data
                 {
                     if (dgv_source.Rows[i].Selected == true)
                     {
-                        string sc = "Select * from ROUTE_POS_REASSIGN where POS_ID= '" + dgv_source.Rows[i].Cells["POS_ID"].Value + "' and TER_ID='" + dgv_source.Rows[i].Cells["Ter_Id"].Value + "' and salester_id_source = " + cmb_sales_ter_source.SelectedValue + "  and ASSIGN_DATE=to_date('" +DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year + "','mm/dd/yyyy') ";
+                        string sc = "Select * from ROUTE_POS_REASSIGN where POS_id= '" + dgv_source.Rows[i].Cells["POS_CODE"].Value + "' and TER_ID='" + dgv_source.Rows[i].Cells["SALES_TERRITORY_ID"].Value + "' and salester_id_source = " + cmb_sales_ter_source.SelectedValue + "  and ASSIGN_DATE=to_date('" +DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year + "','mm/dd/yyyy') ";
                         DataSet dsc = DataAccessCS.getdata(sc);
                         DataAccessCS.conn.Close();
                         var dvc = new DataView(dsc.Tables[0]);
@@ -362,8 +363,8 @@ namespace MDSF.Forms.Master_Data
                             dr = dt.NewRow();
                             dr[0] = dgv_source.Rows[i].Cells["POS_CODE"].Value;
                             dr[1] = dgv_source.Rows[i].Cells["POS_name"].Value;
-                            dr[2] = dgv_source.Rows[i].Cells["Ter_ID"].Value;
-                            dr[3] = dgv_source.Rows[i].Cells["POS_Id"].Value;
+                            dr[2] = dgv_source.Rows[i].Cells["SALES_TERRITORY_ID"].Value;
+                          //  dr[3] = dgv_source.Rows[i].Cells["POS_Id"].Value;
                             dt.Rows.Add(dr);
                             ds1.Tables[0].Rows.RemoveAt(i);
 
@@ -387,6 +388,50 @@ namespace MDSF.Forms.Master_Data
             }
         }
         #endregion
+
+        public void CounterOfdes(int c)
+        {
+            try
+            {
+                int i = 0;
+                DataRow dr;
+                var loopTo = c - 1;
+                for (i = 0; i <= loopTo; i++)
+                {
+                    if (dgv_des.Rows[i].Selected == true)
+                    {
+                        
+                      
+                        
+                            dr = dt.NewRow();
+                            dr[0] = dgv_des.Rows[i].Cells["POS_CODE"].Value;
+                            dr[1] = dgv_des.Rows[i].Cells["POS_name"].Value;
+                            dr[2] = dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value;
+                           // dr[3] = dgv_des.Rows[i].Cells["POS_Id"].Value;
+                            dt.Rows.Add(dr);
+                            ds1.Tables[0].Rows.RemoveAt(i);
+
+                        // DBGrid_POS_source.SelectedRows.Item(i).Visible = False
+                        // DBGrid_POS_source.DataSource = ds1.Tables(0)
+                        ds1.Tables[0].NewRow();
+                        ds1.Tables[0].Rows.Add(dr);
+                        ds1.Tables[0].AcceptChanges();
+                        dgv_source.DataSource = ds1.Tables[0];
+                        string del = "delete from ROUTE_POS_ASSIGN_TEMP where ter_Id ='" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + "' and POS_CODE = '" + dgv_des.Rows[i].Cells["POS_CODE"].Value + "'";
+                        DataAccessCS.delete(del);
+                        dt.Rows.RemoveAt(i);
+                        dgv_des.DataSource = dt;
+                        break;
+                    }
+                }
+
+                count_grid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         #region  count grid and sum POS  
 
         public void count_grid()
@@ -403,9 +448,151 @@ namespace MDSF.Forms.Master_Data
             }
         }
 
+
         #endregion
 
+        private void btn_From_DES_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ii = 0;
+                try
+                {
+                    string u1 = "insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), ' Open Re-Assigning Routes_Form -> Press Button(>)',' ','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "')";
+                    DataAccessCS.insert(u1);
+                    DataAccessCS.conn.Close();
+                    var loopTo = dgv_des.SelectedRows.Count - 1;
+                    for (ii = 0; ii <= loopTo; ii++)
+                    {
+                        int c = dgv_des.Rows.Count;
+                        CounterOfdes(c);
+                    }
 
+                    count_grid();
+                }
+              
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+                {
+                    var withBlock = dgv_des;
+                    withBlock.DataSource = dt;
+                    withBlock.Columns["SALES_TERRITORY_ID"].Visible = false;
+                    withBlock.Columns["POS_CODE"].Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btn_move_all_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow dr;
+                int i = 0;
+                try
+                {
+                    string u1 = "insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), ' Open Re-Assigning Routes_Form -> Press Button(>)',' ','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "')";
+                    DataAccessCS.insert(u1);
+                    DataAccessCS.conn.Close();
+                    var loopTo = dgv_source.Rows.Count - 1;
+                    for (i = 0; i <= loopTo; i++)
+                    {
+                        string sc = "Select * from ROUTE_POS_REASSIGN where POS_id= '" + dgv_source.Rows[i].Cells["POS_CODE"].Value + "' and TER_ID='" + dgv_source.Rows[i].Cells["SALES_TERRITORY_ID"].Value + "' and salester_id_source=" + cmb_sales_ter_source.SelectedValue + " and ASSIGN_DATE=to_date('" + DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year + "','mm/dd/yyyy') ";
+                        DataSet dsc = DataAccessCS.getdata(sc);
+                        var dvc = new DataView(dsc.Tables[0]);
+                        if (dvc.Count <= 0)
+                        {
+                            dr = dt.NewRow();
+                            // dr(0) = DBGrid_POS_source.Item("POS_Id", i).Value
+                            // dr(1) = DBGrid_POS_source.Item("POS_name", i).Value
+                            // dr(2) = DBGrid_POS_source.Item("Ter_ID", i).Value
+                            dr[0] = dgv_source.Rows[i].Cells["POS_CODE"].Value;
+                            dr[1] = dgv_source.Rows[i].Cells["POS_NAME"].Value;
+                            dr[2] = dgv_source.Rows[i].Cells["SALES_TERRITORY_ID"].Value;
+                            //dr[3] = dgv_source.Rows[i].Cells["POS_Id"].Value;
+                            dt.Rows.Add(dr);
+                        }
+                        else
+                        {
+                            MessageBox.Show("  لا يمكن تحويل المحل " + dgv_source.Rows[i].Cells["POS_NAME"].Value + " حيث انه تم تحويله الى مندوب اخر   ");
+                        }
+                        // DBGrid_POS_source.Rows.RemoveAt(0)
+                    }
+
+                    for (int j = 0, loopTo1 = dgv_source.Rows.Count - 1; j <= loopTo1; j++)
+                        dgv_source.Rows.RemoveAt(0);
+                    count_grid();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+                {
+                    var withBlock = dgv_des;
+                    withBlock.DataSource = dt;
+                    // .Columns.Item("Ter_ID").Visible = False
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_back_all_Click(object sender, EventArgs e)
+        {
+            {
+                try
+                {
+                    DataRow dr;
+                    int i = 0;
+                    try
+                    {
+                        string u1 = "insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), ' Open Re-Assigning Routes_Form -> Press Button(>)',' ','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "')";
+                        DataAccessCS.insert(u1);
+                        DataAccessCS.conn.Close();
+
+                        var loopTo = dgv_des.Rows.Count - 1;
+                        for (i = 0; i <= loopTo; i++)
+                        {
+                            dr = ds1.Tables[0].NewRow();
+                            dr[0] = dgv_des.Rows[i].Cells["POS_CODE"].Value;
+                            dr[1] = dgv_des.Rows[i].Cells["POS_NAME"].Value; 
+                            dr[2] = dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value;
+                           // dr[3] = dgv_des.Rows[i].Cells["POS_Id"].Value;
+                          
+                            ds1.Tables[0].NewRow();
+                            ds1.Tables[0].Rows.Add(dr);
+                            ds1.Tables[0].AcceptChanges();
+                            dgv_source.DataSource = ds1.Tables[0];
+
+                           
+                        }
+
+                        for (int j = 0, loopTo1 = dgv_des.Rows.Count - 1; j <= loopTo1; j++)
+                            dgv_des.Rows.RemoveAt(0);
+                        count_grid();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+        }
     }
 
 }

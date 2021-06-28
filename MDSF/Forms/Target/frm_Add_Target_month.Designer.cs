@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Add_Target_month));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -123,6 +123,7 @@
             this.btn_import_excel_kpi = new Telerik.WinControls.UI.RadButton();
             this.rgv_kpi_insert = new Telerik.WinControls.UI.RadGridView();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
+            this.btn_up_targetsales = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -189,7 +190,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(947, 495);
+            this.tabControl1.Size = new System.Drawing.Size(1013, 495);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -458,7 +459,7 @@
             // 
             // 
             // 
-            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition6;
             this.rgv_salester_target.Name = "rgv_salester_target";
             // 
             // 
@@ -724,7 +725,7 @@
             // 
             // 
             // 
-            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition7;
             this.rgv_Salesrep_target.Name = "rgv_Salesrep_target";
             // 
             // 
@@ -736,6 +737,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btn_up_targetsales);
             this.tabPage3.Controls.Add(this.groupBox4);
             this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Controls.Add(this.radButton3);
@@ -750,7 +752,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(939, 469);
+            this.tabPage3.Size = new System.Drawing.Size(1005, 469);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "POS";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -925,7 +927,7 @@
             // 
             this.radButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radButton3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radButton3.Location = new System.Drawing.Point(372, 435);
+            this.radButton3.Location = new System.Drawing.Point(438, 435);
             this.radButton3.Name = "radButton3";
             // 
             // 
@@ -941,7 +943,7 @@
             // 
             this.radButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radButton4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radButton4.Location = new System.Drawing.Point(372, 404);
+            this.radButton4.Location = new System.Drawing.Point(438, 404);
             this.radButton4.Name = "radButton4";
             // 
             // 
@@ -957,7 +959,7 @@
             // 
             this.radButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radButton5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radButton5.Location = new System.Drawing.Point(372, 374);
+            this.radButton5.Location = new System.Drawing.Point(438, 374);
             this.radButton5.Name = "radButton5";
             // 
             // 
@@ -973,7 +975,7 @@
             // 
             this.radButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radButton6.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radButton6.Location = new System.Drawing.Point(757, 403);
+            this.radButton6.Location = new System.Drawing.Point(823, 403);
             this.radButton6.Name = "radButton6";
             // 
             // 
@@ -989,7 +991,7 @@
             // 
             this.radButton7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radButton7.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radButton7.Location = new System.Drawing.Point(579, 403);
+            this.radButton7.Location = new System.Drawing.Point(645, 403);
             this.radButton7.Name = "radButton7";
             // 
             // 
@@ -1005,7 +1007,7 @@
             // 
             this.radButton8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radButton8.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radButton8.Location = new System.Drawing.Point(579, 373);
+            this.radButton8.Location = new System.Drawing.Point(645, 373);
             this.radButton8.Name = "radButton8";
             // 
             // 
@@ -1021,7 +1023,7 @@
             // 
             this.radButton9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radButton9.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radButton9.Location = new System.Drawing.Point(757, 373);
+            this.radButton9.Location = new System.Drawing.Point(823, 373);
             this.radButton9.Name = "radButton9";
             // 
             // 
@@ -1037,7 +1039,7 @@
             // 
             this.btn_import_from_Excel_pos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_import_from_Excel_pos.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_import_from_Excel_pos.Location = new System.Drawing.Point(382, 9);
+            this.btn_import_from_Excel_pos.Location = new System.Drawing.Point(415, 9);
             this.btn_import_from_Excel_pos.Name = "btn_import_from_Excel_pos";
             // 
             // 
@@ -1059,13 +1061,13 @@
             // 
             // 
             // 
-            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition5;
             this.rgv_pos_target.Name = "rgv_pos_target";
             // 
             // 
             // 
             this.rgv_pos_target.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 39, 240, 150);
-            this.rgv_pos_target.Size = new System.Drawing.Size(936, 256);
+            this.rgv_pos_target.Size = new System.Drawing.Size(1002, 256);
             this.rgv_pos_target.TabIndex = 18;
             this.rgv_pos_target.ThemeName = "TelerikMetro";
             // 
@@ -1319,7 +1321,7 @@
             // 
             // 
             // 
-            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition8;
             this.rgv_kpi_insert.Name = "rgv_kpi_insert";
             // 
             // 
@@ -1329,11 +1331,21 @@
             this.rgv_kpi_insert.TabIndex = 18;
             this.rgv_kpi_insert.ThemeName = "TelerikMetro";
             // 
+            // btn_up_targetsales
+            // 
+            this.btn_up_targetsales.Location = new System.Drawing.Point(872, 323);
+            this.btn_up_targetsales.Name = "btn_up_targetsales";
+            this.btn_up_targetsales.Size = new System.Drawing.Size(89, 23);
+            this.btn_up_targetsales.TabIndex = 30;
+            this.btn_up_targetsales.Text = "Update Target Sales";
+            this.btn_up_targetsales.UseVisualStyleBackColor = true;
+            this.btn_up_targetsales.Click += new System.EventHandler(this.btn_up_targetsales_Click);
+            // 
             // frm_Add_Target_month
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 495);
+            this.ClientSize = new System.Drawing.Size(1013, 495);
             this.Controls.Add(this.tabControl1);
             this.Name = "frm_Add_Target_month";
             this.Text = "ادخال الاهداف الشهرية";
@@ -1494,5 +1506,6 @@
         private System.Windows.Forms.TextBox txt_month_kpi_search;
         private System.Windows.Forms.TextBox txt_Year_kpi_search;
         private System.Windows.Forms.TextBox txt_branch_kpi_search;
+        private System.Windows.Forms.Button btn_up_targetsales;
     }
 }
