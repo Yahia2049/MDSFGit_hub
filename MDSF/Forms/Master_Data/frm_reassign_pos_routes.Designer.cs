@@ -43,12 +43,10 @@
             this.cmb_sales_ter_dest = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_TO_DES = new System.Windows.Forms.Button();
-            this.btn_From_DES = new System.Windows.Forms.Button();
-            this.btn_move_all = new System.Windows.Forms.Button();
-            this.btn_back_all = new System.Windows.Forms.Button();
             this.dgv_source = new System.Windows.Forms.DataGridView();
+            this.Status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgv_des = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
             this.cmb_Region_source = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cmb_region_des = new System.Windows.Forms.ComboBox();
@@ -57,6 +55,8 @@
             this.Label_CountS = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.Label_CountD = new System.Windows.Forms.Label();
+            this.btn_selectall = new System.Windows.Forms.Button();
+            this.btn_deselect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_source)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_des)).BeginInit();
             this.SuspendLayout();
@@ -212,7 +212,7 @@
             // btn_TO_DES
             // 
             this.btn_TO_DES.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_TO_DES.Location = new System.Drawing.Point(441, 226);
+            this.btn_TO_DES.Location = new System.Drawing.Point(441, 235);
             this.btn_TO_DES.Name = "btn_TO_DES";
             this.btn_TO_DES.Size = new System.Drawing.Size(75, 35);
             this.btn_TO_DES.TabIndex = 259;
@@ -220,46 +220,22 @@
             this.btn_TO_DES.UseVisualStyleBackColor = true;
             this.btn_TO_DES.Click += new System.EventHandler(this.btn_TO_DES_Click);
             // 
-            // btn_From_DES
-            // 
-            this.btn_From_DES.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_From_DES.Location = new System.Drawing.Point(441, 267);
-            this.btn_From_DES.Name = "btn_From_DES";
-            this.btn_From_DES.Size = new System.Drawing.Size(75, 35);
-            this.btn_From_DES.TabIndex = 258;
-            this.btn_From_DES.Text = "<";
-            this.btn_From_DES.UseVisualStyleBackColor = true;
-            this.btn_From_DES.Click += new System.EventHandler(this.btn_From_DES_Click);
-            // 
-            // btn_move_all
-            // 
-            this.btn_move_all.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_move_all.Location = new System.Drawing.Point(441, 308);
-            this.btn_move_all.Name = "btn_move_all";
-            this.btn_move_all.Size = new System.Drawing.Size(75, 35);
-            this.btn_move_all.TabIndex = 260;
-            this.btn_move_all.Text = ">>";
-            this.btn_move_all.UseVisualStyleBackColor = true;
-            this.btn_move_all.Click += new System.EventHandler(this.btn_move_all_Click);
-            // 
-            // btn_back_all
-            // 
-            this.btn_back_all.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back_all.Location = new System.Drawing.Point(441, 349);
-            this.btn_back_all.Name = "btn_back_all";
-            this.btn_back_all.Size = new System.Drawing.Size(75, 35);
-            this.btn_back_all.TabIndex = 261;
-            this.btn_back_all.Text = "<<";
-            this.btn_back_all.UseVisualStyleBackColor = true;
-            this.btn_back_all.Click += new System.EventHandler(this.btn_back_all_Click);
-            // 
             // dgv_source
             // 
+            this.dgv_source.AllowUserToAddRows = false;
             this.dgv_source.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_source.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Status});
             this.dgv_source.Location = new System.Drawing.Point(44, 194);
             this.dgv_source.Name = "dgv_source";
             this.dgv_source.Size = new System.Drawing.Size(336, 276);
             this.dgv_source.TabIndex = 262;
+            this.dgv_source.SelectionChanged += new System.EventHandler(this.dgv_source_SelectionChanged);
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "status";
+            this.Status.Name = "Status";
             // 
             // dgv_des
             // 
@@ -269,15 +245,16 @@
             this.dgv_des.Size = new System.Drawing.Size(336, 276);
             this.dgv_des.TabIndex = 263;
             // 
-            // button3
+            // btn_save
             // 
-            this.button3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(441, 403);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 35);
-            this.button3.TabIndex = 264;
-            this.button3.Text = "Save";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_save.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save.Location = new System.Drawing.Point(441, 315);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(75, 35);
+            this.btn_save.TabIndex = 264;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.button3_Click);
             // 
             // cmb_Region_source
             // 
@@ -362,11 +339,33 @@
             this.Label_CountD.TabIndex = 271;
             this.Label_CountD.Text = "0";
             // 
+            // btn_selectall
+            // 
+            this.btn_selectall.Location = new System.Drawing.Point(56, 486);
+            this.btn_selectall.Name = "btn_selectall";
+            this.btn_selectall.Size = new System.Drawing.Size(75, 23);
+            this.btn_selectall.TabIndex = 273;
+            this.btn_selectall.Text = "Select All";
+            this.btn_selectall.UseVisualStyleBackColor = true;
+            this.btn_selectall.Click += new System.EventHandler(this.btn_selectall_Click);
+            // 
+            // btn_deselect
+            // 
+            this.btn_deselect.Location = new System.Drawing.Point(146, 486);
+            this.btn_deselect.Name = "btn_deselect";
+            this.btn_deselect.Size = new System.Drawing.Size(75, 23);
+            this.btn_deselect.TabIndex = 274;
+            this.btn_deselect.Text = "Deselect all";
+            this.btn_deselect.UseVisualStyleBackColor = true;
+            this.btn_deselect.Click += new System.EventHandler(this.btn_deselect_Click);
+            // 
             // frm_reassign_pos_routes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 482);
+            this.ClientSize = new System.Drawing.Size(925, 535);
+            this.Controls.Add(this.btn_deselect);
+            this.Controls.Add(this.btn_selectall);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Label_CountD);
             this.Controls.Add(this.Label_CountH);
@@ -375,13 +374,10 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cmb_Region_source);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btn_save);
             this.Controls.Add(this.dgv_des);
             this.Controls.Add(this.dgv_source);
-            this.Controls.Add(this.btn_back_all);
-            this.Controls.Add(this.btn_move_all);
             this.Controls.Add(this.btn_TO_DES);
-            this.Controls.Add(this.btn_From_DES);
             this.Controls.Add(this.cmb_route_des);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmb_salesrep_des);
@@ -423,12 +419,9 @@
         private System.Windows.Forms.ComboBox cmb_sales_ter_dest;
         internal System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_TO_DES;
-        private System.Windows.Forms.Button btn_From_DES;
-        private System.Windows.Forms.Button btn_move_all;
-        private System.Windows.Forms.Button btn_back_all;
         private System.Windows.Forms.DataGridView dgv_source;
         private System.Windows.Forms.DataGridView dgv_des;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.ComboBox cmb_Region_source;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmb_region_des;
@@ -437,5 +430,8 @@
         internal System.Windows.Forms.Label Label_CountS;
         internal System.Windows.Forms.Label label11;
         internal System.Windows.Forms.Label Label_CountD;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Status;
+        private System.Windows.Forms.Button btn_selectall;
+        private System.Windows.Forms.Button btn_deselect;
     }
 }
