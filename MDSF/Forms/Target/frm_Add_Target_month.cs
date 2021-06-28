@@ -1119,7 +1119,7 @@ namespace MDSF.Forms.Target
                     else
                     {
                        
-                        String cmdkpi = "Insert into salesman_targets_test  ( BRANCH_CODE ,SALES_TER_ID,SALES_ID,SALESMAN_NAME,DVD_TARGET_SALES,TIME_TARGET_SALES,HAYAT_TARGET_SALES,EFFECTIVE_TIME,EFFECTIVE_DVD,MON,YEAR,WORK_DAYS, COVERAGE,EFFECTIVE_ASSAL,GV_EFFECTIVE,GV_TARGET_SALES,MOLASSES_HANDLERS,SUCC_CALLS_TARGET,TARGET_TARGET_SALES,EFFECTIVE_TARGET,WEST_TARGTET_SALES,PREV_DVD_TARGET,PREV_TIME_TARGET, PREV_DVD_EFF,PREV_TIME_EFF,EFFECTIVE_WEST,BAT_TARGET_SALES,EFFECTIVE_ROTH,EFFECTIVE_VICE,EFFECTIVE_PALL,VICE_TARGET_SALES,EFFECTIVE_KENT,EFFECTIVE_ANY,ITG_TARGET_SALES,ROYAL_TARGET_SALES,EFFECTIVE_ROYAL,EFFECTIVE_DUNHILL_MASTER,EFFECTIVE_DVD_HALF_OUTER,CORE_TARGET_SALES,KPI_HALF_OUTER,KPI_EIGHTY_PER_TCO,DROP_SIZE_TARGET,EFFECTIVE_ALL) VALUES (' "
+                        String cmdkpi = "Insert into salesman_targets  ( BRANCH_CODE ,SALES_TER_ID,SALES_ID,SALESMAN_NAME,DVD_TARGET_SALES,TIME_TARGET_SALES,HAYAT_TARGET_SALES,EFFECTIVE_TIME,EFFECTIVE_DVD,MON,YEAR,WORK_DAYS, COVERAGE,EFFECTIVE_ASSAL,GV_EFFECTIVE,GV_TARGET_SALES,MOLASSES_HANDLERS,SUCC_CALLS_TARGET,TARGET_TARGET_SALES,EFFECTIVE_TARGET,WEST_TARGTET_SALES,PREV_DVD_TARGET,PREV_TIME_TARGET, PREV_DVD_EFF,PREV_TIME_EFF,EFFECTIVE_WEST,BAT_TARGET_SALES,EFFECTIVE_ROTH,EFFECTIVE_VICE,EFFECTIVE_PALL,VICE_TARGET_SALES,EFFECTIVE_KENT,EFFECTIVE_ANY,ITG_TARGET_SALES,ROYAL_TARGET_SALES,EFFECTIVE_ROYAL,EFFECTIVE_DUNHILL_MASTER,EFFECTIVE_DVD_HALF_OUTER,CORE_TARGET_SALES,KPI_HALF_OUTER,KPI_EIGHTY_PER_TCO,DROP_SIZE_TARGET,EFFECTIVE_ALL) VALUES (' "
                    + BRANCH_CODE +
                    "','" + SALES_TER_ID +
                    "','" + SALES_ID +
@@ -1211,7 +1211,7 @@ namespace MDSF.Forms.Target
             try
             {
                 DataSet dsT = new DataSet();
-                dsT = DataAccessCS.getdata("select * from salesman_targets_test where branch_code= "+txt_branch_kpi_search.Text+" and mon="+txt_month_kpi_search.Text+" and year ="+txt_Year_kpi_search.Text+"");
+                dsT = DataAccessCS.getdata("select * from salesman_targets where branch_code= "+txt_branch_kpi_search.Text+" and mon="+txt_month_kpi_search.Text+" and year ="+txt_Year_kpi_search.Text+"");
                 DataAccessCS.conn.Close();
                 rgv_kpi_insert.DataSource = dsT.Tables[0];
                 //rgv_kpi_insert.AutoResizeColumns();
