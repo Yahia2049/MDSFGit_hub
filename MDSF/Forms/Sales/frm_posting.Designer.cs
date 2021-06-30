@@ -42,12 +42,12 @@
             this.btn_All_Region = new Telerik.WinControls.UI.RadButton();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btn_open = new System.Windows.Forms.Button();
+            this.dtp_date = new System.Windows.Forms.DateTimePicker();
+            this.btn_close_date = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_branch_code = new System.Windows.Forms.TextBox();
-            this.btn_close_date = new System.Windows.Forms.Button();
-            this.dtp_date = new System.Windows.Forms.DateTimePicker();
-            this.btn_open = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_proc_lux_posting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_proc_ism_posting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_proc_cai_posting)).BeginInit();
@@ -188,6 +188,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "فتح مدة ترحيل";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(278, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Date";
+            this.label3.Visible = false;
+            // 
+            // btn_open
+            // 
+            this.btn_open.Location = new System.Drawing.Point(319, 54);
+            this.btn_open.Name = "btn_open";
+            this.btn_open.Size = new System.Drawing.Size(131, 23);
+            this.btn_open.TabIndex = 14;
+            this.btn_open.Text = "فتح مدة الترحيل";
+            this.btn_open.UseVisualStyleBackColor = true;
+            this.btn_open.Visible = false;
+            this.btn_open.Click += new System.EventHandler(this.btn_open_Click);
+            // 
+            // dtp_date
+            // 
+            this.dtp_date.Location = new System.Drawing.Point(319, 28);
+            this.dtp_date.Name = "dtp_date";
+            this.dtp_date.Size = new System.Drawing.Size(200, 20);
+            this.dtp_date.TabIndex = 13;
+            this.dtp_date.Visible = false;
+            // 
+            // btn_close_date
+            // 
+            this.btn_close_date.Location = new System.Drawing.Point(106, 54);
+            this.btn_close_date.Name = "btn_close_date";
+            this.btn_close_date.Size = new System.Drawing.Size(100, 23);
+            this.btn_close_date.TabIndex = 12;
+            this.btn_close_date.Text = "تاريخ غلق الترحيل";
+            this.btn_close_date.UseVisualStyleBackColor = true;
+            this.btn_close_date.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -203,45 +242,6 @@
             this.txt_branch_code.Name = "txt_branch_code";
             this.txt_branch_code.Size = new System.Drawing.Size(100, 20);
             this.txt_branch_code.TabIndex = 10;
-            // 
-            // btn_close_date
-            // 
-            this.btn_close_date.Location = new System.Drawing.Point(106, 54);
-            this.btn_close_date.Name = "btn_close_date";
-            this.btn_close_date.Size = new System.Drawing.Size(100, 23);
-            this.btn_close_date.TabIndex = 12;
-            this.btn_close_date.Text = "تاريخ غلق الترحيل";
-            this.btn_close_date.UseVisualStyleBackColor = true;
-            this.btn_close_date.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // dtp_date
-            // 
-            this.dtp_date.Location = new System.Drawing.Point(319, 28);
-            this.dtp_date.Name = "dtp_date";
-            this.dtp_date.Size = new System.Drawing.Size(200, 20);
-            this.dtp_date.TabIndex = 13;
-            this.dtp_date.Visible = false;
-            // 
-            // btn_open
-            // 
-            this.btn_open.Location = new System.Drawing.Point(319, 54);
-            this.btn_open.Name = "btn_open";
-            this.btn_open.Size = new System.Drawing.Size(131, 23);
-            this.btn_open.TabIndex = 14;
-            this.btn_open.Text = "فتح مدة الترحيل";
-            this.btn_open.UseVisualStyleBackColor = true;
-            this.btn_open.Visible = false;
-            this.btn_open.Click += new System.EventHandler(this.btn_open_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(278, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Date";
-            this.label3.Visible = false;
             // 
             // frm_posting
             // 
@@ -262,7 +262,7 @@
             this.Controls.Add(this.dtp_fromdate);
             this.Controls.Add(this.lbl_fromDate);
             this.Name = "frm_posting";
-            this.Text = "posting";
+            this.Text = "Posting";
             ((System.ComponentModel.ISupportInitialize)(this.btn_proc_lux_posting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_proc_ism_posting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_proc_cai_posting)).EndInit();
