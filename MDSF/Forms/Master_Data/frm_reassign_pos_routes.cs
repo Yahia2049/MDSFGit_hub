@@ -61,7 +61,7 @@ namespace MDSF.Forms.Master_Data
                 ds.Dispose();
                 DataAccessCS.conn.Close();
                 //--------------------------------------
-                Fill_cmb_Salesrep_dec();
+               
 
                 DataTable dt = new DataTable();
 
@@ -225,6 +225,7 @@ namespace MDSF.Forms.Master_Data
 
         private void cmb_sales_ter_source_SelectionChangeCommitted(object sender, EventArgs e)
         {
+           
             Fill_cmb_Salesrep_source();
             Fill_cmb_Salesrep_dec();
         }
@@ -425,6 +426,7 @@ namespace MDSF.Forms.Master_Data
                 string c;
                 string sf;
                 ds.Dispose();
+
                 var dv_reassign_test = new DataView(ds.Tables[0]);
                 // ============================= Test that he is a driver or salesrep =========================
                 dv_combo_driver.RowFilter = "SALESREP_ID = " + cmb_salesrep_des.SelectedValue;
@@ -444,8 +446,8 @@ namespace MDSF.Forms.Master_Data
                         }
 
 
-                        if (dv_reassign_test.Count == 0)
-                        {
+                        ////if (dv_reassign_test.Count == 0)
+                        ////{
                             string journeySeq = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID= " + cmb_salesrep_source.SelectedValue;
                             c = " insert into ROUTE_POS_REASSIGN values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_dest.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
 
@@ -456,7 +458,7 @@ namespace MDSF.Forms.Master_Data
                             sf = " insert into ROUTE_POS_REASSIGN@to_sfis values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_dest.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
 
                             DataAccessCS.insert(sf);
-                        }
+                        //}
                     }
 
                 }
