@@ -2124,7 +2124,7 @@ namespace MDSF.Forms.Sales
 
 
 
-                        D = "select Tcall.salesrep_name, Tcall.Total_Call,Success_Call,Vcall.Visit_Call " +
+                        D = "select Tcall.salesrep_name, Tcall.Total_Call,Success_Call,nvl(Vcall.Visit_Call,0) Visit_Call " +
                              "from " +
                              "(select t.salesrep_name,count(distinct pos_code) Total_Call from sales_android_v4 T where " +
                              "BRANCH_CODE in (" + x_region_v + ")  and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
@@ -2136,7 +2136,7 @@ namespace MDSF.Forms.Sales
                              "BRANCH_CODE in (" + x_region_v + ")  and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                              "group by v.salesrep_name)Vcall " +
                              "where Tcall.salesrep_name=Scall.salesrep_name " +
-                             "and Tcall.salesrep_name=Vcall.salesrep_name ";
+                             "and Tcall.salesrep_name=Vcall.salesrep_name(+) ";
                     }
                     else if (RChKBD_Region_visit.CheckedItems.Count > 0 && Chkb_All_sales_ter_v.Checked && Chkb_All_salesrep_v.Checked)
                     {
@@ -2152,7 +2152,7 @@ namespace MDSF.Forms.Sales
                                 x_ter_v = Convert.ToString(x_ter_v + "," + item["SALES_TER_ID"]);
                             }
                         }
-                        D = "select Tcall.salesrep_name, Tcall.Total_Call,Success_Call,Vcall.Visit_Call " +
+                        D = "select Tcall.salesrep_name, Tcall.Total_Call,Success_Call,nvl(Vcall.Visit_Call,0) Visit_Call  " +
                             "from " +
                             "(select t.salesrep_name,count(distinct pos_code) Total_Call from sales_android_v4 T where " +
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ")  and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
@@ -2164,7 +2164,7 @@ namespace MDSF.Forms.Sales
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ")  and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                             "group by v.salesrep_name)Vcall " +
                             "where Tcall.salesrep_name=Scall.salesrep_name " +
-                            "and Tcall.salesrep_name=Vcall.salesrep_name ";
+                            "and Tcall.salesrep_name=Vcall.salesrep_name(+) ";
                     }
                     else if (RChKBD_Sales_ter_visit.CheckedItems.Count > 0 && Chkb_All_salesrep_v.Checked)
                     {
@@ -2180,7 +2180,7 @@ namespace MDSF.Forms.Sales
                                 x_salesrep_v = Convert.ToString(x_salesrep_v + "," + item["SALESREP_ID"]);
                             }
                         }
-                        D = "select Tcall.salesrep_name, Tcall.Total_Call,Success_Call,Vcall.Visit_Call " +
+                        D = "select Tcall.salesrep_name, Tcall.Total_Call,Success_Call,nvl(Vcall.Visit_Call,0) Visit_Call " +
                             "from " +
                             "(select t.salesrep_name,count(distinct pos_code) Total_Call from sales_android_v4 T where " +
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ") and SALESREP_ID in(" + x_salesrep_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
@@ -2192,12 +2192,12 @@ namespace MDSF.Forms.Sales
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ") and SALESREP_ID in(" + x_salesrep_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                             "group by v.salesrep_name)Vcall " +
                             "where Tcall.salesrep_name=Scall.salesrep_name " +
-                            "and Tcall.salesrep_name=Vcall.salesrep_name ";
+                            "and Tcall.salesrep_name=Vcall.salesrep_name(+) ";
                     }
                     else if (RChKBD_Salesrep_visit.CheckedItems.Count > 0)
                     {
 
-                        D = "select Tcall.salesrep_name, Tcall.Total_Call,Success_Call,Vcall.Visit_Call " +
+                        D = "select Tcall.salesrep_name, Tcall.Total_Call,Success_Call,nvl(Vcall.Visit_Call,0) Visit_Call " +
                             "from " +
                             "(select t.salesrep_name,count(distinct pos_code) Total_Call from sales_android_v4 T where " +
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ") and SALESREP_ID in(" + x_salesrep_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
@@ -2209,7 +2209,7 @@ namespace MDSF.Forms.Sales
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ") and SALESREP_ID in(" + x_salesrep_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                             "group by v.salesrep_name)Vcall " +
                             "where Tcall.salesrep_name=Scall.salesrep_name " +
-                            "and Tcall.salesrep_name=Vcall.salesrep_name ";
+                            "and Tcall.salesrep_name=Vcall.salesrep_name(+) ";
                     }
                     else
                     {
