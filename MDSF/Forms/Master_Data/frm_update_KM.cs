@@ -361,11 +361,11 @@ namespace MDSF.Forms.Master_Data
                 {
                     DataAccessCS.update("update journey@sales set BEG_KM =" + rgv_KM.Rows[i].Cells["BEG_KM"].Value + ", END_KM=" + rgv_KM.Rows[i].Cells["END_KM"].Value + " where jou_seq ='" + rgv_KM.Rows[i].Cells["jou_seq"].Value + "'  ");
                     DataAccessCS.conn.Close();
-                    DataAccessCS.update("update Van set  ENDING_KM=" + rgv_KM.Rows[i].Cells["END_KM"].Value + " where van_id =" + rgv_KM.Rows[i].Cells["van_id"].Value + "  ");
+                    DataAccessCS.update("update Van set  ENDING_KM=" + rgv_KM.Rows[i].Cells["END_KM"].Value + " where van_id =" + rgv_KM.Rows[i].Cells["van_id"].Value + " and BRANCH_CODE= " + rgv_KM.Rows[i].Cells["BRANCH_CODE"].Value);
                     DataAccessCS.conn.Close();
                     DataAccessCS.update("update km_transactions@sales set start_km= " + rgv_KM.Rows[i].Cells["BEG_KM"].Value + " where jou_id ='" + rgv_KM.Rows[i].Cells["jou_id"].Value + "'");
                     DataAccessCS.conn.Close();
-                    DataAccessCS.update("update vehicle_assigning set ending_km =" + rgv_KM.Rows[i].Cells["END_KM"].Value + " where van_id=" + rgv_KM.Rows[i].Cells["van_id"].Value + "");
+                    DataAccessCS.update("update vehicle_assigning set ending_km =" + rgv_KM.Rows[i].Cells["END_KM"].Value + " where van_id=" + rgv_KM.Rows[i].Cells["van_id"].Value + " and BRANCH_CODE = " + rgv_KM.Rows[i].Cells["BRANCH_CODE"].Value);
                     DataAccessCS.conn.Close();
 
                     //DataAccessCS.update("update vehicle_assigning va set va.begining_km =" + rgv_KM.Rows[i].Cells["BEG_KM"].Value + " ,va.ending_km=" + rgv_KM.Rows[i].Cells["END_KM"].Value + " where van_id =" + rgv_KM.Rows[i].Cells["van_id"].Value + " and va.branch_code =" + rgv_KM.Rows[i].Cells["branch_code"].Value + " and va.de_assigning_date is null");
