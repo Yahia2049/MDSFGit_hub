@@ -167,6 +167,7 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.editMenu,
@@ -174,10 +175,11 @@
             this.toolsMenu,
             this.windowsMenu,
             this.helpMenu});
-            this.menuStrip.Location = new System.Drawing.Point(34, 0);
+            this.menuStrip.Location = new System.Drawing.Point(41, 0);
             this.menuStrip.MdiWindowListItem = this.windowsMenu;
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1336, 24);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(1946, 38);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -197,7 +199,7 @@
             this.exitToolStripMenuItem});
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
-            this.fileMenu.Size = new System.Drawing.Size(37, 20);
+            this.fileMenu.Size = new System.Drawing.Size(46, 34);
             this.fileMenu.Text = "&File";
             // 
             // newToolStripMenuItem
@@ -206,7 +208,7 @@
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
@@ -216,14 +218,14 @@
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFile);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(178, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -231,20 +233,20 @@
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.saveToolStripMenuItem.Text = "&Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.saveAsToolStripMenuItem.Text = "Save &As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(178, 6);
             // 
             // printToolStripMenuItem
             // 
@@ -252,7 +254,7 @@
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.printToolStripMenuItem.Text = "&Print";
             // 
             // printPreviewToolStripMenuItem
@@ -260,24 +262,24 @@
             this.printPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripMenuItem.Image")));
             this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.printPreviewToolStripMenuItem.Text = "Print Pre&view";
             // 
             // printSetupToolStripMenuItem
             // 
             this.printSetupToolStripMenuItem.Name = "printSetupToolStripMenuItem";
-            this.printSetupToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.printSetupToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.printSetupToolStripMenuItem.Text = "Print Setup";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(178, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
             // 
@@ -293,7 +295,7 @@
             this.toolStripSeparator7,
             this.selectAllToolStripMenuItem});
             this.editMenu.Name = "editMenu";
-            this.editMenu.Size = new System.Drawing.Size(39, 20);
+            this.editMenu.Size = new System.Drawing.Size(49, 34);
             this.editMenu.Text = "&Edit";
             // 
             // undoToolStripMenuItem
@@ -302,7 +304,7 @@
             this.undoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.undoToolStripMenuItem.Text = "&Undo";
             // 
             // redoToolStripMenuItem
@@ -311,13 +313,13 @@
             this.redoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.redoToolStripMenuItem.Text = "&Redo";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(203, 6);
             // 
             // cutToolStripMenuItem
             // 
@@ -325,7 +327,7 @@
             this.cutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.cutToolStripMenuItem.Text = "Cu&t";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.CutToolStripMenuItem_Click);
             // 
@@ -335,7 +337,7 @@
             this.copyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.copyToolStripMenuItem.Text = "&Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
             // 
@@ -345,20 +347,20 @@
             this.pasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.pasteToolStripMenuItem.Text = "&Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(203, 6);
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
             this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.selectAllToolStripMenuItem.Text = "Select &All";
             // 
             // viewMenu
@@ -367,7 +369,7 @@
             this.toolBarToolStripMenuItem,
             this.statusBarToolStripMenuItem});
             this.viewMenu.Name = "viewMenu";
-            this.viewMenu.Size = new System.Drawing.Size(44, 20);
+            this.viewMenu.Size = new System.Drawing.Size(55, 34);
             this.viewMenu.Text = "&View";
             // 
             // toolBarToolStripMenuItem
@@ -376,7 +378,7 @@
             this.toolBarToolStripMenuItem.CheckOnClick = true;
             this.toolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolBarToolStripMenuItem.Name = "toolBarToolStripMenuItem";
-            this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.toolBarToolStripMenuItem.Text = "&Toolbar";
             this.toolBarToolStripMenuItem.Click += new System.EventHandler(this.ToolBarToolStripMenuItem_Click);
             // 
@@ -386,7 +388,7 @@
             this.statusBarToolStripMenuItem.CheckOnClick = true;
             this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.statusBarToolStripMenuItem.Text = "&Status Bar";
             this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.StatusBarToolStripMenuItem_Click);
             // 
@@ -395,13 +397,13 @@
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
             this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(46, 20);
+            this.toolsMenu.Size = new System.Drawing.Size(58, 34);
             this.toolsMenu.Text = "&Tools";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // windowsMenu
@@ -414,48 +416,48 @@
             this.closeAllToolStripMenuItem,
             this.arrangeIconsToolStripMenuItem});
             this.windowsMenu.Name = "windowsMenu";
-            this.windowsMenu.Size = new System.Drawing.Size(68, 20);
+            this.windowsMenu.Size = new System.Drawing.Size(84, 34);
             this.windowsMenu.Text = "&Windows";
             // 
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.newWindowToolStripMenuItem.Text = "&New Window";
             this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.cascadeToolStripMenuItem.Text = "&Cascade";
             this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // tileVerticalToolStripMenuItem
             // 
             this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.tileVerticalToolStripMenuItem.Text = "Tile &Vertical";
             this.tileVerticalToolStripMenuItem.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // tileHorizontalToolStripMenuItem
             // 
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.tileHorizontalToolStripMenuItem.Text = "Tile &Horizontal";
             this.tileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.closeAllToolStripMenuItem.Text = "C&lose All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
             // 
             // arrangeIconsToolStripMenuItem
             // 
             this.arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
-            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.arrangeIconsToolStripMenuItem.Text = "&Arrange Icons";
             this.arrangeIconsToolStripMenuItem.Click += new System.EventHandler(this.ArrangeIconsToolStripMenuItem_Click);
             // 
@@ -468,14 +470,14 @@
             this.toolStripSeparator8,
             this.aboutToolStripMenuItem});
             this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(44, 20);
+            this.helpMenu.Size = new System.Drawing.Size(55, 34);
             this.helpMenu.Text = "&Help";
             // 
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
             this.contentsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.contentsToolStripMenuItem.Text = "&Contents";
             // 
             // indexToolStripMenuItem
@@ -483,7 +485,7 @@
             this.indexToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("indexToolStripMenuItem.Image")));
             this.indexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // searchToolStripMenuItem
@@ -491,22 +493,23 @@
             this.searchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripMenuItem.Image")));
             this.searchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.searchToolStripMenuItem.Text = "&Search";
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(165, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(204, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.aboutToolStripMenuItem.Text = "&About ... ...";
             // 
             // toolStrip
             // 
+            this.toolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
             this.openToolStripButton,
@@ -516,9 +519,9 @@
             this.printPreviewToolStripButton,
             this.toolStripSeparator2,
             this.helpToolStripButton});
-            this.toolStrip.Location = new System.Drawing.Point(34, 24);
+            this.toolStrip.Location = new System.Drawing.Point(51, 48);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1336, 25);
+            this.toolStrip.Size = new System.Drawing.Size(1946, 39);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_ItemClicked);
@@ -529,7 +532,7 @@
             this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
             this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
             this.newToolStripButton.Name = "newToolStripButton";
-            this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.newToolStripButton.Size = new System.Drawing.Size(29, 36);
             this.newToolStripButton.Text = "New";
             this.newToolStripButton.Click += new System.EventHandler(this.ShowNewForm);
             // 
@@ -539,7 +542,7 @@
             this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
             this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
             this.openToolStripButton.Name = "openToolStripButton";
-            this.openToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.openToolStripButton.Size = new System.Drawing.Size(29, 36);
             this.openToolStripButton.Text = "Open";
             this.openToolStripButton.Click += new System.EventHandler(this.OpenFile);
             // 
@@ -549,13 +552,13 @@
             this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
             this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
             this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.saveToolStripButton.Size = new System.Drawing.Size(29, 36);
             this.saveToolStripButton.Text = "Save";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // printToolStripButton
             // 
@@ -563,7 +566,7 @@
             this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
             this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
             this.printToolStripButton.Name = "printToolStripButton";
-            this.printToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.printToolStripButton.Size = new System.Drawing.Size(29, 36);
             this.printToolStripButton.Text = "Print";
             // 
             // printPreviewToolStripButton
@@ -572,13 +575,13 @@
             this.printPreviewToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripButton.Image")));
             this.printPreviewToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
             this.printPreviewToolStripButton.Name = "printPreviewToolStripButton";
-            this.printPreviewToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.printPreviewToolStripButton.Size = new System.Drawing.Size(29, 36);
             this.printPreviewToolStripButton.Text = "Print Preview";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
             // helpToolStripButton
             // 
@@ -586,7 +589,7 @@
             this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
             this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
             this.helpToolStripButton.Name = "helpToolStripButton";
-            this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.helpToolStripButton.Size = new System.Drawing.Size(29, 36);
             this.helpToolStripButton.Text = "Help";
             // 
             // pnl_Menu
@@ -605,9 +608,10 @@
             this.pnl_Menu.Controls.Add(this.btn_Menu_Masterdata);
             this.pnl_Menu.Controls.Add(this.pnl_menu_logo);
             this.pnl_Menu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnl_Menu.Location = new System.Drawing.Point(34, 49);
+            this.pnl_Menu.Location = new System.Drawing.Point(51, 96);
+            this.pnl_Menu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_Menu.Name = "pnl_Menu";
-            this.pnl_Menu.Size = new System.Drawing.Size(76, 678);
+            this.pnl_Menu.Size = new System.Drawing.Size(833, 1024);
             this.pnl_Menu.TabIndex = 4;
             this.pnl_Menu.Visible = false;
             // 
@@ -619,9 +623,10 @@
             this.pnl_android.Controls.Add(this.button22);
             this.pnl_android.Controls.Add(this.button23);
             this.pnl_android.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_android.Location = new System.Drawing.Point(0, 734);
+            this.pnl_android.Location = new System.Drawing.Point(0, 904);
+            this.pnl_android.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_android.Name = "pnl_android";
-            this.pnl_android.Size = new System.Drawing.Size(59, 130);
+            this.pnl_android.Size = new System.Drawing.Size(812, 160);
             this.pnl_android.TabIndex = 10;
             // 
             // button20
@@ -632,10 +637,11 @@
             this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button20.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button20.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button20.Location = new System.Drawing.Point(0, 90);
+            this.button20.Location = new System.Drawing.Point(0, 111);
+            this.button20.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button20.Name = "button20";
-            this.button20.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button20.Size = new System.Drawing.Size(59, 30);
+            this.button20.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button20.Size = new System.Drawing.Size(812, 37);
             this.button20.TabIndex = 3;
             this.button20.Text = "KM Transaction";
             this.button20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -650,10 +656,11 @@
             this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button21.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button21.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button21.Location = new System.Drawing.Point(0, 60);
+            this.button21.Location = new System.Drawing.Point(0, 74);
+            this.button21.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button21.Name = "button21";
-            this.button21.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button21.Size = new System.Drawing.Size(59, 30);
+            this.button21.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button21.Size = new System.Drawing.Size(812, 37);
             this.button21.TabIndex = 2;
             this.button21.Text = "Edit Versions";
             this.button21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -668,10 +675,11 @@
             this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button22.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button22.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button22.Location = new System.Drawing.Point(0, 30);
+            this.button22.Location = new System.Drawing.Point(0, 37);
+            this.button22.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button22.Name = "button22";
-            this.button22.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button22.Size = new System.Drawing.Size(59, 30);
+            this.button22.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button22.Size = new System.Drawing.Size(812, 37);
             this.button22.TabIndex = 1;
             this.button22.Text = "Open Permations";
             this.button22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -687,9 +695,10 @@
             this.button23.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button23.ForeColor = System.Drawing.Color.DarkGreen;
             this.button23.Location = new System.Drawing.Point(0, 0);
+            this.button23.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button23.Name = "button23";
-            this.button23.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button23.Size = new System.Drawing.Size(59, 30);
+            this.button23.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button23.Size = new System.Drawing.Size(812, 37);
             this.button23.TabIndex = 0;
             this.button23.Text = "Send Data";
             this.button23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -707,10 +716,11 @@
             this.button24.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button24.ImageIndex = 23;
             this.button24.ImageList = this.imageList1;
-            this.button24.Location = new System.Drawing.Point(0, 704);
+            this.button24.Location = new System.Drawing.Point(0, 867);
+            this.button24.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button24.Name = "button24";
-            this.button24.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button24.Size = new System.Drawing.Size(59, 30);
+            this.button24.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.button24.Size = new System.Drawing.Size(812, 37);
             this.button24.TabIndex = 9;
             this.button24.Text = "ANDROID SALES SUPPORT";
             this.button24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -756,9 +766,10 @@
             this.pnl_Target.Controls.Add(this.button17);
             this.pnl_Target.Controls.Add(this.button18);
             this.pnl_Target.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_Target.Location = new System.Drawing.Point(0, 574);
+            this.pnl_Target.Location = new System.Drawing.Point(0, 707);
+            this.pnl_Target.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_Target.Name = "pnl_Target";
-            this.pnl_Target.Size = new System.Drawing.Size(59, 130);
+            this.pnl_Target.Size = new System.Drawing.Size(812, 160);
             this.pnl_Target.TabIndex = 8;
             // 
             // button15
@@ -769,10 +780,11 @@
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button15.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button15.Location = new System.Drawing.Point(0, 90);
+            this.button15.Location = new System.Drawing.Point(0, 111);
+            this.button15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button15.Name = "button15";
-            this.button15.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button15.Size = new System.Drawing.Size(59, 30);
+            this.button15.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button15.Size = new System.Drawing.Size(812, 37);
             this.button15.TabIndex = 3;
             this.button15.Text = "Target Search";
             this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -787,10 +799,11 @@
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button16.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button16.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button16.Location = new System.Drawing.Point(0, 60);
+            this.button16.Location = new System.Drawing.Point(0, 74);
+            this.button16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button16.Name = "button16";
-            this.button16.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button16.Size = new System.Drawing.Size(59, 30);
+            this.button16.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button16.Size = new System.Drawing.Size(812, 37);
             this.button16.TabIndex = 2;
             this.button16.Text = "Edite Target";
             this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -805,10 +818,11 @@
             this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button17.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button17.Location = new System.Drawing.Point(0, 30);
+            this.button17.Location = new System.Drawing.Point(0, 37);
+            this.button17.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button17.Name = "button17";
-            this.button17.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button17.Size = new System.Drawing.Size(59, 30);
+            this.button17.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button17.Size = new System.Drawing.Size(812, 37);
             this.button17.TabIndex = 1;
             this.button17.Text = "Target Assining";
             this.button17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -824,9 +838,10 @@
             this.button18.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button18.ForeColor = System.Drawing.Color.DarkGreen;
             this.button18.Location = new System.Drawing.Point(0, 0);
+            this.button18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button18.Name = "button18";
-            this.button18.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button18.Size = new System.Drawing.Size(59, 30);
+            this.button18.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button18.Size = new System.Drawing.Size(812, 37);
             this.button18.TabIndex = 0;
             this.button18.Text = "New Target";
             this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -844,10 +859,11 @@
             this.button19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button19.ImageIndex = 22;
             this.button19.ImageList = this.imageList1;
-            this.button19.Location = new System.Drawing.Point(0, 544);
+            this.button19.Location = new System.Drawing.Point(0, 670);
+            this.button19.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button19.Name = "button19";
-            this.button19.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button19.Size = new System.Drawing.Size(59, 30);
+            this.button19.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.button19.Size = new System.Drawing.Size(812, 37);
             this.button19.TabIndex = 7;
             this.button19.Text = "TARGETS";
             this.button19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -863,9 +879,10 @@
             this.pnl_Incentive.Controls.Add(this.button12);
             this.pnl_Incentive.Controls.Add(this.button13);
             this.pnl_Incentive.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_Incentive.Location = new System.Drawing.Point(0, 414);
+            this.pnl_Incentive.Location = new System.Drawing.Point(0, 510);
+            this.pnl_Incentive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_Incentive.Name = "pnl_Incentive";
-            this.pnl_Incentive.Size = new System.Drawing.Size(59, 130);
+            this.pnl_Incentive.Size = new System.Drawing.Size(812, 160);
             this.pnl_Incentive.TabIndex = 6;
             // 
             // button10
@@ -876,10 +893,11 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button10.Location = new System.Drawing.Point(0, 90);
+            this.button10.Location = new System.Drawing.Point(0, 111);
+            this.button10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button10.Name = "button10";
-            this.button10.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button10.Size = new System.Drawing.Size(59, 30);
+            this.button10.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button10.Size = new System.Drawing.Size(812, 37);
             this.button10.TabIndex = 3;
             this.button10.Text = "button10";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -894,10 +912,11 @@
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button11.Location = new System.Drawing.Point(0, 60);
+            this.button11.Location = new System.Drawing.Point(0, 74);
+            this.button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button11.Name = "button11";
-            this.button11.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button11.Size = new System.Drawing.Size(59, 30);
+            this.button11.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button11.Size = new System.Drawing.Size(812, 37);
             this.button11.TabIndex = 2;
             this.button11.Text = "Incentive Search";
             this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -912,10 +931,11 @@
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button12.Location = new System.Drawing.Point(0, 30);
+            this.button12.Location = new System.Drawing.Point(0, 37);
+            this.button12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button12.Name = "button12";
-            this.button12.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button12.Size = new System.Drawing.Size(59, 30);
+            this.button12.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button12.Size = new System.Drawing.Size(812, 37);
             this.button12.TabIndex = 1;
             this.button12.Text = "Incentive Assining";
             this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -931,9 +951,10 @@
             this.button13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.ForeColor = System.Drawing.Color.DarkGreen;
             this.button13.Location = new System.Drawing.Point(0, 0);
+            this.button13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button13.Name = "button13";
-            this.button13.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button13.Size = new System.Drawing.Size(59, 30);
+            this.button13.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button13.Size = new System.Drawing.Size(812, 37);
             this.button13.TabIndex = 0;
             this.button13.Text = "New Incentive";
             this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -951,10 +972,11 @@
             this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button14.ImageIndex = 21;
             this.button14.ImageList = this.imageList1;
-            this.button14.Location = new System.Drawing.Point(0, 384);
+            this.button14.Location = new System.Drawing.Point(0, 473);
+            this.button14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button14.Name = "button14";
-            this.button14.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button14.Size = new System.Drawing.Size(59, 30);
+            this.button14.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.button14.Size = new System.Drawing.Size(812, 37);
             this.button14.TabIndex = 5;
             this.button14.Text = "INCENTIVES";
             this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -971,9 +993,10 @@
             this.pnl_pos.Controls.Add(this.button7);
             this.pnl_pos.Controls.Add(this.button8);
             this.pnl_pos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_pos.Location = new System.Drawing.Point(0, 225);
+            this.pnl_pos.Location = new System.Drawing.Point(0, 277);
+            this.pnl_pos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_pos.Name = "pnl_pos";
-            this.pnl_pos.Size = new System.Drawing.Size(59, 159);
+            this.pnl_pos.Size = new System.Drawing.Size(812, 196);
             this.pnl_pos.TabIndex = 4;
             // 
             // btn_Payer_pos
@@ -984,10 +1007,11 @@
             this.btn_Payer_pos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Payer_pos.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Payer_pos.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btn_Payer_pos.Location = new System.Drawing.Point(0, 120);
+            this.btn_Payer_pos.Location = new System.Drawing.Point(0, 148);
+            this.btn_Payer_pos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Payer_pos.Name = "btn_Payer_pos";
-            this.btn_Payer_pos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Payer_pos.Size = new System.Drawing.Size(59, 30);
+            this.btn_Payer_pos.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.btn_Payer_pos.Size = new System.Drawing.Size(812, 37);
             this.btn_Payer_pos.TabIndex = 4;
             this.btn_Payer_pos.Text = "Payer POS";
             this.btn_Payer_pos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1002,10 +1026,11 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button5.Location = new System.Drawing.Point(0, 90);
+            this.button5.Location = new System.Drawing.Point(0, 111);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(59, 30);
+            this.button5.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button5.Size = new System.Drawing.Size(812, 37);
             this.button5.TabIndex = 3;
             this.button5.Text = "POS Search";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1020,10 +1045,11 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button6.Location = new System.Drawing.Point(0, 60);
+            this.button6.Location = new System.Drawing.Point(0, 74);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(59, 30);
+            this.button6.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button6.Size = new System.Drawing.Size(812, 37);
             this.button6.TabIndex = 2;
             this.button6.Text = "Edite POS";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1038,10 +1064,11 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button7.Location = new System.Drawing.Point(0, 30);
+            this.button7.Location = new System.Drawing.Point(0, 37);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(59, 30);
+            this.button7.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button7.Size = new System.Drawing.Size(812, 37);
             this.button7.TabIndex = 1;
             this.button7.Text = "New POS";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1057,10 +1084,11 @@
             this.button8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.DarkGreen;
             this.button8.Location = new System.Drawing.Point(0, 0);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button8.Name = "button8";
-            this.button8.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.button8.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
             this.button8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button8.Size = new System.Drawing.Size(59, 30);
+            this.button8.Size = new System.Drawing.Size(812, 37);
             this.button8.TabIndex = 0;
             this.button8.Text = "New POS Review";
             this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1078,10 +1106,11 @@
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button9.ImageIndex = 24;
             this.button9.ImageList = this.imageList1;
-            this.button9.Location = new System.Drawing.Point(0, 195);
+            this.button9.Location = new System.Drawing.Point(0, 240);
+            this.button9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button9.Name = "button9";
-            this.button9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button9.Size = new System.Drawing.Size(59, 30);
+            this.button9.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.button9.Size = new System.Drawing.Size(812, 37);
             this.button9.TabIndex = 3;
             this.button9.Text = "POS (CUSTOMER)";
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1096,9 +1125,10 @@
             this.pnl_sales.Controls.Add(this.button2);
             this.pnl_sales.Controls.Add(this.btn_totalDSR);
             this.pnl_sales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_sales.Location = new System.Drawing.Point(0, 65);
+            this.pnl_sales.Location = new System.Drawing.Point(0, 80);
+            this.pnl_sales.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_sales.Name = "pnl_sales";
-            this.pnl_sales.Size = new System.Drawing.Size(59, 130);
+            this.pnl_sales.Size = new System.Drawing.Size(812, 160);
             this.pnl_sales.TabIndex = 2;
             // 
             // button4
@@ -1109,10 +1139,11 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button4.Location = new System.Drawing.Point(0, 90);
+            this.button4.Location = new System.Drawing.Point(0, 111);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(59, 30);
+            this.button4.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(812, 37);
             this.button4.TabIndex = 3;
             this.button4.Text = "Invoice search";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1127,10 +1158,11 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button3.Location = new System.Drawing.Point(0, 60);
+            this.button3.Location = new System.Drawing.Point(0, 74);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(59, 30);
+            this.button3.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(812, 37);
             this.button3.TabIndex = 2;
             this.button3.Text = "Posting";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1145,10 +1177,11 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button2.Location = new System.Drawing.Point(0, 30);
+            this.button2.Location = new System.Drawing.Point(0, 37);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(59, 30);
+            this.button2.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(812, 37);
             this.button2.TabIndex = 1;
             this.button2.Text = "Edite Sales";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1164,9 +1197,10 @@
             this.btn_totalDSR.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_totalDSR.ForeColor = System.Drawing.Color.DarkGreen;
             this.btn_totalDSR.Location = new System.Drawing.Point(0, 0);
+            this.btn_totalDSR.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_totalDSR.Name = "btn_totalDSR";
-            this.btn_totalDSR.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_totalDSR.Size = new System.Drawing.Size(59, 30);
+            this.btn_totalDSR.Padding = new System.Windows.Forms.Padding(41, 0, 0, 0);
+            this.btn_totalDSR.Size = new System.Drawing.Size(812, 37);
             this.btn_totalDSR.TabIndex = 0;
             this.btn_totalDSR.Text = "Total Daily Sales Report";
             this.btn_totalDSR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1184,10 +1218,11 @@
             this.btn_Menu_Masterdata.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Menu_Masterdata.ImageIndex = 19;
             this.btn_Menu_Masterdata.ImageList = this.imageList1;
-            this.btn_Menu_Masterdata.Location = new System.Drawing.Point(0, 35);
+            this.btn_Menu_Masterdata.Location = new System.Drawing.Point(0, 43);
+            this.btn_Menu_Masterdata.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Menu_Masterdata.Name = "btn_Menu_Masterdata";
-            this.btn_Menu_Masterdata.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Menu_Masterdata.Size = new System.Drawing.Size(59, 30);
+            this.btn_Menu_Masterdata.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btn_Menu_Masterdata.Size = new System.Drawing.Size(812, 37);
             this.btn_Menu_Masterdata.TabIndex = 1;
             this.btn_Menu_Masterdata.Text = "SALES";
             this.btn_Menu_Masterdata.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1202,8 +1237,9 @@
             this.pnl_menu_logo.Controls.Add(this.pictureBox1);
             this.pnl_menu_logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_menu_logo.Location = new System.Drawing.Point(0, 0);
+            this.pnl_menu_logo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_menu_logo.Name = "pnl_menu_logo";
-            this.pnl_menu_logo.Size = new System.Drawing.Size(59, 35);
+            this.pnl_menu_logo.Size = new System.Drawing.Size(812, 43);
             this.pnl_menu_logo.TabIndex = 0;
             // 
             // label1
@@ -1211,9 +1247,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(32, 0);
+            this.label1.Location = new System.Drawing.Point(37, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 35);
+            this.label1.Size = new System.Drawing.Size(775, 43);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mansour Distribution Salesforce";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1224,8 +1260,9 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox1.Image = global::MDSF.Properties.Resources.Mansour_Icon;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 35);
+            this.pictureBox1.Size = new System.Drawing.Size(37, 43);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -1234,17 +1271,19 @@
             // toolStripStatusLabel
             // 
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
             this.toolStripStatusLabel.Text = "Status";
             // 
             // statusStrip
             // 
             this.statusStrip.BackColor = System.Drawing.Color.DarkGreen;
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(34, 727);
+            this.statusStrip.Location = new System.Drawing.Point(41, 896);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1336, 22);
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+            this.statusStrip.Size = new System.Drawing.Size(1557, 26);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -1252,11 +1291,13 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.DarkGreen;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SMI_MENU});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(34, 749);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(41, 922);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical90;
@@ -1267,7 +1308,7 @@
             this.SMI_MENU.Image = global::MDSF.Properties.Resources.Mansour_Icon;
             this.SMI_MENU.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.SMI_MENU.Name = "SMI_MENU";
-            this.SMI_MENU.Size = new System.Drawing.Size(21, 99);
+            this.SMI_MENU.Size = new System.Drawing.Size(26, 121);
             this.SMI_MENU.Text = "CLOSE MENU";
             this.SMI_MENU.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SMI_MENU.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -1289,10 +1330,11 @@
             this.androidSupportToolStripMenuItem,
             this.dailyActivityToolStripMenuItem,
             this.iNVENTORYToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(110, 49);
+            this.menuStrip2.Location = new System.Drawing.Point(1093, 96);
             this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
             this.menuStrip2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip2.Size = new System.Drawing.Size(180, 678);
+            this.menuStrip2.Size = new System.Drawing.Size(270, 1024);
             this.menuStrip2.TabIndex = 8;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -1308,7 +1350,7 @@
             this.mASTERDATAToolStripMenuItem.Image = global::MDSF.Properties.Resources.Mansour_Icon2;
             this.mASTERDATAToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mASTERDATAToolStripMenuItem.Name = "mASTERDATAToolStripMenuItem";
-            this.mASTERDATAToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
+            this.mASTERDATAToolStripMenuItem.Size = new System.Drawing.Size(201, 32);
             this.mASTERDATAToolStripMenuItem.Text = "MASTER DATA";
             this.mASTERDATAToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1319,7 +1361,7 @@
             this.vanAToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.vanAToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("vanAToolStripMenuItem.Image")));
             this.vanAToolStripMenuItem.Name = "vanAToolStripMenuItem";
-            this.vanAToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
+            this.vanAToolStripMenuItem.Size = new System.Drawing.Size(306, 32);
             this.vanAToolStripMenuItem.Text = "Reassign Van";
             this.vanAToolStripMenuItem.Click += new System.EventHandler(this.vanAToolStripMenuItem_Click);
             // 
@@ -1330,7 +1372,7 @@
             this.kMUpdateToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.kMUpdateToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("kMUpdateToolStripMenuItem1.Image")));
             this.kMUpdateToolStripMenuItem1.Name = "kMUpdateToolStripMenuItem1";
-            this.kMUpdateToolStripMenuItem1.Size = new System.Drawing.Size(244, 32);
+            this.kMUpdateToolStripMenuItem1.Size = new System.Drawing.Size(306, 32);
             this.kMUpdateToolStripMenuItem1.Text = "KM Update";
             this.kMUpdateToolStripMenuItem1.Click += new System.EventHandler(this.kMUpdateToolStripMenuItem1_Click);
             // 
@@ -1341,7 +1383,7 @@
             this.lastKMUpdateAndSendToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.lastKMUpdateAndSendToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("lastKMUpdateAndSendToolStripMenuItem1.Image")));
             this.lastKMUpdateAndSendToolStripMenuItem1.Name = "lastKMUpdateAndSendToolStripMenuItem1";
-            this.lastKMUpdateAndSendToolStripMenuItem1.Size = new System.Drawing.Size(244, 32);
+            this.lastKMUpdateAndSendToolStripMenuItem1.Size = new System.Drawing.Size(306, 32);
             this.lastKMUpdateAndSendToolStripMenuItem1.Text = "Last KM Update and send";
             this.lastKMUpdateAndSendToolStripMenuItem1.Click += new System.EventHandler(this.lastKMUpdateAndSendToolStripMenuItem1_Click);
             // 
@@ -1352,7 +1394,7 @@
             this.productPriceListToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.productPriceListToolStripMenuItem.Image = global::MDSF.Properties.Resources.Price_1;
             this.productPriceListToolStripMenuItem.Name = "productPriceListToolStripMenuItem";
-            this.productPriceListToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
+            this.productPriceListToolStripMenuItem.Size = new System.Drawing.Size(306, 32);
             this.productPriceListToolStripMenuItem.Text = "Product Price List";
             this.productPriceListToolStripMenuItem.Click += new System.EventHandler(this.productPriceListToolStripMenuItem_Click);
             // 
@@ -1363,7 +1405,7 @@
             this.reassignRoutesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.reassignRoutesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reassignRoutesToolStripMenuItem.Image")));
             this.reassignRoutesToolStripMenuItem.Name = "reassignRoutesToolStripMenuItem";
-            this.reassignRoutesToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
+            this.reassignRoutesToolStripMenuItem.Size = new System.Drawing.Size(306, 32);
             this.reassignRoutesToolStripMenuItem.Text = "Reassign Routes";
             this.reassignRoutesToolStripMenuItem.Click += new System.EventHandler(this.reassignRoutesToolStripMenuItem_Click);
             // 
@@ -1378,7 +1420,7 @@
             this.sALESToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sALESToolStripMenuItem.Name = "sALESToolStripMenuItem";
             this.sALESToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.sALESToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
+            this.sALESToolStripMenuItem.Size = new System.Drawing.Size(201, 32);
             this.sALESToolStripMenuItem.Text = "SALES";
             this.sALESToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1389,7 +1431,7 @@
             this.totalDailySalesReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.totalDailySalesReportToolStripMenuItem.Image = global::MDSF.Properties.Resources._1_19862_sales_icon_png_direct_sale_icon_transparent_png;
             this.totalDailySalesReportToolStripMenuItem.Name = "totalDailySalesReportToolStripMenuItem";
-            this.totalDailySalesReportToolStripMenuItem.Size = new System.Drawing.Size(234, 32);
+            this.totalDailySalesReportToolStripMenuItem.Size = new System.Drawing.Size(291, 32);
             this.totalDailySalesReportToolStripMenuItem.Text = "Total Daily Sales Report";
             this.totalDailySalesReportToolStripMenuItem.Click += new System.EventHandler(this.totalDailySalesReportToolStripMenuItem_Click);
             // 
@@ -1400,7 +1442,7 @@
             this.postingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.postingToolStripMenuItem.Image = global::MDSF.Properties.Resources._1_19862_sales_icon_png_direct_sale_icon_transparent_png;
             this.postingToolStripMenuItem.Name = "postingToolStripMenuItem";
-            this.postingToolStripMenuItem.Size = new System.Drawing.Size(234, 32);
+            this.postingToolStripMenuItem.Size = new System.Drawing.Size(291, 32);
             this.postingToolStripMenuItem.Text = "Posting";
             this.postingToolStripMenuItem.Click += new System.EventHandler(this.postingToolStripMenuItem_Click);
             // 
@@ -1417,7 +1459,7 @@
             this.pOSToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
             this.pOSToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pOSToolStripMenuItem.Name = "pOSToolStripMenuItem";
-            this.pOSToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
+            this.pOSToolStripMenuItem.Size = new System.Drawing.Size(201, 32);
             this.pOSToolStripMenuItem.Text = "POS";
             this.pOSToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1428,7 +1470,7 @@
             this.reviewNewPOSToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.reviewNewPOSToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
             this.reviewNewPOSToolStripMenuItem.Name = "reviewNewPOSToolStripMenuItem";
-            this.reviewNewPOSToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
+            this.reviewNewPOSToolStripMenuItem.Size = new System.Drawing.Size(330, 32);
             this.reviewNewPOSToolStripMenuItem.Text = "Review New POS";
             this.reviewNewPOSToolStripMenuItem.Click += new System.EventHandler(this.reviewNewPOSToolStripMenuItem_Click);
             // 
@@ -1439,7 +1481,7 @@
             this.payerPOSToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.payerPOSToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
             this.payerPOSToolStripMenuItem.Name = "payerPOSToolStripMenuItem";
-            this.payerPOSToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
+            this.payerPOSToolStripMenuItem.Size = new System.Drawing.Size(330, 32);
             this.payerPOSToolStripMenuItem.Text = "Payer POS";
             this.payerPOSToolStripMenuItem.Click += new System.EventHandler(this.payerPOSToolStripMenuItem_Click);
             // 
@@ -1450,7 +1492,7 @@
             this.changPOSTerritoryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.changPOSTerritoryToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
             this.changPOSTerritoryToolStripMenuItem.Name = "changPOSTerritoryToolStripMenuItem";
-            this.changPOSTerritoryToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
+            this.changPOSTerritoryToolStripMenuItem.Size = new System.Drawing.Size(330, 32);
             this.changPOSTerritoryToolStripMenuItem.Text = "Chang Territory for POSs ";
             this.changPOSTerritoryToolStripMenuItem.Click += new System.EventHandler(this.changPOSTerritoryToolStripMenuItem_Click);
             // 
@@ -1461,7 +1503,7 @@
             this.pOSTAXPhotoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.pOSTAXPhotoToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
             this.pOSTAXPhotoToolStripMenuItem.Name = "pOSTAXPhotoToolStripMenuItem";
-            this.pOSTAXPhotoToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
+            this.pOSTAXPhotoToolStripMenuItem.Size = new System.Drawing.Size(330, 32);
             this.pOSTAXPhotoToolStripMenuItem.Text = "POS TAX Photo";
             this.pOSTAXPhotoToolStripMenuItem.Click += new System.EventHandler(this.pOSTAXPhotoToolStripMenuItem_Click);
             // 
@@ -1472,7 +1514,7 @@
             this.pOSSurveyToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.pOSSurveyToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
             this.pOSSurveyToolStripMenuItem.Name = "pOSSurveyToolStripMenuItem";
-            this.pOSSurveyToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
+            this.pOSSurveyToolStripMenuItem.Size = new System.Drawing.Size(330, 32);
             this.pOSSurveyToolStripMenuItem.Text = "POS Survey";
             this.pOSSurveyToolStripMenuItem.Click += new System.EventHandler(this.pOSSurveyToolStripMenuItem_Click);
             // 
@@ -1483,7 +1525,7 @@
             this.coverdAndToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.coverdAndToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
             this.coverdAndToolStripMenuItem.Name = "coverdAndToolStripMenuItem";
-            this.coverdAndToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
+            this.coverdAndToolStripMenuItem.Size = new System.Drawing.Size(330, 32);
             this.coverdAndToolStripMenuItem.Text = "Covered and Uncovered POS";
             this.coverdAndToolStripMenuItem.Click += new System.EventHandler(this.coverdAndToolStripMenuItem_Click);
             // 
@@ -1495,7 +1537,7 @@
             this.iNCENTIVESToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
             this.iNCENTIVESToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iNCENTIVESToolStripMenuItem.Name = "iNCENTIVESToolStripMenuItem";
-            this.iNCENTIVESToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
+            this.iNCENTIVESToolStripMenuItem.Size = new System.Drawing.Size(201, 32);
             this.iNCENTIVESToolStripMenuItem.Text = "INCENTIVES";
             this.iNCENTIVESToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1505,7 +1547,7 @@
             this.newIncentiveTypeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.newIncentiveTypeToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
             this.newIncentiveTypeToolStripMenuItem.Name = "newIncentiveTypeToolStripMenuItem";
-            this.newIncentiveTypeToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
+            this.newIncentiveTypeToolStripMenuItem.Size = new System.Drawing.Size(290, 32);
             this.newIncentiveTypeToolStripMenuItem.Text = "New Incentive Type";
             this.newIncentiveTypeToolStripMenuItem.Click += new System.EventHandler(this.newIncentiveTypeToolStripMenuItem_Click);
             // 
@@ -1519,7 +1561,7 @@
             this.targetToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.targetToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.targetToolStripMenuItem.Name = "targetToolStripMenuItem";
-            this.targetToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
+            this.targetToolStripMenuItem.Size = new System.Drawing.Size(201, 32);
             this.targetToolStripMenuItem.Text = "TARGET";
             this.targetToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1530,7 +1572,7 @@
             this.targetAssigningToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.targetAssigningToolStripMenuItem.Image = global::MDSF.Properties.Resources.target;
             this.targetAssigningToolStripMenuItem.Name = "targetAssigningToolStripMenuItem";
-            this.targetAssigningToolStripMenuItem.Size = new System.Drawing.Size(253, 32);
+            this.targetAssigningToolStripMenuItem.Size = new System.Drawing.Size(317, 32);
             this.targetAssigningToolStripMenuItem.Text = "Target Assigning";
             this.targetAssigningToolStripMenuItem.Click += new System.EventHandler(this.targetAssigningToolStripMenuItem_Click);
             // 
@@ -1541,7 +1583,7 @@
             this.tradeProgramTransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.tradeProgramTransactionToolStripMenuItem.Image = global::MDSF.Properties.Resources.target;
             this.tradeProgramTransactionToolStripMenuItem.Name = "tradeProgramTransactionToolStripMenuItem";
-            this.tradeProgramTransactionToolStripMenuItem.Size = new System.Drawing.Size(253, 32);
+            this.tradeProgramTransactionToolStripMenuItem.Size = new System.Drawing.Size(317, 32);
             this.tradeProgramTransactionToolStripMenuItem.Text = "Trade Program Transaction";
             this.tradeProgramTransactionToolStripMenuItem.Click += new System.EventHandler(this.tradeProgramTransactionToolStripMenuItem_Click);
             // 
@@ -1555,7 +1597,7 @@
             this.androidSupportToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.androidSupportToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.androidSupportToolStripMenuItem.Name = "androidSupportToolStripMenuItem";
-            this.androidSupportToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
+            this.androidSupportToolStripMenuItem.Size = new System.Drawing.Size(201, 32);
             this.androidSupportToolStripMenuItem.Text = "Android Support";
             this.androidSupportToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.androidSupportToolStripMenuItem.Click += new System.EventHandler(this.androidSupportToolStripMenuItem_Click);
@@ -1567,7 +1609,7 @@
             this.sendDataToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.sendDataToolStripMenuItem.Image = global::MDSF.Properties.Resources.images__1_;
             this.sendDataToolStripMenuItem.Name = "sendDataToolStripMenuItem";
-            this.sendDataToolStripMenuItem.Size = new System.Drawing.Size(218, 32);
+            this.sendDataToolStripMenuItem.Size = new System.Drawing.Size(274, 32);
             this.sendDataToolStripMenuItem.Text = "Send Data";
             this.sendDataToolStripMenuItem.Click += new System.EventHandler(this.sendDataToolStripMenuItem_Click);
             // 
@@ -1578,7 +1620,7 @@
             this.devAndroidSupportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.devAndroidSupportToolStripMenuItem.Image = global::MDSF.Properties.Resources.images__1_;
             this.devAndroidSupportToolStripMenuItem.Name = "devAndroidSupportToolStripMenuItem";
-            this.devAndroidSupportToolStripMenuItem.Size = new System.Drawing.Size(218, 32);
+            this.devAndroidSupportToolStripMenuItem.Size = new System.Drawing.Size(274, 32);
             this.devAndroidSupportToolStripMenuItem.Text = "Dev Android Support";
             this.devAndroidSupportToolStripMenuItem.Click += new System.EventHandler(this.devAndroidSupportToolStripMenuItem_Click);
             // 
@@ -1588,7 +1630,7 @@
             this.wrongDateToolStripMenuItem});
             this.dailyActivityToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.dailyActivityToolStripMenuItem.Name = "dailyActivityToolStripMenuItem";
-            this.dailyActivityToolStripMenuItem.Size = new System.Drawing.Size(167, 25);
+            this.dailyActivityToolStripMenuItem.Size = new System.Drawing.Size(201, 32);
             this.dailyActivityToolStripMenuItem.Text = "Daily Activity";
             this.dailyActivityToolStripMenuItem.Visible = false;
             // 
@@ -1597,7 +1639,7 @@
             this.wrongDateToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.wrongDateToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.wrongDateToolStripMenuItem.Name = "wrongDateToolStripMenuItem";
-            this.wrongDateToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.wrongDateToolStripMenuItem.Size = new System.Drawing.Size(213, 32);
             this.wrongDateToolStripMenuItem.Text = "Wrong Date";
             this.wrongDateToolStripMenuItem.Click += new System.EventHandler(this.wrongDateToolStripMenuItem_Click);
             // 
@@ -1610,7 +1652,7 @@
             this.iNVENTORYToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("iNVENTORYToolStripMenuItem.Image")));
             this.iNVENTORYToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iNVENTORYToolStripMenuItem.Name = "iNVENTORYToolStripMenuItem";
-            this.iNVENTORYToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
+            this.iNVENTORYToolStripMenuItem.Size = new System.Drawing.Size(201, 32);
             this.iNVENTORYToolStripMenuItem.Text = "INVENTORY";
             this.iNVENTORYToolStripMenuItem.Click += new System.EventHandler(this.iNVENTORYToolStripMenuItem_Click);
             // 
@@ -1622,7 +1664,7 @@
             this.aLLSendToSAPToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aLLSendToSAPToolStripMenuItem.Image")));
             this.aLLSendToSAPToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.aLLSendToSAPToolStripMenuItem.Name = "aLLSendToSAPToolStripMenuItem";
-            this.aLLSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(192, 32);
+            this.aLLSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(238, 32);
             this.aLLSendToSAPToolStripMenuItem.Text = "ALL Send to SAP";
             this.aLLSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.aLLSendToSAPToolStripMenuItem_Click);
             // 
@@ -1633,18 +1675,18 @@
             this.fineSendToSAPToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fineSendToSAPToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fineSendToSAPToolStripMenuItem.Image")));
             this.fineSendToSAPToolStripMenuItem.Name = "fineSendToSAPToolStripMenuItem";
-            this.fineSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(192, 32);
+            this.fineSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(238, 32);
             this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
             this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
             // 
             // Main_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::MDSF.Properties.Resources.pgm21;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1598, 922);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.pnl_Menu);
             this.Controls.Add(this.statusStrip);
@@ -1654,6 +1696,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Main_form";
             this.Text = "MDSF Mansour Distribution Salesforce";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

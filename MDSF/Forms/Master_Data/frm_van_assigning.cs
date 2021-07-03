@@ -298,11 +298,11 @@ namespace MDSF.Forms.Master_Data
                     if ((cmb_Van_ID.SelectedIndex > -1 && cmb_Plate_Number.SelectedIndex == -1) || (cmb_Van_ID.SelectedIndex > -1 && cmb_Plate_Number.SelectedIndex > -1))
                     {
                         //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                        ds = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT_2 where  van_id='" + cmb_Van_ID.SelectedValue + "'");
+                        ds = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT_2 where  van_id='" + cmb_Van_ID.SelectedValue + "' and branch_code =" + cmb_Region_Van.SelectedValue);
                     }
                     else if (cmb_Van_ID.SelectedIndex == -1 && cmb_Plate_Number.SelectedIndex > -1)
                     {
-                        ds = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT_2 where  van_id='" + cmb_Plate_Number.SelectedValue + "'");
+                        ds = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT_2 where  van_id='" + cmb_Plate_Number.SelectedValue + "' and branch_code =" + cmb_Region_Van.SelectedValue);
                     }
                     else
                     {
@@ -315,7 +315,7 @@ namespace MDSF.Forms.Master_Data
                 {
                     if (cmb_salesrep_salesman.SelectedIndex > -1)
                     {
-                        ds = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT_2 where  salesrep_id ='" + cmb_salesrep_salesman.SelectedValue + "'");
+                        ds = DataAccessCS.getdata("SELECT VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT_2 where  salesrep_id ='" + cmb_salesrep_salesman.SelectedValue + "'  and branch_code =" + cmb_Region_Van.SelectedValue);
                     }
                     else
                     {
@@ -417,7 +417,7 @@ namespace MDSF.Forms.Master_Data
                     {
                         Max_Assign_ID = DataAccessCS.getvalue("select max(ASSIGNING_ID)+1 as MAX_ASS_Id from VEHICLE_ASSIGNING");
                         DataAccessCS.conn.Close();
-                        Max_Ending_KM = DataAccessCS.getvalue(" select max(nvl(ending_km,0)) as Max_Ending_KM from VAN where van_id=" + rgv_Active_Vans.CurrentRow.Cells["VAN_ID"].Value.ToString() + ""); 
+                        Max_Ending_KM = DataAccessCS.getvalue(" select max(nvl(ending_km,0)) as Max_Ending_KM from VAN where van_id=" + rgv_Active_Vans.CurrentRow.Cells["VAN_ID"].Value.ToString() + " and branch_code=" + cmb_Region_Van.SelectedValue); 
                         DataAccessCS.conn.Close();
                         DataAccessCS.insert("insert into VEHICLE_ASSIGNING values (" + Max_Assign_ID + "," + rgv_Active_Vans.CurrentRow.Cells[0].Value + "," + cmb_salesrep_Dis.SelectedValue + ", Sysdate,''," +Max_Ending_KM+ ",'',"+ rgv_Active_Vans.CurrentRow.Cells[4].Value + ")");
                         DataAccessCS.conn.Close();
@@ -489,57 +489,49 @@ namespace MDSF.Forms.Master_Data
             {
                 DataSet ds = new DataSet();
 
-                DataAccessCS.update("update VEHICLE_ASSIGNING set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells[3].Value + "' and DE_ASSIGNING_DATE is null");
+                DataAccessCS.update("update VEHICLE_ASSIGNING set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells["SALESREP_ID"].Value + "' and DE_ASSIGNING_DATE is null");
                 DataAccessCS.conn.Close();
                 //----insert into SLA
-                if (rgv_destination_van.CurrentRow.Cells[4].Value.ToString() == "1")
+                if (rgv_destination_van.CurrentRow.Cells["BRANCH_CODE"].Value.ToString() == "1")
                 {
-                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_cai set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells[3].Value + "' and DE_ASSIGNING_DATE is null");
+                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_cai set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells["SALESREP_ID"].Value + "' and DE_ASSIGNING_DATE is null");
                     DataAccessCS.conn.Close();
                 }
-                else if (rgv_Active_Vans.CurrentRow.Cells[4].Value.ToString() == "2")
+                else if (rgv_destination_van.CurrentRow.Cells["BRANCH_CODE"].Value.ToString() == "2")
                 {
-                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_alx set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells[3].Value + "' and DE_ASSIGNING_DATE is null");
+                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_alx set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells["SALESREP_ID"].Value + "' and DE_ASSIGNING_DATE is null");
                     DataAccessCS.conn.Close();
                 }
-                else if (rgv_Active_Vans.CurrentRow.Cells[4].Value.ToString() == "3")
+                else if (rgv_destination_van.CurrentRow.Cells["BRANCH_CODE"].Value.ToString() == "3")
                 {
-                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_man set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells[3].Value + "' and DE_ASSIGNING_DATE is null");
+                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_man set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells["SALESREP_ID"].Value + "' and DE_ASSIGNING_DATE is null");
                     DataAccessCS.conn.Close();
                 }
-                else if (rgv_Active_Vans.CurrentRow.Cells[4].Value.ToString() == "4")
+                else if (rgv_destination_van.CurrentRow.Cells["BRANCH_CODE"].Value.ToString() == "4")
                 {
-                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_ism set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells[3].Value + "' and DE_ASSIGNING_DATE is null");
+                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_ism set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells["SALESREP_ID"].Value + "' and DE_ASSIGNING_DATE is null");
                     DataAccessCS.conn.Close();
                 }
-                else if (rgv_Active_Vans.CurrentRow.Cells[4].Value.ToString() == "5")
+                else if (rgv_destination_van.CurrentRow.Cells["BRANCH_CODE"].Value.ToString() == "5")
                 {
-                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_ass set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells[3].Value + "' and DE_ASSIGNING_DATE is null");
+                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_ass set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells["SALESREP_ID"].Value + "' and DE_ASSIGNING_DATE is null");
                     DataAccessCS.conn.Close();
                 }
-                else if (rgv_Active_Vans.CurrentRow.Cells[4].Value.ToString() == "6")
+                else if (rgv_destination_van.CurrentRow.Cells["BRANCH_CODE"].Value.ToString() == "6")
                 {
-                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_tan set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells[3].Value + "' and DE_ASSIGNING_DATE is null");
+                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_tan set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells["SALESREP_ID"].Value + "' and DE_ASSIGNING_DATE is null");
                     DataAccessCS.conn.Close();
                 }
-                else if (rgv_Active_Vans.CurrentRow.Cells[4].Value.ToString() == "7")
+                else if (rgv_destination_van.CurrentRow.Cells["BRANCH_CODE"].Value.ToString() == "7")
                 {
-                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_upp set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells[3].Value + "' and DE_ASSIGNING_DATE is null");
+                    DataAccessCS.insert("update VEHICLE_ASSIGNING@to_sla_upp set DE_ASSIGNING_DATE = sysdate-1 where SALESREP_ID= '" + rgv_destination_van.CurrentRow.Cells["SALESREP_ID"].Value + "' and DE_ASSIGNING_DATE is null");
                     DataAccessCS.conn.Close();
                 }
+
                 //--------------------------------------------------------------
-                MessageBox.Show("The Car is now De-Assigned , تمت عملية أخلاء السيارة");
-                ds = DataAccessCS.getdata("SELECT  VAN_ID,PLATE_NUMBER,SALESREP_NAME,SALESREP_ID,Branch_code from INT_VANS_CURRENT where VAN_ID=" + rgv_Active_Vans.CurrentRow.Cells["VAN_ID"].Value.ToString() );
-                rgv_Active_Vans.DataSource = ds.Tables[0];
-                ds.Dispose();
-                DataAccessCS.conn.Close();
-                rgv_Active_Vans.BestFitColumns();
-                Label_CountH.Text = rgv_Active_Vans.RowCount.ToString();
 
-               // rgv_destination_van.Rows.Clear();
-                lbl_count_dis.Text = "0";
+                MessageBox.Show("تم فك السيارة بنجاح");
 
-            
 
 
             }
