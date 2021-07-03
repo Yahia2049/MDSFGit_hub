@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition10 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition11 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition9 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Add_Target_month));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition12 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -75,6 +75,7 @@
             this.btn_import_from_Excel_salesrep = new Telerik.WinControls.UI.RadButton();
             this.rgv_Salesrep_target = new Telerik.WinControls.UI.RadGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btn_up_targetsales = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lbl_target_type = new System.Windows.Forms.Label();
             this.lbl_year = new System.Windows.Forms.Label();
@@ -123,7 +124,6 @@
             this.btn_import_excel_kpi = new Telerik.WinControls.UI.RadButton();
             this.rgv_kpi_insert = new Telerik.WinControls.UI.RadGridView();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
-            this.btn_up_targetsales = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -210,7 +210,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(939, 469);
+            this.tabPage1.Size = new System.Drawing.Size(1005, 469);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sales Territories";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -459,7 +459,7 @@
             // 
             // 
             // 
-            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition10;
             this.rgv_salester_target.Name = "rgv_salester_target";
             // 
             // 
@@ -485,7 +485,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(939, 469);
+            this.tabPage2.Size = new System.Drawing.Size(1005, 469);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Salesrep";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -725,7 +725,7 @@
             // 
             // 
             // 
-            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition7;
+            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition11;
             this.rgv_Salesrep_target.Name = "rgv_Salesrep_target";
             // 
             // 
@@ -756,6 +756,18 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "POS";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btn_up_targetsales
+            // 
+            this.btn_up_targetsales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_up_targetsales.Location = new System.Drawing.Point(872, 323);
+            this.btn_up_targetsales.Name = "btn_up_targetsales";
+            this.btn_up_targetsales.Size = new System.Drawing.Size(89, 23);
+            this.btn_up_targetsales.TabIndex = 30;
+            this.btn_up_targetsales.Text = "Update Target Sales";
+            this.btn_up_targetsales.UseVisualStyleBackColor = true;
+            this.btn_up_targetsales.Click += new System.EventHandler(this.btn_up_targetsales_Click);
             // 
             // groupBox4
             // 
@@ -932,7 +944,7 @@
             // 
             // 
             // 
-            this.radButton3.RootElement.ControlBounds = new System.Drawing.Rectangle(372, 435, 110, 24);
+            this.radButton3.RootElement.ControlBounds = new System.Drawing.Rectangle(438, 435, 110, 24);
             this.radButton3.Size = new System.Drawing.Size(172, 24);
             this.radButton3.TabIndex = 27;
             this.radButton3.Text = "Luxor SLA";
@@ -948,7 +960,7 @@
             // 
             // 
             // 
-            this.radButton4.RootElement.ControlBounds = new System.Drawing.Rectangle(372, 404, 110, 24);
+            this.radButton4.RootElement.ControlBounds = new System.Drawing.Rectangle(438, 404, 110, 24);
             this.radButton4.Size = new System.Drawing.Size(172, 24);
             this.radButton4.TabIndex = 21;
             this.radButton4.Text = "Ismailia SLA";
@@ -964,7 +976,7 @@
             // 
             // 
             // 
-            this.radButton5.RootElement.ControlBounds = new System.Drawing.Rectangle(372, 374, 110, 24);
+            this.radButton5.RootElement.ControlBounds = new System.Drawing.Rectangle(438, 374, 110, 24);
             this.radButton5.Size = new System.Drawing.Size(172, 24);
             this.radButton5.TabIndex = 22;
             this.radButton5.Text = "Cairo SLA";
@@ -980,7 +992,7 @@
             // 
             // 
             // 
-            this.radButton6.RootElement.ControlBounds = new System.Drawing.Rectangle(757, 403, 110, 24);
+            this.radButton6.RootElement.ControlBounds = new System.Drawing.Rectangle(823, 403, 110, 24);
             this.radButton6.Size = new System.Drawing.Size(172, 24);
             this.radButton6.TabIndex = 23;
             this.radButton6.Text = "Tanta SLA";
@@ -996,7 +1008,7 @@
             // 
             // 
             // 
-            this.radButton7.RootElement.ControlBounds = new System.Drawing.Rectangle(579, 403, 110, 24);
+            this.radButton7.RootElement.ControlBounds = new System.Drawing.Rectangle(645, 403, 110, 24);
             this.radButton7.Size = new System.Drawing.Size(172, 24);
             this.radButton7.TabIndex = 24;
             this.radButton7.Text = "Assiout SLA";
@@ -1012,7 +1024,7 @@
             // 
             // 
             // 
-            this.radButton8.RootElement.ControlBounds = new System.Drawing.Rectangle(579, 373, 110, 24);
+            this.radButton8.RootElement.ControlBounds = new System.Drawing.Rectangle(645, 373, 110, 24);
             this.radButton8.Size = new System.Drawing.Size(172, 24);
             this.radButton8.TabIndex = 25;
             this.radButton8.Text = "Alex SLA";
@@ -1028,7 +1040,7 @@
             // 
             // 
             // 
-            this.radButton9.RootElement.ControlBounds = new System.Drawing.Rectangle(757, 373, 110, 24);
+            this.radButton9.RootElement.ControlBounds = new System.Drawing.Rectangle(823, 373, 110, 24);
             this.radButton9.Size = new System.Drawing.Size(172, 24);
             this.radButton9.TabIndex = 26;
             this.radButton9.Text = "Mansoura SLA";
@@ -1044,7 +1056,7 @@
             // 
             // 
             // 
-            this.btn_import_from_Excel_pos.RootElement.ControlBounds = new System.Drawing.Rectangle(382, 9, 110, 24);
+            this.btn_import_from_Excel_pos.RootElement.ControlBounds = new System.Drawing.Rectangle(415, 9, 110, 24);
             this.btn_import_from_Excel_pos.Size = new System.Drawing.Size(172, 24);
             this.btn_import_from_Excel_pos.TabIndex = 19;
             this.btn_import_from_Excel_pos.Text = "Import from Excel";
@@ -1061,7 +1073,7 @@
             // 
             // 
             // 
-            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition5;
+            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition9;
             this.rgv_pos_target.Name = "rgv_pos_target";
             // 
             // 
@@ -1082,7 +1094,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(939, 469);
+            this.tabPage4.Size = new System.Drawing.Size(1005, 469);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "KPI";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1321,7 +1333,7 @@
             // 
             // 
             // 
-            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition8;
+            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition12;
             this.rgv_kpi_insert.Name = "rgv_kpi_insert";
             // 
             // 
@@ -1330,16 +1342,6 @@
             this.rgv_kpi_insert.Size = new System.Drawing.Size(936, 228);
             this.rgv_kpi_insert.TabIndex = 18;
             this.rgv_kpi_insert.ThemeName = "TelerikMetro";
-            // 
-            // btn_up_targetsales
-            // 
-            this.btn_up_targetsales.Location = new System.Drawing.Point(872, 323);
-            this.btn_up_targetsales.Name = "btn_up_targetsales";
-            this.btn_up_targetsales.Size = new System.Drawing.Size(89, 23);
-            this.btn_up_targetsales.TabIndex = 30;
-            this.btn_up_targetsales.Text = "Update Target Sales";
-            this.btn_up_targetsales.UseVisualStyleBackColor = true;
-            this.btn_up_targetsales.Click += new System.EventHandler(this.btn_up_targetsales_Click);
             // 
             // frm_Add_Target_month
             // 
