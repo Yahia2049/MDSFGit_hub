@@ -635,7 +635,7 @@ namespace MDSF
                     var X_Form = new frm_van_assigning();
                     X_Form.Show();
                     X_Form.MdiParent = this;
-                    //X_Form.WindowState = FormWindowState.Maximized;
+                    X_Form.WindowState = FormWindowState.Normal;
                 }
                 else
                 {
