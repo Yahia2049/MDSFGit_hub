@@ -220,6 +220,7 @@ namespace MDSF.Forms.Master_Data
 
         private void cmb_sales_ter_source_SelectionChangeCommitted(object sender, EventArgs e)
         {
+           
             Fill_cmb_Salesrep_source();
             Fill_cmb_Salesrep_dec();
         }
@@ -416,6 +417,7 @@ namespace MDSF.Forms.Master_Data
                 string c;
                 string sf;
                 ds.Dispose();
+
                 var dv_reassign_test = new DataView(ds.Tables[0]);
                 
                 if (cmb_Region_source.SelectedValue.ToString() == "Cairo")

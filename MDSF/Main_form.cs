@@ -635,7 +635,7 @@ namespace MDSF
                     var X_Form = new frm_van_assigning();
                     X_Form.Show();
                     X_Form.MdiParent = this;
-                    //X_Form.WindowState = FormWindowState.Maximized;
+                    X_Form.WindowState = FormWindowState.Normal;
                 }
                 else
                 {
@@ -1283,7 +1283,7 @@ namespace MDSF
             var X_Form = new frm_reassign_pos_routes();
             X_Form.Show();
             X_Form.MdiParent = this;
-            //X_Form.WindowState = FormWindowState.Maximized;
+            X_Form.WindowState = FormWindowState.Normal;
         }
 
         private void aLLSendToSAPToolStripMenuItem_Click(object sender, EventArgs e)

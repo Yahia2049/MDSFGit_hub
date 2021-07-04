@@ -131,7 +131,7 @@ namespace MDSF.Forms.Inventory
 
                 ds = DataAccessCS.getdata("select distinct p.SALESREP_ID ,(select distinct name from salesman where sales_id =p.SALESREP_ID and v.branch_code =" + cmb_Region.SelectedValue + " ) SALESREP_NAME " +
                               "from journey@sales p, ver_ctrl@sales v ,loading_header l " +
-                              "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=0 " +
+                              "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=5 " +
                               " and  p.salesrep_id = v.salesrep_id and v.branch_code = " + cmb_Region.SelectedValue + " " +
                               "and trunc(to_date(p.start_DATE,'dd - mon - yyyy hh: mi:ss AM')) = trunc(to_date('" + DateTimePicker.Value.ToString("dd-MMM-yyyy") + "')) order by SALESREP_NAME");
 
@@ -1365,7 +1365,7 @@ namespace MDSF.Forms.Inventory
 
                         // Yahia 05-07-2018 To Add Gift of All product
                         string item_gift_retail = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE ,iis.vdatu " + " " +
-                            "from  INT_INVENTORY_GIFT_RETAIL_F " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_No= " + max_load + "";
+                            "from  INT_INVENTORY_GIFT_RETAIL_F iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_No= " + max_load + "";
 
 
                         DataSet ds_gift_details = DataAccessCS.getdata(item_gift_retail);

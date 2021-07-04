@@ -947,7 +947,7 @@ namespace MDSF.Forms.Target
                 }
                 else
                 {
-                    String cmdDelTarget = "Delete from  salesman_targets_test  WHERE BRANCH_CODE = " + txt_branch_kpi.Text + " AND MON = " + txt_month_kpi.Text + " AND YEAR = " + txt_year_kpi.Text;
+                    String cmdDelTarget = "Delete from  salesman_targets  WHERE BRANCH_CODE = " + txt_branch_kpi.Text + " AND MON = " + txt_month_kpi.Text + " AND YEAR = " + txt_year_kpi.Text;
                     DataAccessCS.delete(cmdDelTarget);
                     DataAccessCS.conn.Close();
                     MessageBox.Show("Deleted Successfull");
@@ -1214,7 +1214,7 @@ namespace MDSF.Forms.Target
                 dsT = DataAccessCS.getdata("select * from salesman_targets where branch_code= "+txt_branch_kpi_search.Text+" and mon="+txt_month_kpi_search.Text+" and year ="+txt_Year_kpi_search.Text+"");
                 DataAccessCS.conn.Close();
                 rgv_kpi_insert.DataSource = dsT.Tables[0];
-                //rgv_kpi_insert.AutoResizeColumns();
+                rgv_kpi_insert.BestFitColumns();
                 dsT.Dispose();
 
                 DataAccessCS.conn.Close();
@@ -1261,6 +1261,113 @@ namespace MDSF.Forms.Target
 
                 MessageBox.Show(ex.Message);
             }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btn_salesman_search_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataSet dsT = new DataSet();
+                dsT = DataAccessCS.getdata("select * from target_salesmen where branch_code= " + txt_branch_salesman_search.Text + " and month=" + txt_month_salesman_search.Text + " and year =" + txt_year_salesman_search.Text + "");
+                DataAccessCS.conn.Close();
+                rgv_Salesrep_target.DataSource = dsT.Tables[0];
+                rgv_Salesrep_target.BestFitColumns();
+                dsT.Dispose();
+
+                DataAccessCS.conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btn_ter_search_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataSet dsT = new DataSet();
+                dsT = DataAccessCS.getdata("select * from TARGET_SALES_TERRITORIES where branch_code= " + txt_branch_ter_search.Text + " and month=" + txt_month_ter_search.Text + " and year =" + txt_Year_ter_search.Text + "");
+                DataAccessCS.conn.Close();
+                rgv_salester_target.DataSource = dsT.Tables[0];
+                rgv_salester_target.BestFitColumns();
+                dsT.Dispose();
+
+                DataAccessCS.conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void radButton12_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataAccessCS.ExportExcelDGV(rgv_salester_target);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void radButton14_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataAccessCS.ExportExcelDGV(rgv_Salesrep_target);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btn_pos_search_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataSet dsT = new DataSet();
+                dsT = DataAccessCS.getdata("select * from target_retail_pos where branch_code= " + txt_branch_ter_search.Text + " and month=" + txt_month_ter_search.Text + " and year =" + txt_Year_ter_search.Text + "");
+                DataAccessCS.conn.Close();
+                rgv_pos_target.DataSource = dsT.Tables[0];
+                rgv_pos_target.BestFitColumns();
+                dsT.Dispose();
+
+                DataAccessCS.conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void radButton13_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataAccessCS.ExportExcelDGV(rgv_pos_target);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             this.Cursor = Cursors.Default;
         }
     }

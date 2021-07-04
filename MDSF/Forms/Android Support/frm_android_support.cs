@@ -24,7 +24,7 @@ namespace MDSF.Forms.Android_Support
 
         private void frm_android_support_Load(object sender, EventArgs e)
         {
-
+            this.KeyPreview = true;
             DataSet ds = new DataSet();
             ds = DataAccessCS.getdata("select tl.sfa_tablename from tab_loading@sales tl order by tl.sfa_tablename");
             cmb_Table_load.DataSource = ds.Tables[0];

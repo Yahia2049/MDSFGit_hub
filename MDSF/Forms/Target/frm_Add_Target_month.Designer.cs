@@ -44,7 +44,6 @@
             this.txt_month_ter_del = new System.Windows.Forms.TextBox();
             this.txt_year_ter_del = new System.Windows.Forms.TextBox();
             this.txt_branch_ter_del = new System.Windows.Forms.TextBox();
-            this.txtFileName = new System.Windows.Forms.TextBox();
             this.btn_proc_sla_lux_salester = new Telerik.WinControls.UI.RadButton();
             this.btn_proc_sla_ism_salester = new Telerik.WinControls.UI.RadButton();
             this.btn_proc_sla_cai_salester = new Telerik.WinControls.UI.RadButton();
@@ -178,6 +177,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_ter_search)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton12)).BeginInit();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_salesman_search)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton14)).BeginInit();
+            this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_pos_search)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton13)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -195,8 +203,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox7);
+            this.tabPage1.Controls.Add(this.radButton12);
             this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.txtFileName);
             this.tabPage1.Controls.Add(this.btn_proc_sla_lux_salester);
             this.tabPage1.Controls.Add(this.btn_proc_sla_ism_salester);
             this.tabPage1.Controls.Add(this.btn_proc_sla_cai_salester);
@@ -296,14 +305,6 @@
             this.txt_branch_ter_del.Name = "txt_branch_ter_del";
             this.txt_branch_ter_del.Size = new System.Drawing.Size(100, 20);
             this.txt_branch_ter_del.TabIndex = 0;
-            // 
-            // txtFileName
-            // 
-            this.txtFileName.Location = new System.Drawing.Point(91, 10);
-            this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(271, 20);
-            this.txtFileName.TabIndex = 15;
-            this.txtFileName.Visible = false;
             // 
             // btn_proc_sla_lux_salester
             // 
@@ -437,13 +438,13 @@
             // 
             this.btn_import_excel_salester.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_import_excel_salester.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_import_excel_salester.Location = new System.Drawing.Point(382, 10);
+            this.btn_import_excel_salester.Location = new System.Drawing.Point(482, 15);
             this.btn_import_excel_salester.Name = "btn_import_excel_salester";
             // 
             // 
             // 
             this.btn_import_excel_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(382, 10, 110, 24);
-            this.btn_import_excel_salester.Size = new System.Drawing.Size(172, 24);
+            this.btn_import_excel_salester.Size = new System.Drawing.Size(172, 34);
             this.btn_import_excel_salester.TabIndex = 6;
             this.btn_import_excel_salester.Text = "Import from Excel";
             this.btn_import_excel_salester.ThemeName = "TelerikMetro";
@@ -455,7 +456,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rgv_salester_target.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rgv_salester_target.Location = new System.Drawing.Point(1, 42);
+            this.rgv_salester_target.Location = new System.Drawing.Point(1, 57);
             // 
             // 
             // 
@@ -465,12 +466,14 @@
             // 
             // 
             this.rgv_salester_target.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 42, 240, 150);
-            this.rgv_salester_target.Size = new System.Drawing.Size(936, 283);
+            this.rgv_salester_target.Size = new System.Drawing.Size(996, 268);
             this.rgv_salester_target.TabIndex = 5;
             this.rgv_salester_target.ThemeName = "TelerikMetro";
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox8);
+            this.tabPage2.Controls.Add(this.radButton14);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.btn_proc_sla_lux_salesrep);
             this.tabPage2.Controls.Add(this.btn_proc_sla_ism_salesrep);
@@ -703,7 +706,7 @@
             // 
             this.btn_import_from_Excel_salesrep.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_import_from_Excel_salesrep.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_import_from_Excel_salesrep.Location = new System.Drawing.Point(384, 6);
+            this.btn_import_from_Excel_salesrep.Location = new System.Drawing.Point(503, 5);
             this.btn_import_from_Excel_salesrep.Name = "btn_import_from_Excel_salesrep";
             // 
             // 
@@ -721,7 +724,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rgv_Salesrep_target.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rgv_Salesrep_target.Location = new System.Drawing.Point(3, 49);
+            this.rgv_Salesrep_target.Location = new System.Drawing.Point(3, 57);
             // 
             // 
             // 
@@ -731,12 +734,14 @@
             // 
             // 
             this.rgv_Salesrep_target.RootElement.ControlBounds = new System.Drawing.Rectangle(3, 49, 240, 150);
-            this.rgv_Salesrep_target.Size = new System.Drawing.Size(936, 277);
+            this.rgv_Salesrep_target.Size = new System.Drawing.Size(994, 269);
             this.rgv_Salesrep_target.TabIndex = 0;
             this.rgv_Salesrep_target.ThemeName = "TelerikMetro";
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.groupBox9);
+            this.tabPage3.Controls.Add(this.radButton13);
             this.tabPage3.Controls.Add(this.btn_up_targetsales);
             this.tabPage3.Controls.Add(this.groupBox4);
             this.tabPage3.Controls.Add(this.groupBox3);
@@ -1051,7 +1056,7 @@
             // 
             this.btn_import_from_Excel_pos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_import_from_Excel_pos.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_import_from_Excel_pos.Location = new System.Drawing.Point(415, 9);
+            this.btn_import_from_Excel_pos.Location = new System.Drawing.Point(524, 9);
             this.btn_import_from_Excel_pos.Name = "btn_import_from_Excel_pos";
             // 
             // 
@@ -1069,7 +1074,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rgv_pos_target.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rgv_pos_target.Location = new System.Drawing.Point(1, 39);
+            this.rgv_pos_target.Location = new System.Drawing.Point(1, 63);
             // 
             // 
             // 
@@ -1079,7 +1084,7 @@
             // 
             // 
             this.rgv_pos_target.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 39, 240, 150);
-            this.rgv_pos_target.Size = new System.Drawing.Size(1002, 256);
+            this.rgv_pos_target.Size = new System.Drawing.Size(1002, 232);
             this.rgv_pos_target.TabIndex = 18;
             this.rgv_pos_target.ThemeName = "TelerikMetro";
             // 
@@ -1109,7 +1114,7 @@
             this.groupBox6.Controls.Add(this.txt_month_kpi_search);
             this.groupBox6.Controls.Add(this.txt_Year_kpi_search);
             this.groupBox6.Controls.Add(this.txt_branch_kpi_search);
-            this.groupBox6.Location = new System.Drawing.Point(3, 41);
+            this.groupBox6.Location = new System.Drawing.Point(3, 7);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(465, 45);
             this.groupBox6.TabIndex = 29;
@@ -1188,7 +1193,7 @@
             this.radButton10.CausesValidation = false;
             this.radButton10.ImageIndex = 0;
             this.radButton10.ImageList = this.imageList1;
-            this.radButton10.Location = new System.Drawing.Point(687, 3);
+            this.radButton10.Location = new System.Drawing.Point(810, 4);
             this.radButton10.Name = "radButton10";
             // 
             // 
@@ -1310,7 +1315,7 @@
             this.btn_import_excel_kpi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_import_excel_kpi.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_import_excel_kpi.ImageList = this.imageList1;
-            this.btn_import_excel_kpi.Location = new System.Drawing.Point(382, 4);
+            this.btn_import_excel_kpi.Location = new System.Drawing.Point(506, 7);
             this.btn_import_excel_kpi.Name = "btn_import_excel_kpi";
             // 
             // 
@@ -1329,7 +1334,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rgv_kpi_insert.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rgv_kpi_insert.Location = new System.Drawing.Point(1, 96);
+            this.rgv_kpi_insert.Location = new System.Drawing.Point(1, 58);
             // 
             // 
             // 
@@ -1339,7 +1344,7 @@
             // 
             // 
             this.rgv_kpi_insert.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 96, 240, 150);
-            this.rgv_kpi_insert.Size = new System.Drawing.Size(936, 228);
+            this.rgv_kpi_insert.Size = new System.Drawing.Size(996, 266);
             this.rgv_kpi_insert.TabIndex = 18;
             this.rgv_kpi_insert.ThemeName = "TelerikMetro";
             // 
@@ -1354,7 +1359,6 @@
             this.Load += new System.EventHandler(this.frm_Add_Target_month_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_ter_del)).EndInit();
@@ -1413,6 +1417,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_ter_search)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton12)).EndInit();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_salesman_search)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton14)).EndInit();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_pos_search)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton13)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1443,7 +1459,6 @@
         private Telerik.WinControls.UI.RadButton btn_import_excel_salester;
         private Telerik.WinControls.UI.RadGridView rgv_salester_target;
         private Telerik.WinControls.Themes.TelerikMetroTheme telerikMetroTheme1;
-        private System.Windows.Forms.TextBox txtFileName;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -1509,5 +1524,32 @@
         private System.Windows.Forms.TextBox txt_Year_kpi_search;
         private System.Windows.Forms.TextBox txt_branch_kpi_search;
         private System.Windows.Forms.Button btn_up_targetsales;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private Telerik.WinControls.UI.RadButton btn_ter_search;
+        private System.Windows.Forms.TextBox txt_month_ter_search;
+        private System.Windows.Forms.TextBox txt_Year_ter_search;
+        private System.Windows.Forms.TextBox txt_branch_ter_search;
+        private Telerik.WinControls.UI.RadButton radButton12;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private Telerik.WinControls.UI.RadButton btn_salesman_search;
+        private System.Windows.Forms.TextBox txt_month_salesman_search;
+        private System.Windows.Forms.TextBox txt_year_salesman_search;
+        private System.Windows.Forms.TextBox txt_branch_salesman_search;
+        private Telerik.WinControls.UI.RadButton radButton14;
+        private Telerik.WinControls.UI.RadButton radButton13;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private Telerik.WinControls.UI.RadButton btn_pos_search;
+        private System.Windows.Forms.TextBox txt_month_pos_search;
+        private System.Windows.Forms.TextBox txt_year_pos_search;
+        private System.Windows.Forms.TextBox txt_branch_pos_search;
     }
 }
