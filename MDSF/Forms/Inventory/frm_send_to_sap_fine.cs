@@ -1356,7 +1356,8 @@ namespace MDSF.Forms.Inventory
 
                         string item_details_retail = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM," +
                             "iis.LINE_NUMBER,iis.ITEM_PRICE,iis.vdatu " + " from  INT_INVENTORY_SOLD_RETAIL_F iis " + "" +
-                            " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  and iis.LOADING_no= " + max_load + "";
+                            " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'" +
+                            "  and iis.LOADING_no= " + max_load + " and branch_code = "+cmb_Region.SelectedValue+"";
 
 
                         DataSet ds_item_details = DataAccessCS.getdata(item_details_retail);
@@ -2296,6 +2297,7 @@ namespace MDSF.Forms.Inventory
                         DataAccessCS.insert(inv);
                         MessageBox.Show("لم يتم ارسال جميع البيانات ارج الانظار عشر دقائق حتى تصل البيانات كامله");
                         DataAccessCS.conn.Close();
+                        txt_qnt_def.Text = (total_HH - total_sla).ToString();
                         return;
                     }
 
