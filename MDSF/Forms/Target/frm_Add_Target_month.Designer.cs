@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition10 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition11 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition9 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Add_Target_month));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition12 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -123,33 +123,6 @@
             this.btn_import_excel_kpi = new Telerik.WinControls.UI.RadButton();
             this.rgv_kpi_insert = new Telerik.WinControls.UI.RadGridView();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.btn_ter_search = new Telerik.WinControls.UI.RadButton();
-            this.txt_month_ter_search = new System.Windows.Forms.TextBox();
-            this.txt_Year_ter_search = new System.Windows.Forms.TextBox();
-            this.txt_branch_ter_search = new System.Windows.Forms.TextBox();
-            this.radButton12 = new Telerik.WinControls.UI.RadButton();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.btn_salesman_search = new Telerik.WinControls.UI.RadButton();
-            this.txt_month_salesman_search = new System.Windows.Forms.TextBox();
-            this.txt_year_salesman_search = new System.Windows.Forms.TextBox();
-            this.txt_branch_salesman_search = new System.Windows.Forms.TextBox();
-            this.radButton14 = new Telerik.WinControls.UI.RadButton();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.btn_pos_search = new Telerik.WinControls.UI.RadButton();
-            this.txt_month_pos_search = new System.Windows.Forms.TextBox();
-            this.txt_year_pos_search = new System.Windows.Forms.TextBox();
-            this.txt_branch_pos_search = new System.Windows.Forms.TextBox();
-            this.radButton13 = new Telerik.WinControls.UI.RadButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -487,7 +460,7 @@
             // 
             // 
             // 
-            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition10;
             this.rgv_salester_target.Name = "rgv_salester_target";
             // 
             // 
@@ -755,7 +728,7 @@
             // 
             // 
             // 
-            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition11;
             this.rgv_Salesrep_target.Name = "rgv_Salesrep_target";
             // 
             // 
@@ -791,7 +764,8 @@
             // 
             // btn_up_targetsales
             // 
-            this.btn_up_targetsales.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_up_targetsales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_up_targetsales.Location = new System.Drawing.Point(872, 323);
             this.btn_up_targetsales.Name = "btn_up_targetsales";
             this.btn_up_targetsales.Size = new System.Drawing.Size(89, 23);
@@ -1088,7 +1062,7 @@
             // 
             // 
             this.btn_import_from_Excel_pos.RootElement.ControlBounds = new System.Drawing.Rectangle(415, 9, 110, 24);
-            this.btn_import_from_Excel_pos.Size = new System.Drawing.Size(172, 36);
+            this.btn_import_from_Excel_pos.Size = new System.Drawing.Size(172, 24);
             this.btn_import_from_Excel_pos.TabIndex = 19;
             this.btn_import_from_Excel_pos.Text = "Import from Excel";
             this.btn_import_from_Excel_pos.ThemeName = "TelerikMetro";
@@ -1104,7 +1078,7 @@
             // 
             // 
             // 
-            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition9;
             this.rgv_pos_target.Name = "rgv_pos_target";
             // 
             // 
@@ -1364,7 +1338,7 @@
             // 
             // 
             // 
-            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition12;
             this.rgv_kpi_insert.Name = "rgv_kpi_insert";
             // 
             // 
@@ -1373,312 +1347,6 @@
             this.rgv_kpi_insert.Size = new System.Drawing.Size(996, 266);
             this.rgv_kpi_insert.TabIndex = 18;
             this.rgv_kpi_insert.ThemeName = "TelerikMetro";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.label17);
-            this.groupBox7.Controls.Add(this.label18);
-            this.groupBox7.Controls.Add(this.label19);
-            this.groupBox7.Controls.Add(this.btn_ter_search);
-            this.groupBox7.Controls.Add(this.txt_month_ter_search);
-            this.groupBox7.Controls.Add(this.txt_Year_ter_search);
-            this.groupBox7.Controls.Add(this.txt_branch_ter_search);
-            this.groupBox7.Location = new System.Drawing.Point(8, 6);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(465, 45);
-            this.groupBox7.TabIndex = 266;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Search Sales Territories Target";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(138, 16);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(37, 13);
-            this.label17.TabIndex = 11;
-            this.label17.Text = "Month";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(230, 17);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(29, 13);
-            this.label18.TabIndex = 10;
-            this.label18.Text = "Year";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 17);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(68, 13);
-            this.label19.TabIndex = 9;
-            this.label19.Text = "Branch Code";
-            // 
-            // btn_ter_search
-            // 
-            this.btn_ter_search.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_ter_search.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_ter_search.Location = new System.Drawing.Point(335, 13);
-            this.btn_ter_search.Name = "btn_ter_search";
-            // 
-            // 
-            // 
-            this.btn_ter_search.RootElement.ControlBounds = new System.Drawing.Rectangle(335, 13, 110, 24);
-            this.btn_ter_search.Size = new System.Drawing.Size(113, 21);
-            this.btn_ter_search.TabIndex = 8;
-            this.btn_ter_search.Text = "Search";
-            this.btn_ter_search.ThemeName = "TelerikMetro";
-            this.btn_ter_search.Click += new System.EventHandler(this.btn_ter_search_Click);
-            // 
-            // txt_month_ter_search
-            // 
-            this.txt_month_ter_search.Location = new System.Drawing.Point(179, 14);
-            this.txt_month_ter_search.Name = "txt_month_ter_search";
-            this.txt_month_ter_search.Size = new System.Drawing.Size(42, 20);
-            this.txt_month_ter_search.TabIndex = 2;
-            // 
-            // txt_Year_ter_search
-            // 
-            this.txt_Year_ter_search.Location = new System.Drawing.Point(265, 13);
-            this.txt_Year_ter_search.Name = "txt_Year_ter_search";
-            this.txt_Year_ter_search.Size = new System.Drawing.Size(58, 20);
-            this.txt_Year_ter_search.TabIndex = 1;
-            // 
-            // txt_branch_ter_search
-            // 
-            this.txt_branch_ter_search.Location = new System.Drawing.Point(80, 14);
-            this.txt_branch_ter_search.Name = "txt_branch_ter_search";
-            this.txt_branch_ter_search.Size = new System.Drawing.Size(44, 20);
-            this.txt_branch_ter_search.TabIndex = 0;
-            // 
-            // radButton12
-            // 
-            this.radButton12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton12.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radButton12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.radButton12.CausesValidation = false;
-            this.radButton12.ImageIndex = 0;
-            this.radButton12.ImageList = this.imageList1;
-            this.radButton12.Location = new System.Drawing.Point(750, 3);
-            this.radButton12.Name = "radButton12";
-            // 
-            // 
-            // 
-            this.radButton12.RootElement.ControlBounds = new System.Drawing.Rectangle(687, 3, 110, 24);
-            this.radButton12.Size = new System.Drawing.Size(187, 38);
-            this.radButton12.TabIndex = 267;
-            this.radButton12.Text = "Export KPI Templet To Excel";
-            this.radButton12.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.radButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.radButton12.ThemeName = "TelerikMetro";
-            this.radButton12.Click += new System.EventHandler(this.radButton12_Click);
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.label20);
-            this.groupBox8.Controls.Add(this.label21);
-            this.groupBox8.Controls.Add(this.label22);
-            this.groupBox8.Controls.Add(this.btn_salesman_search);
-            this.groupBox8.Controls.Add(this.txt_month_salesman_search);
-            this.groupBox8.Controls.Add(this.txt_year_salesman_search);
-            this.groupBox8.Controls.Add(this.txt_branch_salesman_search);
-            this.groupBox8.Location = new System.Drawing.Point(3, 6);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(465, 45);
-            this.groupBox8.TabIndex = 266;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Search Salesrep Target ";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(138, 16);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(37, 13);
-            this.label20.TabIndex = 11;
-            this.label20.Text = "Month";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(230, 17);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(29, 13);
-            this.label21.TabIndex = 10;
-            this.label21.Text = "Year";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 17);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(68, 13);
-            this.label22.TabIndex = 9;
-            this.label22.Text = "Branch Code";
-            // 
-            // btn_salesman_search
-            // 
-            this.btn_salesman_search.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_salesman_search.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_salesman_search.Location = new System.Drawing.Point(335, 13);
-            this.btn_salesman_search.Name = "btn_salesman_search";
-            // 
-            // 
-            // 
-            this.radButton13.RootElement.ControlBounds = new System.Drawing.Rectangle(335, 13, 110, 24);
-            this.btn_salesman_search.Size = new System.Drawing.Size(113, 21);
-            this.btn_salesman_search.TabIndex = 8;
-            this.btn_salesman_search.Text = "Search";
-            this.btn_salesman_search.ThemeName = "TelerikMetro";
-            this.btn_salesman_search.Click += new System.EventHandler(this.btn_salesman_search_Click);
-            // 
-            // txt_month_salesman_search
-            // 
-            this.txt_month_salesman_search.Location = new System.Drawing.Point(179, 14);
-            this.txt_month_salesman_search.Name = "txt_month_salesman_search";
-            this.txt_month_salesman_search.Size = new System.Drawing.Size(42, 20);
-            this.txt_month_salesman_search.TabIndex = 2;
-            // 
-            // txt_year_salesman_search
-            // 
-            this.txt_year_salesman_search.Location = new System.Drawing.Point(265, 13);
-            this.txt_year_salesman_search.Name = "txt_year_salesman_search";
-            this.txt_year_salesman_search.Size = new System.Drawing.Size(58, 20);
-            this.txt_year_salesman_search.TabIndex = 1;
-            // 
-            // txt_branch_salesman_search
-            // 
-            this.txt_branch_salesman_search.Location = new System.Drawing.Point(80, 14);
-            this.txt_branch_salesman_search.Name = "txt_branch_salesman_search";
-            this.txt_branch_salesman_search.Size = new System.Drawing.Size(44, 20);
-            this.txt_branch_salesman_search.TabIndex = 0;
-            // 
-            // radButton14
-            // 
-            this.radButton14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton14.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radButton14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.radButton14.CausesValidation = false;
-            this.radButton14.ImageIndex = 0;
-            this.radButton14.ImageList = this.imageList1;
-            this.radButton14.Location = new System.Drawing.Point(692, 4);
-            this.radButton14.Name = "radButton14";
-            // 
-            // 
-            // 
-            this.radButton14.RootElement.ControlBounds = new System.Drawing.Rectangle(687, 3, 110, 24);
-            this.radButton14.Size = new System.Drawing.Size(187, 38);
-            this.radButton14.TabIndex = 267;
-            this.radButton14.Text = "Export KPI Templet To Excel";
-            this.radButton14.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.radButton14.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.radButton14.ThemeName = "TelerikMetro";
-            this.radButton14.Click += new System.EventHandler(this.radButton14_Click);
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.label23);
-            this.groupBox9.Controls.Add(this.label24);
-            this.groupBox9.Controls.Add(this.label25);
-            this.groupBox9.Controls.Add(this.btn_pos_search);
-            this.groupBox9.Controls.Add(this.txt_month_pos_search);
-            this.groupBox9.Controls.Add(this.txt_year_pos_search);
-            this.groupBox9.Controls.Add(this.txt_branch_pos_search);
-            this.groupBox9.Location = new System.Drawing.Point(6, 7);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(465, 45);
-            this.groupBox9.TabIndex = 268;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Search POS Target";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(138, 16);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(37, 13);
-            this.label23.TabIndex = 11;
-            this.label23.Text = "Month";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(230, 17);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(29, 13);
-            this.label24.TabIndex = 10;
-            this.label24.Text = "Year";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(6, 17);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(68, 13);
-            this.label25.TabIndex = 9;
-            this.label25.Text = "Branch Code";
-            // 
-            // btn_pos_search
-            // 
-            this.btn_pos_search.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_pos_search.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_pos_search.Location = new System.Drawing.Point(335, 13);
-            this.btn_pos_search.Name = "btn_pos_search";
-            // 
-            // 
-            // 
-            this.btn_pos_search.RootElement.ControlBounds = new System.Drawing.Rectangle(335, 13, 110, 24);
-            this.btn_pos_search.Size = new System.Drawing.Size(113, 21);
-            this.btn_pos_search.TabIndex = 8;
-            this.btn_pos_search.Text = "Search";
-            this.btn_pos_search.ThemeName = "TelerikMetro";
-            this.btn_pos_search.Click += new System.EventHandler(this.btn_pos_search_Click);
-            // 
-            // txt_month_pos_search
-            // 
-            this.txt_month_pos_search.Location = new System.Drawing.Point(179, 14);
-            this.txt_month_pos_search.Name = "txt_month_pos_search";
-            this.txt_month_pos_search.Size = new System.Drawing.Size(42, 20);
-            this.txt_month_pos_search.TabIndex = 2;
-            // 
-            // txt_year_pos_search
-            // 
-            this.txt_year_pos_search.Location = new System.Drawing.Point(265, 13);
-            this.txt_year_pos_search.Name = "txt_year_pos_search";
-            this.txt_year_pos_search.Size = new System.Drawing.Size(58, 20);
-            this.txt_year_pos_search.TabIndex = 1;
-            // 
-            // txt_branch_pos_search
-            // 
-            this.txt_branch_pos_search.Location = new System.Drawing.Point(80, 14);
-            this.txt_branch_pos_search.Name = "txt_branch_pos_search";
-            this.txt_branch_pos_search.Size = new System.Drawing.Size(44, 20);
-            this.txt_branch_pos_search.TabIndex = 0;
-            // 
-            // radButton13
-            // 
-            this.radButton13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radButton13.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radButton13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.radButton13.CausesValidation = false;
-            this.radButton13.ImageIndex = 0;
-            this.radButton13.ImageList = this.imageList1;
-            this.radButton13.Location = new System.Drawing.Point(748, 9);
-            this.radButton13.Name = "radButton13";
-            // 
-            // 
-            // 
-            this.radButton13.RootElement.ControlBounds = new System.Drawing.Rectangle(750, 3, 110, 24);
-            this.radButton13.Size = new System.Drawing.Size(187, 38);
-            this.radButton13.TabIndex = 269;
-            this.radButton13.Text = "Export KPI Templet To Excel";
-            this.radButton13.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.radButton13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.radButton13.ThemeName = "TelerikMetro";
-            this.radButton13.Click += new System.EventHandler(this.radButton13_Click);
             // 
             // frm_Add_Target_month
             // 

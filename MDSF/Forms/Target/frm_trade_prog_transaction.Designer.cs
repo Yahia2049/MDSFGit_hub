@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.btn_import_excel_Trade = new Telerik.WinControls.UI.RadButton();
             this.rgv_Trade_prog = new Telerik.WinControls.UI.RadGridView();
             this.btn_Add = new Telerik.WinControls.UI.RadButton();
@@ -71,7 +71,7 @@
             // 
             // 
             // 
-            this.rgv_Trade_prog.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.rgv_Trade_prog.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.rgv_Trade_prog.Name = "rgv_Trade_prog";
             // 
             // 
@@ -152,6 +152,7 @@
             // 
             // upseg
             // 
+            this.upseg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.upseg.Location = new System.Drawing.Point(678, 453);
             this.upseg.Name = "upseg";
             this.upseg.Size = new System.Drawing.Size(75, 23);
