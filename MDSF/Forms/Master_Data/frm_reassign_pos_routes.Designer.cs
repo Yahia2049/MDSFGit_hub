@@ -143,7 +143,7 @@
             this.cmb_route_source.Name = "cmb_route_source";
             this.cmb_route_source.Size = new System.Drawing.Size(257, 21);
             this.cmb_route_source.TabIndex = 250;
-            this.cmb_route_source.SelectedIndexChanged += new System.EventHandler(this.cmb_route_source_SelectedIndexChanged);
+            this.cmb_route_source.SelectionChangeCommitted += new System.EventHandler(this.cmb_route_source_SelectionChangeCommitted);
             // 
             // cmb_route_des
             // 
@@ -239,6 +239,7 @@
             // 
             // dgv_des
             // 
+            this.dgv_des.AllowUserToAddRows = false;
             this.dgv_des.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_des.Location = new System.Drawing.Point(577, 194);
             this.dgv_des.Name = "dgv_des";
