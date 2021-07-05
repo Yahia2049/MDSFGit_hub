@@ -122,7 +122,7 @@ namespace MDSF.Forms.Master_Data
                 cmb_salesrep_source.SelectedIndex = -1;
                 cmb_salesrep_source.Text = "--Choose--";
 
-
+                DataAccessCS.conn.Close();
                 //--------------------------------------
 
             }
@@ -150,6 +150,7 @@ namespace MDSF.Forms.Master_Data
                 cmb_salesrep_des.ValueMember = "SALESREP_ID";
                 cmb_salesrep_des.SelectedIndex = -1;
                 cmb_salesrep_des.Text = "--Choose--";
+                DataAccessCS.conn.Close();
 
 
                 //--------------------------------------
@@ -169,15 +170,17 @@ namespace MDSF.Forms.Master_Data
             {
                 //--------------------------------------
                 DataSet ds = new DataSet();
-               // ds = DataAccessCS.getdata("select distinct ird.route_id,ird.routedays,r.curr_sales_id, salesrep_id,r.sales_ter_id from int_route_day ird , routes r where r.active =1 and r.route_id = ird.route_id and  r.curr_sales_id = '" + cmb_salesrep_source.SelectedValue + "' and r.SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'");
-                ds = DataAccessCS.getdata("select distinct ird.route_id,ird.routedays, salesrep_id,r.sales_ter_id from int_route_day ird , routes r where r.active =1 and r.route_id = ird.route_id and  salesrep_id  = '" + cmb_salesrep_source.SelectedValue + "' and r.SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'");
+                // ds = DataAccessCS.getdata("select distinct ird.route_id,ird.routedays,r.curr_sales_id, salesrep_id,r.sales_ter_id from int_route_day ird , routes r where r.active =1 and r.route_id = ird.route_id and  r.curr_sales_id = '" + cmb_salesrep_source.SelectedValue + "' and r.SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'");
+                string c = "select distinct ird.route_id,ird.routedays, salesrep_id,r.sales_ter_id from int_route_day ird , routes r where r.active =1 and r.route_id = ird.route_id and  salesrep_id  = '" + cmb_salesrep_source.SelectedValue + "' and r.SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'";
+                ds = DataAccessCS.getdata(c);
+                DataAccessCS.conn.Close();
                 cmb_route_source.DataSource = ds.Tables[0];
                 cmb_route_source.DisplayMember = "routedays";
                 cmb_route_source.ValueMember = "route_id";
               
                 cmb_route_source.Text = "--Choose--";
                 ds.Dispose();
-                DataAccessCS.conn.Close();
+             
                 //--------------------------------------
 
             }
@@ -223,7 +226,8 @@ namespace MDSF.Forms.Master_Data
         {
            
             Fill_cmb_Salesrep_source();
-            Fill_cmb_Salesrep_dec();
+
+           // Fill_cmb_Salesrep_dec();
         }
 
         private void cmb_Region_source_SelectedIndexChanged(object sender, EventArgs e)
