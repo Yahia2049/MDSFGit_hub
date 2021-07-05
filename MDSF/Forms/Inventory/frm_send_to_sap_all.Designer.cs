@@ -57,6 +57,8 @@
             this.Label_TotalPOS = new System.Windows.Forms.Label();
             this.Label10 = new System.Windows.Forms.Label();
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.txt_qnt_def = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inventory)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +69,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Panel1.Controls.Add(this.label11);
+            this.Panel1.Controls.Add(this.txt_qnt_def);
             this.Panel1.Controls.Add(this.txt_loading_no);
             this.Panel1.Controls.Add(this.label9);
             this.Panel1.Controls.Add(this.txt_jou_seq);
@@ -403,6 +407,28 @@
             this.DateTimePicker.Size = new System.Drawing.Size(152, 20);
             this.DateTimePicker.TabIndex = 104;
             // 
+            // txt_qnt_def
+            // 
+            this.txt_qnt_def.Location = new System.Drawing.Point(320, 57);
+            this.txt_qnt_def.Name = "txt_qnt_def";
+            this.txt_qnt_def.ReadOnly = true;
+            this.txt_qnt_def.Size = new System.Drawing.Size(76, 20);
+            this.txt_qnt_def.TabIndex = 139;
+            this.txt_qnt_def.Text = "0";
+            this.txt_qnt_def.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(402, 60);
+            this.label11.Name = "label11";
+            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label11.Size = new System.Drawing.Size(76, 13);
+            this.label11.TabIndex = 140;
+            this.label11.Text = "فرق الكميات:";
+            // 
             // frm_send_to_sap_all
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,5 +476,7 @@
         internal System.Windows.Forms.Label label9;
         internal System.Windows.Forms.TextBox txt_jou_seq;
         internal System.Windows.Forms.Label label8;
+        internal System.Windows.Forms.TextBox txt_qnt_def;
+        internal System.Windows.Forms.Label label11;
     }
 }
