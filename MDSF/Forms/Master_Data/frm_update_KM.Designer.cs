@@ -122,7 +122,7 @@
             // 
             // 
             // 
-            this.btn_update_journey.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_update_journey.RootElement.ControlBounds = new System.Drawing.Rectangle(854, 484, 110, 24);
             this.btn_update_journey.Size = new System.Drawing.Size(110, 36);
             this.btn_update_journey.TabIndex = 238;
             this.btn_update_journey.Text = "Update KM";
@@ -325,7 +325,7 @@
             // 
             // 
             // 
-            this.btn_search.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_search.RootElement.ControlBounds = new System.Drawing.Rectangle(692, 77, 110, 24);
             this.btn_search.Size = new System.Drawing.Size(126, 40);
             this.btn_search.TabIndex = 272;
             this.btn_search.Text = "Search";
@@ -513,7 +513,7 @@
             // 
             // 
             // 
-            this.btn_print_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_print_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(696, 66, 110, 24);
             this.btn_print_kmt.Size = new System.Drawing.Size(110, 23);
             this.btn_print_kmt.TabIndex = 2;
             this.btn_print_kmt.Text = "Print Invoices";
@@ -526,7 +526,7 @@
             // 
             // 
             // 
-            this.btn_save_inv_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_save_inv_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(575, 66, 110, 24);
             this.btn_save_inv_kmt.Size = new System.Drawing.Size(110, 23);
             this.btn_save_inv_kmt.TabIndex = 1;
             this.btn_save_inv_kmt.Text = "ADD New Invoice";
@@ -539,7 +539,7 @@
             // 
             // 
             // 
-            this.btn_remove_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_remove_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(445, 66, 110, 24);
             this.btn_remove_kmt.Size = new System.Drawing.Size(116, 23);
             this.btn_remove_kmt.TabIndex = 1;
             this.btn_remove_kmt.Text = "Remove";
@@ -552,7 +552,7 @@
             // 
             // 
             // 
-            this.btn_update_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_update_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(323, 66, 110, 24);
             this.btn_update_kmt.Size = new System.Drawing.Size(110, 23);
             this.btn_update_kmt.TabIndex = 0;
             this.btn_update_kmt.Text = "Update ";
@@ -787,7 +787,7 @@
             // 
             // 
             // 
-            this.btn_print_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_print_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(696, 66, 110, 24);
             this.btn_print_oil.Size = new System.Drawing.Size(110, 23);
             this.btn_print_oil.TabIndex = 2;
             this.btn_print_oil.Text = "Print Invoices";
@@ -800,7 +800,7 @@
             // 
             // 
             // 
-            this.btn_new_invoice_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_new_invoice_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(575, 66, 110, 24);
             this.btn_new_invoice_oil.Size = new System.Drawing.Size(110, 23);
             this.btn_new_invoice_oil.TabIndex = 1;
             this.btn_new_invoice_oil.Text = "ADD New Invoice";
@@ -813,7 +813,7 @@
             // 
             // 
             // 
-            this.btn_remove_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_remove_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(445, 66, 110, 24);
             this.btn_remove_oil.Size = new System.Drawing.Size(116, 23);
             this.btn_remove_oil.TabIndex = 1;
             this.btn_remove_oil.Text = "Remove";
@@ -826,10 +826,11 @@
             // 
             // 
             // 
-            this.btn_update_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 110, 24);
+            this.btn_update_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(323, 66, 110, 24);
             this.btn_update_oil.Size = new System.Drawing.Size(110, 23);
             this.btn_update_oil.TabIndex = 0;
             this.btn_update_oil.Text = "Update ";
+            this.btn_update_oil.Click += new System.EventHandler(this.btn_update_oil_Click);
             // 
             // frm_update_KM
             // 

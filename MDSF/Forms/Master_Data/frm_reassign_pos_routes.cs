@@ -392,32 +392,20 @@ namespace MDSF.Forms.Master_Data
         {
             try
             {
-                string s = " Select nvl(Max(VISIT_SEQ),1) as MaxSeq " + " from ROUTE_POS_ASSIGN@To_Sla_Cai " + " where ROUTE_ID = '" + cmb_route_des.SelectedValue + "'" + " and SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'";
-                DataSet ds = DataAccessCS.getdata(s);
-                var dvseq = new DataView(ds.Tables[0]);
-                int x = 1;
-                string c;
-                string sf;
-                ds.Dispose();
-                DataAccessCS.conn.Close();
-                var dv_reassign_test = new DataView(ds.Tables[0]);
-                
                 if (cmb_Region_source.SelectedValue.ToString() == "1")
                 {
-                    //delete clients or pos
-                    String cmd = "Delete from route_pos_reassign@To_Sla_Cai r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and to_date(r.assign_date)= to_date(SYSDATE) ";
-                    DataAccessCS.update(cmd);
+                    string s = " Select nvl(Max(VISIT_SEQ),1) as MaxSeq " + " from ROUTE_POS_ASSIGN@To_Sla_Cai " + " where ROUTE_ID = '" + cmb_route_des.SelectedValue + "'" + " and SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'";
+                    DataSet ds = DataAccessCS.getdata(s);
+                    var dvseq = new DataView(ds.Tables[0]);
+                    int x = 1;
+                    string c;
+                     string sf;
+                     ds.Dispose();
                     DataAccessCS.conn.Close();
-
-                    cmd = "Delete from route_pos_assign_temp@To_Sla_Cai r where r.sales_rep_id=" + cmb_salesrep_des.SelectedValue;
-                    DataAccessCS.update(cmd);
-                    DataAccessCS.conn.Close();
-
-                    cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and to_date(r.assign_date)= to_date(SYSDATE) ";
-                    DataAccessCS.update(cmd);
-                    DataAccessCS.conn.Close();
-
-                    //transfer route
+                    var dv_reassign_test = new DataView(ds.Tables[0]);
+                      
+                   
+                    //transfer pos
                     string lo;
                            lo = "select max(lh.journey_sequence) as journey_sequence  from loading_header lh where  lh.return_date is null and lh.salesrep_id = '" + cmb_salesrep_des.SelectedValue + "'";
                            ds = DataAccessCS.getdata(lo);
@@ -427,6 +415,19 @@ namespace MDSF.Forms.Master_Data
 
                     for (int i = 0, loopTo = dgv_des.Rows.Count - 1; i <= loopTo; i++)
                     {
+                        //delete clients or pos
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Cai r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_assign_temp@To_Sla_Cai r where r.sales_rep_id=" + cmb_salesrep_des.SelectedValue;
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
                         c = "Insert into ROUTE_POS_ASSIGN_TEMP@To_Sla_Cai values ('" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + cmb_route_des.SelectedValue + "','" + dvseq[0]["MaxSeq"] + x + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "')";
                         DataAccessCS.insert(c);
                         x = x + 1;
@@ -442,15 +443,333 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.insert(sf);
                         DataAccessCS.conn.Close();
                        
-                    }
-                    MessageBox.Show("تم التحويل بنجاح");
+                    }  
                 }
 
+                if (cmb_Region_source.SelectedValue.ToString() == "2")
+                {
+                    string s = " Select nvl(Max(VISIT_SEQ),1) as MaxSeq " + " from ROUTE_POS_ASSIGN@To_Sla_Alx " + " where ROUTE_ID = '" + cmb_route_des.SelectedValue + "'" + " and SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'";
+                    DataSet ds = DataAccessCS.getdata(s);
+                    var dvseq = new DataView(ds.Tables[0]);
+                    int x = 1;
+                    string c;
+                    string sf;
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    var dv_reassign_test = new DataView(ds.Tables[0]);
 
-               
+
+                    //transfer pos
+                    string lo;
+                    lo = "select max(lh.journey_sequence) as journey_sequence  from loading_header lh where  lh.return_date is null and lh.salesrep_id = '" + cmb_salesrep_des.SelectedValue + "'";
+                    ds = DataAccessCS.getdata(lo);
+                    dv_Loading_journey_seq_des = new DataView(ds.Tables[0]);
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+
+                    for (int i = 0, loopTo = dgv_des.Rows.Count - 1; i <= loopTo; i++)
+                    {
+                        //delete clients or pos
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Alx r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_assign_temp@To_Sla_Alx r where r.sales_rep_id=" + cmb_salesrep_des.SelectedValue;
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        c = "Insert into ROUTE_POS_ASSIGN_TEMP@To_Sla_Alx values ('" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + cmb_route_des.SelectedValue + "','" + dvseq[0]["MaxSeq"] + x + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "')";
+                        DataAccessCS.insert(c);
+                        x = x + 1;
+                        DataAccessCS.conn.Close();
+                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
+                        DataAccessCS.conn.Close();
+
+                        c = " insert into ROUTE_POS_REASSIGN@To_Sla_Alx values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
+                        DataAccessCS.insert(c);
+                        DataAccessCS.conn.Close();
+                        // insert into ROUTE_POS_REASSIGN@to_sfis =========Yahia 10/11/2020
+                        sf = " insert into ROUTE_POS_REASSIGN values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
+                        DataAccessCS.insert(sf);
+                        DataAccessCS.conn.Close();
+
+                    }
+                }
+                if (cmb_Region_source.SelectedValue.ToString() == "3")
+                {
+                    string s = " Select nvl(Max(VISIT_SEQ),1) as MaxSeq " + " from ROUTE_POS_ASSIGN@To_Sla_Man " + " where ROUTE_ID = '" + cmb_route_des.SelectedValue + "'" + " and SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'";
+                    DataSet ds = DataAccessCS.getdata(s);
+                    var dvseq = new DataView(ds.Tables[0]);
+                    int x = 1;
+                    string c;
+                    string sf;
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    var dv_reassign_test = new DataView(ds.Tables[0]);
 
 
-               
+                    //transfer pos
+                    string lo;
+                    lo = "select max(lh.journey_sequence) as journey_sequence  from loading_header lh where  lh.return_date is null and lh.salesrep_id = '" + cmb_salesrep_des.SelectedValue + "'";
+                    ds = DataAccessCS.getdata(lo);
+                    dv_Loading_journey_seq_des = new DataView(ds.Tables[0]);
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+
+                    for (int i = 0, loopTo = dgv_des.Rows.Count - 1; i <= loopTo; i++)
+                    {
+                        //delete clients or pos
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Man r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_assign_temp@To_Sla_Man r where r.sales_rep_id=" + cmb_salesrep_des.SelectedValue;
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        c = "Insert into ROUTE_POS_ASSIGN_TEMP@To_Sla_Man values ('" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + cmb_route_des.SelectedValue + "','" + dvseq[0]["MaxSeq"] + x + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "')";
+                        DataAccessCS.insert(c);
+                        x = x + 1;
+                        DataAccessCS.conn.Close();
+                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
+                        DataAccessCS.conn.Close();
+
+                        c = " insert into ROUTE_POS_REASSIGN@To_Sla_Man values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
+                        DataAccessCS.insert(c);
+                        DataAccessCS.conn.Close();
+                        // insert into ROUTE_POS_REASSIGN@to_sfis =========Yahia 10/11/2020
+                        sf = " insert into ROUTE_POS_REASSIGN values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
+                        DataAccessCS.insert(sf);
+                        DataAccessCS.conn.Close();
+
+                    }
+                }
+
+                if (cmb_Region_source.SelectedValue.ToString() == "4")
+                {
+                    string s = " Select nvl(Max(VISIT_SEQ),1) as MaxSeq " + " from ROUTE_POS_ASSIGN@To_Sla_Ism " + " where ROUTE_ID = '" + cmb_route_des.SelectedValue + "'" + " and SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'";
+                    DataSet ds = DataAccessCS.getdata(s);
+                    var dvseq = new DataView(ds.Tables[0]);
+                    int x = 1;
+                    string c;
+                    string sf;
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    var dv_reassign_test = new DataView(ds.Tables[0]);
+
+
+                    //transfer pos
+                    string lo;
+                    lo = "select max(lh.journey_sequence) as journey_sequence  from loading_header lh where  lh.return_date is null and lh.salesrep_id = '" + cmb_salesrep_des.SelectedValue + "'";
+                    ds = DataAccessCS.getdata(lo);
+                    dv_Loading_journey_seq_des = new DataView(ds.Tables[0]);
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+
+                    for (int i = 0, loopTo = dgv_des.Rows.Count - 1; i <= loopTo; i++)
+                    {
+                        //delete clients or pos
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Ism r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_assign_temp@To_Sla_Ism r where r.sales_rep_id=" + cmb_salesrep_des.SelectedValue;
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        c = "Insert into ROUTE_POS_ASSIGN_TEMP@To_Sla_Ism values ('" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + cmb_route_des.SelectedValue + "','" + dvseq[0]["MaxSeq"] + x + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "')";
+                        DataAccessCS.insert(c);
+                        x = x + 1;
+                        DataAccessCS.conn.Close();
+                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
+                        DataAccessCS.conn.Close();
+
+                        c = " insert into ROUTE_POS_REASSIGN@To_Sla_Ism values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
+                        DataAccessCS.insert(c);
+                        DataAccessCS.conn.Close();
+                        // insert into ROUTE_POS_REASSIGN@to_sfis =========Yahia 10/11/2020
+                        sf = " insert into ROUTE_POS_REASSIGN values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
+                        DataAccessCS.insert(sf);
+                        DataAccessCS.conn.Close();
+
+                    }
+                }
+
+                if (cmb_Region_source.SelectedValue.ToString() == "5")
+                {
+                    string s = " Select nvl(Max(VISIT_SEQ),1) as MaxSeq " + " from ROUTE_POS_ASSIGN@To_Sla_Ast " + " where ROUTE_ID = '" + cmb_route_des.SelectedValue + "'" + " and SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'";
+                    DataSet ds = DataAccessCS.getdata(s);
+                    var dvseq = new DataView(ds.Tables[0]);
+                    int x = 1;
+                    string c;
+                    string sf;
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    var dv_reassign_test = new DataView(ds.Tables[0]);
+
+
+                    //transfer pos
+                    string lo;
+                    lo = "select max(lh.journey_sequence) as journey_sequence  from loading_header lh where  lh.return_date is null and lh.salesrep_id = '" + cmb_salesrep_des.SelectedValue + "'";
+                    ds = DataAccessCS.getdata(lo);
+                    dv_Loading_journey_seq_des = new DataView(ds.Tables[0]);
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+
+                    for (int i = 0, loopTo = dgv_des.Rows.Count - 1; i <= loopTo; i++)
+                    {
+                        //delete clients or pos
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Ast r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_assign_temp@To_Sla_Ast r where r.sales_rep_id=" + cmb_salesrep_des.SelectedValue;
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        c = "Insert into ROUTE_POS_ASSIGN_TEMP@To_Sla_Ast values ('" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + cmb_route_des.SelectedValue + "','" + dvseq[0]["MaxSeq"] + x + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "')";
+                        DataAccessCS.insert(c);
+                        x = x + 1;
+                        DataAccessCS.conn.Close();
+                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
+                        DataAccessCS.conn.Close();
+
+                        c = " insert into ROUTE_POS_REASSIGN@To_Sla_Ast values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
+                        DataAccessCS.insert(c);
+                        DataAccessCS.conn.Close();
+                        // insert into ROUTE_POS_REASSIGN@to_sfis =========Yahia 10/11/2020
+                        sf = " insert into ROUTE_POS_REASSIGN values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
+                        DataAccessCS.insert(sf);
+                        DataAccessCS.conn.Close();
+
+                    }
+                }
+
+                if (cmb_Region_source.SelectedValue.ToString() == "6")
+                {
+                    string s = " Select nvl(Max(VISIT_SEQ),1) as MaxSeq " + " from ROUTE_POS_ASSIGN@To_Sla_Tan " + " where ROUTE_ID = '" + cmb_route_des.SelectedValue + "'" + " and SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'";
+                    DataSet ds = DataAccessCS.getdata(s);
+                    var dvseq = new DataView(ds.Tables[0]);
+                    int x = 1;
+                    string c;
+                    string sf;
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    var dv_reassign_test = new DataView(ds.Tables[0]);
+
+
+                    //transfer pos
+                    string lo;
+                    lo = "select max(lh.journey_sequence) as journey_sequence  from loading_header lh where  lh.return_date is null and lh.salesrep_id = '" + cmb_salesrep_des.SelectedValue + "'";
+                    ds = DataAccessCS.getdata(lo);
+                    dv_Loading_journey_seq_des = new DataView(ds.Tables[0]);
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+
+                    for (int i = 0, loopTo = dgv_des.Rows.Count - 1; i <= loopTo; i++)
+                    {
+                        //delete clients or pos
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Tan r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_assign_temp@To_Sla_Tan r where r.sales_rep_id=" + cmb_salesrep_des.SelectedValue;
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        c = "Insert into ROUTE_POS_ASSIGN_TEMP@To_Sla_Tan values ('" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + cmb_route_des.SelectedValue + "','" + dvseq[0]["MaxSeq"] + x + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "')";
+                        DataAccessCS.insert(c);
+                        x = x + 1;
+                        DataAccessCS.conn.Close();
+                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
+                        DataAccessCS.conn.Close();
+
+                        c = " insert into ROUTE_POS_REASSIGN@To_Sla_Tan values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
+                        DataAccessCS.insert(c);
+                        DataAccessCS.conn.Close();
+                        // insert into ROUTE_POS_REASSIGN@to_sfis =========Yahia 10/11/2020
+                        sf = " insert into ROUTE_POS_REASSIGN values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
+                        DataAccessCS.insert(sf);
+                        DataAccessCS.conn.Close();
+
+                    }
+                }
+
+                if (cmb_Region_source.SelectedValue.ToString() == "7")
+                {
+                    string s = " Select nvl(Max(VISIT_SEQ),1) as MaxSeq " + " from ROUTE_POS_ASSIGN@To_Sla_Upp " + " where ROUTE_ID = '" + cmb_route_des.SelectedValue + "'" + " and SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'";
+                    DataSet ds = DataAccessCS.getdata(s);
+                    var dvseq = new DataView(ds.Tables[0]);
+                    int x = 1;
+                    string c;
+                    string sf;
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    var dv_reassign_test = new DataView(ds.Tables[0]);
+
+
+                    //transfer pos
+                    string lo;
+                    lo = "select max(lh.journey_sequence) as journey_sequence  from loading_header lh where  lh.return_date is null and lh.salesrep_id = '" + cmb_salesrep_des.SelectedValue + "'";
+                    ds = DataAccessCS.getdata(lo);
+                    dv_Loading_journey_seq_des = new DataView(ds.Tables[0]);
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+
+                    for (int i = 0, loopTo = dgv_des.Rows.Count - 1; i <= loopTo; i++)
+                    {
+                        //delete clients or pos
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Upp r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_assign_temp@To_Sla_Upp r where r.sales_rep_id=" + cmb_salesrep_des.SelectedValue;
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        DataAccessCS.update(cmd);
+                        DataAccessCS.conn.Close();
+
+                        c = "Insert into ROUTE_POS_ASSIGN_TEMP@To_Sla_Upp values ('" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + cmb_route_des.SelectedValue + "','" + dvseq[0]["MaxSeq"] + x + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "')";
+                        DataAccessCS.insert(c);
+                        x = x + 1;
+                        DataAccessCS.conn.Close();
+                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
+                        DataAccessCS.conn.Close();
+
+                        c = " insert into ROUTE_POS_REASSIGN@To_Sla_Upp values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
+                        DataAccessCS.insert(c);
+                        DataAccessCS.conn.Close();
+                        // insert into ROUTE_POS_REASSIGN@to_sfis =========Yahia 10/11/2020
+                        sf = " insert into ROUTE_POS_REASSIGN values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"] + "')";
+                        DataAccessCS.insert(sf);
+                        DataAccessCS.conn.Close();
+
+                    }
+                }
+                MessageBox.Show("تم التحويل بنجاح");
+
                 // ============================= Test that he is a driver or salesrep =========================
                 //dv_combo_driver.RowFilter = "SALESREP_ID = " + cmb_salesrep_des.SelectedValue;
                 //for (int i = 0, loopTo = dgv_des.Rows.Count - 1; i <= loopTo; i++)

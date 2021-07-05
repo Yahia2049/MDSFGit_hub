@@ -463,37 +463,7 @@ namespace MDSF.Forms.Master_Data
 
         private void btn_update_kmt_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            try
-            {
-
-                // String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "" ;
-                String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "";
-                DataAccessCS.update(cmd);
-                DataAccessCS.conn.Close();
-
-
-
-
-                //----insert into SLA
-                if (cmb_Region_salesman.SelectedValue.ToString() == "Cairo")
-                {
-
-                    cmd = "update km_transactions@to_sla_cai set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type=" + cmb_fuel_type.Text + ", fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString();
-                    DataAccessCS.update(cmd);
-                    DataAccessCS.conn.Close();
-                }
-
-
-                MessageBox.Show("تم التعديل بنجاح");
-                Lood();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            this.Cursor = Cursors.Default;
+           
         }
 
         private void txt_fuel_values_TextChanged(object sender, EventArgs e)
@@ -524,7 +494,38 @@ namespace MDSF.Forms.Master_Data
 
             //}
         }
-    
+
+        private void btn_update_oil_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                for (int i = 0; i < rgv_KM.RowCount - 1; i++)
+                {
+                    // String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "" ;
+                     string kmedit="update km_transactions@sales set current_km=" + rgv_KM.Rows[i].Cells["current_km"].Value + ", fuel_type='" + rgv_KM.Rows[i].Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.Rows[i].Cells["fuel_values"].Value + ", fuel_time= '" + rgv_KM.Rows[i].Cells["fuel_time"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.Rows[i].Cells["jou_id"].Value ;
+                    DataAccessCS.update(kmedit);
+                    DataAccessCS.conn.Close();
+
+
+                    //----insert into SLA
+                    if (cmb_Region_salesman.SelectedValue.ToString() == "1")
+                    {
+                        string kmeditSla = "update km_transactions@to_sla_cai  set current_km=" + rgv_KM.Rows[i].Cells["current_km"].Value + ", fuel_type='" + rgv_KM.Rows[i].Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.Rows[i].Cells["fuel_values"].Value + ", fuel_time= '" + rgv_KM.Rows[i].Cells["fuel_time"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.Rows[i].Cells["jou_id"].Value ;
+                        DataAccessCS.update(kmeditSla);
+                        DataAccessCS.conn.Close();
+                    }
+                }
+                MessageBox.Show("تم التعديل بنجاح");
+                Lood();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
     }
 }
 
