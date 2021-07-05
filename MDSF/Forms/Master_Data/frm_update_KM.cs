@@ -257,7 +257,7 @@ namespace MDSF.Forms.Master_Data
                             ds = DataAccessCS.getdata("select * from km_transactions@sales k where  k.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + "' and   trunc(to_date(k.fuel_time,'dd-mon-yyyy hh:mi:ss AM')) > = '" + from_date + "' and trunc(to_date(k.fuel_time,'dd-mon-yyyy hh:mi:ss AM'))  <= '" + to_date + "' ");
                             panel1.Visible = true;
                             btn_update_journey.Visible = false;
-                            pnl_oil.Visible = false;
+                            pnl_oil.Visible = true;
                         }
                         else
                         {

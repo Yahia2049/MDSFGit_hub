@@ -81,6 +81,7 @@ namespace MDSF.Forms.Master_Data
         #region Fill combo box
         public void Fill_cmb_SalesTer()
         {
+            this.Cursor = Cursors.WaitCursor;
             try
             {
 
@@ -106,6 +107,7 @@ namespace MDSF.Forms.Master_Data
 
         public void Fill_cmb_Salesrep_source()
         {
+            this.Cursor = Cursors.WaitCursor;
             try
             {
 
@@ -121,7 +123,8 @@ namespace MDSF.Forms.Master_Data
                 cmb_salesrep_source.ValueMember = "SALESREP_ID";
                 cmb_salesrep_source.SelectedIndex = -1;
                 cmb_salesrep_source.Text = "--Choose--";
-
+                ds.Dispose();
+                DataAccessCS.conn.Close();
 
                 //--------------------------------------
 
@@ -135,10 +138,9 @@ namespace MDSF.Forms.Master_Data
 
         public void Fill_cmb_Salesrep_dec()
         {
+            this.Cursor = Cursors.WaitCursor;
             try
             {
-
-
                 //--------------------------------------
                 DataSet ds = new DataSet();
                 ds = DataAccessCS.getdata("select distinct p.sales_id SALESREP_ID , p.name SALESREP_NAME  from salesmen s , salesman  p  where s.SALES_TER_ID in  (" + cmb_sales_ter_source.SelectedValue + ") and s.TO_DATE is null " +
@@ -150,7 +152,8 @@ namespace MDSF.Forms.Master_Data
                 cmb_salesrep_des.ValueMember = "SALESREP_ID";
                 cmb_salesrep_des.SelectedIndex = -1;
                 cmb_salesrep_des.Text = "--Choose--";
-
+                ds.Dispose();
+                DataAccessCS.conn.Close();
 
                 //--------------------------------------
 
@@ -165,21 +168,19 @@ namespace MDSF.Forms.Master_Data
         //fill route source
         public void Fill_cmb_Route()
         {
+            this.Cursor = Cursors.WaitCursor;
             try
             {
-                //--------------------------------------
                 DataSet ds = new DataSet();
-               // ds = DataAccessCS.getdata("select distinct ird.route_id,ird.routedays,r.curr_sales_id, salesrep_id,r.sales_ter_id from int_route_day ird , routes r where r.active =1 and r.route_id = ird.route_id and  r.curr_sales_id = '" + cmb_salesrep_source.SelectedValue + "' and r.SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'");
-                ds = DataAccessCS.getdata("select distinct ird.route_id,ird.routedays, salesrep_id,r.sales_ter_id from int_route_day ird , routes r where r.active =1 and r.route_id = ird.route_id and  salesrep_id  = '" + cmb_salesrep_source.SelectedValue + "' and r.SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'");
+                // ds = DataAccessCS.getdata("select distinct ird.route_id,ird.routedays,r.curr_sales_id, salesrep_id,r.sales_ter_id from int_route_day ird , routes r where r.active =1 and r.route_id=ird.route_id and  r.curr_sales_id= " + cmb_salesrep_source.SelectedValue + "and r.SALES_TER_ID =" + cmb_sales_ter_source.SelectedValue );
+                ds = DataAccessCS.getdata("select distinct ird.route_id,ird.routedays, salesrep_id,r.sales_ter_id from int_route_day ird , routes r where r.active =1 and r.route_id = ird.route_id and  salesrep_id = " + cmb_salesrep_source.SelectedValue + "and r.SALES_TER_ID =" + cmb_sales_ter_source.SelectedValue);
                 cmb_route_source.DataSource = ds.Tables[0];
                 cmb_route_source.DisplayMember = "routedays";
                 cmb_route_source.ValueMember = "route_id";
-              
+                cmb_route_source.SelectedIndex = -1;
                 cmb_route_source.Text = "--Choose--";
                 ds.Dispose();
                 DataAccessCS.conn.Close();
-                //--------------------------------------
-
             }
             catch (Exception ex)
             {
@@ -192,6 +193,7 @@ namespace MDSF.Forms.Master_Data
         //fill route destination
         public void Fill_cmb_Route_dis()
         {
+            this.Cursor = Cursors.WaitCursor;
             try
             {
                 //--------------------------------------
@@ -238,6 +240,7 @@ namespace MDSF.Forms.Master_Data
 
         private void cmb_salesrep_source_SelectionChangeCommitted(object sender, EventArgs e)
         {
+           
             Fill_cmb_Route();
         }
 
@@ -246,31 +249,7 @@ namespace MDSF.Forms.Master_Data
             Fill_cmb_Route_dis();
         }
 
-        private void cmb_route_source_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            this.Cursor = Cursors.WaitCursor;
-            try
-            {
-
-                DataSet ds = new DataSet();
-                //ds = DataAccessCS.getdata("select POS_CODE,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where route_id=" + cmb_route_source.SelectedValue + "and SALES_TERRITORY_ID=" + cmb_sales_ter_source.SelectedValue + "and salesrep_id=" + cmb_salesrep_source.SelectedValue);
-                ds = DataAccessCS.getdata("select Substr(pos_code, 1, Instr(pos_code, '_') - 1)  ter_id,Substr(pos_code, Instr(pos_code, '_') + 1) pos_id,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where route_id=" + cmb_route_source.SelectedValue + "and SALES_TERRITORY_ID=" + cmb_sales_ter_source.SelectedValue + "and salesrep_id=" + cmb_salesrep_source.SelectedValue);
-                DataAccessCS.conn.Close();
-                dgv_source.DataSource = ds.Tables[0];
-                dgv_source.AutoResizeColumns();
-                ds.Dispose();
-
-                DataAccessCS.conn.Close();
-                count_grid();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            this.Cursor = Cursors.Default;
-        }
+       
 
 
 
@@ -448,16 +427,18 @@ namespace MDSF.Forms.Master_Data
 
                     for (int i = 0, loopTo = dgv_des.Rows.Count - 1; i <= loopTo; i++)
                     {
-                        c = "Insert into ROUTE_POS_ASSIGN_TEMP@To_Sla_Cai values ('" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + cmb_route_des.SelectedValue + "','" + dvseq[0]["MaxSeq"] + x + "','" + cmb_sales_ter_dest.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "')";
+                        c = "Insert into ROUTE_POS_ASSIGN_TEMP@To_Sla_Cai values ('" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + cmb_route_des.SelectedValue + "','" + dvseq[0]["MaxSeq"] + x + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "')";
                         DataAccessCS.insert(c);
                         x = x + 1;
                         DataAccessCS.conn.Close();
-                        string journeySeq = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID= " + cmb_salesrep_source.SelectedValue;
-                        c = " insert into ROUTE_POS_REASSIGN@To_Sla_Cai values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"]+ "')";
+                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
+                        DataAccessCS.conn.Close();
+                       
+                        c = " insert into ROUTE_POS_REASSIGN@To_Sla_Cai values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'"  + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"]+ "')";
                         DataAccessCS.insert(c);
                         DataAccessCS.conn.Close();
                         // insert into ROUTE_POS_REASSIGN@to_sfis =========Yahia 10/11/2020
-                        sf = " insert into ROUTE_POS_REASSIGN values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"]+ "')";
+                        sf = " insert into ROUTE_POS_REASSIGN values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'"   + System.Environment.MachineName + "','" + dv_Loading_journey_seq_des[0]["journey_sequence"]+ "')";
                         DataAccessCS.insert(sf);
                         DataAccessCS.conn.Close();
                        
@@ -808,7 +789,31 @@ namespace MDSF.Forms.Master_Data
 
         }
 
+        private void cmb_route_source_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+                DataSet ds = new DataSet();
+                //ds = DataAccessCS.getdata("select POS_CODE,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where route_id=" + cmb_route_source.SelectedValue + "and SALES_TERRITORY_ID=" + cmb_sales_ter_source.SelectedValue + "and salesrep_id=" + cmb_salesrep_source.SelectedValue);
+                ds = DataAccessCS.getdata("select Substr(pos_code, 1, Instr(pos_code, '_') - 1)  ter_id,Substr(pos_code, Instr(pos_code, '_') + 1) pos_id,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where route_id=" + cmb_route_source.SelectedValue + "and SALES_TERRITORY_ID=" + cmb_sales_ter_source.SelectedValue + "and salesrep_id=" + cmb_salesrep_source.SelectedValue);
+                DataAccessCS.conn.Close();
+                dgv_source.DataSource = ds.Tables[0];
+                dgv_source.AutoResizeColumns();
+                ds.Dispose();
+
+                DataAccessCS.conn.Close();
+                count_grid();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
         }
+    }
     }
 
 
