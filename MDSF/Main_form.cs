@@ -252,19 +252,35 @@ namespace MDSF
 
                 //--------------------------------------------------------------
                 //---- Inventory
-                string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
-                     "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=7000 ");
+                string check = DataAccessCS.getvalue("select nvl(user_name,0) " +
+                     "from MDSF_USER_SECURITY where user_id =" + user_id + " ");
                 DataAccessCS.conn.Close();
-                if (check != "0")
+                if (check.Contains("dev"))
                 {
                     iNVENTORYToolStripMenuItem.Visible = true;
                 }
                 else
                 {
-                    iNVENTORYToolStripMenuItem.Visible = false;
                    
-                    this.Cursor = Cursors.Default;
-                    return;
+                    if (check.Contains("store"))
+                    {
+                        iNVENTORYToolStripMenuItem.Visible = true;
+                        mASTERDATAToolStripMenuItem.Visible = false;
+                        sALESToolStripMenuItem.Visible = false;
+                        pOSToolStripMenuItem.Visible = false;
+                        iNCENTIVESToolStripMenuItem.Visible = false;
+                        targetToolStripMenuItem.Visible = false;
+                        androidSupportToolStripMenuItem.Visible = false;
+                        dailyActivityToolStripMenuItem.Visible = false;
+                    }
+                    else
+                    {
+
+                        iNVENTORYToolStripMenuItem.Visible = false;
+
+                        this.Cursor = Cursors.Default;
+                        return;
+                    }
                 }
 
                 this.Cursor = Cursors.Default;
