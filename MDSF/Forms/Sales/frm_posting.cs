@@ -68,7 +68,7 @@ namespace MDSF.Forms.Sales
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code " + txt_branch_code.Text + "','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
+                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code 1 ','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                 DataAccessCS.conn.Close();
 
                 DataAccessCS.Proc("to_sfis_fill@sales('" + from_date + "','" + to_date + "')");
@@ -95,7 +95,7 @@ namespace MDSF.Forms.Sales
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code " + txt_branch_code.Text + "','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
+                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code 2 ','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                 DataAccessCS.conn.Close();
 
                 DataAccessCS.Proc("to_sfis_fill@sales('" + from_date + "','" + to_date + "')");
@@ -122,7 +122,7 @@ namespace MDSF.Forms.Sales
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code " + txt_branch_code.Text + "','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
+                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code 3 ','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                 DataAccessCS.conn.Close();
 
                 DataAccessCS.Proc("to_sfis_fill@sales('" + from_date + "','" + to_date + "')");
@@ -149,7 +149,7 @@ namespace MDSF.Forms.Sales
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code " + txt_branch_code.Text + "','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
+                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code 4 ','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                 DataAccessCS.conn.Close();
 
                 DataAccessCS.Proc("to_sfis_fill@sales('" + from_date + "','" + to_date + "')");
@@ -176,7 +176,7 @@ namespace MDSF.Forms.Sales
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code " + txt_branch_code.Text + "','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
+                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code 5 ','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                 DataAccessCS.conn.Close();
 
                 DataAccessCS.Proc("to_sfis_fill@sales('" + from_date + "','" + to_date + "')");
@@ -203,7 +203,7 @@ namespace MDSF.Forms.Sales
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code " + txt_branch_code.Text + "','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
+                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code 6 ','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                 DataAccessCS.conn.Close();
 
                 DataAccessCS.Proc("to_sfis_fill@sales('" + from_date + "','" + to_date + "')");
@@ -230,7 +230,7 @@ namespace MDSF.Forms.Sales
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code " + txt_branch_code.Text + "','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
+                DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'Run Posting  for branche code 7 ','From " + dtp_fromdate.Value.ToString("dd-MM-yyyy") + "  To " + dtp_to_Date.Value.ToString("dd-MM-yyyy") + "','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                 DataAccessCS.conn.Close();
 
                 DataAccessCS.Proc("to_sfis_fill@sales('" + from_date + "','" + to_date + "')");
