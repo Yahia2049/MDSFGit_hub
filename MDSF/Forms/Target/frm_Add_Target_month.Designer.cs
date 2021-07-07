@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition10 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition11 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition9 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Add_Target_month));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition12 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -177,15 +177,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).BeginInit();
-            this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_ter_search)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton12)).BeginInit();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_salesman_search)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton14)).BeginInit();
-            this.groupBox9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_pos_search)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton13)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -203,8 +194,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.groupBox7);
-            this.tabPage1.Controls.Add(this.radButton12);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.btn_proc_sla_lux_salester);
             this.tabPage1.Controls.Add(this.btn_proc_sla_ism_salester);
@@ -443,7 +432,7 @@
             // 
             // 
             // 
-            this.btn_import_excel_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(382, 10, 110, 24);
+            this.btn_import_excel_salester.RootElement.ControlBounds = new System.Drawing.Rectangle(482, 15, 110, 24);
             this.btn_import_excel_salester.Size = new System.Drawing.Size(172, 34);
             this.btn_import_excel_salester.TabIndex = 6;
             this.btn_import_excel_salester.Text = "Import from Excel";
@@ -460,20 +449,18 @@
             // 
             // 
             // 
-            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition10;
+            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.rgv_salester_target.Name = "rgv_salester_target";
             // 
             // 
             // 
-            this.rgv_salester_target.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 42, 240, 150);
+            this.rgv_salester_target.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 57, 240, 150);
             this.rgv_salester_target.Size = new System.Drawing.Size(996, 268);
             this.rgv_salester_target.TabIndex = 5;
             this.rgv_salester_target.ThemeName = "TelerikMetro";
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupBox8);
-            this.tabPage2.Controls.Add(this.radButton14);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.btn_proc_sla_lux_salesrep);
             this.tabPage2.Controls.Add(this.btn_proc_sla_ism_salesrep);
@@ -711,7 +698,7 @@
             // 
             // 
             // 
-            this.btn_import_from_Excel_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(384, 6, 110, 24);
+            this.btn_import_from_Excel_salesrep.RootElement.ControlBounds = new System.Drawing.Rectangle(503, 5, 110, 24);
             this.btn_import_from_Excel_salesrep.Size = new System.Drawing.Size(172, 35);
             this.btn_import_from_Excel_salesrep.TabIndex = 1;
             this.btn_import_from_Excel_salesrep.Text = "Import from Excel";
@@ -728,20 +715,18 @@
             // 
             // 
             // 
-            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition11;
+            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.rgv_Salesrep_target.Name = "rgv_Salesrep_target";
             // 
             // 
             // 
-            this.rgv_Salesrep_target.RootElement.ControlBounds = new System.Drawing.Rectangle(3, 49, 240, 150);
+            this.rgv_Salesrep_target.RootElement.ControlBounds = new System.Drawing.Rectangle(3, 57, 240, 150);
             this.rgv_Salesrep_target.Size = new System.Drawing.Size(994, 269);
             this.rgv_Salesrep_target.TabIndex = 0;
             this.rgv_Salesrep_target.ThemeName = "TelerikMetro";
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.groupBox9);
-            this.tabPage3.Controls.Add(this.radButton13);
             this.tabPage3.Controls.Add(this.btn_up_targetsales);
             this.tabPage3.Controls.Add(this.groupBox4);
             this.tabPage3.Controls.Add(this.groupBox3);
@@ -764,8 +749,7 @@
             // 
             // btn_up_targetsales
             // 
-            this.btn_up_targetsales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_up_targetsales.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_up_targetsales.Location = new System.Drawing.Point(872, 323);
             this.btn_up_targetsales.Name = "btn_up_targetsales";
             this.btn_up_targetsales.Size = new System.Drawing.Size(89, 23);
@@ -1061,7 +1045,7 @@
             // 
             // 
             // 
-            this.btn_import_from_Excel_pos.RootElement.ControlBounds = new System.Drawing.Rectangle(415, 9, 110, 24);
+            this.btn_import_from_Excel_pos.RootElement.ControlBounds = new System.Drawing.Rectangle(524, 9, 110, 24);
             this.btn_import_from_Excel_pos.Size = new System.Drawing.Size(172, 24);
             this.btn_import_from_Excel_pos.TabIndex = 19;
             this.btn_import_from_Excel_pos.Text = "Import from Excel";
@@ -1078,12 +1062,12 @@
             // 
             // 
             // 
-            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition9;
+            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.rgv_pos_target.Name = "rgv_pos_target";
             // 
             // 
             // 
-            this.rgv_pos_target.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 39, 240, 150);
+            this.rgv_pos_target.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 63, 240, 150);
             this.rgv_pos_target.Size = new System.Drawing.Size(1002, 232);
             this.rgv_pos_target.TabIndex = 18;
             this.rgv_pos_target.ThemeName = "TelerikMetro";
@@ -1198,7 +1182,7 @@
             // 
             // 
             // 
-            this.radButton10.RootElement.ControlBounds = new System.Drawing.Rectangle(687, 3, 110, 24);
+            this.radButton10.RootElement.ControlBounds = new System.Drawing.Rectangle(810, 4, 110, 24);
             this.radButton10.Size = new System.Drawing.Size(187, 38);
             this.radButton10.TabIndex = 265;
             this.radButton10.Text = "Export KPI Templet To Excel";
@@ -1320,7 +1304,7 @@
             // 
             // 
             // 
-            this.btn_import_excel_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(382, 4, 110, 24);
+            this.btn_import_excel_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(506, 7, 110, 24);
             this.btn_import_excel_kpi.Size = new System.Drawing.Size(172, 35);
             this.btn_import_excel_kpi.TabIndex = 19;
             this.btn_import_excel_kpi.Text = "Import KPI from Excel";
@@ -1338,12 +1322,12 @@
             // 
             // 
             // 
-            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition12;
+            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.rgv_kpi_insert.Name = "rgv_kpi_insert";
             // 
             // 
             // 
-            this.rgv_kpi_insert.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 96, 240, 150);
+            this.rgv_kpi_insert.RootElement.ControlBounds = new System.Drawing.Rectangle(1, 58, 240, 150);
             this.rgv_kpi_insert.Size = new System.Drawing.Size(996, 266);
             this.rgv_kpi_insert.TabIndex = 18;
             this.rgv_kpi_insert.ThemeName = "TelerikMetro";
@@ -1417,18 +1401,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).EndInit();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_ter_search)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton12)).EndInit();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_salesman_search)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton14)).EndInit();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_pos_search)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton13)).EndInit();
             this.ResumeLayout(false);
 
         }
