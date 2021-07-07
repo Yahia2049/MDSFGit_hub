@@ -1813,7 +1813,8 @@ namespace MDSF.Forms.Inventory
 
                         // ---Yahia 05-07-2020
                         string item_gift_retail_KA_WS = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.POS_CODE,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.salescall_id,iis.vdatu " + " " +
-                            "from INT_INVENTORY_GIFT_WS_KA_A@TO_SLA_ISM iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_NO= " + max_load + "";
+                            "from INT_INVENTORY_GIFT_WS_KA_A iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                            "and iis.LOADING_NO= " + max_load + " and iis. branch_code ="+cmb_Region.SelectedValue+"";
 
 
                         DataSet ds_gift_details_KA_WS = DataAccessCS.getdata(item_gift_retail_KA_WS);
@@ -1828,7 +1829,8 @@ namespace MDSF.Forms.Inventory
                             // 'incenive_txt = Nothing
 
                             string POS_COUNT = " select distinct iis.POS_CODE" + " from  " +
-                                "int_inventory_sold_ws_ka_A@TO_SLA_ISM iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_NO= " + max_load + "";
+                                "int_inventory_sold_ws_ka_A " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                                "and iis.LOADING_NO= " + max_load + " and iis.branch_code="+cmb_Region.SelectedValue+"";
 
 
                             DataSet ds_POS_COUNT = DataAccessCS.getdata(POS_COUNT);
@@ -1963,38 +1965,38 @@ namespace MDSF.Forms.Inventory
                                 // --End Yahia 05-07-2020
                                 // ' to collect conditions(incentive)
                                 // 'to collect incentive
-                                string incentive_KA_WS = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE from " +
-                                    "INT_INVENTORY_WS_KA_INCENTIVE@TO_SLA_ISM where JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and LOADING_NUMBER= " + max_load + " ";
-                                DataSet ds_incentive_KA_WS = DataAccessCS.getdata(incentive_KA_WS);
-                                dv_incentive_KA_WS = new DataView(ds_incentive_KA_WS.Tables[0]);
-                                dv_incentive_KA_WS.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
-                                DataAccessCS.conn.Close();
-                                for (int co = 0, loopTo13 = dv_incentive_KA_WS.Count - 1; co <= loopTo13; co++)
-                                {
-                                    DataRow drConditions;
-                                    drConditions = dtConditions.NewRow();
-                                    drConditions["line_no"] = dv_incentive_KA_WS[co]["LINE_NUMBER"];
-                                    drConditions["Type"] = dv_incentive_KA_WS[co]["INCENTIVE_TYPE_ID"];
-                                    drConditions["Value"] = dv_incentive_KA_WS[co]["INCENTIVE_PAYED"];
-                                    drConditions["EGP"] = "EGP";
-                                    drConditions["Customer_id"] = dv_POS_COUNT[count]["POS_CODE"];
-                                    if (dtConditions.Rows.Count == 0)
-                                    {
-                                        dtConditions.Rows.InsertAt(drConditions, 0);
-                                    }
-                                    else
-                                    {
-                                        dtConditions.Rows.InsertAt(drConditions, dtConditions.Rows.Count - 1);
-                                    }
+                                //string incentive_KA_WS = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE from " +
+                                //    "INT_INVENTORY_WS_KA_INCENTIVE@TO_SLA_ISM where JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and LOADING_NUMBER= " + max_load + " ";
+                                //DataSet ds_incentive_KA_WS = DataAccessCS.getdata(incentive_KA_WS);
+                                //dv_incentive_KA_WS = new DataView(ds_incentive_KA_WS.Tables[0]);
+                                //dv_incentive_KA_WS.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
+                                //DataAccessCS.conn.Close();
+                                //for (int co = 0, loopTo13 = dv_incentive_KA_WS.Count - 1; co <= loopTo13; co++)
+                                //{
+                                //    DataRow drConditions;
+                                //    drConditions = dtConditions.NewRow();
+                                //    drConditions["line_no"] = dv_incentive_KA_WS[co]["LINE_NUMBER"];
+                                //    drConditions["Type"] = dv_incentive_KA_WS[co]["INCENTIVE_TYPE_ID"];
+                                //    drConditions["Value"] = dv_incentive_KA_WS[co]["INCENTIVE_PAYED"];
+                                //    drConditions["EGP"] = "EGP";
+                                //    drConditions["Customer_id"] = dv_POS_COUNT[count]["POS_CODE"];
+                                //    if (dtConditions.Rows.Count == 0)
+                                //    {
+                                //        dtConditions.Rows.InsertAt(drConditions, 0);
+                                //    }
+                                //    else
+                                //    {
+                                //        dtConditions.Rows.InsertAt(drConditions, dtConditions.Rows.Count - 1);
+                                //    }
 
-                                    dtConditions.AcceptChanges();
+                                //    dtConditions.AcceptChanges();
 
-                                    // If incenive_txt Is Nothing Then
-                                    // incenive_txt = "$%" & dv_incentive_KA_WS(co)("LINE_NUMBER") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_TYPE_ID") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_PAYED") & "%EGP%"
-                                    // Else
-                                    // incenive_txt = incenive_txt + "$%" & dv_incentive_KA_WS(co)("LINE_NUMBER") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_TYPE_ID") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_PAYED") & "%EGP%"
-                                    // End If
-                                }
+                                //    // If incenive_txt Is Nothing Then
+                                //    // incenive_txt = "$%" & dv_incentive_KA_WS(co)("LINE_NUMBER") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_TYPE_ID") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_PAYED") & "%EGP%"
+                                //    // Else
+                                //    // incenive_txt = incenive_txt + "$%" & dv_incentive_KA_WS(co)("LINE_NUMBER") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_TYPE_ID") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_PAYED") & "%EGP%"
+                                //    // End If
+                                //}
 
 
 
@@ -2003,9 +2005,10 @@ namespace MDSF.Forms.Inventory
                                 // ' TO ADD FIX Mix and Grad incentive 
                                 // '***************************************************
 
-                                incentive_KA_WS = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
-                                    "from  int_inventory_ws_ka_inc_all_A@TO_SLA_ISM  where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and LOADING_NUMBER= " + max_load + " ";
-                                ds_incentive_KA_WS = DataAccessCS.getdata(incentive_KA_WS);
+                               string incentive_KA_WS = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
+                                    "from  int_inventory_ws_ka_inc_all_A where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                                    "and LOADING_NUMBER= " + max_load + " and branch_code="+cmb_Region.SelectedValue+"";
+                             DataSet   ds_incentive_KA_WS = DataAccessCS.getdata(incentive_KA_WS);
                                 dv_incentive_KA_WS = new DataView(ds_incentive_KA_WS.Tables[0]);
                                 dv_incentive_KA_WS.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
                                 DataAccessCS.conn.Close();
