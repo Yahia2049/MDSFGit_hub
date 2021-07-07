@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_update_KM));
             this.btn_update_journey = new Telerik.WinControls.UI.RadButton();
             this.rdb_by_salesman = new System.Windows.Forms.RadioButton();
             this.rdb_By_Vehicle = new System.Windows.Forms.RadioButton();
@@ -97,6 +98,8 @@
             this.btn_new_invoice_oil = new Telerik.WinControls.UI.RadButton();
             this.btn_remove_oil = new Telerik.WinControls.UI.RadButton();
             this.btn_update_oil = new Telerik.WinControls.UI.RadButton();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.btn_update_journey)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_search)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_KM)).BeginInit();
@@ -517,6 +520,7 @@
             this.btn_print_kmt.Size = new System.Drawing.Size(110, 23);
             this.btn_print_kmt.TabIndex = 2;
             this.btn_print_kmt.Text = "Print Invoices";
+            this.btn_print_kmt.Click += new System.EventHandler(this.btn_print_kmt_Click);
             // 
             // btn_save_inv_kmt
             // 
@@ -530,6 +534,7 @@
             this.btn_save_inv_kmt.Size = new System.Drawing.Size(110, 23);
             this.btn_save_inv_kmt.TabIndex = 1;
             this.btn_save_inv_kmt.Text = "ADD New Invoice";
+            this.btn_save_inv_kmt.Click += new System.EventHandler(this.btn_save_inv_kmt_Click);
             // 
             // btn_remove_kmt
             // 
@@ -543,6 +548,7 @@
             this.btn_remove_kmt.Size = new System.Drawing.Size(116, 23);
             this.btn_remove_kmt.TabIndex = 1;
             this.btn_remove_kmt.Text = "Remove";
+            this.btn_remove_kmt.Click += new System.EventHandler(this.btn_remove_kmt_Click);
             // 
             // btn_update_kmt
             // 
@@ -804,6 +810,7 @@
             this.btn_new_invoice_oil.Size = new System.Drawing.Size(110, 23);
             this.btn_new_invoice_oil.TabIndex = 1;
             this.btn_new_invoice_oil.Text = "ADD New Invoice";
+            this.btn_new_invoice_oil.Click += new System.EventHandler(this.btn_new_invoice_oil_Click);
             // 
             // btn_remove_oil
             // 
@@ -817,6 +824,7 @@
             this.btn_remove_oil.Size = new System.Drawing.Size(116, 23);
             this.btn_remove_oil.TabIndex = 1;
             this.btn_remove_oil.Text = "Remove";
+            this.btn_remove_oil.Click += new System.EventHandler(this.btn_remove_oil_Click);
             // 
             // btn_update_oil
             // 
@@ -831,6 +839,20 @@
             this.btn_update_oil.TabIndex = 0;
             this.btn_update_oil.Text = "Update ";
             this.btn_update_oil.Click += new System.EventHandler(this.btn_update_oil_Click);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // frm_update_KM
             // 
@@ -956,5 +978,7 @@
         private System.Windows.Forms.TextBox txt_van_id_oil;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ComboBox cmb_oil_type;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
