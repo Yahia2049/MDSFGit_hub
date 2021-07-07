@@ -226,7 +226,9 @@ namespace MDSF.Forms.Inventory
                     btn_approve.Visible = false;
 
                 salesrep_id = "AM" + cmb_salesrep.SelectedValue.ToString();
-                string check = "  select  * from INT_INVENTORY_DAILY_SALES_A " + " where salesrep_id = '" + salesrep_id + "' and item_id not in ('33333','33344','33355')" + " and trunc(UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
+                string check = "  select  * from INT_INVENTORY_DAILY_SALES " + " where salesrep_id = '" + salesrep_id + "' " +
+                    "and item_id not in ('33333','33344','33355')" + " and category_id= 0" +
+                    "and trunc(UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
                
 
                 DataSet ds_check = DataAccessCS.getdata(check);
@@ -242,21 +244,24 @@ namespace MDSF.Forms.Inventory
                     MessageBox.Show("لا يوجد بيانات");
                     return;
                 }
-                string m = " select max(ids.LOADING_NO)" + " from INT_INVENTORY_DAILY_SALES_A ids " + " where ids.salesrep_id = '" + salesrep_id + "' and item_id not in ('33333','33344','33355')" + " and trunc(ids.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
+                string m = " select max(ids.LOADING_NO)" + " from INT_INVENTORY_DAILY_SALES ids " + " where ids.salesrep_id = '" + salesrep_id + "' " +
+                    "and item_id not in ('33333','33344','33355') and  ids.category_id= 0  and trunc(ids.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
                 DataSet ds_max_load = DataAccessCS.getdata(m);
                 dv_max_load = new DataView(ds_max_load.Tables[0]);
                 DataAccessCS.conn.Close();
                 max_load = Convert.ToDouble( dv_max_load[0][0]);
 
                 string c;
-                string get_max = " select max(ids.trans_id)" + " from INT_INVENTORY_DAILY_SALES_A ids " + " where ids.salesrep_id = '" + salesrep_id + "' and item_id not in ('33333','33344','33355') and  ids.LOADING_NO =" + max_load + "  " + " and trunc(ids.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
+                string get_max = " select max(ids.trans_id)" + " from INT_INVENTORY_DAILY_SALES ids " + " where ids.salesrep_id = '" + salesrep_id + "' and ids.category_id= 0" +
+                    " and item_id not in ('33333','33344','33355') and  ids.LOADING_NO =" + max_load + "  " + " and trunc(ids.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
 
 
                 DataSet ds_max = DataAccessCS.getdata(get_max);
                 dv_max = new DataView(ds_max.Tables[0]);
                 DataAccessCS.conn.Close();
                 max_trans =Convert.ToInt32 (dv_max[0][0]);
-                c = " select distinct ds.unload_date,ds.LOADING_NO,ds.ITEM_ID,ds.product_aname,ds.LOADED_QTY,ds.REMAINING_QTY,ds.SOLD_QTY,ds.JOURNEY_SEQUENCE " + " from  INT_INVENTORY_DAILY_SALES_A ds " + " where ds.salesrep_id=  '" + salesrep_id + "' and item_id not in ('33333','33344','33355')" + " and ds.LOADING_NO=" + max_load + " and ds.trans_id= '" + max_trans + "'  and trunc(ds.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
+                c = " select distinct ds.unload_date,ds.LOADING_NO,ds.ITEM_ID,ds.product_aname,ds.LOADED_QTY,ds.REMAINING_QTY,ds.SOLD_QTY,ds.JOURNEY_SEQUENCE " + " from  INT_INVENTORY_DAILY_SALES ds " + " where ds.salesrep_id=  '" + salesrep_id + "' " +
+                    "and ds.category_id= 0 and item_id not in ('33333','33344','33355')" + " and ds.LOADING_NO=" + max_load + " and ds.trans_id= '" + max_trans + "'  and trunc(ds.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
 
 
                 DataSet ds = DataAccessCS.getdata(c);
@@ -303,7 +308,8 @@ namespace MDSF.Forms.Inventory
 
                     try
                     {
-                        string SumLoaded = "  select  sum(d.loaded_qty) loaded,sum(d.remaining_qty) remaining,sum(d.sold_qty) sold from INT_INVENTORY_DAILY_SALES_A d" + " where d.trans_id= '" + max_trans + "'  and d.salesrep_id = '" + salesrep_id + "' and d.LOADING_NO= '" + loading_no_c + "' " + " AND d.item_id not in (33333,33355,33344) ";
+                        string SumLoaded = "  select  sum(d.loaded_qty) loaded,sum(d.remaining_qty) remaining,sum(d.sold_qty) sold from INT_INVENTORY_DAILY_SALES d" + " where d.trans_id= '" + max_trans + "'  and d.salesrep_id = '" + salesrep_id + "' " +
+                            " and d.category_id= 0 and d.LOADING_NO= '" + loading_no_c + "' " + " AND d.item_id not in (33333,33355,33344) ";
 
                         DataSet DS_SumLoaded = DataAccessCS.getdata(SumLoaded);
                         DV_SumLoaded = new DataView(DS_SumLoaded.Tables[0]);
@@ -406,8 +412,8 @@ namespace MDSF.Forms.Inventory
                 dt_inc = 0;
 
                 string c_txt_item = " select distinct ITEM_ID,REMAINING_QTY,UOM,LINE_NUMBER,LOADING_NO,trunc(vdatu,'dd') as vdatu  " +
-                    "from INT_INVENTORY_DAILY_SALES_A ds  where  ds.salesrep_id=  '" + salesrep_id + "' " + " and " +
-                    "ds.trans_id= '" + max_trans + "' and trunc(UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') and ITEM_ID not in ('33333','33344','33355') and  ds.LOADING_NO= " + max_load + "";
+                    "from INT_INVENTORY_DAILY_SALES ds  where  ds.salesrep_id=  '" + salesrep_id + "' " + " and " +
+                    "ds.trans_id= '" + max_trans + "' and ds.category_id= 0 and trunc(UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') and ITEM_ID not in ('33333','33344','33355') and  ds.LOADING_NO= " + max_load + "";
                 DataSet ds_txt_item = DataAccessCS.getdata(c_txt_item);
                 dv_txt_total = new DataView(ds_txt_item.Tables[0]);
                 DataAccessCS.conn.Close();
@@ -642,7 +648,7 @@ namespace MDSF.Forms.Inventory
                             //{
                             //    item_details_retail = "select max(iis.SALES_TER_ID) SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID," +
                             //        "sum(iis.SOLD) SOLD,iis.UOM," + " iis.LINE_NUMBER,iis.ITEM_PRICE,iis.vdatu " +
-                            //        "from INT_INVENTORY_SOLD_RETAIL_A iis where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' and" +
+                            //        "from INT_INVENTORY_SOLD_RETAIL iis where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' and" +
                             //        " iis.PRODUCT_ID not in ('33333','33344','33355') " + " and iis.PRODUCT_ID not in ('33333','33344','33355') " +
                             //        "and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_No = " + max_load + " " +
                             //        "group by LOADING_NO, PRODUCT_ID, UOM, LINE_NUMBER, ITEM_PRICE, vdatu";
@@ -651,7 +657,7 @@ namespace MDSF.Forms.Inventory
                             //else
                             //{
                             //    item_details_retail = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER," +
-                            //        "iis.ITEM_PRICE ,iis.vdatu " + " from  INT_INVENTORY_SOLD_RETAIL_A iis " + " " +
+                            //        "iis.ITEM_PRICE ,iis.vdatu " + " from  INT_INVENTORY_SOLD_RETAIL iis " + " " +
                             //        "where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' and iis.PRODUCT_ID not in ('33333','33344','33355') " +
                             //        " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_No= " + max_load + "";
 
@@ -904,7 +910,7 @@ namespace MDSF.Forms.Inventory
 
 
                             string item_details_retail;
-                            item_details_retail = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.vdatu " + " from  INT_INVENTORY_SOLD_RETAIL_A iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_No= " + max_load + "";
+                            item_details_retail = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.vdatu " + " from  INT_INVENTORY_SOLD_RETAIL iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_No= " + max_load + "";
 
 
                             DataSet ds_item_details = DataAccessCS.getdata(item_details_retail);
@@ -1375,8 +1381,9 @@ namespace MDSF.Forms.Inventory
                         }
 
                         string item_details_retail = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM," +
-                            "iis.LINE_NUMBER,iis.ITEM_PRICE,iis.vdatu " + " from  INT_INVENTORY_SOLD_RETAIL_A iis " + "" +
-                            " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
+                            "iis.LINE_NUMBER,iis.ITEM_PRICE,iis.vdatu " + " from  INT_INVENTORY_SOLD_RETAIL iis " + "" +
+                            " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " " +
+                            " and iis.category_id=0 and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
                             "and iis.LOADING_no= " + max_load + " and iis.branch_code ="+cmb_Region.SelectedValue+"";
 
 
