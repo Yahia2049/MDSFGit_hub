@@ -435,6 +435,7 @@
             // 
             // lbl_salesrep_count
             // 
+            this.lbl_salesrep_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_salesrep_count.AutoSize = true;
             this.lbl_salesrep_count.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.lbl_salesrep_count.ForeColor = System.Drawing.Color.DarkGreen;
