@@ -59,6 +59,7 @@
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.txt_qnt_def = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.lbl_salesrep_count = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inventory)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +70,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Panel1.Controls.Add(this.lbl_salesrep_count);
             this.Panel1.Controls.Add(this.txt_qnt_def);
             this.Panel1.Controls.Add(this.label11);
             this.Panel1.Controls.Add(this.txt_loading_no);
@@ -431,6 +433,17 @@
             this.label11.TabIndex = 137;
             this.label11.Text = "فرق الكميات:";
             // 
+            // lbl_salesrep_count
+            // 
+            this.lbl_salesrep_count.AutoSize = true;
+            this.lbl_salesrep_count.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.lbl_salesrep_count.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lbl_salesrep_count.Location = new System.Drawing.Point(517, 32);
+            this.lbl_salesrep_count.Name = "lbl_salesrep_count";
+            this.lbl_salesrep_count.Size = new System.Drawing.Size(14, 13);
+            this.lbl_salesrep_count.TabIndex = 142;
+            this.lbl_salesrep_count.Text = "0";
+            // 
             // frm_send_to_sap_fine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -480,5 +493,6 @@
         internal System.Windows.Forms.Label label8;
         internal System.Windows.Forms.TextBox txt_qnt_def;
         internal System.Windows.Forms.Label label11;
+        internal System.Windows.Forms.Label lbl_salesrep_count;
     }
 }

@@ -144,6 +144,7 @@ namespace MDSF.Forms.Inventory
                 DataAccessCS.conn.Close();
                 //--------------------------------------
                 cmb_salesrep.Enabled = true;
+                lbl_salesrep_count.Text = ds.Tables[0].Rows.Count.ToString();
             }
             catch (Exception ex)
             {
