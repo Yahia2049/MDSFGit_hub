@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_send_to_sap_all));
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.lbl_salesrep_count = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txt_qnt_def = new System.Windows.Forms.TextBox();
             this.txt_loading_no = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_jou_seq = new System.Windows.Forms.TextBox();
@@ -57,11 +60,15 @@
             this.Label_TotalPOS = new System.Windows.Forms.Label();
             this.Label10 = new System.Windows.Forms.Label();
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.txt_qnt_def = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lbl_salesrep_count = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txt_settelment = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txt_current = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inventory)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel1
@@ -70,7 +77,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Panel1.Controls.Add(this.lbl_salesrep_count);
+            this.Panel1.Controls.Add(this.groupBox1);
             this.Panel1.Controls.Add(this.label11);
             this.Panel1.Controls.Add(this.txt_qnt_def);
             this.Panel1.Controls.Add(this.txt_loading_no);
@@ -102,8 +109,42 @@
             this.Panel1.Controls.Add(this.DateTimePicker);
             this.Panel1.Location = new System.Drawing.Point(4, 2);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(1021, 715);
+            this.Panel1.Size = new System.Drawing.Size(1101, 715);
             this.Panel1.TabIndex = 49;
+            // 
+            // lbl_salesrep_count
+            // 
+            this.lbl_salesrep_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_salesrep_count.AutoSize = true;
+            this.lbl_salesrep_count.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.lbl_salesrep_count.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lbl_salesrep_count.Location = new System.Drawing.Point(159, 31);
+            this.lbl_salesrep_count.Name = "lbl_salesrep_count";
+            this.lbl_salesrep_count.Size = new System.Drawing.Size(14, 13);
+            this.lbl_salesrep_count.TabIndex = 141;
+            this.lbl_salesrep_count.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(402, 60);
+            this.label11.Name = "label11";
+            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label11.Size = new System.Drawing.Size(76, 13);
+            this.label11.TabIndex = 140;
+            this.label11.Text = "فرق الكميات:";
+            // 
+            // txt_qnt_def
+            // 
+            this.txt_qnt_def.Location = new System.Drawing.Point(320, 57);
+            this.txt_qnt_def.Name = "txt_qnt_def";
+            this.txt_qnt_def.ReadOnly = true;
+            this.txt_qnt_def.Size = new System.Drawing.Size(76, 20);
+            this.txt_qnt_def.TabIndex = 139;
+            this.txt_qnt_def.Text = "0";
+            this.txt_qnt_def.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txt_loading_no
             // 
@@ -151,10 +192,11 @@
             // 
             this.cmb_Region.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_Region.FormattingEnabled = true;
-            this.cmb_Region.Location = new System.Drawing.Point(600, 6);
+            this.cmb_Region.Location = new System.Drawing.Point(720, 5);
             this.cmb_Region.Name = "cmb_Region";
-            this.cmb_Region.Size = new System.Drawing.Size(128, 21);
+            this.cmb_Region.Size = new System.Drawing.Size(103, 21);
             this.cmb_Region.TabIndex = 132;
+            this.cmb_Region.SelectedIndexChanged += new System.EventHandler(this.cmb_Region_SelectedIndexChanged);
             this.cmb_Region.SelectionChangeCommitted += new System.EventHandler(this.cmb_Region_SelectionChangeCommitted);
             // 
             // label7
@@ -164,7 +206,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(734, 9);
+            this.label7.Location = new System.Drawing.Point(825, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 131;
@@ -174,7 +216,7 @@
             // 
             this.btn_approve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_approve.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_approve.Location = new System.Drawing.Point(873, 682);
+            this.btn_approve.Location = new System.Drawing.Point(953, 682);
             this.btn_approve.Name = "btn_approve";
             this.btn_approve.Size = new System.Drawing.Size(97, 28);
             this.btn_approve.TabIndex = 130;
@@ -186,7 +228,7 @@
             // 
             this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_search.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_search.Location = new System.Drawing.Point(836, 54);
+            this.btn_search.Location = new System.Drawing.Point(916, 54);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(92, 27);
             this.btn_search.TabIndex = 130;
@@ -198,9 +240,9 @@
             // 
             this.cmb_salesrep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_salesrep.FormattingEnabled = true;
-            this.cmb_salesrep.Location = new System.Drawing.Point(600, 32);
+            this.cmb_salesrep.Location = new System.Drawing.Point(720, 32);
             this.cmb_salesrep.Name = "cmb_salesrep";
-            this.cmb_salesrep.Size = new System.Drawing.Size(328, 21);
+            this.cmb_salesrep.Size = new System.Drawing.Size(288, 21);
             this.cmb_salesrep.TabIndex = 129;
             this.cmb_salesrep.SelectionChangeCommitted += new System.EventHandler(this.cmb_salesrep_SelectionChangeCommitted);
             // 
@@ -212,7 +254,7 @@
             this.dgv_inventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_inventory.Location = new System.Drawing.Point(4, 85);
             this.dgv_inventory.Name = "dgv_inventory";
-            this.dgv_inventory.Size = new System.Drawing.Size(1013, 549);
+            this.dgv_inventory.Size = new System.Drawing.Size(1093, 549);
             this.dgv_inventory.TabIndex = 128;
             // 
             // txt_SoldQty
@@ -359,7 +401,7 @@
             this.Label_SalesRep.BackColor = System.Drawing.Color.Transparent;
             this.Label_SalesRep.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label_SalesRep.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label_SalesRep.Location = new System.Drawing.Point(934, 29);
+            this.Label_SalesRep.Location = new System.Drawing.Point(1014, 29);
             this.Label_SalesRep.Name = "Label_SalesRep";
             this.Label_SalesRep.Size = new System.Drawing.Size(48, 13);
             this.Label_SalesRep.TabIndex = 115;
@@ -394,7 +436,7 @@
             this.Label10.BackColor = System.Drawing.Color.Transparent;
             this.Label10.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label10.Location = new System.Drawing.Point(934, 10);
+            this.Label10.Location = new System.Drawing.Point(1014, 10);
             this.Label10.Name = "Label10";
             this.Label10.Size = new System.Drawing.Size(76, 13);
             this.Label10.TabIndex = 103;
@@ -404,50 +446,90 @@
             // 
             this.DateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DateTimePicker.Checked = false;
-            this.DateTimePicker.Location = new System.Drawing.Point(776, 6);
+            this.DateTimePicker.Location = new System.Drawing.Point(866, 6);
             this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(152, 20);
+            this.DateTimePicker.Size = new System.Drawing.Size(142, 20);
             this.DateTimePicker.TabIndex = 104;
             // 
-            // txt_qnt_def
+            // groupBox1
             // 
-            this.txt_qnt_def.Location = new System.Drawing.Point(320, 57);
-            this.txt_qnt_def.Name = "txt_qnt_def";
-            this.txt_qnt_def.ReadOnly = true;
-            this.txt_qnt_def.Size = new System.Drawing.Size(76, 20);
-            this.txt_qnt_def.TabIndex = 139;
-            this.txt_qnt_def.Text = "0";
-            this.txt_qnt_def.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.txt_current);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.txt_settelment);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.lbl_salesrep_count);
+            this.groupBox1.Location = new System.Drawing.Point(513, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 52);
+            this.groupBox1.TabIndex = 142;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "عدد المناديب";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label11
+            // label12
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(402, 60);
-            this.label11.Name = "label11";
-            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label11.Size = new System.Drawing.Size(76, 13);
-            this.label11.TabIndex = 140;
-            this.label11.Text = "فرق الكميات:";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(144, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 13);
+            this.label12.TabIndex = 142;
+            this.label12.Text = "تحميل";
             // 
-            // lbl_salesrep_count
+            // label13
             // 
-            this.lbl_salesrep_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_salesrep_count.AutoSize = true;
-            this.lbl_salesrep_count.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.lbl_salesrep_count.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lbl_salesrep_count.Location = new System.Drawing.Point(572, 36);
-            this.lbl_salesrep_count.Name = "lbl_salesrep_count";
-            this.lbl_salesrep_count.Size = new System.Drawing.Size(14, 13);
-            this.lbl_salesrep_count.TabIndex = 141;
-            this.lbl_salesrep_count.Text = "0";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.Location = new System.Drawing.Point(81, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(39, 13);
+            this.label13.TabIndex = 144;
+            this.label13.Text = "ثصفية";
+            // 
+            // txt_settelment
+            // 
+            this.txt_settelment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_settelment.AutoSize = true;
+            this.txt_settelment.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.txt_settelment.ForeColor = System.Drawing.Color.DarkGreen;
+            this.txt_settelment.Location = new System.Drawing.Point(97, 31);
+            this.txt_settelment.Name = "txt_settelment";
+            this.txt_settelment.Size = new System.Drawing.Size(14, 13);
+            this.txt_settelment.TabIndex = 143;
+            this.txt_settelment.Text = "0";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(16, 16);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(48, 13);
+            this.label15.TabIndex = 146;
+            this.label15.Text = "المتبقى";
+            // 
+            // txt_current
+            // 
+            this.txt_current.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_current.AutoSize = true;
+            this.txt_current.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.txt_current.ForeColor = System.Drawing.Color.DarkGreen;
+            this.txt_current.Location = new System.Drawing.Point(34, 32);
+            this.txt_current.Name = "txt_current";
+            this.txt_current.Size = new System.Drawing.Size(14, 13);
+            this.txt_current.TabIndex = 145;
+            this.txt_current.Text = "0";
             // 
             // frm_send_to_sap_all
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 720);
+            this.ClientSize = new System.Drawing.Size(1108, 720);
             this.Controls.Add(this.Panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_send_to_sap_all";
@@ -456,6 +538,8 @@
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inventory)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -493,5 +577,11 @@
         internal System.Windows.Forms.TextBox txt_qnt_def;
         internal System.Windows.Forms.Label label11;
         internal System.Windows.Forms.Label lbl_salesrep_count;
+        private System.Windows.Forms.GroupBox groupBox1;
+        internal System.Windows.Forms.Label label12;
+        internal System.Windows.Forms.Label label15;
+        internal System.Windows.Forms.Label txt_current;
+        internal System.Windows.Forms.Label label13;
+        internal System.Windows.Forms.Label txt_settelment;
     }
 }
