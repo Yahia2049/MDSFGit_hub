@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MDSF.Forms.Reports;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -717,21 +718,30 @@ namespace MDSF.Forms.Master_Data
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                //Resize DataGridView to full height.
-                int height = rgv_KM.Height;
-                rgv_KM.Height = rgv_KM.RowCount * rgv_KM.RowTemplate.Height;
+                string from_date = dtp_from_date.Value.ToString("dd-MMM-yyyy");
+                string to_date = dtp_to_date.Value.ToString("dd-MMM-yyyy");
+                var X_Form = new frm_print_km_report(cmb_Region_salesman.SelectedValue.ToString(), cmb_sales_ter_Salesman.SelectedValue.ToString(), cmb_salesrep_salesman.SelectedValue.ToString(), from_date, to_date);
+                X_Form.Show();
+                //X_Form.MdiParent = Main_form;
+                X_Form.WindowState = FormWindowState.Maximized;
+                this.Cursor = Cursors.Default;
 
-                //Create a Bitmap and draw the DataGridView on it.
-                bitmap = new Bitmap(this.rgv_KM.Width, this.rgv_KM.Height);
-                rgv_KM.DrawToBitmap(bitmap, new Rectangle(0, 0, this.rgv_KM.Width, this.rgv_KM.Height));
 
-                //Resize DataGridView back to original height.
-                rgv_KM.Height = height;
+                ////Resize DataGridView to full height.
+                //int height = rgv_KM.Height;
+                //rgv_KM.Height = rgv_KM.RowCount * rgv_KM.RowTemplate.Height;
 
-                //Show the Print Preview Dialog.
-                printPreviewDialog1.Document = printDocument1;
-                printPreviewDialog1.PrintPreviewControl.Zoom = 1;
-                printPreviewDialog1.ShowDialog();
+                ////Create a Bitmap and draw the DataGridView on it.
+                //bitmap = new Bitmap(this.rgv_KM.Width, this.rgv_KM.Height);
+                //rgv_KM.DrawToBitmap(bitmap, new Rectangle(0, 0, this.rgv_KM.Width, this.rgv_KM.Height));
+
+                ////Resize DataGridView back to original height.
+                //rgv_KM.Height = height;
+
+                ////Show the Print Preview Dialog.
+                //printPreviewDialog1.Document = printDocument1;
+                //printPreviewDialog1.PrintPreviewControl.Zoom = 1;
+                //printPreviewDialog1.ShowDialog();
 
 
             }
@@ -749,6 +759,39 @@ namespace MDSF.Forms.Master_Data
             //Print the contents.
             //Print the contents.
             e.Graphics.DrawImage(bitmap, 0, 0);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+           
+        }
+
+        private void btn_km_report_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                string from_date = dtp_from_date.Value.ToString("dd-MMM-yyyy");
+                string to_date = dtp_to_date.Value.ToString("dd-MMM-yyyy");
+                string vanId = DataAccessCS.getvalue("select van_id from INT_VANS_CURRENT_2 k where  k.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + " and branch_code=" + cmb_Region_salesman.SelectedValue + "' and   trunc(to_date(k.fuel_time,'dd-mon-yyyy hh:mi:ss AM')) > = '" + from_date + "' and trunc(to_date(k.fuel_time,'dd-mon-yyyy hh:mi:ss AM'))  <= '" + to_date);
+                DataAccessCS.conn.Close();
+                string plate_number = DataAccessCS.getvalue("select distinct plate_number from INT_VANS_CURRENT_2 k where  k.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + " and branch_code=" + cmb_Region_salesman.SelectedValue + "' and   trunc(to_date(k.fuel_time,'dd-mon-yyyy hh:mi:ss AM')) > = '" + from_date + "' and trunc(to_date(k.fuel_time,'dd-mon-yyyy hh:mi:ss AM'))  <= '" + to_date);
+                DataAccessCS.conn.Close();
+                string CurrentDate = DataAccessCS.getvalue("SELECT TO_CHAR(SYSDATE, 'MM-DD-YYYY ') NOW FROM DUAL");
+                DataAccessCS.conn.Close();
+                var X_Form = new frm_print_invoice_km(cmb_Region_salesman.SelectedValue.ToString(), cmb_sales_ter_Salesman.SelectedValue.ToString(), cmb_salesrep_salesman.SelectedValue.ToString(), from_date, to_date, cmb_salesrep_salesman.Text, vanId, plate_number, cmb_sales_ter_Salesman.SelectedValue.ToString(), CurrentDate);
+                X_Form.Show();
+                //X_Form.MdiParent = Main_form;
+                X_Form.WindowState = FormWindowState.Maximized;
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
         }
     }
 }

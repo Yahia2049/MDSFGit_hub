@@ -100,6 +100,7 @@
             this.btn_update_oil = new Telerik.WinControls.UI.RadButton();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.btn_km_report = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btn_update_journey)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_search)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_KM)).BeginInit();
@@ -351,6 +352,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btn_km_report);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label14);
@@ -519,7 +521,7 @@
             this.btn_print_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(696, 66, 110, 24);
             this.btn_print_kmt.Size = new System.Drawing.Size(110, 23);
             this.btn_print_kmt.TabIndex = 2;
-            this.btn_print_kmt.Text = "Print Invoices";
+            this.btn_print_kmt.Text = "Print Report";
             this.btn_print_kmt.Click += new System.EventHandler(this.btn_print_kmt_Click);
             // 
             // btn_save_inv_kmt
@@ -633,7 +635,7 @@
             this.pnl_oil.Controls.Add(this.btn_new_invoice_oil);
             this.pnl_oil.Controls.Add(this.btn_remove_oil);
             this.pnl_oil.Controls.Add(this.btn_update_oil);
-            this.pnl_oil.Location = new System.Drawing.Point(12, 475);
+            this.pnl_oil.Location = new System.Drawing.Point(7, 370);
             this.pnl_oil.Name = "pnl_oil";
             this.pnl_oil.Size = new System.Drawing.Size(949, 99);
             this.pnl_oil.TabIndex = 276;
@@ -854,6 +856,17 @@
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
+            // btn_km_report
+            // 
+            this.btn_km_report.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_km_report.Location = new System.Drawing.Point(239, 68);
+            this.btn_km_report.Name = "btn_km_report";
+            this.btn_km_report.Size = new System.Drawing.Size(75, 23);
+            this.btn_km_report.TabIndex = 24;
+            this.btn_km_report.Text = "Print Invoice";
+            this.btn_km_report.UseVisualStyleBackColor = true;
+            this.btn_km_report.Click += new System.EventHandler(this.btn_km_report_Click);
+            // 
             // frm_update_KM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -980,5 +993,6 @@
         private System.Windows.Forms.ComboBox cmb_oil_type;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Button btn_km_report;
     }
 }
