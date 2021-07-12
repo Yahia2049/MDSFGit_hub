@@ -121,7 +121,7 @@
             // 
             this.btn_update_journey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_update_journey.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_update_journey.Location = new System.Drawing.Point(854, 484);
+            this.btn_update_journey.Location = new System.Drawing.Point(886, 484);
             this.btn_update_journey.Name = "btn_update_journey";
             // 
             // 
@@ -287,7 +287,7 @@
             // dtp_from_date
             // 
             this.dtp_from_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtp_from_date.Location = new System.Drawing.Point(692, 8);
+            this.dtp_from_date.Location = new System.Drawing.Point(724, 8);
             this.dtp_from_date.Name = "dtp_from_date";
             this.dtp_from_date.Size = new System.Drawing.Size(200, 20);
             this.dtp_from_date.TabIndex = 268;
@@ -296,7 +296,7 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(610, 13);
+            this.label7.Location = new System.Drawing.Point(642, 13);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 269;
@@ -306,7 +306,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(610, 40);
+            this.label8.Location = new System.Drawing.Point(642, 40);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 271;
@@ -315,7 +315,7 @@
             // dtp_to_date
             // 
             this.dtp_to_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtp_to_date.Location = new System.Drawing.Point(692, 35);
+            this.dtp_to_date.Location = new System.Drawing.Point(724, 35);
             this.dtp_to_date.Name = "dtp_to_date";
             this.dtp_to_date.Size = new System.Drawing.Size(200, 20);
             this.dtp_to_date.TabIndex = 270;
@@ -324,7 +324,7 @@
             // 
             this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_search.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_search.Location = new System.Drawing.Point(692, 77);
+            this.btn_search.Location = new System.Drawing.Point(724, 77);
             this.btn_search.Name = "btn_search";
             // 
             // 
@@ -344,7 +344,7 @@
             this.rgv_KM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.rgv_KM.Location = new System.Drawing.Point(2, 170);
             this.rgv_KM.Name = "rgv_KM";
-            this.rgv_KM.Size = new System.Drawing.Size(962, 299);
+            this.rgv_KM.Size = new System.Drawing.Size(994, 299);
             this.rgv_KM.TabIndex = 273;
             this.rgv_KM.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rgv_KM_CellClick);
             // 
@@ -375,7 +375,7 @@
             this.panel1.Controls.Add(this.btn_update_kmt);
             this.panel1.Location = new System.Drawing.Point(7, 480);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(830, 99);
+            this.panel1.Size = new System.Drawing.Size(972, 99);
             this.panel1.TabIndex = 275;
             this.panel1.Visible = false;
             // 
@@ -455,7 +455,7 @@
             // 
             this.dtp_fuel_time.Location = new System.Drawing.Point(631, 31);
             this.dtp_fuel_time.Name = "dtp_fuel_time";
-            this.dtp_fuel_time.Size = new System.Drawing.Size(170, 20);
+            this.dtp_fuel_time.Size = new System.Drawing.Size(128, 20);
             this.dtp_fuel_time.TabIndex = 10;
             // 
             // txt_fuel_values
@@ -637,7 +637,7 @@
             this.pnl_oil.Controls.Add(this.btn_update_oil);
             this.pnl_oil.Location = new System.Drawing.Point(7, 370);
             this.pnl_oil.Name = "pnl_oil";
-            this.pnl_oil.Size = new System.Drawing.Size(949, 99);
+            this.pnl_oil.Size = new System.Drawing.Size(981, 99);
             this.pnl_oil.TabIndex = 276;
             this.pnl_oil.Visible = false;
             // 
@@ -871,7 +871,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 585);
+            this.ClientSize = new System.Drawing.Size(1000, 585);
             this.Controls.Add(this.pnl_oil);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
