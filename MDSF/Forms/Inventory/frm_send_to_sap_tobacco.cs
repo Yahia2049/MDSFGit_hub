@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MDSF.Forms.Inventory
 {
-    public partial class frm_send_to_sap_all : Form
+    public partial class frm_send_to_sap_tobacco : Form
     {
 
         #region Vairables
@@ -74,7 +74,7 @@ namespace MDSF.Forms.Inventory
 
         DataView dv_transfer_details;
         #endregion
-        public frm_send_to_sap_all()
+        public frm_send_to_sap_tobacco()
         {
             InitializeComponent();
         }
@@ -136,7 +136,7 @@ namespace MDSF.Forms.Inventory
 
                 ds = DataAccessCS.getdata("select distinct p.SALESREP_ID ,(select distinct name from salesman where sales_id =p.SALESREP_ID and branch_code =" + cmb_Region.SelectedValue + " ) SALESREP_NAME " +
                              "from journey@sales p, ver_ctrl@sales v ,loading_header l " +
-                             "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=0 " +
+                             "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=1 " +
                              " and  p.salesrep_id = v.salesrep_id and v.branch_code = " + cmb_Region.SelectedValue + " " +
                              "and trunc(to_date(p.start_DATE,'dd - mon - yyyy hh: mi:ss AM')) = trunc(to_date('" + DateTimePicker.Value.ToString("dd-MMM-yyyy") + "')) order by SALESREP_NAME");
                 
@@ -154,7 +154,7 @@ namespace MDSF.Forms.Inventory
 
                 ds1 = DataAccessCS.getdata("select distinct p.SALESREP_ID ,(select distinct name from salesman where sales_id =p.SALESREP_ID and branch_code =" + cmb_Region.SelectedValue + " ) SALESREP_NAME " +
                              "from journey@sales p, ver_ctrl@sales v ,loading_header l " +
-                             "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=0 " +
+                             "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=1 " +
                              " and  p.salesrep_id = v.salesrep_id and v.branch_code = " + cmb_Region.SelectedValue + " " +
                              "and trunc(to_date(p.start_DATE,'dd - mon - yyyy hh: mi:ss AM')) = trunc(to_date('" + DateTimePicker.Value.ToString("dd-MMM-yyyy") + "'))" +
                              "and l.loading_number not in (select t.loading_number from trac_log_inv t  where t.status='S') order by SALESREP_NAME");
@@ -246,7 +246,7 @@ namespace MDSF.Forms.Inventory
 
                 salesrep_id = "AM" + cmb_salesrep.SelectedValue.ToString();
                 string check = "  select  * from INT_INVENTORY_DAILY_SALES " + " where salesrep_id = '" + salesrep_id + "' " +
-                    "and item_id not in ('33333','33344','33355')" + " and category_id= 0" +
+                    "and item_id not in ('33333','33344','33355')" + " and category_id= 1" +
                     "and trunc(UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
                
 
@@ -265,14 +265,14 @@ namespace MDSF.Forms.Inventory
                     return;
                 }
                 string m = " select max(ids.LOADING_NO)" + " from INT_INVENTORY_DAILY_SALES ids " + " where ids.salesrep_id = '" + salesrep_id + "' " +
-                    "and item_id not in ('33333','33344','33355') and  ids.category_id= 0  and trunc(ids.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
+                    "and item_id not in ('33333','33344','33355') and  ids.category_id= 1  and trunc(ids.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
                 DataSet ds_max_load = DataAccessCS.getdata(m);
                 dv_max_load = new DataView(ds_max_load.Tables[0]);
                 DataAccessCS.conn.Close();
                 max_load = Convert.ToDouble( dv_max_load[0][0]);
 
                 string c;
-                string get_max = " select max(ids.trans_id)" + " from INT_INVENTORY_DAILY_SALES ids " + " where ids.salesrep_id = '" + salesrep_id + "' and ids.category_id= 0" +
+                string get_max = " select max(ids.trans_id)" + " from INT_INVENTORY_DAILY_SALES ids " + " where ids.salesrep_id = '" + salesrep_id + "' and ids.category_id= 1" +
                     " and item_id not in ('33333','33344','33355') and  ids.LOADING_NO =" + max_load + "  " + " and trunc(ids.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
 
 
@@ -281,7 +281,7 @@ namespace MDSF.Forms.Inventory
                 DataAccessCS.conn.Close();
                 max_trans =Convert.ToInt32 (dv_max[0][0]);
                 c = " select distinct ds.unload_date,ds.LOADING_NO,ds.ITEM_ID,ds.product_aname,ds.LOADED_QTY,ds.REMAINING_QTY,ds.SOLD_QTY,ds.JOURNEY_SEQUENCE " + " from  INT_INVENTORY_DAILY_SALES ds " + " where ds.salesrep_id=  '" + salesrep_id + "' " +
-                    "and ds.category_id= 0 and item_id not in ('33333','33344','33355')" + " and ds.LOADING_NO=" + max_load + " and ds.trans_id= '" + max_trans + "'  and trunc(ds.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
+                    "and ds.category_id= 1 and item_id not in ('33333','33344','33355')" + " and ds.LOADING_NO=" + max_load + " and ds.trans_id= '" + max_trans + "'  and trunc(ds.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
 
 
                 DataSet ds = DataAccessCS.getdata(c);
@@ -323,14 +323,14 @@ namespace MDSF.Forms.Inventory
                     }
                     catch (Exception ex)
                     {
-                        DSR_Txt.Text = "";
                         DataAccessCS.conn.Close();
+                        DSR_Txt.Text = "";
                     }
 
                     try
                     {
                         string SumLoaded = "  select  sum(d.loaded_qty) loaded,sum(d.remaining_qty) remaining,sum(d.sold_qty) sold from INT_INVENTORY_DAILY_SALES d" + " where d.trans_id= '" + max_trans + "'  and d.salesrep_id = '" + salesrep_id + "' " +
-                            " and d.category_id= 0 and d.LOADING_NO= '" + loading_no_c + "' " + " AND d.item_id not in (33333,33355,33344) ";
+                            " and d.category_id= 1 and d.LOADING_NO= '" + loading_no_c + "' " + " AND d.item_id not in (33333,33355,33344) ";
 
                         DataSet DS_SumLoaded = DataAccessCS.getdata(SumLoaded);
                         DV_SumLoaded = new DataView(DS_SumLoaded.Tables[0]);
@@ -368,7 +368,6 @@ namespace MDSF.Forms.Inventory
                    MessageBox.Show("لا يوجد بيانات");
                     dgv_inventory.DataSource = null;
                     Label_GridCount.Text = "0";
-                    this.Cursor = Cursors.Default;
                 }
 
 
@@ -412,7 +411,7 @@ namespace MDSF.Forms.Inventory
                 txt_jou_seq.Text = dv_max_jou[0]["JOU_SEQ"].ToString();
                 DSR_Txt.Text = dv_max_jou[0]["JOU_ID"].ToString();
 
-                string c= "select Max(loading_number) loading_number from loading_header p where p.salesrep_id =" + cmb_salesrep.SelectedValue + " and category_id = 0 and journey_sequence ='"+ txt_jou_seq.Text + "'";
+                string c= "select Max(loading_number) loading_number from loading_header p where p.salesrep_id =" + cmb_salesrep.SelectedValue + " and category_id = 1 and journey_sequence ='"+ txt_jou_seq.Text + "'";
                 DataSet ds_max_load = DataAccessCS.getdata(c);
                 dv_max_load = new DataView(ds_max_load.Tables[0]);
                 DataAccessCS.conn.Close();
@@ -439,7 +438,7 @@ namespace MDSF.Forms.Inventory
 
                 string c_txt_item = " select distinct ITEM_ID,REMAINING_QTY,UOM,LINE_NUMBER,LOADING_NO,trunc(vdatu,'dd') as vdatu  " +
                     "from INT_INVENTORY_DAILY_SALES ds  where  ds.salesrep_id=  '" + salesrep_id + "' " + " and " +
-                    "ds.trans_id= '" + max_trans + "' and ds.category_id= 0 and trunc(UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') and ITEM_ID not in ('33333','33344','33355') and  ds.LOADING_NO= " + max_load + "";
+                    "ds.trans_id= '" + max_trans + "' and ds.category_id= 1 and trunc(UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') and ITEM_ID not in ('33333','33344','33355') and  ds.LOADING_NO= " + max_load + "";
                 DataSet ds_txt_item = DataAccessCS.getdata(c_txt_item);
                 dv_txt_total = new DataView(ds_txt_item.Tables[0]);
                 DataAccessCS.conn.Close();
@@ -465,9 +464,9 @@ namespace MDSF.Forms.Inventory
                         dtSettlementHeader.Columns.Add("31");
                     }
 
-                    if (!dtSettlementHeader.Columns.Contains("00_21"))
+                    if (!dtSettlementHeader.Columns.Contains("00_09"))
                     {
-                        dtSettlementHeader.Columns.Add("00_21");
+                        dtSettlementHeader.Columns.Add("00_09");
                     }
 
                     if (!dtSettlementHeader.Columns.Contains("Salesrep_id1"))
@@ -502,10 +501,10 @@ namespace MDSF.Forms.Inventory
 
                     DataRow drSettlementHeader;
                     drSettlementHeader = dtSettlementHeader.NewRow();
-                    drSettlementHeader["YPK_YSO"] = "YPK1";
+                    drSettlementHeader["YPK_YSO"] = "YPK";
                     drSettlementHeader["3000"] = "3000";
                     drSettlementHeader["31"] = "31";
-                    drSettlementHeader["00_21"] = "21";
+                    drSettlementHeader["00_09"] = "09";
                     drSettlementHeader["Salesrep_id1"] = salesrep_id;
                     drSettlementHeader["null1"] = "SB";
                     drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -708,10 +707,10 @@ namespace MDSF.Forms.Inventory
                             //{
                             //    // ' Dim drSettlementHeader As DataRow
                             //    drSettlementHeader = dtSettlementHeader.NewRow();
-                            //    drSettlementHeader["YPK_YSO"] = "YSO2";
+                            //    drSettlementHeader["YPK_YSO"] = "YSO";
                             //    drSettlementHeader["3000"] = "3000";
                             //    drSettlementHeader["31"] = "31";
-                            //    drSettlementHeader["00_21"] = "21";
+                            //    drSettlementHeader["00_09"] = "09";
                             //    drSettlementHeader["Salesrep_id1"] = salesrep_id;
                             //    drSettlementHeader["null1"] = "SB";
                             //    drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -955,10 +954,10 @@ namespace MDSF.Forms.Inventory
                             if (dv_item_details_Retail.Count > 0)
                             {
                                 drSettlementHeader = dtSettlementHeader.NewRow();
-                                drSettlementHeader["YPK_YSO"] = "YSO2";
+                                drSettlementHeader["YPK_YSO"] = "YSO";
                                 drSettlementHeader["3000"] = "3000";
                                 drSettlementHeader["31"] = "31";
-                                drSettlementHeader["00_21"] = "21";
+                                drSettlementHeader["00_09"] = "09";
                                 drSettlementHeader["Salesrep_id1"] = salesrep_id;
                                 drSettlementHeader["null1"] = "SB";
                                 drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -1189,10 +1188,10 @@ namespace MDSF.Forms.Inventory
                                     dv_item_details_Retail_KA.RowFilter = "";
                                     dv_item_details_Retail_KA.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
                                     drSettlementHeader = dtSettlementHeader.NewRow();
-                                    drSettlementHeader["YPK_YSO"] = "YSO2";
+                                    drSettlementHeader["YPK_YSO"] = "YSO";
                                     drSettlementHeader["3000"] = "3000";
                                     drSettlementHeader["31"] = "31";
-                                    drSettlementHeader["00_21"] = "21";
+                                    drSettlementHeader["00_09"] = "09";
                                     drSettlementHeader["Salesrep_id1"] = dv_POS_COUNT[count]["POS_CODE"];
                                     drSettlementHeader["null1"] = "SB";
                                     drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -1409,7 +1408,7 @@ namespace MDSF.Forms.Inventory
                         string item_details_retail = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM," +
                             "iis.LINE_NUMBER,iis.ITEM_PRICE,iis.vdatu " + " from  INT_INVENTORY_SOLD_RETAIL iis " + "" +
                             " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " " +
-                            " and iis.category_id=0 and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
+                            " and iis.category_id=1 and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
                             "and iis.LOADING_no= " + max_load + " and iis.branch_code ="+cmb_Region.SelectedValue+"";
 
 
@@ -1433,10 +1432,10 @@ namespace MDSF.Forms.Inventory
                         if (dv_item_details_Retail.Count > 0)
                         {
                             drSettlementHeader = dtSettlementHeader.NewRow();
-                            drSettlementHeader["YPK_YSO"] = "YSO2";
+                            drSettlementHeader["YPK_YSO"] = "YSO";
                             drSettlementHeader["3000"] = "3000";
                             drSettlementHeader["31"] = "31";
-                            drSettlementHeader["00_21"] = "21";
+                            drSettlementHeader["00_09"] = "09";
                             drSettlementHeader["Salesrep_id1"] = salesrep_id;
                             drSettlementHeader["null1"] = "SB";
                             drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -1605,7 +1604,7 @@ namespace MDSF.Forms.Inventory
                         string item_details_retail_KA = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.POS_CODE,iis.SALESCALL_ID,iis.vdatu" + " " +
                             "from  int_inventory_sold_retail_ka iis " + " " +
                             "where    iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
-                            " and iis.LOADING_NO= " + max_load + " and iis.category_id=0 and iis.branch_code="+cmb_Region.SelectedValue+"";
+                            " and iis.LOADING_NO= " + max_load + " and iis.category_id=1 and iis.branch_code="+cmb_Region.SelectedValue+"";
 
 
                         DataSet ds_item_details_KA = DataAccessCS.getdata(item_details_retail_KA);
@@ -1628,7 +1627,7 @@ namespace MDSF.Forms.Inventory
                             // 'price_txt = Nothing
                             // 'incenive_txt = Nothing
                             string POS_COUNT = " select distinct iis.POS_CODE" + " from  int_inventory_sold_retail_ka iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
-                                "and iis.LOADING_NO=" + max_load + " and iis.category_id=0 and iis.branch_code=" + cmb_Region.SelectedValue + "";
+                                "and iis.LOADING_NO=" + max_load + " and iis.category_id=1 and iis.branch_code=" + cmb_Region.SelectedValue + "";
 
 
                             DataSet ds_POS_COUNT = DataAccessCS.getdata(POS_COUNT);
@@ -1640,10 +1639,10 @@ namespace MDSF.Forms.Inventory
                                 dv_item_details_Retail_KA.RowFilter = "";
                                 dv_item_details_Retail_KA.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
                                 drSettlementHeader = dtSettlementHeader.NewRow();
-                                drSettlementHeader["YPK_YSO"] = "YSO2";
+                                drSettlementHeader["YPK_YSO"] = "YSO";
                                 drSettlementHeader["3000"] = "3000";
                                 drSettlementHeader["31"] = "31";
-                                drSettlementHeader["00_21"] = "21";
+                                drSettlementHeader["00_09"] = "09";
                                 drSettlementHeader["Salesrep_id1"] = dv_POS_COUNT[count]["POS_CODE"];
                                 drSettlementHeader["null1"] = "SB";
                                 drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -1758,7 +1757,7 @@ namespace MDSF.Forms.Inventory
                                 // ' to collect conditions(incentive)
                                 // 'to collect incentive
                                 //string incentive_details_KA = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
-                                //    "from INT_INVENTORY_DS_KA_INCENTIVE@TO_SLA_ISM where CATEGORY_ID=0 and  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  and LOADING_NUMBER= " + max_load + "";
+                                //    "from INT_INVENTORY_DS_KA_INCENTIVE@TO_SLA_ISM where category_id=1 and  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  and LOADING_NUMBER= " + max_load + "";
                                 //DataSet ds_incentive_KA = DataAccessCS.getdata(incentive_details_KA);
                                 //dv_incentive_Retail_KA = new DataView(ds_incentive_KA.Tables[0]);
                                 //dv_incentive_Retail_KA.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
@@ -1828,7 +1827,7 @@ namespace MDSF.Forms.Inventory
                                 }
 
 
-                                // ' item_flag = test.CreateIssueOrder("YSO2", "3000", "31", "09", dv_item_details_Retail_KA(0)("POS_CODE"), "SB", salesrep_id, dv_item_details_Retail_KA(0)("LOADING_NO"), dv_item_details_Retail_KA(0)("SALESCALL_ID"), dv_item_details_Retail_KA(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
+                                // ' item_flag = test.CreateIssueOrder("YSO", "3000", "31", "09", dv_item_details_Retail_KA(0)("POS_CODE"), "SB", salesrep_id, dv_item_details_Retail_KA(0)("LOADING_NO"), dv_item_details_Retail_KA(0)("SALESCALL_ID"), dv_item_details_Retail_KA(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
                             }
                         }
 
@@ -1841,7 +1840,7 @@ namespace MDSF.Forms.Inventory
 
                         string item_details_retail_KA_WS = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.POS_CODE,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.salescall_id,iis.vdatu " + " " +
                             "from  INT_INVENTORY_SOLD_WS_KA iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'" +
-                            " and iis.LOADING_NO= " + max_load + " and iis.category_id=0 and iis.branch_code="+cmb_Region.SelectedValue+"";
+                            " and iis.LOADING_NO= " + max_load + " and iis.category_id=1 and iis.branch_code="+cmb_Region.SelectedValue+"";
 
 
                         DataSet ds_item_details_KA_WS = DataAccessCS.getdata(item_details_retail_KA_WS);
@@ -1886,10 +1885,10 @@ namespace MDSF.Forms.Inventory
                                 dv_item_details_KA_WS.RowFilter = "";
                                 dv_item_details_KA_WS.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
                                 drSettlementHeader = dtSettlementHeader.NewRow();
-                                drSettlementHeader["YPK_YSO"] = "YSO2";
+                                drSettlementHeader["YPK_YSO"] = "YSO";
                                 drSettlementHeader["3000"] = "3000";
                                 drSettlementHeader["31"] = "31";
-                                drSettlementHeader["00_21"] = "21";
+                                drSettlementHeader["00_09"] = "09";
                                 drSettlementHeader["Salesrep_id1"] = dv_POS_COUNT[count]["POS_CODE"];
                                 drSettlementHeader["null1"] = "SB";
                                 drSettlementHeader["Salesrep_id2"] = salesrep_id;
@@ -2078,7 +2077,7 @@ namespace MDSF.Forms.Inventory
 
 
 
-                                // ' item_flag = test.CreateIssueOrder("YSO2", "3000", "31", "09", dv_item_details_KA_WS(0)("POS_CODE"), "SB", salesrep_id, dv_item_details_KA_WS(0)("LOADING_NO"), dv_item_details_KA_WS(0)("salescall_id"), dv_item_details_KA_WS(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
+                                // ' item_flag = test.CreateIssueOrder("YSO", "3000", "31", "09", dv_item_details_KA_WS(0)("POS_CODE"), "SB", salesrep_id, dv_item_details_KA_WS(0)("LOADING_NO"), dv_item_details_KA_WS(0)("salescall_id"), dv_item_details_KA_WS(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
                             }
                         }
 
@@ -2086,7 +2085,7 @@ namespace MDSF.Forms.Inventory
 
 
                         // ' Dim item_flag As Boolean
-                        // 'item_flag = test.CreateIssueOrder("YSO2", "3000", "31", "09", salesrep_id, "", "", dv_item_details_Retail(0)("LOADING_NO"), "1", dv_item_details_Retail(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
+                        // 'item_flag = test.CreateIssueOrder("YSO", "3000", "31", "09", salesrep_id, "", "", dv_item_details_Retail(0)("LOADING_NO"), "1", dv_item_details_Retail(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
 
                     }
                     // If item_flag =
@@ -2184,6 +2183,7 @@ namespace MDSF.Forms.Inventory
                         catch (Exception ex)
                         {
                             DataAccessCS.conn.Close();
+                            MessageBox.Show(ex.Message);
                         }
                     }
 
@@ -2366,13 +2366,13 @@ namespace MDSF.Forms.Inventory
                         DataAccessCS.insert(inv);
                         txt_qnt_def.Text = (total_HH - total_sla).ToString();
                         MessageBox.Show("لم يتم ارسال جميع البيانات ارج الانظار عشر دقائق حتى تصل البيانات كامله");
-                        salesrep_count();
+                        DataAccessCS.conn.Close();
                         this.Cursor = Cursors.Default;
                         return;
                     }
 
                     test.Timeout = 900000;
-                    test_res = test.CreateSettlement3(fillupOrder, dtSettlementHeader_s, dtPickedItems_s, dtIssusedItems_s, dtConditions_s);
+                    test_res = test.CreateSettlement(fillupOrder, dtSettlementHeader_s, dtPickedItems_s, dtIssusedItems_s, dtConditions_s);
                     // test_res = test.CreateSettlement(fillupOrder, dtSettlementHeader_s, dtPickedItems_s, dtIssusedItems_s, dtConditions_s)
 
 
@@ -2385,9 +2385,8 @@ namespace MDSF.Forms.Inventory
                             string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
-                           
-                            MessageBox.Show("تم ارسال البيع " + "  رقم امر الارتجاع  " + test_res.message3);
                             salesrep_count();
+                            MessageBox.Show("تم ارسال البيع " + "  رقم امر الارتجاع  " + test_res.message3);
                         }
                         else
                         {
@@ -2396,9 +2395,8 @@ namespace MDSF.Forms.Inventory
                             string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
-                            
-                            MessageBox.Show("تم ارسال البيع " + " رقم اذن الارتجاع " + test_res.message2 + "  رقم امر الارتجاع  " + test_res.message3);
                             salesrep_count();
+                            MessageBox.Show("تم ارسال البيع " + " رقم اذن الارتجاع " + test_res.message2 + "  رقم امر الارتجاع  " + test_res.message3);
                         }
                     }
                     else if (test_res.success == "95")
@@ -2407,10 +2405,8 @@ namespace MDSF.Forms.Inventory
                         string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S', 'تم ارسال البيع من قبل' )";
                         DataAccessCS.insert(inv);
                         DataAccessCS.conn.Close();
-                        
-                        MessageBox.Show("تم ارسال البيع من قبل");
                         salesrep_count();
-                        this.Cursor = Cursors.Default;
+                        MessageBox.Show("تم ارسال البيع من قبل");
                     }
                     else
                     {
@@ -2420,7 +2416,6 @@ namespace MDSF.Forms.Inventory
                         DataAccessCS.insert(inv);
                         DataAccessCS.conn.Close();
                         MessageBox.Show("خطأ في ارسال البيع" + test_res.message);
-                        this.Cursor = Cursors.Default;
                     }
 
                     dtSettlementHeader.Clear();
@@ -2570,7 +2565,7 @@ namespace MDSF.Forms.Inventory
 
                 ds = DataAccessCS.getdata("select distinct p.SALESREP_ID ,(select distinct name from salesman where sales_id =p.SALESREP_ID and branch_code =" + cmb_Region.SelectedValue + " ) SALESREP_NAME " +
                              "from journey@sales p, ver_ctrl@sales v ,loading_header l " +
-                             "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=0 " +
+                             "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=1 " +
                              " and  p.salesrep_id = v.salesrep_id and v.branch_code = " + cmb_Region.SelectedValue + " " +
                              "and trunc(to_date(p.start_DATE,'dd - mon - yyyy hh: mi:ss AM')) = trunc(to_date('" + DateTimePicker.Value.ToString("dd-MMM-yyyy") + "')) order by SALESREP_NAME");
 
@@ -2587,7 +2582,7 @@ namespace MDSF.Forms.Inventory
 
                 ds1 = DataAccessCS.getdata("select distinct p.SALESREP_ID ,(select distinct name from salesman where sales_id =p.SALESREP_ID and branch_code =" + cmb_Region.SelectedValue + " ) SALESREP_NAME " +
                              "from journey@sales p, ver_ctrl@sales v ,loading_header l " +
-                             "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=0 " +
+                             "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=1 " +
                              " and  p.salesrep_id = v.salesrep_id and v.branch_code = " + cmb_Region.SelectedValue + " " +
                              "and trunc(to_date(p.start_DATE,'dd - mon - yyyy hh: mi:ss AM')) = trunc(to_date('" + DateTimePicker.Value.ToString("dd-MMM-yyyy") + "'))" +
                              "and l.loading_number not in (select t.loading_number from trac_log_inv t  where t.status='S') order by SALESREP_NAME");

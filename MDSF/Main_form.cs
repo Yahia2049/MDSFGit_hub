@@ -1372,5 +1372,38 @@ namespace MDSF
         {
          
         }
+
+        private void tobaccoSendToSAPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                     "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=7002 ");
+                DataAccessCS.conn.Close();
+                if (check != "0")
+                {
+                    var X_Form = new frm_send_to_sap_tobacco();
+                    X_Form.Show();
+                    X_Form.MdiParent = this;
+                    // X_Form.WindowState = FormWindowState.Maximized;
+                }
+                else
+                {
+                    MessageBox.Show("غير مسموح بإستخدام الشاشة المختارة");
+                    this.Cursor = Cursors.Default;
+                    return;
+                }
+
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
     }
 }
