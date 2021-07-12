@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_send_to_sap_fine));
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.txt_qnt_def = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txt_loading_no = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_jou_seq = new System.Windows.Forms.TextBox();
@@ -57,11 +59,17 @@
             this.Label_TotalPOS = new System.Windows.Forms.Label();
             this.Label10 = new System.Windows.Forms.Label();
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.txt_qnt_def = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbl_current = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lbl_settelment = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.lbl_salesrep_count = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inventory)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel1
@@ -70,7 +78,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Panel1.Controls.Add(this.lbl_salesrep_count);
+            this.Panel1.Controls.Add(this.groupBox1);
             this.Panel1.Controls.Add(this.txt_qnt_def);
             this.Panel1.Controls.Add(this.label11);
             this.Panel1.Controls.Add(this.txt_loading_no);
@@ -102,8 +110,30 @@
             this.Panel1.Controls.Add(this.DateTimePicker);
             this.Panel1.Location = new System.Drawing.Point(4, 2);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(1021, 715);
+            this.Panel1.Size = new System.Drawing.Size(1128, 715);
             this.Panel1.TabIndex = 49;
+            // 
+            // txt_qnt_def
+            // 
+            this.txt_qnt_def.Location = new System.Drawing.Point(320, 57);
+            this.txt_qnt_def.Name = "txt_qnt_def";
+            this.txt_qnt_def.ReadOnly = true;
+            this.txt_qnt_def.Size = new System.Drawing.Size(76, 20);
+            this.txt_qnt_def.TabIndex = 138;
+            this.txt_qnt_def.Text = "0";
+            this.txt_qnt_def.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(402, 60);
+            this.label11.Name = "label11";
+            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label11.Size = new System.Drawing.Size(76, 13);
+            this.label11.TabIndex = 137;
+            this.label11.Text = "فرق الكميات:";
             // 
             // txt_loading_no
             // 
@@ -151,9 +181,9 @@
             // 
             this.cmb_Region.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_Region.FormattingEnabled = true;
-            this.cmb_Region.Location = new System.Drawing.Point(543, 3);
+            this.cmb_Region.Location = new System.Drawing.Point(738, 4);
             this.cmb_Region.Name = "cmb_Region";
-            this.cmb_Region.Size = new System.Drawing.Size(128, 21);
+            this.cmb_Region.Size = new System.Drawing.Size(102, 21);
             this.cmb_Region.TabIndex = 132;
             this.cmb_Region.SelectionChangeCommitted += new System.EventHandler(this.cmb_Region_SelectionChangeCommitted);
             // 
@@ -164,7 +194,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(677, 5);
+            this.label7.Location = new System.Drawing.Point(846, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 131;
@@ -174,7 +204,7 @@
             // 
             this.btn_approve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_approve.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_approve.Location = new System.Drawing.Point(895, 682);
+            this.btn_approve.Location = new System.Drawing.Point(1002, 682);
             this.btn_approve.Name = "btn_approve";
             this.btn_approve.Size = new System.Drawing.Size(97, 28);
             this.btn_approve.TabIndex = 130;
@@ -186,7 +216,7 @@
             // 
             this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_search.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_search.Location = new System.Drawing.Point(790, 55);
+            this.btn_search.Location = new System.Drawing.Point(897, 55);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(124, 27);
             this.btn_search.TabIndex = 130;
@@ -198,9 +228,9 @@
             // 
             this.cmb_salesrep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_salesrep.FormattingEnabled = true;
-            this.cmb_salesrep.Location = new System.Drawing.Point(543, 28);
+            this.cmb_salesrep.Location = new System.Drawing.Point(738, 28);
             this.cmb_salesrep.Name = "cmb_salesrep";
-            this.cmb_salesrep.Size = new System.Drawing.Size(371, 21);
+            this.cmb_salesrep.Size = new System.Drawing.Size(283, 21);
             this.cmb_salesrep.TabIndex = 129;
             this.cmb_salesrep.SelectionChangeCommitted += new System.EventHandler(this.cmb_salesrep_SelectionChangeCommitted);
             // 
@@ -212,7 +242,7 @@
             this.dgv_inventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_inventory.Location = new System.Drawing.Point(4, 85);
             this.dgv_inventory.Name = "dgv_inventory";
-            this.dgv_inventory.Size = new System.Drawing.Size(1013, 549);
+            this.dgv_inventory.Size = new System.Drawing.Size(1120, 549);
             this.dgv_inventory.TabIndex = 128;
             // 
             // txt_SoldQty
@@ -359,7 +389,7 @@
             this.Label_SalesRep.BackColor = System.Drawing.Color.Transparent;
             this.Label_SalesRep.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label_SalesRep.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label_SalesRep.Location = new System.Drawing.Point(955, 33);
+            this.Label_SalesRep.Location = new System.Drawing.Point(1062, 33);
             this.Label_SalesRep.Name = "Label_SalesRep";
             this.Label_SalesRep.Size = new System.Drawing.Size(48, 13);
             this.Label_SalesRep.TabIndex = 115;
@@ -370,7 +400,7 @@
             this.Label_GridCount.AutoSize = true;
             this.Label_GridCount.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label_GridCount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label_GridCount.Location = new System.Drawing.Point(672, 62);
+            this.Label_GridCount.Location = new System.Drawing.Point(782, 57);
             this.Label_GridCount.Name = "Label_GridCount";
             this.Label_GridCount.Size = new System.Drawing.Size(14, 13);
             this.Label_GridCount.TabIndex = 110;
@@ -381,7 +411,7 @@
             this.Label_TotalPOS.AutoSize = true;
             this.Label_TotalPOS.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label_TotalPOS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label_TotalPOS.Location = new System.Drawing.Point(625, 62);
+            this.Label_TotalPOS.Location = new System.Drawing.Point(735, 57);
             this.Label_TotalPOS.Name = "Label_TotalPOS";
             this.Label_TotalPOS.Size = new System.Drawing.Size(46, 13);
             this.Label_TotalPOS.TabIndex = 109;
@@ -394,7 +424,7 @@
             this.Label10.BackColor = System.Drawing.Color.Transparent;
             this.Label10.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label10.Location = new System.Drawing.Point(931, 8);
+            this.Label10.Location = new System.Drawing.Point(1038, 8);
             this.Label10.Name = "Label10";
             this.Label10.Size = new System.Drawing.Size(76, 13);
             this.Label10.TabIndex = 103;
@@ -404,34 +434,99 @@
             // 
             this.DateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DateTimePicker.Checked = false;
-            this.DateTimePicker.Location = new System.Drawing.Point(717, 3);
+            this.DateTimePicker.Location = new System.Drawing.Point(884, 3);
             this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(197, 20);
+            this.DateTimePicker.Size = new System.Drawing.Size(137, 20);
             this.DateTimePicker.TabIndex = 104;
             this.DateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
             this.DateTimePicker.VisibleChanged += new System.EventHandler(this.DateTimePicker_VisibleChanged);
             // 
-            // txt_qnt_def
+            // groupBox1
             // 
-            this.txt_qnt_def.Location = new System.Drawing.Point(320, 57);
-            this.txt_qnt_def.Name = "txt_qnt_def";
-            this.txt_qnt_def.ReadOnly = true;
-            this.txt_qnt_def.Size = new System.Drawing.Size(76, 20);
-            this.txt_qnt_def.TabIndex = 138;
-            this.txt_qnt_def.Text = "0";
-            this.txt_qnt_def.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.lbl_current);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.lbl_settelment);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.lbl_salesrep_count);
+            this.groupBox1.Location = new System.Drawing.Point(529, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox1.Size = new System.Drawing.Size(200, 74);
+            this.groupBox1.TabIndex = 143;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "عدد المناديب";
             // 
-            // label11
+            // button1
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(402, 60);
-            this.label11.Name = "label11";
-            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label11.Size = new System.Drawing.Size(76, 13);
-            this.label11.TabIndex = 137;
-            this.label11.Text = "فرق الكميات:";
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(6, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(55, 22);
+            this.button1.TabIndex = 147;
+            this.button1.Text = "الحالى";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(16, 14);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(48, 13);
+            this.label15.TabIndex = 146;
+            this.label15.Text = "المتبقى";
+            // 
+            // lbl_current
+            // 
+            this.lbl_current.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_current.AutoSize = true;
+            this.lbl_current.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.lbl_current.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lbl_current.Location = new System.Drawing.Point(34, 30);
+            this.lbl_current.Name = "lbl_current";
+            this.lbl_current.Size = new System.Drawing.Size(14, 13);
+            this.lbl_current.TabIndex = 145;
+            this.lbl_current.Text = "0";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.Location = new System.Drawing.Point(81, 14);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(39, 13);
+            this.label13.TabIndex = 144;
+            this.label13.Text = "ثصفية";
+            // 
+            // lbl_settelment
+            // 
+            this.lbl_settelment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_settelment.AutoSize = true;
+            this.lbl_settelment.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.lbl_settelment.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lbl_settelment.Location = new System.Drawing.Point(97, 29);
+            this.lbl_settelment.Name = "lbl_settelment";
+            this.lbl_settelment.Size = new System.Drawing.Size(14, 13);
+            this.lbl_settelment.TabIndex = 143;
+            this.lbl_settelment.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(144, 14);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 13);
+            this.label12.TabIndex = 142;
+            this.label12.Text = "تحميل";
             // 
             // lbl_salesrep_count
             // 
@@ -439,17 +534,17 @@
             this.lbl_salesrep_count.AutoSize = true;
             this.lbl_salesrep_count.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.lbl_salesrep_count.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lbl_salesrep_count.Location = new System.Drawing.Point(517, 32);
+            this.lbl_salesrep_count.Location = new System.Drawing.Point(159, 29);
             this.lbl_salesrep_count.Name = "lbl_salesrep_count";
             this.lbl_salesrep_count.Size = new System.Drawing.Size(14, 13);
-            this.lbl_salesrep_count.TabIndex = 142;
+            this.lbl_salesrep_count.TabIndex = 141;
             this.lbl_salesrep_count.Text = "0";
             // 
             // frm_send_to_sap_fine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 720);
+            this.ClientSize = new System.Drawing.Size(1135, 720);
             this.Controls.Add(this.Panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_send_to_sap_fine";
@@ -458,6 +553,8 @@
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_inventory)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -494,6 +591,13 @@
         internal System.Windows.Forms.Label label8;
         internal System.Windows.Forms.TextBox txt_qnt_def;
         internal System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
+        internal System.Windows.Forms.Label label15;
+        internal System.Windows.Forms.Label lbl_current;
+        internal System.Windows.Forms.Label label13;
+        internal System.Windows.Forms.Label lbl_settelment;
+        internal System.Windows.Forms.Label label12;
         internal System.Windows.Forms.Label lbl_salesrep_count;
     }
 }

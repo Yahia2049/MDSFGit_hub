@@ -121,6 +121,7 @@ namespace MDSF.Forms.Inventory
         }
         private void Fill_cmb_salesrep()
         {
+            this.Cursor = Cursors.WaitCursor;
             try
             {
               
@@ -148,6 +149,22 @@ namespace MDSF.Forms.Inventory
                 //--------------------------------------
                 cmb_salesrep.Enabled = true;
                 lbl_salesrep_count.Text = ds.Tables[0].Rows.Count.ToString();
+                DataSet ds1 = new DataSet();
+
+                ds1 = DataAccessCS.getdata("select distinct p.SALESREP_ID ,(select distinct name from salesman where sales_id =p.SALESREP_ID and branch_code =" + cmb_Region.SelectedValue + " ) SALESREP_NAME " +
+                             "from journey@sales p, ver_ctrl@sales v ,loading_header l " +
+                             "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=0 " +
+                             " and  p.salesrep_id = v.salesrep_id and v.branch_code = " + cmb_Region.SelectedValue + " " +
+                             "and trunc(to_date(p.start_DATE,'dd - mon - yyyy hh: mi:ss AM')) = trunc(to_date('" + DateTimePicker.Value.ToString("dd-MMM-yyyy") + "'))" +
+                             "and l.loading_number not in (select t.loading_number from trac_log_inv t  where t.status='S') order by SALESREP_NAME");
+                
+                DataAccessCS.conn.Close();
+                ds1.Dispose();
+                DataAccessCS.conn.Close();
+                //--------------------------------------
+
+                lbl_current.Text = ds1.Tables[0].Rows.Count.ToString();
+                lbl_settelment.Text = (int.Parse(lbl_salesrep_count.Text) - int.Parse(lbl_current.Text)).ToString();
             }
             catch (Exception ex)
             {
@@ -374,7 +391,7 @@ namespace MDSF.Forms.Inventory
 
         private void cmb_salesrep_SelectionChangeCommitted(object sender, EventArgs e)
         {
-           
+            this.Cursor = Cursors.WaitCursor;
             try
             {
                 SalesRep_Code.Text = cmb_salesrep.SelectedValue.ToString();
@@ -397,8 +414,8 @@ namespace MDSF.Forms.Inventory
             {
                 MessageBox.Show(ex.Message);
             }
-           
 
+            this.Cursor = Cursors.Default;
         }
 
         private void btn_approve_Click(object sender, EventArgs e)
@@ -1587,7 +1604,7 @@ namespace MDSF.Forms.Inventory
                         DataAccessCS.conn.Close();
                         // --Yahia 05-07-2020
                         string item_gift_retail_KA = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.POS_CODE,iis.SALESCALL_ID,iis.vdatu " + " " +
-                            "from  INT_INVENTORY_GIFT_RETAIL_KA_A iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                            "from  INT_INVENTORY_GIFT_RETAIL_KA iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
                             "and iis.LOADING_No= " + max_load + " and iis.branch_code="+cmb_Region.SelectedValue+"";
 
 
@@ -1601,7 +1618,8 @@ namespace MDSF.Forms.Inventory
                             // 'item_txt_details = Nothing
                             // 'price_txt = Nothing
                             // 'incenive_txt = Nothing
-                            string POS_COUNT = " select distinct iis.POS_CODE" + " from  INT_INVENT_SOLD_RETAIL_KA_A iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_NO=" + max_load + " and iis.branch_code=" + cmb_Region.SelectedValue + "";
+                            string POS_COUNT = " select distinct iis.POS_CODE" + " from  int_inventory_sold_retail_ka iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                                "and iis.LOADING_NO=" + max_load + " and iis.category_id=0 and iis.branch_code=" + cmb_Region.SelectedValue + "";
 
 
                             DataSet ds_POS_COUNT = DataAccessCS.getdata(POS_COUNT);
@@ -1767,7 +1785,7 @@ namespace MDSF.Forms.Inventory
                                 // '***************************************************
 
                                string incentive_details_KA = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
-                                    "from int_inventory_ds_ka_inc_all_a " +
+                                    "from INT_INVENTORY_DS_KA_INC_ALL " +
                                     "where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
                                     "and LOADING_NUMBER= " + max_load + " and branch_code ="+cmb_Region.SelectedValue+"";
                               DataSet  ds_incentive_KA = DataAccessCS.getdata(incentive_details_KA);
@@ -1813,8 +1831,8 @@ namespace MDSF.Forms.Inventory
 
 
                         string item_details_retail_KA_WS = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.POS_CODE,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.salescall_id,iis.vdatu " + " " +
-                            "from  int_inventory_sold_ws_ka_A iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'" +
-                            " and iis.LOADING_NO= " + max_load + " and iis.branch_code="+cmb_Region.SelectedValue+"";
+                            "from  INT_INVENTORY_SOLD_WS_KA iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'" +
+                            " and iis.LOADING_NO= " + max_load + " and iis.category_id=0 and iis.branch_code="+cmb_Region.SelectedValue+"";
 
 
                         DataSet ds_item_details_KA_WS = DataAccessCS.getdata(item_details_retail_KA_WS);
@@ -1823,7 +1841,7 @@ namespace MDSF.Forms.Inventory
 
                         // ---Yahia 05-07-2020
                         string item_gift_retail_KA_WS = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.POS_CODE,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.salescall_id,iis.vdatu " + " " +
-                            "from INT_INVENTORY_GIFT_WS_KA_A iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                            "from INT_INVENTORY_GIFT_WS_KA iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
                             "and iis.LOADING_NO= " + max_load + " and iis.branch_code ="+cmb_Region.SelectedValue+"";
 
 
@@ -1839,7 +1857,7 @@ namespace MDSF.Forms.Inventory
                             // 'incenive_txt = Nothing
 
                             string POS_COUNT = " select distinct iis.POS_CODE" + " from  " +
-                                "int_inventory_sold_ws_ka_A iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                                "int_inventory_sold_ws_ka iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
                                 "and iis.LOADING_NO= " + max_load + " and iis.branch_code="+cmb_Region.SelectedValue+"";
 
 
@@ -2016,7 +2034,7 @@ namespace MDSF.Forms.Inventory
                                 // '***************************************************
 
                                string incentive_KA_WS = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
-                                    "from  int_inventory_ws_ka_inc_all_A where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                                    "from  INT_INVENTORY_WS_KA_INC_ALL where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
                                     "and LOADING_NUMBER= " + max_load + " and branch_code="+cmb_Region.SelectedValue+"";
                              DataSet   ds_incentive_KA_WS = DataAccessCS.getdata(incentive_KA_WS);
                                 dv_incentive_KA_WS = new DataView(ds_incentive_KA_WS.Tables[0]);
@@ -2351,6 +2369,7 @@ namespace MDSF.Forms.Inventory
                             string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
+                            salesrep_count();
                             MessageBox.Show("تم ارسال البيع " + "  رقم امر الارتجاع  " + test_res.message3);
                         }
                         else
@@ -2360,6 +2379,7 @@ namespace MDSF.Forms.Inventory
                             string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
+                            salesrep_count();
                             MessageBox.Show("تم ارسال البيع " + " رقم اذن الارتجاع " + test_res.message2 + "  رقم امر الارتجاع  " + test_res.message3);
                         }
                     }
@@ -2369,6 +2389,7 @@ namespace MDSF.Forms.Inventory
                         string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S', 'تم ارسال البيع من قبل' )";
                         DataAccessCS.insert(inv);
                         DataAccessCS.conn.Close();
+                        salesrep_count();
                         MessageBox.Show("تم ارسال البيع من قبل");
                     }
                     else
@@ -2497,12 +2518,13 @@ namespace MDSF.Forms.Inventory
 
                 btn_approve.Visible = false;
 
-
+                this.Cursor = Cursors.Default;
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
+                this.Cursor = Cursors.Default;
             }
             this.Cursor = Cursors.Default;
         }
@@ -2515,6 +2537,65 @@ namespace MDSF.Forms.Inventory
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+        private void salesrep_count()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+                //--------------------------------------
+                DataSet ds = new DataSet();
+
+                ds = DataAccessCS.getdata("select distinct p.SALESREP_ID ,(select distinct name from salesman where sales_id =p.SALESREP_ID and branch_code =" + cmb_Region.SelectedValue + " ) SALESREP_NAME " +
+                             "from journey@sales p, ver_ctrl@sales v ,loading_header l " +
+                             "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=0 " +
+                             " and  p.salesrep_id = v.salesrep_id and v.branch_code = " + cmb_Region.SelectedValue + " " +
+                             "and trunc(to_date(p.start_DATE,'dd - mon - yyyy hh: mi:ss AM')) = trunc(to_date('" + DateTimePicker.Value.ToString("dd-MMM-yyyy") + "')) order by SALESREP_NAME");
+
+
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+                //--------------------------------------
+                cmb_salesrep.Enabled = true;
+                lbl_salesrep_count.Text = ds.Tables[0].Rows.Count.ToString();
+
+
+
+                DataSet ds1 = new DataSet();
+
+                ds1 = DataAccessCS.getdata("select distinct p.SALESREP_ID ,(select distinct name from salesman where sales_id =p.SALESREP_ID and branch_code =" + cmb_Region.SelectedValue + " ) SALESREP_NAME " +
+                             "from journey@sales p, ver_ctrl@sales v ,loading_header l " +
+                             "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=0 " +
+                             " and  p.salesrep_id = v.salesrep_id and v.branch_code = " + cmb_Region.SelectedValue + " " +
+                             "and trunc(to_date(p.start_DATE,'dd - mon - yyyy hh: mi:ss AM')) = trunc(to_date('" + DateTimePicker.Value.ToString("dd-MMM-yyyy") + "'))" +
+                             "and l.loading_number not in (select t.loading_number from trac_log_inv t  where t.status='S') order by SALESREP_NAME");
+
+                cmb_salesrep.DataSource = ds1.Tables[0];
+                cmb_salesrep.DisplayMember = "SALESREP_NAME";
+                cmb_salesrep.ValueMember = "SALESREP_ID";
+                cmb_salesrep.SelectedIndex = -1;
+                cmb_salesrep.Text = "--Choose--";
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+                ds1.Dispose();
+                DataAccessCS.conn.Close();
+                //--------------------------------------
+
+                lbl_current.Text = ds1.Tables[0].Rows.Count.ToString();
+                lbl_settelment.Text = (int.Parse(lbl_salesrep_count.Text) - int.Parse(lbl_current.Text)).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+            //  -------------------------------------------------
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            salesrep_count();
         }
     }
 }
