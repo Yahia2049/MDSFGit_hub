@@ -392,6 +392,11 @@ namespace MDSF.Forms.Master_Data
         {
             try
             {
+                string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
+                DataAccessCS.conn.Close();
+                string journeySeqDec = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue);
+                DataAccessCS.conn.Close();
+
                 if (cmb_Region_source.SelectedValue.ToString() == "1")
                 {
                     string s = " Select nvl(Max(VISIT_SEQ),1) as MaxSeq " + " from ROUTE_POS_ASSIGN@To_Sla_Cai " + " where ROUTE_ID = '" + cmb_route_des.SelectedValue + "'" + " and SALES_TER_ID ='" + cmb_sales_ter_source.SelectedValue + "'";
@@ -433,12 +438,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.insert(c);
                         x = x + 1;
                         DataAccessCS.conn.Close();
-                        //get jouSeq of source
-                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
-                        DataAccessCS.conn.Close();
-                        //get jouSeq of des
-                        string journeySeqDec = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue);
-                        DataAccessCS.conn.Close();
+                        
                         c = " insert into ROUTE_POS_REASSIGN@To_Sla_Cai values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'"  + System.Environment.MachineName + "','" + journeySeqDec + "')";
                         DataAccessCS.insert(c);
                         DataAccessCS.conn.Close();
@@ -490,10 +490,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.insert(c);
                         x = x + 1;
                         DataAccessCS.conn.Close();
-                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
-                        DataAccessCS.conn.Close();
-                        string journeySeqDec = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue);
-                        DataAccessCS.conn.Close();
+                       
                         c = " insert into ROUTE_POS_REASSIGN@To_Sla_Alx values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + journeySeqDec + "')";
                         DataAccessCS.insert(c);
                         DataAccessCS.conn.Close();
@@ -544,10 +541,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.insert(c);
                         x = x + 1;
                         DataAccessCS.conn.Close();
-                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
-                        DataAccessCS.conn.Close();
-                        string journeySeqDec = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue);
-                        DataAccessCS.conn.Close();
+                       
                         c = " insert into ROUTE_POS_REASSIGN@To_Sla_Man values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + journeySeqDec + "')";
                         DataAccessCS.insert(c);
                         DataAccessCS.conn.Close();
@@ -598,10 +592,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.insert(c);
                         x = x + 1;
                         DataAccessCS.conn.Close();
-                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
-                        DataAccessCS.conn.Close();
-                        string journeySeqDec = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue);
-                        DataAccessCS.conn.Close();
+                        
                         c = " insert into ROUTE_POS_REASSIGN@To_Sla_Ism values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + journeySeqDec + "')";
                         DataAccessCS.insert(c);
                         DataAccessCS.conn.Close();
@@ -653,10 +644,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.insert(c);
                         x = x + 1;
                         DataAccessCS.conn.Close();
-                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
-                        DataAccessCS.conn.Close();
-                        string journeySeqDec = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue);
-                        DataAccessCS.conn.Close();
+                       
                         c = " insert into ROUTE_POS_REASSIGN@To_Sla_Ast values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + journeySeqDec + "')";
                         DataAccessCS.insert(c);
                         DataAccessCS.conn.Close();
@@ -708,10 +696,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.insert(c);
                         x = x + 1;
                         DataAccessCS.conn.Close();
-                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
-                        DataAccessCS.conn.Close();
-                        string journeySeqDec = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue);
-                        DataAccessCS.conn.Close();
+                      
                         c = " insert into ROUTE_POS_REASSIGN@To_Sla_Tan values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + journeySeqDec + "')";
                         DataAccessCS.insert(c);
                         DataAccessCS.conn.Close();
@@ -763,10 +748,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.insert(c);
                         x = x + 1;
                         DataAccessCS.conn.Close();
-                        string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
-                        DataAccessCS.conn.Close();
-                        string journeySeqDec = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue);
-                        DataAccessCS.conn.Close();
+                        
                         c = " insert into ROUTE_POS_REASSIGN@To_Sla_Upp values ('" + cmb_salesrep_source.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + cmb_salesrep_des.SelectedValue + "','" + cmb_sales_ter_source.SelectedValue + "','" + dgv_des.Rows[i].Cells["POS_ID"].Value + "','" + dgv_des.Rows[i].Cells["TER_ID"].Value + "','" + cmb_route_source.SelectedValue + "', trunc(sysdate,'dd'),'" + journeySeq + "',0,'" + System.Environment.MachineName + "','" + journeySeqDec + "')";
                         DataAccessCS.insert(c);
                         DataAccessCS.conn.Close();
@@ -1124,9 +1106,10 @@ namespace MDSF.Forms.Master_Data
             {
 
                 DataSet ds = new DataSet();
+                ds = DataAccessCS.getdata("select Substr(pos_code, 1, Instr(pos_code, '_') - 1)  ter_id,Substr(pos_code, Instr(pos_code, '_') + 1) pos_id,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where route_id ="+ cmb_route_source.SelectedValue + " and SALES_TERRITORY_ID = "+ cmb_sales_ter_source.SelectedValue + " and salesrep_id ="+cmb_salesrep_source.SelectedValue);
                 //ds = DataAccessCS.getdata("select POS_CODE,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where route_id=" + cmb_route_source.SelectedValue + "and SALES_TERRITORY_ID=" + cmb_sales_ter_source.SelectedValue + "and salesrep_id=" + cmb_salesrep_source.SelectedValue);
-                ds = DataAccessCS.getdata("select Substr(pos_code, 1, Instr(pos_code, '_') - 1)  ter_id,Substr(pos_code, Instr(pos_code, '_') + 1) pos_id,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where upper(day_name) like  upper((select w.day_name from week_days w where w.day_ar_name like(select Substr(ird.routedays, Instr(ird.routedays, ' ') + 1)from int_route_day ird , routes r where r.active = 1 and r.route_id = ird.route_id and  salesrep_id = " +cmb_salesrep_source.SelectedValue + " and r.SALES_TER_ID = " +cmb_sales_ter_source.SelectedValue+ " and r.route_id ="+ cmb_route_source.SelectedValue + ")))and SALES_TERRITORY_ID =" + cmb_sales_ter_source.SelectedValue + "and salesrep_id ="  +cmb_salesrep_source.SelectedValue );
-               //ds = DataAccessCS.getdata("select Substr(pos_code, 1, Instr(pos_code, '_') - 1)  ter_id,Substr(pos_code, Instr(pos_code, '_') + 1) pos_id,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where route_id=" + cmb_route_source.SelectedValue + "and SALES_TERRITORY_ID=" + cmb_sales_ter_source.SelectedValue + "and salesrep_id=" + cmb_salesrep_source.SelectedValue);
+                //  ds = DataAccessCS.getdata("select Substr(pos_code, 1, Instr(pos_code, '_') - 1)  ter_id,Substr(pos_code, Instr(pos_code, '_') + 1) pos_id,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where upper(day_name) like  upper((select w.day_name from week_days w where w.day_ar_name like(select Substr(ird.routedays, Instr(ird.routedays, ' ') + 1)from int_route_day ird , routes r where r.active = 1 and r.route_id = ird.route_id and  salesrep_id = " +cmb_salesrep_source.SelectedValue + " and r.SALES_TER_ID = " +cmb_sales_ter_source.SelectedValue+ " and r.route_id ="+ cmb_route_source.SelectedValue + ")))and SALES_TERRITORY_ID =" + cmb_sales_ter_source.SelectedValue + "and salesrep_id ="  +cmb_salesrep_source.SelectedValue );
+                //ds = DataAccessCS.getdata("select Substr(pos_code, 1, Instr(pos_code, '_') - 1)  ter_id,Substr(pos_code, Instr(pos_code, '_') + 1) pos_id,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where route_id=" + cmb_route_source.SelectedValue + "and SALES_TERRITORY_ID=" + cmb_sales_ter_source.SelectedValue + "and salesrep_id=" + cmb_salesrep_source.SelectedValue);
                 DataAccessCS.conn.Close();
                 dgv_source.DataSource = ds.Tables[0];
                 dgv_source.AutoResizeColumns();
