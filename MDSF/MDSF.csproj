@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>47</ApplicationRevision>
+    <ApplicationRevision>48</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -205,6 +205,12 @@
     </Compile>
     <Compile Include="Forms\Daily Activity\frm_wrong_date.Designer.cs">
       <DependentUpon>frm_wrong_date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Inventory\frm_send_to_sap_lighter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Inventory\frm_send_to_sap_lighter.Designer.cs">
+      <DependentUpon>frm_send_to_sap_lighter.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Inventory\frm_send_to_sap_all.cs">
       <SubType>Form</SubType>
@@ -407,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Daily Activity\frm_wrong_date.resx">
       <DependentUpon>frm_wrong_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Inventory\frm_send_to_sap_lighter.resx">
+      <DependentUpon>frm_send_to_sap_lighter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory\frm_send_to_sap_all.resx">
       <DependentUpon>frm_send_to_sap_all.cs</DependentUpon>

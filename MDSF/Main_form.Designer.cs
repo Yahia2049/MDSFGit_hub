@@ -151,6 +151,7 @@
             this.aLLSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tobaccoSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lighterSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -1602,7 +1603,7 @@
             this.wrongDateToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.wrongDateToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.wrongDateToolStripMenuItem.Name = "wrongDateToolStripMenuItem";
-            this.wrongDateToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.wrongDateToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.wrongDateToolStripMenuItem.Text = "Wrong Date";
             this.wrongDateToolStripMenuItem.Click += new System.EventHandler(this.wrongDateToolStripMenuItem_Click);
             // 
@@ -1610,8 +1611,9 @@
             // 
             this.iNVENTORYToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aLLSendToSAPToolStripMenuItem,
-            this.fineSendToSAPToolStripMenuItem,
-            this.tobaccoSendToSAPToolStripMenuItem});
+            this.tobaccoSendToSAPToolStripMenuItem,
+            this.lighterSendToSAPToolStripMenuItem,
+            this.fineSendToSAPToolStripMenuItem});
             this.iNVENTORYToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
             this.iNVENTORYToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("iNVENTORYToolStripMenuItem.Image")));
             this.iNVENTORYToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1653,6 +1655,17 @@
             this.tobaccoSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
             this.tobaccoSendToSAPToolStripMenuItem.Text = "Tobacco Send to SAP";
             this.tobaccoSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.tobaccoSendToSAPToolStripMenuItem_Click);
+            // 
+            // lighterSendToSAPToolStripMenuItem
+            // 
+            this.lighterSendToSAPToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.lighterSendToSAPToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lighterSendToSAPToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.lighterSendToSAPToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("lighterSendToSAPToolStripMenuItem.Image")));
+            this.lighterSendToSAPToolStripMenuItem.Name = "lighterSendToSAPToolStripMenuItem";
+            this.lighterSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
+            this.lighterSendToSAPToolStripMenuItem.Text = "Lighter Send to SAP";
+            this.lighterSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.lighterSendToSAPToolStripMenuItem_Click);
             // 
             // Main_form
             // 
@@ -1822,6 +1835,7 @@
         private System.Windows.Forms.ToolStripMenuItem aLLSendToSAPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fineSendToSAPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tobaccoSendToSAPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lighterSendToSAPToolStripMenuItem;
     }
 }
 
