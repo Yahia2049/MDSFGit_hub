@@ -12,6 +12,7 @@ namespace MDSF.Forms.Inventory
 {
     public partial class frm_send_to_sap_all : Form
     {
+      
 
         #region Vairables
         DataView dv_inventory;
@@ -78,6 +79,14 @@ namespace MDSF.Forms.Inventory
         {
             InitializeComponent();
         }
+        string user_id;
+        public frm_send_to_sap_all(string user_id)
+        {
+            InitializeComponent();
+           
+            this.user_id = user_id;
+            
+        }
 
         private void frm_send_to_sap_all_Load(object sender, EventArgs e)
         {
@@ -91,19 +100,117 @@ namespace MDSF.Forms.Inventory
                cmb_salesrep.Enabled = false;
 
                 //--------------------------------------
-                DataSet ds = new DataSet();
-            
-                ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b ,sales_territories t where b.branch_code = t.branch_code and t.sales_ter_id in (" + DataAccessCS.x_sales_ter + ") ");
-                cmb_Region.DataSource = ds.Tables[0];
-                cmb_Region.DisplayMember = "Region";
-                cmb_Region.ValueMember = "branch_code";
-                cmb_Region.SelectedIndex = -1;
-                cmb_Region.Text = "--Choose--";
 
-                ds.Dispose();
+                string check = DataAccessCS.getvalue("select nvl(user_name,0) " +
+                     "from MDSF_USER_SECURITY where user_id =" + user_id + " ");
                 DataAccessCS.conn.Close();
-                //--------------------------------------
+                
 
+                    DataSet ds = new DataSet();
+                if (check.Contains("store1")) 
+                {               
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=1");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else if (check.Contains("store2"))
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=2");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else if (check.Contains("store3"))
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=3");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else if (check.Contains("store4"))
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=4");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else if (check.Contains("store5"))
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=5");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else if (check.Contains("store6"))
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=6");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else if (check.Contains("store7"))
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=7");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b ,sales_territories t where b.branch_code = t.branch_code and t.sales_ter_id in (" + DataAccessCS.x_sales_ter + ") ");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
             }
             catch (Exception ex)
             {
@@ -417,6 +524,9 @@ namespace MDSF.Forms.Inventory
                 dv_max_load = new DataView(ds_max_load.Tables[0]);
                 DataAccessCS.conn.Close();
                 txt_loading_no.Text = dv_max_load[0]["loading_number"].ToString();
+                txt_qnt_def.Text = "0";
+                Inc_Differente.Text = "0";
+              
             }
             catch (Exception ex)
             {

@@ -1313,7 +1313,7 @@ namespace MDSF
                 DataAccessCS.conn.Close();
                 if (check != "0")
                 {
-                    var X_Form = new frm_send_to_sap_all();
+                    var X_Form = new frm_send_to_sap_all(user_id);
                     X_Form.Show();
                     X_Form.MdiParent = this;
                     // X_Form.WindowState = FormWindowState.Maximized;
@@ -1346,7 +1346,7 @@ namespace MDSF
                 DataAccessCS.conn.Close();
                 if (check != "0")
                 {
-                    var X_Form = new frm_send_to_sap_fine();
+                    var X_Form = new frm_send_to_sap_fine(user_id);
                     X_Form.Show();
                     X_Form.MdiParent = this;
                     // X_Form.WindowState = FormWindowState.Maximized;
@@ -1384,7 +1384,7 @@ namespace MDSF
                 DataAccessCS.conn.Close();
                 if (check != "0")
                 {
-                    var X_Form = new frm_send_to_sap_tobacco();
+                    var X_Form = new frm_send_to_sap_tobacco(user_id);
                     X_Form.Show();
                     X_Form.MdiParent = this;
                     // X_Form.WindowState = FormWindowState.Maximized;
