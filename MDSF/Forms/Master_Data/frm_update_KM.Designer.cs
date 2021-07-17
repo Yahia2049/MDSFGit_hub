@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_update_KM));
             this.btn_update_journey = new Telerik.WinControls.UI.RadButton();
             this.rdb_by_salesman = new System.Windows.Forms.RadioButton();
@@ -51,6 +54,7 @@
             this.btn_search = new Telerik.WinControls.UI.RadButton();
             this.rgv_KM = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_km_report = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -100,7 +104,6 @@
             this.btn_update_oil = new Telerik.WinControls.UI.RadButton();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.btn_km_report = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btn_update_journey)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_search)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_KM)).BeginInit();
@@ -126,7 +129,7 @@
             // 
             // 
             // 
-            this.btn_update_journey.RootElement.ControlBounds = new System.Drawing.Rectangle(854, 484, 110, 24);
+            this.btn_update_journey.RootElement.ControlBounds = new System.Drawing.Rectangle(886, 484, 110, 24);
             this.btn_update_journey.Size = new System.Drawing.Size(110, 36);
             this.btn_update_journey.TabIndex = 238;
             this.btn_update_journey.Text = "Update KM";
@@ -329,7 +332,7 @@
             // 
             // 
             // 
-            this.btn_search.RootElement.ControlBounds = new System.Drawing.Rectangle(692, 77, 110, 24);
+            this.btn_search.RootElement.ControlBounds = new System.Drawing.Rectangle(724, 77, 110, 24);
             this.btn_search.Size = new System.Drawing.Size(126, 40);
             this.btn_search.TabIndex = 272;
             this.btn_search.Text = "Search";
@@ -341,9 +344,33 @@
             this.rgv_KM.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rgv_KM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.rgv_KM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.rgv_KM.DefaultCellStyle = dataGridViewCellStyle2;
             this.rgv_KM.Location = new System.Drawing.Point(2, 170);
             this.rgv_KM.Name = "rgv_KM";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rgv_KM.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.rgv_KM.Size = new System.Drawing.Size(994, 299);
             this.rgv_KM.TabIndex = 273;
             this.rgv_KM.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rgv_KM_CellClick);
@@ -378,6 +405,17 @@
             this.panel1.Size = new System.Drawing.Size(972, 99);
             this.panel1.TabIndex = 275;
             this.panel1.Visible = false;
+            // 
+            // btn_km_report
+            // 
+            this.btn_km_report.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_km_report.Location = new System.Drawing.Point(239, 68);
+            this.btn_km_report.Name = "btn_km_report";
+            this.btn_km_report.Size = new System.Drawing.Size(75, 23);
+            this.btn_km_report.TabIndex = 24;
+            this.btn_km_report.Text = "Print Invoice";
+            this.btn_km_report.UseVisualStyleBackColor = true;
+            this.btn_km_report.Click += new System.EventHandler(this.btn_km_report_Click);
             // 
             // label16
             // 
@@ -855,17 +893,6 @@
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // btn_km_report
-            // 
-            this.btn_km_report.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_km_report.Location = new System.Drawing.Point(239, 68);
-            this.btn_km_report.Name = "btn_km_report";
-            this.btn_km_report.Size = new System.Drawing.Size(75, 23);
-            this.btn_km_report.TabIndex = 24;
-            this.btn_km_report.Text = "Print Invoice";
-            this.btn_km_report.UseVisualStyleBackColor = true;
-            this.btn_km_report.Click += new System.EventHandler(this.btn_km_report_Click);
             // 
             // frm_update_KM
             // 
