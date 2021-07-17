@@ -12,6 +12,7 @@ namespace MDSF.Forms.Inventory
 {
     public partial class frm_send_to_sap_all : Form
     {
+      
 
         #region Vairables
         DataView dv_inventory;
@@ -78,6 +79,14 @@ namespace MDSF.Forms.Inventory
         {
             InitializeComponent();
         }
+        string user_id;
+        public frm_send_to_sap_all(string user_id)
+        {
+            InitializeComponent();
+           
+            this.user_id = user_id;
+            
+        }
 
         private void frm_send_to_sap_all_Load(object sender, EventArgs e)
         {
@@ -91,22 +100,121 @@ namespace MDSF.Forms.Inventory
                cmb_salesrep.Enabled = false;
 
                 //--------------------------------------
-                DataSet ds = new DataSet();
-            
-                ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b ,sales_territories t where b.branch_code = t.branch_code and t.sales_ter_id in (" + DataAccessCS.x_sales_ter + ") ");
-                cmb_Region.DataSource = ds.Tables[0];
-                cmb_Region.DisplayMember = "Region";
-                cmb_Region.ValueMember = "branch_code";
-                cmb_Region.SelectedIndex = -1;
-                cmb_Region.Text = "--Choose--";
 
-                ds.Dispose();
+                string check = DataAccessCS.getvalue("select nvl(user_name,0) " +
+                     "from MDSF_USER_SECURITY where user_id =" + user_id + " ");
                 DataAccessCS.conn.Close();
-                //--------------------------------------
+                
 
+                    DataSet ds = new DataSet();
+                if (check.Contains("store1")) 
+                {               
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=1");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else if (check.Contains("store2"))
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=2");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else if (check.Contains("store3"))
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=3");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else if (check.Contains("store4"))
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=4");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else if (check.Contains("store5"))
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=5");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else if (check.Contains("store6"))
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=6");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else if (check.Contains("store7"))
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b where b.branch_code=7");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else
+                {
+                    ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b ,sales_territories t where b.branch_code = t.branch_code and t.sales_ter_id in (" + DataAccessCS.x_sales_ter + ") ");
+                    cmb_Region.DataSource = ds.Tables[0];
+                    cmb_Region.DisplayMember = "Region";
+                    cmb_Region.ValueMember = "branch_code";
+                    cmb_Region.SelectedIndex = -1;
+                    cmb_Region.Text = "--Choose--";
+
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
             }
             catch (Exception ex)
             {
+                DataAccessCS.conn.Close();
                 MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
@@ -168,6 +276,7 @@ namespace MDSF.Forms.Inventory
             }
             catch (Exception ex)
             {
+                DataAccessCS.conn.Close();
                 MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
@@ -259,6 +368,7 @@ namespace MDSF.Forms.Inventory
                     DataAccessCS.insert(inv);
                     DataAccessCS.conn.Close();
                     MessageBox.Show("لا يوجد بيانات");
+                    this.Cursor = Cursors.Default;
                     return;
                 }
                 string m = " select max(ids.LOADING_NO)" + " from INT_INVENTORY_DAILY_SALES ids " + " where ids.salesrep_id = '" + salesrep_id + "' " +
@@ -321,6 +431,7 @@ namespace MDSF.Forms.Inventory
                     catch (Exception ex)
                     {
                         DSR_Txt.Text = "";
+                        DataAccessCS.conn.Close();
                     }
 
                     try
@@ -340,6 +451,7 @@ namespace MDSF.Forms.Inventory
                     }
                     catch (Exception ex)
                     {
+                        DataAccessCS.conn.Close();
                         txt_LoadedQty.Text = "";
                         txt_RemainingQty.Text = "";
                         txt_SoldQty.Text = "";
@@ -363,12 +475,14 @@ namespace MDSF.Forms.Inventory
                    MessageBox.Show("لا يوجد بيانات");
                     dgv_inventory.DataSource = null;
                     Label_GridCount.Text = "0";
+                    this.Cursor = Cursors.Default;
                 }
 
 
             }
             catch (Exception ex)
             {
+                DataAccessCS.conn.Close();
                 MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
@@ -384,7 +498,8 @@ namespace MDSF.Forms.Inventory
             }
             catch (Exception ex)
             {
-              MessageBox.Show(ex.Message);
+                DataAccessCS.conn.Close();
+                MessageBox.Show(ex.Message);
             }
         }
         #endregion
@@ -409,9 +524,13 @@ namespace MDSF.Forms.Inventory
                 dv_max_load = new DataView(ds_max_load.Tables[0]);
                 DataAccessCS.conn.Close();
                 txt_loading_no.Text = dv_max_load[0]["loading_number"].ToString();
+                txt_qnt_def.Text = "0";
+                Inc_Differente.Text = "0";
+              
             }
             catch (Exception ex)
             {
+                DataAccessCS.conn.Close();
                 MessageBox.Show(ex.Message);
             }
 
@@ -2135,6 +2254,7 @@ namespace MDSF.Forms.Inventory
                         }
                         catch (Exception ex)
                         {
+                            DataAccessCS.conn.Close();
                             MessageBox.Show(ex.Message);
                         }
                     }
@@ -2173,6 +2293,7 @@ namespace MDSF.Forms.Inventory
                         }
                         catch (Exception ex)
                         {
+                            DataAccessCS.conn.Close();
                         }
                     }
 
@@ -2212,6 +2333,7 @@ namespace MDSF.Forms.Inventory
                         }
                         catch (Exception ex)
                         {
+                            DataAccessCS.conn.Close();
                         }
                     }
 
@@ -2256,6 +2378,7 @@ namespace MDSF.Forms.Inventory
                         }
                         catch (Exception ex)
                         {
+                            DataAccessCS.conn.Close();
                             MessageBox.Show(ex.Message);
                         }
                     }
@@ -2301,6 +2424,7 @@ namespace MDSF.Forms.Inventory
                             DataAccessCS.conn.Close();
                             MessageBox.Show("لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله  ");
                             // MsgBox("Error Code: MNS10001")
+                            this.Cursor = Cursors.Default;
                             return;
                         }
                     }
@@ -2328,6 +2452,7 @@ namespace MDSF.Forms.Inventory
                             DataAccessCS.insert(inv);
                             MessageBox.Show("لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله  ");
                             // MsgBox("Error Code: MNS10001")
+                            this.Cursor = Cursors.Default;
                             return;
                         }
                     }
@@ -2351,7 +2476,8 @@ namespace MDSF.Forms.Inventory
                         DataAccessCS.insert(inv);
                         txt_qnt_def.Text = (total_HH - total_sla).ToString();
                         MessageBox.Show("لم يتم ارسال جميع البيانات ارج الانظار عشر دقائق حتى تصل البيانات كامله");
-                        DataAccessCS.conn.Close();
+                        salesrep_count();
+                        this.Cursor = Cursors.Default;
                         return;
                     }
 
@@ -2369,8 +2495,9 @@ namespace MDSF.Forms.Inventory
                             string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
-                            salesrep_count();
+                           
                             MessageBox.Show("تم ارسال البيع " + "  رقم امر الارتجاع  " + test_res.message3);
+                            salesrep_count();
                         }
                         else
                         {
@@ -2379,8 +2506,9 @@ namespace MDSF.Forms.Inventory
                             string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
-                            salesrep_count();
+                            
                             MessageBox.Show("تم ارسال البيع " + " رقم اذن الارتجاع " + test_res.message2 + "  رقم امر الارتجاع  " + test_res.message3);
+                            salesrep_count();
                         }
                     }
                     else if (test_res.success == "95")
@@ -2389,8 +2517,10 @@ namespace MDSF.Forms.Inventory
                         string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S', 'تم ارسال البيع من قبل' )";
                         DataAccessCS.insert(inv);
                         DataAccessCS.conn.Close();
-                        salesrep_count();
+                        
                         MessageBox.Show("تم ارسال البيع من قبل");
+                        salesrep_count();
+                        this.Cursor = Cursors.Default;
                     }
                     else
                     {
@@ -2400,6 +2530,7 @@ namespace MDSF.Forms.Inventory
                         DataAccessCS.insert(inv);
                         DataAccessCS.conn.Close();
                         MessageBox.Show("خطأ في ارسال البيع" + test_res.message);
+                        this.Cursor = Cursors.Default;
                     }
 
                     dtSettlementHeader.Clear();
@@ -2522,7 +2653,7 @@ namespace MDSF.Forms.Inventory
             }
             catch (Exception ex)
             {
-
+                DataAccessCS.conn.Close();
                 MessageBox.Show(ex.Message);
                 this.Cursor = Cursors.Default;
             }
@@ -2587,6 +2718,7 @@ namespace MDSF.Forms.Inventory
             }
             catch (Exception ex)
             {
+                DataAccessCS.conn.Close();
                 MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
