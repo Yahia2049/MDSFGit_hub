@@ -149,9 +149,9 @@
             this.wrongDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNVENTORYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aLLSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tobaccoSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lighterSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -1634,17 +1634,6 @@
             this.aLLSendToSAPToolStripMenuItem.Text = "ALL Send to SAP";
             this.aLLSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.aLLSendToSAPToolStripMenuItem_Click);
             // 
-            // fineSendToSAPToolStripMenuItem
-            // 
-            this.fineSendToSAPToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
-            this.fineSendToSAPToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fineSendToSAPToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.fineSendToSAPToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fineSendToSAPToolStripMenuItem.Image")));
-            this.fineSendToSAPToolStripMenuItem.Name = "fineSendToSAPToolStripMenuItem";
-            this.fineSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
-            this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
-            this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
-            // 
             // tobaccoSendToSAPToolStripMenuItem
             // 
             this.tobaccoSendToSAPToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
@@ -1666,6 +1655,17 @@
             this.lighterSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
             this.lighterSendToSAPToolStripMenuItem.Text = "Lighter Send to SAP";
             this.lighterSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.lighterSendToSAPToolStripMenuItem_Click);
+            // 
+            // fineSendToSAPToolStripMenuItem
+            // 
+            this.fineSendToSAPToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.fineSendToSAPToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fineSendToSAPToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.fineSendToSAPToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fineSendToSAPToolStripMenuItem.Image")));
+            this.fineSendToSAPToolStripMenuItem.Name = "fineSendToSAPToolStripMenuItem";
+            this.fineSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
+            this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
+            this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
             // 
             // Main_form
             // 

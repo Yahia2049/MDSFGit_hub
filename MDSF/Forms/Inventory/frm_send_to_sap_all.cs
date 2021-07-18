@@ -1725,7 +1725,7 @@ namespace MDSF.Forms.Inventory
                         // --Yahia 05-07-2020
                         string item_gift_retail_KA = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.POS_CODE,iis.SALESCALL_ID,iis.vdatu " + " " +
                             "from  INT_INVENTORY_GIFT_RETAIL_KA iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
-                            "and iis.LOADING_No= " + max_load + " and iis.branch_code="+cmb_Region.SelectedValue+"";
+                            "and iis.LOADING_No= " + max_load + " and iis.category_id=0  and iis.branch_code=" + cmb_Region.SelectedValue+"";
 
 
                         DataSet ds_item_gift_KA = DataAccessCS.getdata(item_gift_retail_KA);
