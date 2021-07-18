@@ -49,32 +49,28 @@ namespace MDSF.Forms.Reports
         {
 
             this.Cursor = Cursors.WaitCursor;
+
+            ReportParameter[] parameters = new ReportParameter[1];
+            parameters[0] = new ReportParameter("currentDate", xcurrent_date);
+            this.reportViewer1.LocalReport.SetParameters(parameters);
+
             DataSet ds = new DataSet();
-            ds = DataAccessCS.getdata("select * from km_transactions@sales k where  k.salesrep_id = '" + xsalesrep_id + "' and   trunc(to_date(k.fuel_time,'dd-mon-yyyy')) > = to_char(" + xfrom_date + ",'dd-mon-yyyy ')   and trunc(to_date(k.fuel_time,'dd-mon-yyyy '))  <=  to_char(" + xto_date + ",'dd-mon-yyyy ')");
+            ds = DataAccessCS.getdata("select * from km_transactions@sales  where  salesrep_id = '" + xsalesrep_id + "' and trunc(to_date(fuel_time,'dd-mon-yyyy hh:mi:ss AM')) > = to_char(to_date('" + xfrom_date + "','MM/DD/YYYY'),'dd-mon-yyyy')  and trunc(to_date(fuel_time,'dd-mon-yyyy hh:mi:ss AM')) < = to_char(to_date('" + xto_date + "','MM/DD/YYYY'),'dd-mon-yyyy')");
             //  ds = DataAccessCS.getdata("select * from km_transactions@sales k where  k.salesrep_id = '" + xsalesrep_id + "' and   trunc(to_date(k.fuel_time,'dd-mon-yyyy')) > = trunc(to_date(" + xfrom_date + ",'dd-mon-yyyy '))   and trunc(to_date(k.fuel_time,'dd-mon-yyyy '))  <=  trunc(to_date(" + xto_date + ",'dd-mon-yyyy '))");
             DataAccessCS.conn.Close();
             ReportDataSource rds = new ReportDataSource("KM_TRANS", ds.Tables[0]);
-
-
-            reportViewer1.LocalReport.ReportPath = "D:\\Ahmed HaMada Share\\MDSFGit_hub\\MDSF\\Forms\\Reports\\km_print_invoice.rdlc";
-            reportViewer1.LocalReport.DataSources.Clear();
-            reportViewer1.LocalReport.DataSources.Add(rds);
-
-            this.reportViewer1.RefreshReport();
-
             //select van details
             DataSet dsVan = new DataSet();
             dsVan = DataAccessCS.getdata("select * from INT_KM_TRANSACTION_SALESREP  where trunc(JOURNEY_DATE)  between to_date('" + xfrom_date + "','MM/DD/YYYY') and to_date('" + xto_date + "','MM/DD/YYYY') and salesrep_id= '" + xsalesrep_id + "'");
             DataAccessCS.conn.Close();
             ReportDataSource rdsVan = new ReportDataSource("DataSet1", dsVan.Tables[0]);
-
-
             reportViewer1.LocalReport.ReportPath = "D:\\Ahmed HaMada Share\\MDSFGit_hub\\MDSF\\Forms\\Reports\\km_print_invoice.rdlc";
             reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Add(rds);
             reportViewer1.LocalReport.DataSources.Add(rdsVan);
-
+       
             this.reportViewer1.RefreshReport();
-            this.Cursor = Cursors.Default;
+            this.Cursor = Cursors.Default;    
         }
     }
 }
