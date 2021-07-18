@@ -12,16 +12,37 @@ namespace MDSF.Forms.Master_Data
 {
     public partial class frm_pricelist : Form
     {
+        string user_id;
         public frm_pricelist()
         {
             InitializeComponent();
         }
+        public frm_pricelist(string user_id)
+        {
+            InitializeComponent();
+            this.user_id = user_id;
+        }
+
         int indexRow;
         private void frm_pricelist_Load(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
             try
             {
+                //---------------------
+                string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                     "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=10041 ");
+                DataAccessCS.conn.Close();
+                if (check != "0")
+                {
+                    GroupBox10.Enabled = true;
+                }
+                else
+                {
+                    GroupBox10.Enabled = false;
+                }
+                //---------------------
+
                 //ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b ,sales_territories t where b.branch_code = t.branch_code and t.sales_ter_id in (" + DataAccessCS.x_sales_ter + ") ");
                 //--------------------------------------
                 DataSet ds = new DataSet();

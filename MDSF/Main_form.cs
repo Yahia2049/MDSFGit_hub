@@ -1264,7 +1264,7 @@ namespace MDSF
                 DataAccessCS.conn.Close();
                 if (check != "0")
                 {
-                    var X_Form = new frm_pricelist();
+                    var X_Form = new frm_pricelist(user_id);
                     X_Form.Show();
                     X_Form.MdiParent = this;
                     X_Form.WindowState = FormWindowState.Maximized;

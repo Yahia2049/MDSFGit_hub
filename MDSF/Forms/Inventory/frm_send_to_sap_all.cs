@@ -14,6 +14,7 @@ namespace MDSF.Forms.Inventory
     {
       
 
+
         #region Vairables
         DataView dv_inventory;
         // Dim dv_Combo_SalesTer As DataView
@@ -2414,7 +2415,9 @@ namespace MDSF.Forms.Inventory
                         }
 
                         Inc_Differente.Text = "0";
-                        if (INCENTIVE_TEST != dt_inc)
+                        decimal x = INCENTIVE_TEST - dt_inc;
+                        //if (INCENTIVE_TEST != dt_inc)
+                            if (x < -0.5M && x > 0.5M)
                         {
                             Inc_Differente.Text = (INCENTIVE_TEST - dt_inc).ToString();
 
