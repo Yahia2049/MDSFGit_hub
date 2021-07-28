@@ -235,7 +235,7 @@ namespace MDSF.Forms.Inventory
                 //              "where p.salesrep_id = v.salesrep_id and v.branch_code = "+cmb_Region.SelectedValue+" " +
                 //              "and trunc(to_date(p.start_DATE,'dd - mon - yyyy hh: mi:ss AM')) = trunc(to_date('"+DateTimePicker.Value.ToString("dd-MMM-yyyy")+"')) order by SALESREP_NAME");
 
-                ds = DataAccessCS.getdata("select distinct p.SALESREP_ID ,(select distinct name from salesman where sales_id =p.SALESREP_ID and v.branch_code =" + cmb_Region.SelectedValue + " ) SALESREP_NAME " +
+                ds = DataAccessCS.getdata("select distinct p.SALESREP_ID ,(select distinct name from salesman where sales_id =p.SALESREP_ID and branch_code =" + cmb_Region.SelectedValue + " ) SALESREP_NAME " +
                               "from journey@sales p, ver_ctrl@sales v ,loading_header l " +
                               "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=5 " +
                               " and  p.salesrep_id = v.salesrep_id and v.branch_code = " + cmb_Region.SelectedValue + " " +
@@ -344,9 +344,10 @@ namespace MDSF.Forms.Inventory
                     btn_approve.Visible = false;
 
                 salesrep_id = "AM" + cmb_salesrep.SelectedValue.ToString();
-                string check = "  select  * from INT_INVENTORY_DAILY_SALES_F " + " " +
-                    "where salesrep_id = '" + salesrep_id + "' and item_id not in ('33333','33344','33355')" + " and trunc(UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
-               
+                string check = "  select  * from INT_INVENTORY_DAILY_SALES " + " where salesrep_id = '" + salesrep_id + "' " +
+                    "and item_id not in ('33333','33344','33355')" + " and category_id= 5" +
+                    "and trunc(UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
+
 
                 DataSet ds_check = DataAccessCS.getdata(check);
                 dv_check = new DataView(ds_check.Tables[0]);
@@ -361,21 +362,25 @@ namespace MDSF.Forms.Inventory
                     MessageBox.Show("لا يوجد بيانات");
                     return;
                 }
-                string m = " select max(ids.LOADING_NO)" + " from INT_INVENTORY_DAILY_SALES_F ids " + " where ids.salesrep_id = '" + salesrep_id + "' and item_id not in ('33333','33344','33355')" + " and trunc(ids.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
+                string m = " select max(ids.LOADING_NO)" + " from INT_INVENTORY_DAILY_SALES ids " + " where ids.salesrep_id = '" + salesrep_id + "' " +
+                    "and item_id not in ('33333','33344','33355') and  ids.category_id=5  and trunc(ids.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
                 DataSet ds_max_load = DataAccessCS.getdata(m);
                 dv_max_load = new DataView(ds_max_load.Tables[0]);
                 DataAccessCS.conn.Close();
                 max_load = Convert.ToDouble( dv_max_load[0][0]);
 
                 string c;
-                string get_max = " select max(ids.trans_id)" + " from INT_INVENTORY_DAILY_SALES_F ids " + " where ids.salesrep_id = '" + salesrep_id + "' and item_id not in ('33333','33344','33355') and  ids.LOADING_NO =" + max_load + "  " + " and trunc(ids.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
+                string get_max = " select max(ids.trans_id)" + " from INT_INVENTORY_DAILY_SALES ids " + " where ids.salesrep_id = '" + salesrep_id + "' and ids.category_id= 5" +
+                 " and item_id not in ('33333','33344','33355') and  ids.LOADING_NO =" + max_load + "  " + " and trunc(ids.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
 
 
                 DataSet ds_max = DataAccessCS.getdata(get_max);
                 dv_max = new DataView(ds_max.Tables[0]);
                 DataAccessCS.conn.Close();
                 max_trans =Convert.ToInt32 (dv_max[0][0]);
-                c = " select distinct ds.unload_date,ds.LOADING_NO,ds.ITEM_ID,ds.product_aname,ds.LOADED_QTY,ds.REMAINING_QTY,ds.SOLD_QTY,ds.JOURNEY_SEQUENCE " + " from  INT_INVENTORY_DAILY_SALES_F ds " + " where ds.salesrep_id=  '" + salesrep_id + "' and item_id not in ('33333','33344','33355')" + " and ds.LOADING_NO=" + max_load + " and ds.trans_id= '" + max_trans + "'  and trunc(ds.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
+                c = " select distinct ds.unload_date,ds.LOADING_NO,ds.ITEM_ID,ds.product_aname,ds.LOADED_QTY,ds.REMAINING_QTY,ds.SOLD_QTY,ds.JOURNEY_SEQUENCE " + " from  INT_INVENTORY_DAILY_SALES ds " + " where ds.salesrep_id=  '" + salesrep_id + "' " +
+                   "and ds.category_id= 5 and item_id not in ('33333','33344','33355')" + " and ds.LOADING_NO=" + max_load + " and ds.trans_id= '" + max_trans + "'  and trunc(ds.UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
+
 
 
                 DataSet ds = DataAccessCS.getdata(c);
@@ -409,7 +414,8 @@ namespace MDSF.Forms.Inventory
 
                     try
                     {
-                        string SumLoaded = "  select  sum(d.loaded_qty) loaded,sum(d.remaining_qty) remaining,sum(d.sold_qty) sold from INT_INVENTORY_DAILY_SALES_F d" + " where d.trans_id= '" + max_trans + "'  and d.salesrep_id = '" + salesrep_id + "' and d.LOADING_NO= '" + loading_no_c + "' " + " AND d.item_id not in (33333,33355,33344) ";
+                        string SumLoaded = "  select  sum(d.loaded_qty) loaded,sum(d.remaining_qty) remaining,sum(d.sold_qty) sold from INT_INVENTORY_DAILY_SALES d" + " where d.trans_id= '" + max_trans + "'  and d.salesrep_id = '" + salesrep_id + "' " +
+                          " and d.category_id= 5 and d.LOADING_NO= '" + loading_no_c + "' " + " AND d.item_id not in (33333,33355,33344) ";
 
                         DataSet DS_SumLoaded = DataAccessCS.getdata(SumLoaded);
                         DV_SumLoaded = new DataView(DS_SumLoaded.Tables[0]);
@@ -511,8 +517,8 @@ namespace MDSF.Forms.Inventory
                 dt_inc = 0;
 
                 string c_txt_item = " select distinct ITEM_ID,REMAINING_QTY,UOM,LINE_NUMBER,LOADING_NO,trunc(vdatu,'dd') as vdatu  " +
-                    "from INT_INVENTORY_DAILY_SALES_F ds  where  ds.salesrep_id=  '" + salesrep_id + "' " + " and " +
-                    "ds.trans_id= '" + max_trans + "' and trunc(UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') and ITEM_ID not in ('33333','33344','33355') and  ds.LOADING_NO= " + max_load + "";
+                     "from INT_INVENTORY_DAILY_SALES ds  where  ds.salesrep_id=  '" + salesrep_id + "' " + " and " +
+                     "ds.trans_id= '" + max_trans + "' and ds.category_id= 5 and trunc(UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') and ITEM_ID not in ('33333','33344','33355') and  ds.LOADING_NO= " + max_load + "";
                 DataSet ds_txt_item = DataAccessCS.getdata(c_txt_item);
                 dv_txt_total = new DataView(ds_txt_item.Tables[0]);
                 DataAccessCS.conn.Close();
@@ -1480,9 +1486,10 @@ namespace MDSF.Forms.Inventory
                         }
 
                         string item_details_retail = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM," +
-                            "iis.LINE_NUMBER,iis.ITEM_PRICE,iis.vdatu " + " from  INT_INVENTORY_SOLD_RETAIL_F iis " + "" +
-                            " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'" +
-                            "  and iis.LOADING_no= " + max_load + " and branch_code = "+cmb_Region.SelectedValue+"";
+                            "iis.LINE_NUMBER,iis.ITEM_PRICE,iis.vdatu " + " from  INT_INVENTORY_SOLD_RETAIL iis " + "" +
+                            " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " " +
+                            " and iis.category_id=5 and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
+                            "and iis.LOADING_no= " + max_load + " and iis.branch_code =" + cmb_Region.SelectedValue + ""; ;
 
 
                         DataSet ds_item_details = DataAccessCS.getdata(item_details_retail);
@@ -1491,7 +1498,9 @@ namespace MDSF.Forms.Inventory
 
                         // Yahia 05-07-2018 To Add Gift of All product
                         string item_gift_retail = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE ,iis.vdatu " + " " +
-                            "from  INT_INVENTORY_GIFT_RETAIL_F iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_No= " + max_load + "";
+                            "from  INT_INVENTORY_GIFT_RETAIL  iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " " +
+                            "and iis.category_id =5 and iis.branch_code=" + cmb_Region.SelectedValue + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] +
+                            "' and iis.LOADING_No= " + max_load + "";
 
 
                         DataSet ds_gift_details = DataAccessCS.getdata(item_gift_retail);
@@ -1641,8 +1650,9 @@ namespace MDSF.Forms.Inventory
                             // ' TO ADD FIX Mix and Grad incentive 
                             // '***************************************************
 
-                           string incentive_details = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED " +
-                                "from int_inventory_retail_inc_F_all where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and  LOADING_NUMBER= " + max_load + "";
+                            string incentive_details = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED " +
+                                 "from INT_INVENTORY_RETAIL_INC_ALL where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                                 "and branch_code=" + cmb_Region.SelectedValue + " and  LOADING_NUMBER= " + max_load + "";
                            DataSet ds_incentive = DataAccessCS.getdata(incentive_details);
                             dv_incentive_Retail = new DataView(ds_incentive.Tables[0]);
                             DataAccessCS.conn.Close();
@@ -1673,8 +1683,9 @@ namespace MDSF.Forms.Inventory
                         // '*************************************************************************
 
                         string item_details_retail_KA = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.POS_CODE,iis.SALESCALL_ID,iis.vdatu" + " " +
-                            "from  INT_INVENTORY_SOLD_RETAIL_KA_F iis " + " " +
-                            "where    iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  and iis.LOADING_NO= " + max_load + "";
+                            "from  int_inventory_sold_retail_ka iis " + " " +
+                            "where    iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                            " and iis.LOADING_NO= " + max_load + " and iis.category_id=5 and iis.branch_code=" + cmb_Region.SelectedValue + ""; ;
 
 
                         DataSet ds_item_details_KA = DataAccessCS.getdata(item_details_retail_KA);
@@ -1682,7 +1693,8 @@ namespace MDSF.Forms.Inventory
                         DataAccessCS.conn.Close();
                         // --Yahia 05-07-2020
                         string item_gift_retail_KA = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.POS_CODE,iis.SALESCALL_ID,iis.vdatu " + " " +
-                            "from  INT_INVENTORY_GIFT_RETAIL_KA_F  iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_No= " + max_load + "";
+                            "from  INT_INVENTORY_GIFT_RETAIL_KA iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                            "and iis.LOADING_No= " + max_load + " and iis.category_id=0  and iis.branch_code=" + cmb_Region.SelectedValue + "";
 
 
                         DataSet ds_item_gift_KA = DataAccessCS.getdata(item_gift_retail_KA);
@@ -1695,7 +1707,7 @@ namespace MDSF.Forms.Inventory
                             // 'item_txt_details = Nothing
                             // 'price_txt = Nothing
                             // 'incenive_txt = Nothing
-                            string POS_COUNT = " select distinct iis.POS_CODE" + " from  INT_INVENTORY_SOLD_RETAIL_KA_F iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_NO=" + max_load + "";
+                            string POS_COUNT = " select distinct iis.POS_CODE" + " from  INT_INVENTORY_SOLD_RETAIL_KA iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_NO=" + max_load + "";
 
 
                             DataSet ds_POS_COUNT = DataAccessCS.getdata(POS_COUNT);
@@ -1824,46 +1836,47 @@ namespace MDSF.Forms.Inventory
 
                                 // ' to collect conditions(incentive)
                                 // 'to collect incentive
-                                string incentive_details_KA = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
-                                    "from INT_INVENTORY_DS_KA_INCENTIVE@TO_SLA_ISM where CATEGORY_ID=5 and  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  and LOADING_NUMBER= " + max_load + "";
-                                DataSet ds_incentive_KA = DataAccessCS.getdata(incentive_details_KA);
-                                dv_incentive_Retail_KA = new DataView(ds_incentive_KA.Tables[0]);
-                                dv_incentive_Retail_KA.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
-                                DataAccessCS.conn.Close();
-                                for (int co = 0, loopTo8 = dv_incentive_Retail_KA.Count - 1; co <= loopTo8; co++)
-                                {
-                                    DataRow drConditions;
-                                    drConditions = dtConditions.NewRow();
-                                    drConditions["line_no"] = dv_incentive_Retail_KA[co]["LINE_NUMBER"];
-                                    drConditions["Type"] = dv_incentive_Retail_KA[co]["INCENTIVE_TYPE_ID"];
-                                    drConditions["Value"] = dv_incentive_Retail_KA[co]["INCENTIVE_PAYED"];
-                                    drConditions["EGP"] = "EGP";
-                                    drConditions["Customer_id"] = dv_POS_COUNT[count]["POS_CODE"];
-                                    if (dtConditions.Rows.Count == 0)
-                                    {
-                                        dtConditions.Rows.InsertAt(drConditions, 0);
-                                    }
-                                    else
-                                    {
-                                        dtConditions.Rows.InsertAt(drConditions, dtConditions.Rows.Count - 1);
-                                    }
+                                //string incentive_details_KA = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
+                                //    "from INT_INVENTORY_DS_KA_INCENTIVE@TO_SLA_ISM where CATEGORY_ID=5 and  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  and LOADING_NUMBER= " + max_load + "";
+                                //DataSet ds_incentive_KA = DataAccessCS.getdata(incentive_details_KA);
+                                //dv_incentive_Retail_KA = new DataView(ds_incentive_KA.Tables[0]);
+                                //dv_incentive_Retail_KA.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
+                                //DataAccessCS.conn.Close();
+                                //for (int co = 0, loopTo8 = dv_incentive_Retail_KA.Count - 1; co <= loopTo8; co++)
+                                //{
+                                //    DataRow drConditions;
+                                //    drConditions = dtConditions.NewRow();
+                                //    drConditions["line_no"] = dv_incentive_Retail_KA[co]["LINE_NUMBER"];
+                                //    drConditions["Type"] = dv_incentive_Retail_KA[co]["INCENTIVE_TYPE_ID"];
+                                //    drConditions["Value"] = dv_incentive_Retail_KA[co]["INCENTIVE_PAYED"];
+                                //    drConditions["EGP"] = "EGP";
+                                //    drConditions["Customer_id"] = dv_POS_COUNT[count]["POS_CODE"];
+                                //    if (dtConditions.Rows.Count == 0)
+                                //    {
+                                //        dtConditions.Rows.InsertAt(drConditions, 0);
+                                //    }
+                                //    else
+                                //    {
+                                //        dtConditions.Rows.InsertAt(drConditions, dtConditions.Rows.Count - 1);
+                                //    }
 
-                                    dtConditions.AcceptChanges();
-                                    // If incenive_txt Is Nothing Then
-                                    // incenive_txt = "$%" & dv_incentive_Retail_KA(co)("LINE_NUMBER") & "%" & dv_incentive_Retail_KA(co)("INCENTIVE_TYPE_ID") & "%" & dv_incentive_Retail_KA(co)("INCENTIVE_PAYED") & "%EGP%"
-                                    // Else
-                                    // incenive_txt = incenive_txt + "$%" & dv_incentive_Retail_KA(co)("LINE_NUMBER") & "%" & dv_incentive_Retail_KA(co)("INCENTIVE_TYPE_ID") & "%" & dv_incentive_Retail_KA(co)("INCENTIVE_PAYED") & "%EGP%"
-                                    // End If
-                                }
+                                //    dtConditions.AcceptChanges();
+                                //    // If incenive_txt Is Nothing Then
+                                //    // incenive_txt = "$%" & dv_incentive_Retail_KA(co)("LINE_NUMBER") & "%" & dv_incentive_Retail_KA(co)("INCENTIVE_TYPE_ID") & "%" & dv_incentive_Retail_KA(co)("INCENTIVE_PAYED") & "%EGP%"
+                                //    // Else
+                                //    // incenive_txt = incenive_txt + "$%" & dv_incentive_Retail_KA(co)("LINE_NUMBER") & "%" & dv_incentive_Retail_KA(co)("INCENTIVE_TYPE_ID") & "%" & dv_incentive_Retail_KA(co)("INCENTIVE_PAYED") & "%EGP%"
+                                //    // End If
+                                //}
 
                                 // '***************************************************
                                 // ' TO ADD FIX Mix and Grad incentive 
                                 // '***************************************************
 
-                                incentive_details_KA = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
-                                    "from int_inventory_ds_ka_inc_all_F " +
-                                    "where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  and LOADING_NUMBER= " + max_load + "";
-                                ds_incentive_KA = DataAccessCS.getdata(incentive_details_KA);
+                                string incentive_details_KA = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
+                                     "from INT_INVENTORY_DS_KA_INC_ALL " +
+                                     "where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
+                                     "and LOADING_NUMBER= " + max_load + " and branch_code =" + cmb_Region.SelectedValue + "";
+                                DataSet ds_incentive_KA = DataAccessCS.getdata(incentive_details_KA);
                                 dv_incentive_Retail_KA = new DataView(ds_incentive_KA.Tables[0]);
                                 dv_incentive_Retail_KA.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
                                 DataAccessCS.conn.Close();
@@ -1906,8 +1919,8 @@ namespace MDSF.Forms.Inventory
 
 
                         string item_details_retail_KA_WS = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.POS_CODE,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.salescall_id,iis.vdatu " + " " +
-                            "from  int_inventory_sold_ws_ka_F iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_NO= " + max_load + "";
-
+                              "from  INT_INVENTORY_SOLD_WS_KA iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'" +
+                              " and iis.LOADING_NO= " + max_load + " and iis.category_id=5 and iis.branch_code=" + cmb_Region.SelectedValue + "";
 
                         DataSet ds_item_details_KA_WS = DataAccessCS.getdata(item_details_retail_KA_WS);
                         dv_item_details_KA_WS = new DataView(ds_item_details_KA_WS.Tables[0]);
@@ -1915,7 +1928,8 @@ namespace MDSF.Forms.Inventory
 
                         // ---Yahia 05-07-2020
                         string item_gift_retail_KA_WS = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.POS_CODE,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.salescall_id,iis.vdatu " + " " +
-                            "from INT_INVENTORY_GIFT_WS_KA_F iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_NO= " + max_load + "";
+                             "from INT_INVENTORY_GIFT_WS_KA iis " + " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                             "and iis.LOADING_NO= " + max_load + " and iis.branch_code =" + cmb_Region.SelectedValue + "";
 
 
                         DataSet ds_gift_details_KA_WS = DataAccessCS.getdata(item_gift_retail_KA_WS);
@@ -1930,8 +1944,8 @@ namespace MDSF.Forms.Inventory
                             // 'incenive_txt = Nothing
 
                             string POS_COUNT = " select distinct iis.POS_CODE" + " from  " +
-                                "int_inventory_sold_ws_ka_F iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and iis.LOADING_NO= " + max_load + "";
-
+                                "int_inventory_sold_ws_ka iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                                "and iis.LOADING_NO= " + max_load + " and iis.branch_code=" + cmb_Region.SelectedValue + "";
 
                             DataSet ds_POS_COUNT = DataAccessCS.getdata(POS_COUNT);
                             DataView dv_POS_COUNT;
@@ -2065,38 +2079,38 @@ namespace MDSF.Forms.Inventory
                                 // --End Yahia 05-07-2020
                                 // ' to collect conditions(incentive)
                                 // 'to collect incentive
-                                string incentive_KA_WS = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE from " +
-                                    "INT_INVENTORY_WS_KA_INCENTIVE@TO_SLA_ISM where JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and LOADING_NUMBER= " + max_load + " ";
-                                DataSet ds_incentive_KA_WS = DataAccessCS.getdata(incentive_KA_WS);
-                                dv_incentive_KA_WS = new DataView(ds_incentive_KA_WS.Tables[0]);
-                                dv_incentive_KA_WS.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
-                                DataAccessCS.conn.Close();
-                                for (int co = 0, loopTo13 = dv_incentive_KA_WS.Count - 1; co <= loopTo13; co++)
-                                {
-                                    DataRow drConditions;
-                                    drConditions = dtConditions.NewRow();
-                                    drConditions["line_no"] = dv_incentive_KA_WS[co]["LINE_NUMBER"];
-                                    drConditions["Type"] = dv_incentive_KA_WS[co]["INCENTIVE_TYPE_ID"];
-                                    drConditions["Value"] = dv_incentive_KA_WS[co]["INCENTIVE_PAYED"];
-                                    drConditions["EGP"] = "EGP";
-                                    drConditions["Customer_id"] = dv_POS_COUNT[count]["POS_CODE"];
-                                    if (dtConditions.Rows.Count == 0)
-                                    {
-                                        dtConditions.Rows.InsertAt(drConditions, 0);
-                                    }
-                                    else
-                                    {
-                                        dtConditions.Rows.InsertAt(drConditions, dtConditions.Rows.Count - 1);
-                                    }
+                                //string incentive_KA_WS = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE from " +
+                                //    "INT_INVENTORY_WS_KA_INCENTIVE@TO_SLA_ISM where JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and LOADING_NUMBER= " + max_load + " ";
+                                //DataSet ds_incentive_KA_WS = DataAccessCS.getdata(incentive_KA_WS);
+                                //dv_incentive_KA_WS = new DataView(ds_incentive_KA_WS.Tables[0]);
+                                //dv_incentive_KA_WS.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
+                                //DataAccessCS.conn.Close();
+                                //for (int co = 0, loopTo13 = dv_incentive_KA_WS.Count - 1; co <= loopTo13; co++)
+                                //{
+                                //    DataRow drConditions;
+                                //    drConditions = dtConditions.NewRow();
+                                //    drConditions["line_no"] = dv_incentive_KA_WS[co]["LINE_NUMBER"];
+                                //    drConditions["Type"] = dv_incentive_KA_WS[co]["INCENTIVE_TYPE_ID"];
+                                //    drConditions["Value"] = dv_incentive_KA_WS[co]["INCENTIVE_PAYED"];
+                                //    drConditions["EGP"] = "EGP";
+                                //    drConditions["Customer_id"] = dv_POS_COUNT[count]["POS_CODE"];
+                                //    if (dtConditions.Rows.Count == 0)
+                                //    {
+                                //        dtConditions.Rows.InsertAt(drConditions, 0);
+                                //    }
+                                //    else
+                                //    {
+                                //        dtConditions.Rows.InsertAt(drConditions, dtConditions.Rows.Count - 1);
+                                //    }
 
-                                    dtConditions.AcceptChanges();
+                                //    dtConditions.AcceptChanges();
 
-                                    // If incenive_txt Is Nothing Then
-                                    // incenive_txt = "$%" & dv_incentive_KA_WS(co)("LINE_NUMBER") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_TYPE_ID") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_PAYED") & "%EGP%"
-                                    // Else
-                                    // incenive_txt = incenive_txt + "$%" & dv_incentive_KA_WS(co)("LINE_NUMBER") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_TYPE_ID") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_PAYED") & "%EGP%"
-                                    // End If
-                                }
+                                //    // If incenive_txt Is Nothing Then
+                                //    // incenive_txt = "$%" & dv_incentive_KA_WS(co)("LINE_NUMBER") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_TYPE_ID") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_PAYED") & "%EGP%"
+                                //    // Else
+                                //    // incenive_txt = incenive_txt + "$%" & dv_incentive_KA_WS(co)("LINE_NUMBER") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_TYPE_ID") & "%" & dv_incentive_KA_WS(co)("INCENTIVE_PAYED") & "%EGP%"
+                                //    // End If
+                                //}
 
 
 
@@ -2105,9 +2119,10 @@ namespace MDSF.Forms.Inventory
                                 // ' TO ADD FIX Mix and Grad incentive 
                                 // '***************************************************
 
-                                incentive_KA_WS = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
-                                    "from  int_inventory_ws_ka_inc_all_A@TO_SLA_ISM  where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' and LOADING_NUMBER= " + max_load + " ";
-                                ds_incentive_KA_WS = DataAccessCS.getdata(incentive_KA_WS);
+                                string incentive_KA_WS = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
+                                      "from  INT_INVENTORY_WS_KA_INC_ALL where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                                      "and LOADING_NUMBER= " + max_load + " and branch_code=" + cmb_Region.SelectedValue + "";
+                                DataSet  ds_incentive_KA_WS = DataAccessCS.getdata(incentive_KA_WS);
                                 dv_incentive_KA_WS = new DataView(ds_incentive_KA_WS.Tables[0]);
                                 dv_incentive_KA_WS.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
                                 DataAccessCS.conn.Close();

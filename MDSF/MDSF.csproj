@@ -200,6 +200,12 @@
     <Compile Include="Forms\Android Support\frm_android_support.Designer.cs">
       <DependentUpon>frm_android_support.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Daily Activity\frm_loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Daily Activity\frm_loading.Designer.cs">
+      <DependentUpon>frm_loading.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Daily Activity\frm_wrong_date.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -410,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Android Support\frm_android_support.resx">
       <DependentUpon>frm_android_support.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Daily Activity\frm_loading.resx">
+      <DependentUpon>frm_loading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Daily Activity\frm_wrong_date.resx">
       <DependentUpon>frm_wrong_date.cs</DependentUpon>
