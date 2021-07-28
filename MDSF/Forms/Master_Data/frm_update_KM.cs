@@ -781,7 +781,7 @@ namespace MDSF.Forms.Master_Data
                 DataAccessCS.conn.Close();
                 string CurrentDate = DataAccessCS.getvalue("SELECT TO_CHAR(SYSDATE, 'MM-DD-YYYY ') NOW FROM DUAL");
                 DataAccessCS.conn.Close();
-                var X_Form = new frm_print_invoice_km(cmb_Region_salesman.SelectedValue.ToString(), cmb_sales_ter_Salesman.SelectedValue.ToString(), cmb_salesrep_salesman.SelectedValue.ToString(), from_date, to_date, cmb_salesrep_salesman.Text, vanId, plate_number, CurrentDate);
+                var X_Form = new frm_print_invoice_km(cmb_Region_salesman.SelectedValue.ToString(), cmb_sales_ter_Salesman.Text, cmb_salesrep_salesman.SelectedValue.ToString(), from_date, to_date, cmb_salesrep_salesman.Text, vanId, plate_number, CurrentDate);
                 X_Form.Show();
                 //X_Form.MdiParent = Main_form;
                 X_Form.WindowState = FormWindowState.Maximized;

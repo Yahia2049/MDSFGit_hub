@@ -48,11 +48,18 @@ namespace MDSF.Forms.Reports
         private void frm_print_invoice_km_Load(object sender, EventArgs e)
         {
 
-            this.Cursor = Cursors.WaitCursor;
+            //this.Cursor = Cursors.WaitCursor;
+            //ReportParameter[] p = new ReportParameter[1];
+            //p[0] = new ReportParameter("@salesTer", "cairo");
+            //this.reportViewer1.LocalReport.SetParameters(p);
 
-            ReportParameter[] parameters = new ReportParameter[1];
-            parameters[0] = new ReportParameter("currentDate", xcurrent_date);
-            this.reportViewer1.LocalReport.SetParameters(parameters);
+            this.reportViewer1.ProcessingMode = ProcessingMode.Local;
+            LocalReport rep = reportViewer1.LocalReport;
+            rep.ReportPath = "D:\\Ahmed HaMada Share\\MDSFGit_hub\\MDSF\\Forms\\Reports\\km_print_invoice.rdlc";
+     
+            ReportParameter p1 = new ReportParameter("salesTer", xsales_ter);
+            this.reportViewer1.LocalReport.SetParameters(p1);
+
 
             DataSet ds = new DataSet();
             ds = DataAccessCS.getdata("select * from km_transactions@sales  where  salesrep_id = '" + xsalesrep_id + "' and trunc(to_date(fuel_time,'dd-mon-yyyy hh:mi:ss AM')) > = to_char(to_date('" + xfrom_date + "','MM/DD/YYYY'),'dd-mon-yyyy')  and trunc(to_date(fuel_time,'dd-mon-yyyy hh:mi:ss AM')) < = to_char(to_date('" + xto_date + "','MM/DD/YYYY'),'dd-mon-yyyy')");
@@ -68,7 +75,7 @@ namespace MDSF.Forms.Reports
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(rds);
             reportViewer1.LocalReport.DataSources.Add(rdsVan);
-       
+            
             this.reportViewer1.RefreshReport();
             this.Cursor = Cursors.Default;    
         }
