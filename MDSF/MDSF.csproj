@@ -182,6 +182,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +313,12 @@
     <Compile Include="Forms\POS\frm_ter_id_Change.Designer.cs">
       <DependentUpon>frm_ter_id_Change.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\frm_oil_report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\frm_oil_report.Designer.cs">
+      <DependentUpon>frm_oil_report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\frm_print_invoice_km.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -394,6 +405,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>mdsf_DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Oil.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Oil.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -465,6 +481,9 @@
     <EmbeddedResource Include="Forms\POS\frm_ter_id_Change.resx">
       <DependentUpon>frm_ter_id_Change.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\frm_oil_report.resx">
+      <DependentUpon>frm_oil_report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\frm_print_invoice_km.resx">
       <DependentUpon>frm_print_invoice_km.cs</DependentUpon>
     </EmbeddedResource>
@@ -482,6 +501,7 @@
       <DependentUpon>frm_report_veiwer_WS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\km_print_invoice.rdlc" />
+    <EmbeddedResource Include="Forms\Reports\Oil_trns_report.rdlc" />
     <EmbeddedResource Include="Forms\Reports\Total_invoices.rdlc" />
     <EmbeddedResource Include="Forms\Reports\WS_invoice.rdlc" />
     <EmbeddedResource Include="Forms\Reports\Rt_invoice.rdlc" />
@@ -564,6 +584,17 @@
     <None Include="DataSet4.xss">
       <DependentUpon>DataSet4.xsd</DependentUpon>
     </None>
+    <None Include="DataSet5.xsc">
+      <DependentUpon>DataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet5.xss">
+      <DependentUpon>DataSet5.xsd</DependentUpon>
+    </None>
     <None Include="mdsf_DataSet.xsc">
       <DependentUpon>mdsf_DataSet.xsd</DependentUpon>
     </None>
@@ -576,6 +607,17 @@
       <DependentUpon>mdsf_DataSet.xsd</DependentUpon>
     </None>
     <None Include="MDSF_TemporaryKey.pfx" />
+    <None Include="Oil.xsc">
+      <DependentUpon>Oil.xsd</DependentUpon>
+    </None>
+    <None Include="Oil.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Oil.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Oil.xss">
+      <DependentUpon>Oil.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MDSF.Forms.Master_Data.frm_update_KM.datasource" />
     <None Include="Properties\Settings.settings">

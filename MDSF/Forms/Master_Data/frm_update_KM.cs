@@ -62,11 +62,7 @@ namespace MDSF.Forms.Master_Data
                 DataAccessCS.conn.Close();
 
                 ds = DataAccessCS.getdata("select  DISTINCT t.type_id,t.type_desc from oil_types t");
-                cmb_oil_type.DataSource = ds.Tables[0];
-                cmb_oil_type.DisplayMember = "type_desc";
-                cmb_oil_type.ValueMember = "type_id";
-                cmb_oil_type.SelectedIndex = -1;
-                cmb_oil_type.Text = "--Choose--";
+              
                 ds.Dispose();
                 DataAccessCS.conn.Close();
 
@@ -466,7 +462,70 @@ namespace MDSF.Forms.Master_Data
 
         private void btn_update_kmt_Click(object sender, EventArgs e)
         {
-           
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+                // String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "" ;
+                string kmedit = "update km_transactions@sales set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + ", fuel_time= '" + rgv_KM.CurrentRow.Cells["fuel_time"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                DataAccessCS.update(kmedit);
+                DataAccessCS.conn.Close();
+
+
+                //----insert into SLA
+                if (cmb_Region_salesman.SelectedValue.ToString() == "1")
+                {
+                    string kmeditSla = "update km_transactions@to_sla_cai  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+
+                if (cmb_Region_salesman.SelectedValue.ToString() == "2")
+                {
+                    string kmeditSla = "update km_transactions@to_sla_alx  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "3")
+                {
+                    string kmeditSla = "update km_transactions@to_sla_man  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "4")
+                {
+                    string kmeditSla = "update km_transactions@To_Sla_Ism  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "5")
+                {
+                    string kmeditSla = "update km_transactions@To_Sla_ast  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "6")
+                {
+                    string kmeditSla = "update km_transactions@To_Sla_tan  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "7")
+                {
+                    string kmeditSla = "update km_transactions@To_Sla_upp  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+
+                MessageBox.Show("تم التعديل بنجاح");
+                Lood();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
         }
 
         private void txt_fuel_values_TextChanged(object sender, EventArgs e)
@@ -503,58 +562,62 @@ namespace MDSF.Forms.Master_Data
             this.Cursor = Cursors.WaitCursor;
             try
             {
-               
-                    // String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "" ;
-                     string kmedit="update km_transactions@sales set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + ", fuel_time= '" + rgv_KM.CurrentRow.Cells["fuel_time"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                    DataAccessCS.update(kmedit);
+                string kmedit = "update Oil_Transactions@sales set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", price='" + rgv_KM.CurrentRow.Cells["PRICE"].Value + "', TRANS_TYPE='" + rgv_KM.CurrentRow.Cells["TRANS_TYPE"].Value + "', TRANS_TIME= '" + rgv_KM.CurrentRow.Cells["TRANS_TIME"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                DataAccessCS.update(kmedit);
+                DataAccessCS.conn.Close();
+
+
+                //----insert into SLA
+                if (cmb_Region_salesman.SelectedValue.ToString() == "1")
+                {
+                    string oilSla = "update Oil_Transactions@to_sla_cai set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", price='" + rgv_KM.CurrentRow.Cells["PRICE"].Value + "', TRANS_TYPE='" + rgv_KM.CurrentRow.Cells["TRANS_TYPE"].Value + "', TRANS_TIME= '" + rgv_KM.CurrentRow.Cells["TRANS_TIME"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString() ;
+                    DataAccessCS.update(oilSla);
                     DataAccessCS.conn.Close();
+                }
 
+                if (cmb_Region_salesman.SelectedValue.ToString() == "2")
+                {
+                    string oilSla = "update Oil_Transactions@to_sla_alx set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", price='" + rgv_KM.CurrentRow.Cells["PRICE"].Value + "', TRANS_TYPE=" + rgv_KM.CurrentRow.Cells["TRANS_TYPE"].Value + ", TRANS_TIME= '" + rgv_KM.CurrentRow.Cells["TRANS_TIME"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(oilSla);
+                   
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "3")
+                {
+                    string oilSla = "update Oil_Transactions@to_sla_man set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", price='" + rgv_KM.CurrentRow.Cells["PRICE"].Value + "', TRANS_TYPE=" + rgv_KM.CurrentRow.Cells["TRANS_TYPE"].Value + ", TRANS_TIME= '" + rgv_KM.CurrentRow.Cells["TRANS_TIME"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(oilSla);
+                  
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "4")
+                {
+                    string oilSla = "update Oil_Transactions@To_Sla_Ism set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", price='" + rgv_KM.CurrentRow.Cells["PRICE"].Value + "', TRANS_TYPE=" + rgv_KM.CurrentRow.Cells["TRANS_TYPE"].Value + ", TRANS_TIME= '" + rgv_KM.CurrentRow.Cells["TRANS_TIME"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(oilSla);
+                    
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "5")
+                {
+                    string oilSla = "update Oil_Transactions@To_Sla_ast set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", price='" + rgv_KM.CurrentRow.Cells["PRICE"].Value + "', TRANS_TYPE=" + rgv_KM.CurrentRow.Cells["TRANS_TYPE"].Value + ", TRANS_TIME= '" + rgv_KM.CurrentRow.Cells["TRANS_TIME"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(oilSla);
+                    
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "6")
+                {
+                    string oilSla = "update Oil_Transactions@To_Sla_tan set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", price='" + rgv_KM.CurrentRow.Cells["PRICE"].Value + "', TRANS_TYPE=" + rgv_KM.CurrentRow.Cells["TRANS_TYPE"].Value + ", TRANS_TIME= '" + rgv_KM.CurrentRow.Cells["TRANS_TIME"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(oilSla);
+                   
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "7")
+                {
+                    string oilSla = "update Oil_Transactions@To_Sla_upp set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", price='" + rgv_KM.CurrentRow.Cells["PRICE"].Value + "', TRANS_TYPE=" + rgv_KM.CurrentRow.Cells["TRANS_TYPE"].Value + ", TRANS_TIME= '" + rgv_KM.CurrentRow.Cells["TRANS_TIME"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.update(oilSla);
+                    
+                    DataAccessCS.conn.Close();
+                }
 
-                    //----insert into SLA
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "1")
-                    {
-                        string kmeditSla = "update km_transactions@to_sla_cai  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.update(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
-
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "2")
-                    {
-                        string kmeditSla = "update km_transactions@to_sla_alx  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.update(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "3")
-                    {
-                        string kmeditSla = "update km_transactions@to_sla_man  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.update(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "4")
-                    {
-                        string kmeditSla = "update km_transactions@To_Sla_Ism  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.update(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "5")
-                    {
-                        string kmeditSla = "update km_transactions@To_Sla_ast  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.update(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "6")
-                    {
-                        string kmeditSla = "update km_transactions@To_Sla_tan  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.update(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "7")
-                    {
-                        string kmeditSla = "update km_transactions@To_Sla_upp  set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.update(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
-               
                 MessageBox.Show("تم التعديل بنجاح");
                 Lood();
             }
@@ -568,7 +631,70 @@ namespace MDSF.Forms.Master_Data
 
         private void btn_remove_kmt_Click(object sender, EventArgs e)
         {
-           
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+                // String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "" ;
+                string kmedel = "delete from km_transactions@sales  where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                DataAccessCS.delete(kmedel);
+                DataAccessCS.conn.Close();
+
+
+                //----insert into SLA
+                if (cmb_Region_salesman.SelectedValue.ToString() == "1")
+                {
+                    string kmeditSla = "delete from km_transactions@to_sla_cai   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.delete(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+
+                if (cmb_Region_salesman.SelectedValue.ToString() == "2")
+                {
+                    string kmeditSla = "delete from  km_transactions@to_sla_alx  where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.delete(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "3")
+                {
+                    string kmeditSla = "delete from km_transactions@to_sla_man   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.delete(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "4")
+                {
+                    string kmeditSla = "delete from km_transactions@To_Sla_Ism   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.delete(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "5")
+                {
+                    string kmeditSla = "delete from km_transactions@To_Sla_ast  where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.delete(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "6")
+                {
+                    string kmeditSla = "delete from  km_transactions@To_Sla_tan   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.delete(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+                if (cmb_Region_salesman.SelectedValue.ToString() == "7")
+                {
+                    string kmeditSla = "delete from km_transactions@To_Sla_upp   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    DataAccessCS.delete(kmeditSla);
+                    DataAccessCS.conn.Close();
+                }
+
+                MessageBox.Show("تم المسح بنجاح");
+                Lood();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
         }
 
         private void btn_remove_oil_Click(object sender, EventArgs e)
@@ -578,55 +704,55 @@ namespace MDSF.Forms.Master_Data
             {
                
                     // String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "" ;
-                    string kmedel = "delete from km_transactions@sales  where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    string kmedel = "delete from oil_transactions@sales  where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
                     DataAccessCS.delete(kmedel);
                     DataAccessCS.conn.Close();
 
 
                     //----insert into SLA
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "1")
-                    {
-                        string kmeditSla = "delete from km_transactions@to_sla_cai   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.delete(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "1")
+                    //{
+                    //    string kmeditSla = "delete from oil_transactions@to_sla_cai   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    //    DataAccessCS.delete(kmeditSla);
+                    //    DataAccessCS.conn.Close();
+                    //}
 
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "2")
-                    {
-                        string kmeditSla = "delete from  km_transactions@to_sla_alx  where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.delete(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "3")
-                    {
-                        string kmeditSla = "delete from km_transactions@to_sla_man   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.delete(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "4")
-                    {
-                        string kmeditSla = "delete from km_transactions@To_Sla_Ism   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.delete(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "5")
-                    {
-                        string kmeditSla = "delete from km_transactions@To_Sla_ast  where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.delete(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "6")
-                    {
-                        string kmeditSla = "delete from  km_transactions@To_Sla_tan   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.delete(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "7")
-                    {
-                        string kmeditSla = "delete from km_transactions@To_Sla_upp   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
-                        DataAccessCS.delete(kmeditSla);
-                        DataAccessCS.conn.Close();
-                    }
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "2")
+                    //{
+                    //    string kmeditSla = "delete from  oil_transactions@to_sla_alx  where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    //    DataAccessCS.delete(kmeditSla);
+                    //    DataAccessCS.conn.Close();
+                    //}
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "3")
+                    //{
+                    //    string kmeditSla = "delete from oil_transactions@to_sla_man   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    //    DataAccessCS.delete(kmeditSla);
+                    //    DataAccessCS.conn.Close();
+                    //}
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "4")
+                    //{
+                    //    string kmeditSla = "delete from oil_transactions@To_Sla_Ism   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    //    DataAccessCS.delete(kmeditSla);
+                    //    DataAccessCS.conn.Close();
+                    //}
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "5")
+                    //{
+                    //    string kmeditSla = "delete from oil_transactions@To_Sla_ast  where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    //    DataAccessCS.delete(kmeditSla);
+                    //    DataAccessCS.conn.Close();
+                    //}
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "6")
+                    //{
+                    //    string kmeditSla = "delete from  oil_transactions@To_Sla_tan   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    //    DataAccessCS.delete(kmeditSla);
+                    //    DataAccessCS.conn.Close();
+                    //}
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "7")
+                    //{
+                    //    string kmeditSla = "delete from oil_transactions@To_Sla_upp   where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and DSR_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                    //    DataAccessCS.delete(kmeditSla);
+                    //    DataAccessCS.conn.Close();
+                    //}
                 
                 MessageBox.Show("تم المسح بنجاح");
                 Lood();
@@ -641,7 +767,69 @@ namespace MDSF.Forms.Master_Data
 
         private void btn_new_invoice_oil_Click(object sender, EventArgs e)
         {
-           
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+                string fuel_date = dtp_fuel_time_oil.Value.ToString("dd-MMM-yyyy");
+                String kmeinsrt = "Insert into oil_transactions@sales ( jou_id,salesrep_id,Van_id,current_km,trans_time,trans_id,price,fuel_time) VALUES (' " + txt_salesrep_id_oil.Text + "','" + txt_jou_id_oil.Text + "','" + txt_van_id_oil.Text + "','" + txt_current_km_oil.Text + "','" + fuel_date + "',' 10 ,'" + txt_price_oil.Text + "','" + cmb_trans_type_oil.SelectedValue + "')";
+                DataAccessCS.insert(kmeinsrt);
+                DataAccessCS.conn.Close();
+
+
+                //----insert into SLA
+                //if (cmb_Region_salesman.SelectedValue.ToString() == "1")
+                //{
+                // kmeinsrt = "Insert into km_transactions@to_sla_cai ( salesrep_id,journey_seq,dsr_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                //DataAccessCS.insert(kmeinsrt);
+                //DataAccessCS.conn.Close();
+                // }
+
+                //if (cmb_Region_salesman.SelectedValue.ToString() == "2")
+                //{
+                // kmeinsrt = "Insert into km_transactions@to_sla_alx ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                //DataAccessCS.insert(kmeinsrt);
+                //DataAccessCS.conn.Close();
+                //}
+                //if (cmb_Region_salesman.SelectedValue.ToString() == "3")
+                //{
+                // kmeinsrt = "Insert into km_transactions@to_sla_man ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                //DataAccessCS.insert(kmeinsrt);
+                //DataAccessCS.conn.Close();
+                //}
+                //if (cmb_Region_salesman.SelectedValue.ToString() == "4")
+                //{
+                // kmeinsrt = "Insert into km_transactions@to_sla_Ism ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                //DataAccessCS.insert(kmeinsrt);
+                //DataAccessCS.conn.Close();
+                //}
+                //if (cmb_Region_salesman.SelectedValue.ToString() == "5")
+                //{
+                // kmeinsrt = "Insert into km_transactions@to_sla_ast ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                //DataAccessCS.insert(kmeinsrt);
+                //DataAccessCS.conn.Close();
+                //}
+                //if (cmb_Region_salesman.SelectedValue.ToString() == "6")
+                //{
+                // kmeinsrt = "Insert into km_transactions@to_sla_tan ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                //DataAccessCS.insert(kmeinsrt);
+                //DataAccessCS.conn.Close();
+                //}
+                //if (cmb_Region_salesman.SelectedValue.ToString() == "7")
+                //{
+                // kmeinsrt = "Insert into km_transactions@To_Sla_upp ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                //DataAccessCS.insert(kmeinsrt);
+                //DataAccessCS.conn.Close();
+                //}
+
+                MessageBox.Show("تمت الاضافة بنجاح");
+                Lood();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
         }
 
         private void btn_save_inv_kmt_Click(object sender, EventArgs e)
@@ -657,49 +845,49 @@ namespace MDSF.Forms.Master_Data
 
 
                     //----insert into SLA
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "1")
-                    {
-                     kmeinsrt = "Insert into km_transactions@to_sla_cai ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
-                    DataAccessCS.insert(kmeinsrt);
-                    DataAccessCS.conn.Close();
-                     }
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "1")
+                    //{
+                    // kmeinsrt = "Insert into km_transactions@to_sla_cai ( salesrep_id,journey_seq,dsr_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                    //DataAccessCS.insert(kmeinsrt);
+                    //DataAccessCS.conn.Close();
+                    // }
 
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "2")
-                    {
-                     kmeinsrt = "Insert into km_transactions@to_sla_alx ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
-                    DataAccessCS.insert(kmeinsrt);
-                    DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "3")
-                    {
-                     kmeinsrt = "Insert into km_transactions@to_sla_man ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
-                    DataAccessCS.insert(kmeinsrt);
-                    DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "4")
-                    {
-                     kmeinsrt = "Insert into km_transactions@to_sla_Ism ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
-                    DataAccessCS.insert(kmeinsrt);
-                    DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "5")
-                    {
-                     kmeinsrt = "Insert into km_transactions@to_sla_ast ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
-                    DataAccessCS.insert(kmeinsrt);
-                    DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "6")
-                    {
-                     kmeinsrt = "Insert into km_transactions@to_sla_tan ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
-                    DataAccessCS.insert(kmeinsrt);
-                    DataAccessCS.conn.Close();
-                    }
-                    if (cmb_Region_salesman.SelectedValue.ToString() == "7")
-                    {
-                     kmeinsrt = "Insert into km_transactions@To_Sla_upp ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
-                    DataAccessCS.insert(kmeinsrt);
-                    DataAccessCS.conn.Close();
-                    }
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "2")
+                    //{
+                    // kmeinsrt = "Insert into km_transactions@to_sla_alx ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                    //DataAccessCS.insert(kmeinsrt);
+                    //DataAccessCS.conn.Close();
+                    //}
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "3")
+                    //{
+                    // kmeinsrt = "Insert into km_transactions@to_sla_man ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                    //DataAccessCS.insert(kmeinsrt);
+                    //DataAccessCS.conn.Close();
+                    //}
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "4")
+                    //{
+                    // kmeinsrt = "Insert into km_transactions@to_sla_Ism ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                    //DataAccessCS.insert(kmeinsrt);
+                    //DataAccessCS.conn.Close();
+                    //}
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "5")
+                    //{
+                    // kmeinsrt = "Insert into km_transactions@to_sla_ast ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                    //DataAccessCS.insert(kmeinsrt);
+                    //DataAccessCS.conn.Close();
+                    //}
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "6")
+                    //{
+                    // kmeinsrt = "Insert into km_transactions@to_sla_tan ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                    //DataAccessCS.insert(kmeinsrt);
+                    //DataAccessCS.conn.Close();
+                    //}
+                    //if (cmb_Region_salesman.SelectedValue.ToString() == "7")
+                    //{
+                    // kmeinsrt = "Insert into km_transactions@To_Sla_upp ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES (' " + txt_salesrep_id.Text + "','" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                    //DataAccessCS.insert(kmeinsrt);
+                    //DataAccessCS.conn.Close();
+                    //}
                 
                 MessageBox.Show("تمت الاضافة بنجاح");
                 Lood();
@@ -782,6 +970,34 @@ namespace MDSF.Forms.Master_Data
                 string CurrentDate = DataAccessCS.getvalue("SELECT TO_CHAR(SYSDATE, 'MM-DD-YYYY ') NOW FROM DUAL");
                 DataAccessCS.conn.Close();
                 var X_Form = new frm_print_invoice_km(cmb_Region_salesman.SelectedValue.ToString(), cmb_sales_ter_Salesman.Text, cmb_salesrep_salesman.SelectedValue.ToString(), from_date, to_date, cmb_salesrep_salesman.Text, vanId, plate_number, CurrentDate);
+                X_Form.Show();
+                //X_Form.MdiParent = Main_form;
+                X_Form.WindowState = FormWindowState.Maximized;
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                //string from_date = dtp_from_date.Value.ToString("mm-dd-yyyy");
+                string from_date = dtp_from_date.Value.ToString("MM / dd / yyyy");
+                string to_date = dtp_to_date.Value.ToString("MM / dd / yyyy");
+                string vanId = DataAccessCS.getvalue("select distinct van_id from INT_KM_TRANSACTION_SALESREP  where trunc(JOURNEY_DATE)  between to_date('" + from_date + "','MM/DD/YYYY') and to_date('" + to_date + "','MM/DD/YYYY') and salesrep_id= '" + cmb_salesrep_salesman.SelectedValue + "'");
+                DataAccessCS.conn.Close();
+                string plate_number = DataAccessCS.getvalue("select distinct plate_number from INT_KM_TRANSACTION_SALESREP  where trunc(JOURNEY_DATE)  between to_date('" + from_date + "','MM/DD/YYYY') and to_date('" + to_date + "','MM/DD/YYYY') and salesrep_id= '" + cmb_salesrep_salesman.SelectedValue + "'");
+                DataAccessCS.conn.Close();
+                string CurrentDate = DataAccessCS.getvalue("SELECT TO_CHAR(SYSDATE, 'MM-DD-YYYY ') NOW FROM DUAL");
+                DataAccessCS.conn.Close();
+                var X_Form = new frm_oil_report(cmb_Region_salesman.SelectedValue.ToString(), cmb_sales_ter_Salesman.Text, cmb_salesrep_salesman.SelectedValue.ToString(), from_date, to_date, cmb_salesrep_salesman.Text, vanId, plate_number, CurrentDate);
                 X_Form.Show();
                 //X_Form.MdiParent = Main_form;
                 X_Form.WindowState = FormWindowState.Maximized;
