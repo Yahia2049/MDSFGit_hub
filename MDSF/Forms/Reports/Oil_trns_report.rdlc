@@ -326,7 +326,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>فرق الكيلومتر</Value>
+                                  <Value>التاريخ</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>DarkBlue</Color>
@@ -367,7 +367,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!PRICE.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -399,7 +401,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!TRANS_TYPE.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -431,7 +435,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!CURRENT_KM.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -463,7 +469,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=First(Fields!SALESREP_NAME.Value,"DataSet1")</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -495,7 +503,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!TRANS_TIME.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -542,7 +552,7 @@
             </TablixRowHierarchy>
             <DataSetName>Oil_trans</DataSetName>
             <Height>0.5in</Height>
-            <Width>6.08907in</Width>
+            <Width>6.08905in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -615,71 +625,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox32">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>متوسط الاستهلاك</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                      <Color>DarkBlue</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox28</rd:DefaultName>
-            <Top>0.94413in</Top>
-            <Left>5.08907in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox27">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=System.Math.Round(ReportItems!Textbox31.Value / ReportItems!Textbox17.Value)</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox27</rd:DefaultName>
-            <Top>0.94413in</Top>
-            <Left>3.92285in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
-            <ZIndex>4</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox19">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -698,11 +643,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.26958in</Top>
-            <Left>5.26789in</Left>
+            <Top>1.10291in</Top>
+            <Left>5.26787in</Left>
             <Height>0.25in</Height>
             <Width>0.82118in</Width>
-            <ZIndex>5</ZIndex>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -732,45 +677,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox28</rd:DefaultName>
-            <Top>2.2557in</Top>
-            <Left>4in</Left>
+            <Top>1.08903in</Top>
+            <Left>3.99998in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
-            <ZIndex>6</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox34">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Sum(Fields!FUEL_VALUES.Value, "KM_TRANS")</Value>
-                    <Style>
-                      <FontSize>14pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>Underline</TextDecoration>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox29</rd:DefaultName>
-            <Top>2.26958in</Top>
-            <Left>2.48143in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
-            <ZIndex>7</ZIndex>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -799,11 +710,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>2.2557in</Top>
-            <Left>0.4419in</Left>
+            <Top>1.08903in</Top>
+            <Left>0.44188in</Left>
             <Height>0.25in</Height>
             <Width>1.03606in</Width>
-            <ZIndex>8</ZIndex>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -814,8 +725,56 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Rectangle Name="Rectangle2">
+            <ReportItems>
+              <Textbox Name="Textbox34">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Sum(Fields!PRICE.Value, "Oil_trans")</Value>
+                        <Style>
+                          <FontSize>14pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <TextDecoration>Underline</TextDecoration>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox29</rd:DefaultName>
+                <Left>0.03125in</Left>
+                <Height>0.25in</Height>
+                <Width>1in</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Top>1.08903in</Top>
+            <Left>2.7731in</Left>
+            <Height>0.35322in</Height>
+            <Width>1.03125in</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>Khaki</BackgroundColor>
+            </Style>
+          </Rectangle>
         </ReportItems>
-        <Height>2.51958in</Height>
+        <Height>1.46923in</Height>
         <Style />
       </Body>
       <Width>6.14734in</Width>
@@ -1191,47 +1150,11 @@
               </Style>
             </Textbox>
             <Rectangle Name="Rectangle1">
-              <ReportItems>
-                <Textbox Name="Textbox3">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>فواتير اخرى</Value>
-                          <Style>
-                            <FontSize>14pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                            <Color>DarkBlue</Color>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox3</rd:DefaultName>
-                  <Top>0.02605in</Top>
-                  <Height>0.32812in</Height>
-                  <Width>1.50109in</Width>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-              </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>0.12673in</Top>
-              <Left>0.89965in</Left>
+              <Left>1.45536in</Left>
               <Height>0.35417in</Height>
-              <Width>1.50109in</Width>
+              <Width>1.53597in</Width>
               <ZIndex>12</ZIndex>
               <Style>
                 <Border>
@@ -1240,6 +1163,42 @@
                 <BackgroundColor>Khaki</BackgroundColor>
               </Style>
             </Rectangle>
+            <Textbox Name="Textbox3">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>فواتير اخرى</Value>
+                      <Style>
+                        <FontSize>14pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Color>DarkBlue</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox3</rd:DefaultName>
+              <Top>0.12673in</Top>
+              <Left>1.45536in</Left>
+              <Height>0.32812in</Height>
+              <Width>1.50109in</Width>
+              <ZIndex>13</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
