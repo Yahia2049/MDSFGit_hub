@@ -1694,7 +1694,7 @@ namespace MDSF.Forms.Inventory
                         // --Yahia 05-07-2020
                         string item_gift_retail_KA = " select distinct iis.SALES_TER_ID,iis.LOADING_NO,iis.PRODUCT_ID,iis.SOLD,iis.UOM,iis.LINE_NUMBER,iis.ITEM_PRICE,iis.POS_CODE,iis.SALESCALL_ID,iis.vdatu " + " " +
                             "from  INT_INVENTORY_GIFT_RETAIL_KA iis " + " where iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
-                            "and iis.LOADING_No= " + max_load + " and iis.category_id=0  and iis.branch_code=" + cmb_Region.SelectedValue + "";
+                            "and iis.LOADING_No= " + max_load + " and iis.category_id=5  and iis.branch_code=" + cmb_Region.SelectedValue + "";
 
 
                         DataSet ds_item_gift_KA = DataAccessCS.getdata(item_gift_retail_KA);
@@ -2121,7 +2121,7 @@ namespace MDSF.Forms.Inventory
 
                                 string incentive_KA_WS = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
                                       "from  INT_INVENTORY_WS_KA_INC_ALL where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
-                                      "and category _id=5 and LOADING_NUMBER= " + max_load + " and branch_code=" + cmb_Region.SelectedValue + "";
+                                      "and category_id=5 and LOADING_NUMBER= " + max_load + " and branch_code=" + cmb_Region.SelectedValue + "";
                                 DataSet  ds_incentive_KA_WS = DataAccessCS.getdata(incentive_KA_WS);
                                 dv_incentive_KA_WS = new DataView(ds_incentive_KA_WS.Tables[0]);
                                 dv_incentive_KA_WS.RowFilter = "POS_CODE= '" + dv_POS_COUNT[count]["POS_CODE"] + "'";
@@ -2457,8 +2457,9 @@ namespace MDSF.Forms.Inventory
                             string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
-                            salesrep_count();
+                           
                             MessageBox.Show("تم ارسال البيع " + "  رقم امر الارتجاع  " + test_res.message3);
+                            salesrep_count();
                         }
                         else
                         {
@@ -2467,8 +2468,9 @@ namespace MDSF.Forms.Inventory
                             string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S','" + Z + "' )";
                             DataAccessCS.insert(inv);
                             DataAccessCS.conn.Close();
-                            salesrep_count();
+                           
                             MessageBox.Show("تم ارسال البيع " + " رقم اذن الارتجاع " + test_res.message2 + "  رقم امر الارتجاع  " + test_res.message3);
+                            salesrep_count();
                         }
                     }
                     else if (test_res.success == "95")
@@ -2477,8 +2479,9 @@ namespace MDSF.Forms.Inventory
                         string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','S', 'تم ارسال البيع من قبل' )";
                         DataAccessCS.insert(inv);
                         DataAccessCS.conn.Close();
-                        salesrep_count();
+                        
                         MessageBox.Show("تم ارسال البيع من قبل");
+                        salesrep_count();
                     }
                     else
                     {
