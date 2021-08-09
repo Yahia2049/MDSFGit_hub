@@ -360,6 +360,8 @@ namespace MDSF.Forms.Inventory
                     DataAccessCS.insert(inv);
                     DataAccessCS.conn.Close();
                     MessageBox.Show("لا يوجد بيانات");
+                    this.Cursor = Cursors.Default;
+
                     return;
                 }
                 string m = " select max(ids.LOADING_NO)" + " from INT_INVENTORY_DAILY_SALES ids " + " where ids.salesrep_id = '" + salesrep_id + "' " +
@@ -2361,7 +2363,11 @@ namespace MDSF.Forms.Inventory
 
                     if (dv_SALESREP_COUNT.Count > 0)  // Android
                     {
-                        INCENTIVE_TEST_string = "  select nvl(sum (round(incentive_amount,2)),0) as android_Incentive from  int_salescall_details@TO_SLA_ISM where  salescall_id in " + "(select salescall_id from sc_invoice@sales where loading_number ='" + max_load + "' and salescall_id in " + "(select salescall_id  from salescall@sales where call_status_id ='S' and jou_id in " + "(select jou_id  from journey@sales where jou_seq ='" + journey_seq + "')))";
+                        INCENTIVE_TEST_string = "  select nvl(sum (round(incentive_amount,2)),0) as android_Incentive " +
+                            "from  int_salescall_details where  salescall_id in " + "(select salescall_id from sc_invoice@sales " +
+                            "where loading_number ='" + max_load + "' and salescall_id in " + "(select salescall_id  " +
+                            "from salescall@sales where call_status_id ='S' and jou_id in " + "(select jou_id  from journey@sales " +
+                            "where jou_seq ='" + journey_seq + "')))";
 
 
                         INCENTIVE_TEST_SET = DataAccessCS.getdata(INCENTIVE_TEST_string);
@@ -2379,7 +2385,9 @@ namespace MDSF.Forms.Inventory
                         Inc_Differente.Text = "0";
                         decimal x = INCENTIVE_TEST - dt_inc;
                         //if (INCENTIVE_TEST != dt_inc)
-                        if (x < -0.5M && x > 0.5M)
+                        if (x > -0.5M && x < 0.5M)
+                        { }
+                        else
                         {
                             Inc_Differente.Text = (INCENTIVE_TEST - dt_inc).ToString();
 
@@ -2389,36 +2397,12 @@ namespace MDSF.Forms.Inventory
                             DataAccessCS.conn.Close();
                             MessageBox.Show("لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله  ");
                             // MsgBox("Error Code: MNS10001")
+                            this.Cursor = Cursors.Default;
+
                             return;
                         }
                     }
-                    else // Windows Salesrep
-                    {
-                        INCENTIVE_TEST_string = "select NVL((SUM(NVL(jst.transaction_amount,0)) - SUM(NVL(jst.transaction_net_amount,0))),0) as jstIncentive from journey_stock_transactions jst where jst.salescall_id in (select S.SALESCALL_ID from salescall s where S.CALL_STATUS_ID = 'S' and S.DSR_ID in  (select d.DSR_ID from DSR d where D.JOURNEY_SEQUENCE = '" + journey_seq + "')) and JST.RELATED_LOADING_NUMBER = '" + loading_no + "'";
-                        INCENTIVE_TEST_SET = DataAccessCS.getdata(INCENTIVE_TEST_string);
-                        INCENTIVE_TEST_Table = new DataView(INCENTIVE_TEST_SET.Tables[0]);
-                        if (INCENTIVE_TEST_Table[0]["jstIncentive"] is null)
-                        {
-                            INCENTIVE_TEST = 0m;
-                        }
-                        else
-                        {
-                            INCENTIVE_TEST =Convert.ToDecimal( INCENTIVE_TEST_Table[0]["jstIncentive"]);
-                        }
-
-                        Inc_Differente.Text = "0";
-                        if (INCENTIVE_TEST != dt_inc)
-                        {
-                            Inc_Differente.Text = (INCENTIVE_TEST - dt_inc).ToString();
-
-                            // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
-                            string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله' )";
-                            DataAccessCS.insert(inv);
-                            MessageBox.Show("لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله  ");
-                            // MsgBox("Error Code: MNS10001")
-                            return;
-                        }
-                    }
+                   
 
                     // --------------------------------End Yahia 06/11/2019 for compare Incentive for Windows Salesrep
 
@@ -2437,10 +2421,13 @@ namespace MDSF.Forms.Inventory
                         // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
                         string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع البيانات ارج الانظار عشر دقائق حتى تصل البيانات كامله' )";
                         DataAccessCS.insert(inv);
+                        txt_qnt_def.Text = (total_HH - total_sla).ToString();
                         MessageBox.Show("لم يتم ارسال جميع البيانات ارج الانظار عشر دقائق حتى تصل البيانات كامله");
                         DataAccessCS.conn.Close();
-                        txt_qnt_def.Text = (total_HH - total_sla).ToString();
+                        this.Cursor = Cursors.Default;
+
                         return;
+                        
                     }
 
                     test.Timeout = 900000;
@@ -2482,6 +2469,8 @@ namespace MDSF.Forms.Inventory
                         
                         MessageBox.Show("تم ارسال البيع من قبل");
                         salesrep_count();
+                        this.Cursor = Cursors.Default;
+
                     }
                     else
                     {
