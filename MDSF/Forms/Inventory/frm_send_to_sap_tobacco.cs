@@ -2415,7 +2415,8 @@ namespace MDSF.Forms.Inventory
                         Inc_Differente.Text = "0";
                         decimal x = INCENTIVE_TEST - dt_inc;
                         //if (INCENTIVE_TEST != dt_inc)
-                        if (x > -0.5M && x < 0.5M)
+                        //if (x > -0.5M && x < 0.5M)
+                        if ( x < 0.5M)
                         { }
                         else
                         {

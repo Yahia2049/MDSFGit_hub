@@ -2364,7 +2364,7 @@ namespace MDSF.Forms.Inventory
                     if (dv_SALESREP_COUNT.Count > 0)  // Android
                     {
                         INCENTIVE_TEST_string = "  select nvl(sum (round(incentive_amount,2)),0) as android_Incentive " +
-                            "from  int_salescall_details where  salescall_id in " + "(select salescall_id from sc_invoice@sales " +
+                            "from  int_salescall_details where category_id=5 and salescall_id in " + "(select salescall_id from sc_invoice@sales " +
                             "where loading_number ='" + max_load + "' and salescall_id in " + "(select salescall_id  " +
                             "from salescall@sales where call_status_id ='S' and jou_id in " + "(select jou_id  from journey@sales " +
                             "where jou_seq ='" + journey_seq + "')))";
@@ -2385,7 +2385,8 @@ namespace MDSF.Forms.Inventory
                         Inc_Differente.Text = "0";
                         decimal x = INCENTIVE_TEST - dt_inc;
                         //if (INCENTIVE_TEST != dt_inc)
-                        if (x > -0.5M && x < 0.5M)
+                        // if (x > -0.5M && x < 0.5M)
+                        if ( x < 0.5M)
                         { }
                         else
                         {

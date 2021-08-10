@@ -1682,7 +1682,7 @@ namespace MDSF.Forms.Inventory
                             // '***************************************************
 
                            string incentive_details = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED " +
-                                "from INT_INVENTORY_RETAIL_INC_ALL where  category_id in(1,4) and JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                                "from INT_INVENTORY_RETAIL_INC_ALL where  category_id in(1,4,0) and JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
                                 "and branch_code="+cmb_Region.SelectedValue+" and  LOADING_NUMBER= " + max_load + "";
                             DataSet ds_incentive = DataAccessCS.getdata(incentive_details);
                             dv_incentive_Retail = new DataView(ds_incentive.Tables[0]);
@@ -1906,7 +1906,7 @@ namespace MDSF.Forms.Inventory
 
                                string incentive_details_KA = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
                                     "from INT_INVENTORY_DS_KA_INC_ALL " +
-                                    "where  category_id in(1,4) and JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
+                                    "where  category_id in(1,4,0) and JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
                                     "and LOADING_NUMBER= " + max_load + " and branch_code ="+cmb_Region.SelectedValue+"";
                               DataSet  ds_incentive_KA = DataAccessCS.getdata(incentive_details_KA);
                                 dv_incentive_Retail_KA = new DataView(ds_incentive_KA.Tables[0]);
@@ -2154,7 +2154,7 @@ namespace MDSF.Forms.Inventory
                                 // '***************************************************
 
                                string incentive_KA_WS = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
-                                    "from  INT_INVENTORY_WS_KA_INC_ALL where category_id in(1,4) and JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                                    "from  INT_INVENTORY_WS_KA_INC_ALL where category_id in(1,4,0) and JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
                                     "and LOADING_NUMBER= " + max_load + " and branch_code="+cmb_Region.SelectedValue+"";
                              DataSet   ds_incentive_KA_WS = DataAccessCS.getdata(incentive_KA_WS);
                                 dv_incentive_KA_WS = new DataView(ds_incentive_KA_WS.Tables[0]);
@@ -2400,7 +2400,7 @@ namespace MDSF.Forms.Inventory
                     if (dv_SALESREP_COUNT.Count > 0)  // Android
                     {
                         INCENTIVE_TEST_string = "  select nvl(sum (round(incentive_amount,2)),0) as android_Incentive" +
-                            " from  int_salescall_details where  salescall_id in " + "(select salescall_id from sc_invoice@sales " +
+                            " from  int_salescall_details where category_id in (1,4,0) and salescall_id in " + "(select salescall_id from sc_invoice@sales " +
                             "where loading_number ='" + max_load + "' and salescall_id in " + 
                             "(select salescall_id  from salescall@sales where call_status_id ='S' and jou_id in " +
                             "(select jou_id  from journey@sales where jou_seq ='" + journey_seq + "')))";
@@ -2421,8 +2421,9 @@ namespace MDSF.Forms.Inventory
                         Inc_Differente.Text = "0";
                         decimal x = INCENTIVE_TEST - dt_inc;
                         //if (INCENTIVE_TEST != dt_inc)
-                        if (x > -0.5M && x < 0.5M)
-                        { }
+                        //if (x > -0.5M && x < 0.5M)
+                            if ( x < 0.5M)
+                            { }
                         else
                         {
                             Inc_Differente.Text = (INCENTIVE_TEST - dt_inc).ToString();

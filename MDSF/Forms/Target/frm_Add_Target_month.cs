@@ -876,43 +876,43 @@ namespace MDSF.Forms.Target
                 if (txt_branch_salesrep_del.Text != "" && txt_month_salesrep_del.Text != "" && txt_year_salesrep_del.Text != "")
                 {
                     DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am ')" +
-                        ", 'delete from salesrep_target for branche code= " + txt_branch_salesrep_del.Text + " month=" + txt_month_salesrep_del.Text + " year =" + txt_year_salesrep_del.Text + " ','','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
+                        ", 'delete from target_retail_pos for branche code= " + txt_branch_salesrep_del.Text + " month=" + txt_month_salesrep_del.Text + " year =" + txt_year_salesrep_del.Text + " ','','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                     DataAccessCS.conn.Close();
 
                     int branch_code_s = int.Parse(txt_branch_salesrep_del.Text);
                     if (branch_code_s == 1)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_cai s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
+                        DataAccessCS.delete("delete from pos_target_assign@to_sla_cai s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code_s == 2)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_alx s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
+                        DataAccessCS.delete("delete from pos_target_assign@to_sla_alx s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code_s == 3)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_man s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
+                        DataAccessCS.delete("delete from pos_target_assign@to_sla_man s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code_s == 4)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_ism s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
+                        DataAccessCS.delete("delete from pos_target_assign@to_sla_ism s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code_s == 5)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_ast s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
+                        DataAccessCS.delete("delete from pos_target_assign@to_sla_ast s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code_s == 6)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_tan s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
+                        DataAccessCS.delete("delete from pos_target_assign@to_sla_tan s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code_s == 7)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_upp s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
+                        DataAccessCS.delete("delete from pos_target_assign@to_sla_upp s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
                         DataAccessCS.conn.Close();
                     }
                     else
@@ -921,7 +921,7 @@ namespace MDSF.Forms.Target
                         this.Cursor = Cursors.Default;
                         return;
                     }
-                    DataAccessCS.delete("delete  from target_salesmen s where s.branch_code =" + branch_code_s + " and month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
+                    DataAccessCS.delete("delete  from target_retail_pos s where s.branch_code =" + branch_code_s + " and month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + "");
                     DataAccessCS.conn.Close();
                     MessageBox.Show("برجاء المراجعة SFIS و SLA تم حذف الاهداف من ");
                 }
@@ -1394,6 +1394,11 @@ namespace MDSF.Forms.Target
             }
 
             this.Cursor = Cursors.Default;
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
