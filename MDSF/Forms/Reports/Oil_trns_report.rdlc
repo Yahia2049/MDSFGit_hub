@@ -368,7 +368,7 @@
                                 <TextRun>
                                   <Value>=Fields!PRICE.Value</Value>
                                   <Style>
-                                    <FontWeight>Bold</FontWeight>
+                                    <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -402,7 +402,7 @@
                                 <TextRun>
                                   <Value>=Fields!TRANS_TYPE.Value</Value>
                                   <Style>
-                                    <FontWeight>Bold</FontWeight>
+                                    <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -436,7 +436,7 @@
                                 <TextRun>
                                   <Value>=Fields!CURRENT_KM.Value</Value>
                                   <Style>
-                                    <FontWeight>Bold</FontWeight>
+                                    <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -470,7 +470,7 @@
                                 <TextRun>
                                   <Value>=First(Fields!SALESREP_NAME.Value,"DataSet1")</Value>
                                   <Style>
-                                    <FontWeight>Bold</FontWeight>
+                                    <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -504,7 +504,7 @@
                                 <TextRun>
                                   <Value>=Fields!TRANS_TIME.Value</Value>
                                   <Style>
-                                    <FontWeight>Bold</FontWeight>
+                                    <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

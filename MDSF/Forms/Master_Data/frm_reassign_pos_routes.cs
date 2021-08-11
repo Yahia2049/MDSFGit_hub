@@ -12,6 +12,7 @@ namespace MDSF.Forms.Master_Data
 {
     public partial class frm_reassign_pos_routes : Form
     {
+        
         #region  Variables 
         DataView dv_DataView;
         DataView dv_vans;
@@ -35,12 +36,12 @@ namespace MDSF.Forms.Master_Data
         DataView dv_Loading_H_Open;
         DataView dv_sfa_journey_seq;
         DataView dv_Combo_SalesTer_des;
-        #endregion
+        #endregion      
         public frm_reassign_pos_routes()
         {
-            InitializeComponent();
+            InitializeComponent();          
         }
-
+       
         private void frm_reassign_pos_routes_Load(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
@@ -69,6 +70,8 @@ namespace MDSF.Forms.Master_Data
                
                 DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
                 dataGridViewCheckBoxColumn.DefaultCellStyle.BackColor = Color.Red;
+
+                
 
             }
             catch (Exception ex)
@@ -1106,7 +1109,8 @@ namespace MDSF.Forms.Master_Data
             {
 
                 DataSet ds = new DataSet();
-                ds = DataAccessCS.getdata("select Substr(pos_code, 1, Instr(pos_code, '_') - 1)  ter_id,Substr(pos_code, Instr(pos_code, '_') + 1) pos_id,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where route_id ="+ cmb_route_source.SelectedValue + " and SALES_TERRITORY_ID = "+ cmb_sales_ter_source.SelectedValue + " and salesrep_id ="+cmb_salesrep_source.SelectedValue);
+                ds = DataAccessCS.getdata("select distinct TER_ID, POS_ID ,r.SALES_TER_ID,st.route_type_id   from pos_routes pr , routes r,route_day rd, week_days wd, sales_territories st,route_types rt where pr.route_id =" + cmb_route_source.SelectedValue + " and pr.sales_ter_id =" + cmb_sales_ter_source.SelectedValue + "  and r.sales_ter_id = st.sales_ter_id and rt.route_type_id = st.route_type_id and r.curr_sales_id =" + cmb_salesrep_source.SelectedValue+ " and r.branch_code = 1 and rd.branch_code = r.branch_code and r.branch_code = st.branch_code and r.route_id = rd.route_id and r.sales_ter_id = rd.sales_ter_id and wd.day_id = rd.week_day and r.active = 1");
+                // ds = DataAccessCS.getdata("select Substr(pos_code, 1, Instr(pos_code, '_') - 1)  ter_id,Substr(pos_code, Instr(pos_code, '_') + 1) pos_id,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where route_id ="+ cmb_route_source.SelectedValue + " and SALES_TERRITORY_ID = "+ cmb_sales_ter_source.SelectedValue + " and salesrep_id ="+cmb_salesrep_source.SelectedValue);
                 //ds = DataAccessCS.getdata("select POS_CODE,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where route_id=" + cmb_route_source.SelectedValue + "and SALES_TERRITORY_ID=" + cmb_sales_ter_source.SelectedValue + "and salesrep_id=" + cmb_salesrep_source.SelectedValue);
                 //  ds = DataAccessCS.getdata("select Substr(pos_code, 1, Instr(pos_code, '_') - 1)  ter_id,Substr(pos_code, Instr(pos_code, '_') + 1) pos_id,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where upper(day_name) like  upper((select w.day_name from week_days w where w.day_ar_name like(select Substr(ird.routedays, Instr(ird.routedays, ' ') + 1)from int_route_day ird , routes r where r.active = 1 and r.route_id = ird.route_id and  salesrep_id = " +cmb_salesrep_source.SelectedValue + " and r.SALES_TER_ID = " +cmb_sales_ter_source.SelectedValue+ " and r.route_id ="+ cmb_route_source.SelectedValue + ")))and SALES_TERRITORY_ID =" + cmb_sales_ter_source.SelectedValue + "and salesrep_id ="  +cmb_salesrep_source.SelectedValue );
                 //ds = DataAccessCS.getdata("select Substr(pos_code, 1, Instr(pos_code, '_') - 1)  ter_id,Substr(pos_code, Instr(pos_code, '_') + 1) pos_id,SALES_TERRITORY_ID, POS_Name from to_sfa_pos where route_id=" + cmb_route_source.SelectedValue + "and SALES_TERRITORY_ID=" + cmb_sales_ter_source.SelectedValue + "and salesrep_id=" + cmb_salesrep_source.SelectedValue);
