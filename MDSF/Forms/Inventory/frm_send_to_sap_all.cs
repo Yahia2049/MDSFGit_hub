@@ -1682,7 +1682,7 @@ namespace MDSF.Forms.Inventory
                             // '***************************************************
 
                            string incentive_details = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED " +
-                                "from INT_INVENTORY_RETAIL_INC_ALL where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                                "from INT_INVENTORY_RETAIL_INC_ALL where  category_id in(1,4,0) and JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
                                 "and branch_code="+cmb_Region.SelectedValue+" and  LOADING_NUMBER= " + max_load + "";
                             DataSet ds_incentive = DataAccessCS.getdata(incentive_details);
                             dv_incentive_Retail = new DataView(ds_incentive.Tables[0]);
@@ -1906,7 +1906,7 @@ namespace MDSF.Forms.Inventory
 
                                string incentive_details_KA = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
                                     "from INT_INVENTORY_DS_KA_INC_ALL " +
-                                    "where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
+                                    "where  category_id in(1,4,0) and JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
                                     "and LOADING_NUMBER= " + max_load + " and branch_code ="+cmb_Region.SelectedValue+"";
                               DataSet  ds_incentive_KA = DataAccessCS.getdata(incentive_details_KA);
                                 dv_incentive_Retail_KA = new DataView(ds_incentive_KA.Tables[0]);
@@ -2154,7 +2154,7 @@ namespace MDSF.Forms.Inventory
                                 // '***************************************************
 
                                string incentive_KA_WS = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
-                                    "from  INT_INVENTORY_WS_KA_INC_ALL where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
+                                    "from  INT_INVENTORY_WS_KA_INC_ALL where category_id in(1,4,0) and JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "' " +
                                     "and LOADING_NUMBER= " + max_load + " and branch_code="+cmb_Region.SelectedValue+"";
                              DataSet   ds_incentive_KA_WS = DataAccessCS.getdata(incentive_KA_WS);
                                 dv_incentive_KA_WS = new DataView(ds_incentive_KA_WS.Tables[0]);
@@ -2399,7 +2399,11 @@ namespace MDSF.Forms.Inventory
 
                     if (dv_SALESREP_COUNT.Count > 0)  // Android
                     {
-                        INCENTIVE_TEST_string = "  select nvl(sum (round(incentive_amount,2)),0) as android_Incentive from  int_salescall_details@TO_SLA_ISM where  salescall_id in " + "(select salescall_id from sc_invoice@sales where loading_number ='" + max_load + "' and salescall_id in " + "(select salescall_id  from salescall@sales where call_status_id ='S' and jou_id in " + "(select jou_id  from journey@sales where jou_seq ='" + journey_seq + "')))";
+                        INCENTIVE_TEST_string = "  select nvl(sum (round(incentive_amount,2)),0) as android_Incentive" +
+                            " from  int_salescall_details where category_id in (1,4,0) and salescall_id in " + "(select salescall_id from sc_invoice@sales " +
+                            "where loading_number ='" + max_load + "' and salescall_id in " + 
+                            "(select salescall_id  from salescall@sales where call_status_id ='S' and jou_id in " +
+                            "(select jou_id  from journey@sales where jou_seq ='" + journey_seq + "')))";
 
 
                         INCENTIVE_TEST_SET = DataAccessCS.getdata(INCENTIVE_TEST_string);
@@ -2417,7 +2421,10 @@ namespace MDSF.Forms.Inventory
                         Inc_Differente.Text = "0";
                         decimal x = INCENTIVE_TEST - dt_inc;
                         //if (INCENTIVE_TEST != dt_inc)
-                            if (x < -0.5M && x > 0.5M)
+                        //if (x > -0.5M && x < 0.5M)
+                            if ( x < 0.5M)
+                            { }
+                        else
                         {
                             Inc_Differente.Text = (INCENTIVE_TEST - dt_inc).ToString();
 
@@ -2431,34 +2438,7 @@ namespace MDSF.Forms.Inventory
                             return;
                         }
                     }
-                    else // Windows Salesrep
-                    {
-                        INCENTIVE_TEST_string = "select NVL((SUM(NVL(jst.transaction_amount,0)) - SUM(NVL(jst.transaction_net_amount,0))),0) as jstIncentive from journey_stock_transactions jst where jst.salescall_id in (select S.SALESCALL_ID from salescall s where S.CALL_STATUS_ID = 'S' and S.DSR_ID in  (select d.DSR_ID from DSR d where D.JOURNEY_SEQUENCE = '" + journey_seq + "')) and JST.RELATED_LOADING_NUMBER = '" + loading_no + "'";
-                        INCENTIVE_TEST_SET = DataAccessCS.getdata(INCENTIVE_TEST_string);
-                        INCENTIVE_TEST_Table = new DataView(INCENTIVE_TEST_SET.Tables[0]);
-                        if (INCENTIVE_TEST_Table[0]["jstIncentive"] is null)
-                        {
-                            INCENTIVE_TEST = 0m;
-                        }
-                        else
-                        {
-                            INCENTIVE_TEST = Convert.ToDecimal(INCENTIVE_TEST_Table[0]["jstIncentive"]);
-                        }
-
-                        Inc_Differente.Text = "0";
-                        if (INCENTIVE_TEST != dt_inc)
-                        {
-                            Inc_Differente.Text = (INCENTIVE_TEST - dt_inc).ToString();
-
-                            // ERROR LOG CREATE BY MARWA EL SHERIF 30/10/2019
-                            string inv = "insert into trac_log_inv values( to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), '" + cmb_salesrep.SelectedValue.ToString() + "', '" + max_load + "','1', '" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "','" + System.Environment.MachineName + "','F', 'لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله' )";
-                            DataAccessCS.insert(inv);
-                            MessageBox.Show("لم يتم ارسال جميع بيانات الحوافز ارجو الانظار عشر دقائق حتى تصل البيانات كامله  ");
-                            // MsgBox("Error Code: MNS10001")
-                            this.Cursor = Cursors.Default;
-                            return;
-                        }
-                    }
+                    
 
                     // --------------------------------End Yahia 06/11/2019 for compare Incentive for Windows Salesrep
 
