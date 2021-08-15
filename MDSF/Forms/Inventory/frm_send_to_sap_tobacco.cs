@@ -2417,6 +2417,7 @@ namespace MDSF.Forms.Inventory
                         //if (INCENTIVE_TEST != dt_inc)
                         //if (x > -0.5M && x < 0.5M)
                         if ( x < 0.5M)
+                        //if (x <= 0M || x >= 0M)
                         { }
                         else
                         {
