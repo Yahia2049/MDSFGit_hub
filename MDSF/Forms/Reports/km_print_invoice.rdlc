@@ -1001,7 +1001,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Round(Reportitems!Textbox30.Value / Reportitems!Textbox17.Value)</Value>
+                        <Value>=Round(Reportitems!Textbox30.Value / Reportitems!Textbox17.Value,2)</Value>
                         <Style>
                           <FontWeight>Bold</FontWeight>
                         </Style>

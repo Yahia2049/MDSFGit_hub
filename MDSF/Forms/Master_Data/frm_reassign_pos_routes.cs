@@ -395,10 +395,70 @@ namespace MDSF.Forms.Master_Data
         {
             try
             {
-                string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
+                // -------check for existing jo seq source
+
+                DataSet dsSource = new DataSet();
+                string journeySeqAll = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue + " and JOURNEY_DATE = to_char(sysdate,'MM/DD/YY')";
+                dsSource = DataAccessCS.getdata(journeySeqAll);
+                var dv_journeystart = new DataView(dsSource.Tables[0]);
+                dsSource.Dispose();
                 DataAccessCS.conn.Close();
-                string journeySeqDec = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue);
+               
+                if (dv_journeystart.Count == 0)
+                {
+                    string openLoad;
+                    openLoad = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue + "'";
+                    dsSource = DataAccessCS.getdata(openLoad);
+                    dv_Loading_H_Open = new DataView(dsSource.Tables[0]);
+                    dsSource.Dispose();
+                   
+                    if (dv_Loading_H_Open.Count > 0)
+                    {
+                        string l;
+                        l = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue + " and JOURNEY_DATE = to_char(sysdate,'MM/DD/YY')";
+                        dsSource = DataAccessCS.getdata(l);
+                        dv_Loading_journey_seq = new DataView(dsSource.Tables[0]);
+                        dsSource.Dispose();
+                         
+                    }
+                }
+
+                //------------
+                // -------check for existing jo seq des
+
+                DataSet dsDes = new DataSet();
+                string journeySeqDecAll = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue + " and JOURNEY_DATE = to_char(sysdate,'MM/DD/YY')";
+                dsDes = DataAccessCS.getdata(journeySeqDecAll);
+                var dv_journeySeqDec = new DataView(dsDes.Tables[0]);
+                dsDes.Dispose();
                 DataAccessCS.conn.Close();
+                
+
+                if (dv_journeySeqDec.Count == 0)
+                {
+                    string openLoad;
+                    openLoad = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue + "'";
+                    dsDes = DataAccessCS.getdata(openLoad);
+                    dv_Loading_H_Open = new DataView(dsDes.Tables[0]);
+                    dsDes.Dispose();
+                    
+                    if (dv_Loading_H_Open.Count > 0)
+                    {
+                        string l;
+                        l = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue + " and JOURNEY_DATE = to_char(sysdate,'MM/DD/YY')";
+                        dsDes = DataAccessCS.getdata(l);
+                        dv_Loading_journey_seq = new DataView(dsDes.Tables[0]);
+                        dsDes.Dispose();
+                        
+                    }
+                }
+
+
+                //------------
+                //  string journeySeq = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue);
+                //  DataAccessCS.conn.Close();
+               // string journeySeqDec = DataAccessCS.getvalue("select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue);
+              //  DataAccessCS.conn.Close();
 
                 if (cmb_Region_source.SelectedValue.ToString() == "1")
                 {
