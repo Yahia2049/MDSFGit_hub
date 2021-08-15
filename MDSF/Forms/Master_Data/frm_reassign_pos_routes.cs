@@ -398,8 +398,8 @@ namespace MDSF.Forms.Master_Data
                 // -------check for existing jo seq source
 
                 DataSet dsSource = new DataSet();
-                string journeySeqAll = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue + " and JOURNEY_DATE = to_char(sysdate,'MM/DD/YY')";
-                dsSource = DataAccessCS.getdata(journeySeqAll);
+                string journeySeq = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue + " and JOURNEY_DATE = to_char(sysdate,'MM/DD/YY')";
+                dsSource = DataAccessCS.getdata(journeySeq);
                 var dv_journeystart = new DataView(dsSource.Tables[0]);
                 dsSource.Dispose();
                 DataAccessCS.conn.Close();
@@ -427,8 +427,8 @@ namespace MDSF.Forms.Master_Data
                 // -------check for existing jo seq des
 
                 DataSet dsDes = new DataSet();
-                string journeySeqDecAll = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue + " and JOURNEY_DATE = to_char(sysdate,'MM/DD/YY')";
-                dsDes = DataAccessCS.getdata(journeySeqDecAll);
+                string journeySeqDec = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_des.SelectedValue + " and JOURNEY_DATE = to_char(sysdate,'MM/DD/YY')";
+                dsDes = DataAccessCS.getdata(journeySeqDec);
                 var dv_journeySeqDec = new DataView(dsDes.Tables[0]);
                 dsDes.Dispose();
                 DataAccessCS.conn.Close();
