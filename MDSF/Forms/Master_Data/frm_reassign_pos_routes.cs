@@ -403,6 +403,7 @@ namespace MDSF.Forms.Master_Data
                 var dv_journeystart = new DataView(dsSource.Tables[0]);
                 dsSource.Dispose();
                 DataAccessCS.conn.Close();
+
                
                 if (dv_journeystart.Count == 0)
                 {
