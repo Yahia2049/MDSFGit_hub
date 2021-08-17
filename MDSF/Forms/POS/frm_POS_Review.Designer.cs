@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_POS_Review));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.Label1 = new System.Windows.Forms.Label();
             this.txt_pos_code_temp = new System.Windows.Forms.TextBox();
             this.Label2 = new System.Windows.Forms.Label();
@@ -357,7 +357,7 @@
             // 
             // 
             // 
-            this.Grid_ALL_New.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.Grid_ALL_New.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.Grid_ALL_New.Name = "Grid_ALL_New";
             this.Grid_ALL_New.Size = new System.Drawing.Size(1144, 240);
             this.Grid_ALL_New.TabIndex = 269;
@@ -372,7 +372,7 @@
             // 
             // 
             // 
-            this.Grid_Existing_POS.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.Grid_Existing_POS.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.Grid_Existing_POS.Name = "Grid_Existing_POS";
             this.Grid_Existing_POS.Size = new System.Drawing.Size(1144, 111);
             this.Grid_Existing_POS.TabIndex = 270;
@@ -442,7 +442,7 @@
             this.txt_branch.Dock = System.Windows.Forms.DockStyle.Top;
             this.txt_branch.Location = new System.Drawing.Point(0, 0);
             this.txt_branch.Name = "txt_branch";
-            this.txt_branch.Size = new System.Drawing.Size(1165, 583);
+            this.txt_branch.Size = new System.Drawing.Size(1165, 476);
             this.txt_branch.TabIndex = 271;
             this.txt_branch.Visible = false;
             this.txt_branch.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_New_POS_Paint_1);

@@ -45,7 +45,7 @@ namespace MDSF.Forms.Reports
         {
             this.reportViewer1.ProcessingMode = ProcessingMode.Local;
             LocalReport rep = reportViewer1.LocalReport;
-            rep.ReportPath = "D:\\Ahmed HaMada Share\\MDSFGit_hub\\MDSF\\Forms\\Reports\\Oil_trns_report.rdlc";
+            //rep.ReportPath = "D:\\Ahmed HaMada Share\\MDSFGit_hub\\MDSF\\Forms\\Reports\\Oil_trns_report.rdlc";
 
             ReportParameter p1 = new ReportParameter("salesTer", xsales_ter);
             this.reportViewer1.LocalReport.SetParameters(p1);
@@ -69,6 +69,11 @@ namespace MDSF.Forms.Reports
 
             this.reportViewer1.RefreshReport();
             this.Cursor = Cursors.Default;
+        }
+
+        private void frm_oil_report_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

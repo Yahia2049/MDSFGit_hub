@@ -45,7 +45,8 @@ namespace MDSF.Forms.Reports
             ReportDataSource rds = new ReportDataSource("KM_TRNS", ds.Tables[0]);
 
 
-            reportViewer1.LocalReport.ReportPath = "D:\\Ahmed HaMada Share\\MDSFGit_hub\\MDSF\\Forms\\Reports\\frm_print_km.rdlc";
+
+            // reportViewer1.LocalReport.ReportPath = "D:\\Ahmed HaMada Share\\MDSFGit_hub\\MDSF\\Forms\\Reports\\frm_print_km.rdlc";
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(rds);
           

@@ -398,7 +398,9 @@ namespace MDSF.Forms.Master_Data
                 // -------check for existing jo seq source
 
                 DataSet dsSource = new DataSet();
-                string journeySeq = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue + " and JOURNEY_DATE = to_char(sysdate,'MM/DD/YY')";
+               // string journeySeq = "select JOURNEY_ID from TO_SFA_JOURNEY where SALES_ID = " + cmb_salesrep_source.SelectedValue + " and JOURNEY_DATE = to_char(sysdate,'MM/DD/YY')";
+                string journeySeq = "select jou_seq from JOURNEY@sales where SALES_ID = " + cmb_salesrep_source.SelectedValue + " and  to_date(start_day,'dd-mon-yyyy hh:mi:ss AM')=to_date(sysdate,'dd-mon-yyyy hh:mi:ss AM')";
+
                 dsSource = DataAccessCS.getdata(journeySeq);
                 var dv_journeystart = new DataView(dsSource.Tables[0]);
                 dsSource.Dispose();

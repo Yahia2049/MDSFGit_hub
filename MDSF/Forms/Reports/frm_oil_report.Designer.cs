@@ -50,6 +50,7 @@ namespace MDSF.Forms.Reports
             this.Controls.Add(this.reportViewer1);
             this.Name = "frm_oil_report";
             this.Text = "frm_oil_transaction";
+            this.Load += new System.EventHandler(this.frm_oil_report_Load);
             this.ResumeLayout(false);
 
         }

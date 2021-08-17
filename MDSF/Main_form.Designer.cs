@@ -152,6 +152,7 @@
             this.tobaccoSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lighterSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.incentiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -1371,6 +1372,7 @@
             this.reassignRoutesToolStripMenuItem.Name = "reassignRoutesToolStripMenuItem";
             this.reassignRoutesToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
             this.reassignRoutesToolStripMenuItem.Text = "Reassign Routes";
+            this.reassignRoutesToolStripMenuItem.Visible = false;
             this.reassignRoutesToolStripMenuItem.Click += new System.EventHandler(this.reassignRoutesToolStripMenuItem_Click);
             // 
             // sALESToolStripMenuItem
@@ -1496,7 +1498,8 @@
             // iNCENTIVESToolStripMenuItem
             // 
             this.iNCENTIVESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newIncentiveTypeToolStripMenuItem});
+            this.newIncentiveTypeToolStripMenuItem,
+            this.incentiveToolStripMenuItem});
             this.iNCENTIVESToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.iNCENTIVESToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
             this.iNCENTIVESToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1667,6 +1670,16 @@
             this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
             this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
             // 
+            // incentiveToolStripMenuItem
+            // 
+            this.incentiveToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.incentiveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.incentiveToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
+            this.incentiveToolStripMenuItem.Name = "incentiveToolStripMenuItem";
+            this.incentiveToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
+            this.incentiveToolStripMenuItem.Text = "Incentives Report";
+            this.incentiveToolStripMenuItem.Click += new System.EventHandler(this.incentiveToolStripMenuItem_Click);
+            // 
             // Main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1836,6 +1849,7 @@
         private System.Windows.Forms.ToolStripMenuItem fineSendToSAPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tobaccoSendToSAPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lighterSendToSAPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem incentiveToolStripMenuItem;
     }
 }
 

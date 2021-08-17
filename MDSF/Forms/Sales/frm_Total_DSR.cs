@@ -726,7 +726,7 @@ namespace MDSF.Forms.Sales
 
 
 
-                    D = "select * from sales_android_v4 where call_status_id ='S'  and  branch_code in (" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select * from sales_android_v4@sales where call_status_id ='S'  and  branch_code in (" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                 }
                 else if (rchbdl_Region_salesrep.CheckedItems.Count > 0 && chb_All_ter_salesrep.Checked && chb_All_salesrep_salesrep.Checked)
                 {
@@ -742,7 +742,7 @@ namespace MDSF.Forms.Sales
                         //    x_ter_salesrep = Convert.ToString(x_ter_salesrep + "," + item["SALES_TER_ID"]);
                         //}
                     }
-                    D = "select * from sales_android_v4 where call_status_id ='S'  and branch_code in(" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select * from sales_android_v4@sales where call_status_id ='S'  and branch_code in(" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                 }
                 else if (rchbdl_ter_salesrep.CheckedItems.Count > 0 &&  chb_All_salesrep_salesrep.Checked)
                 {
@@ -758,12 +758,12 @@ namespace MDSF.Forms.Sales
                     //        x_salesrep_salesrep = Convert.ToString(x_salesrep_salesrep + "," + item["SALESREP_ID"]);
                     //    }
                     //}
-                    D = "select * from sales_android_v4 where call_status_id ='S' and SALES_TER_ID in(" + x_ter_salesrep + ") and branch_code in(" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select * from sales_android_v4@sales where call_status_id ='S' and SALES_TER_ID in(" + x_ter_salesrep + ") and branch_code in(" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                 }
                 else if (rchbdl_salesrep_salesrep.CheckedItems.Count > 0 )
                 {
 
-                    D = "select * from sales_android_v4 where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_salesrep + ") and branch_code in(" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select * from sales_android_v4@sales where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_salesrep + ") and branch_code in(" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                 }
                 else
                 {
@@ -1006,13 +1006,13 @@ namespace MDSF.Forms.Sales
                 {
                   
 
-                    D = "select * from sales_android_v4 where call_status_id ='S'   and SALES_TER_ID in(" + x_ter_dsr + ")and branch_code in (" + x_region_dsr + ")  and to_date(day) >=to_date('" + dtp_formdate_dsr.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_dsr.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select * from sales_android_v4@sales where call_status_id ='S'   and SALES_TER_ID in(" + x_ter_dsr + ")and branch_code in (" + x_region_dsr + ")  and to_date(day) >=to_date('" + dtp_formdate_dsr.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_dsr.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                 }
    
                 else if (rchbdl_salesrep_DSR.CheckedItems.Count > 0)
                 {
 
-                    D = "select * from sales_android_v4 where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_dsr + ") and branch_code in (" + x_region_dsr + ") and to_date(day) >=to_date('" + dtp_formdate_dsr.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_dsr.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select * from sales_android_v4@sales where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_dsr + ") and branch_code in (" + x_region_dsr + ") and to_date(day) >=to_date('" + dtp_formdate_dsr.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_dsr.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                 }
                 else
                 {
@@ -1261,7 +1261,7 @@ namespace MDSF.Forms.Sales
                         }
                     }
 
-                    D = "select * from sales_android_v4 where call_status_id ='S' AND SALES_TER_ID in (" + x_ter_pos + ") and branch_code in(" + x_region_pos + ")  and to_date(day) >=to_date('" + dtp_formdate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select * from sales_android_v4@sales where call_status_id ='S' AND SALES_TER_ID in (" + x_ter_pos + ") and branch_code in(" + x_region_pos + ")  and to_date(day) >=to_date('" + dtp_formdate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                 }
                 else if (rchbdl_ter_pos.CheckedItems.Count > 0 && chb_All_salesrep_pos.Checked && chb_All_pos_pos.Checked)
                 {
@@ -1277,7 +1277,7 @@ namespace MDSF.Forms.Sales
                             x_salesrep_pos = Convert.ToString(x_salesrep_pos + "," + item["SALESREP_ID"]);
                         }
                     }
-                    D = "select * from sales_android_v4 where call_status_id ='S'  AND SALES_TER_ID in ("+ x_ter_pos + ") and branch_code in ("+x_region_pos+")  and to_date(day) >=to_date('" + dtp_formdate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select * from sales_android_v4@sales where call_status_id ='S'  AND SALES_TER_ID in ("+ x_ter_pos + ") and branch_code in ("+x_region_pos+")  and to_date(day) >=to_date('" + dtp_formdate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                 }
                 else if (rchbdl_salesrep_pos.CheckedItems.Count > 0 && chb_All_pos_pos.Checked)
                 {
@@ -1294,13 +1294,13 @@ namespace MDSF.Forms.Sales
                     //    }
                     //}
 
-                    D = "select * from sales_android_v4 where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_pos + ")  and branch_code in (" + x_region_pos + ")  and to_date(day) >=to_date('" + dtp_formdate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select * from sales_android_v4@sales where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_pos + ")  and branch_code in (" + x_region_pos + ")  and to_date(day) >=to_date('" + dtp_formdate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                 }
                 else if (rchbdl_pos_pos.CheckedItems.Count > 0)
                 {
                     
 
-                    D = "select * from sales_android_v4 where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_pos + ") and pos_code in(" + x_pos_pos + ") and branch_code in("+ x_region_pos + ") and to_date(day) >=to_date('" + dtp_formdate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select * from sales_android_v4@sales where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_pos + ") and pos_code in(" + x_pos_pos + ") and branch_code in("+ x_region_pos + ") and to_date(day) >=to_date('" + dtp_formdate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_pos.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                 }
                 else
                 {
@@ -1544,8 +1544,8 @@ namespace MDSF.Forms.Sales
 
 
 
-                    // D = "select s.* ,case when s.PROD_ID=30003 then  (sales_car /30)*0.006 else (sales_car /50)*0.01 end as million from sales_android_v4 s where call_status_id ='S'  and  branch_code in (" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
-                    D = "select s.*  from sales_android_v4 s where call_status_id ='S'  and  branch_code in (" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    // D = "select s.* ,case when s.PROD_ID=30003 then  (sales_car /30)*0.006 else (sales_car /50)*0.01 end as million from sales_android_v4@sales s where call_status_id ='S'  and  branch_code in (" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select s.*  from sales_android_v4@sales s where call_status_id ='S'  and  branch_code in (" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
 
                 }
                 else if (rchbdl_Region_Ter.CheckedItems.Count > 0 && chb_All_ter_ter.Checked)
@@ -1562,17 +1562,17 @@ namespace MDSF.Forms.Sales
                             x_ter_ter = Convert.ToString(x_ter_ter + "," + item["SALES_TER_ID"]);
                         }
                     }
-                    //  D = "select * from sales_android_v4 where call_status_id ='S' and SALES_TER_ID in(" + x_ter_ter + ") and branch_code in(" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
-                   // D = "select s.* ,case when s.PROD_ID=30003 then  (sales_car /30)*0.006 else (sales_car /50)*0.01 end as million from sales_android_v4 s where call_status_id ='S' and branch_code in(" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
-                    D = "select s.*  from sales_android_v4 s where call_status_id ='S' and branch_code in(" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    //  D = "select * from sales_android_v4@sales where call_status_id ='S' and SALES_TER_ID in(" + x_ter_ter + ") and branch_code in(" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                   // D = "select s.* ,case when s.PROD_ID=30003 then  (sales_car /30)*0.006 else (sales_car /50)*0.01 end as million from sales_android_v4@sales s where call_status_id ='S' and branch_code in(" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select s.*  from sales_android_v4@sales s where call_status_id ='S' and branch_code in(" + x_region_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
 
 
                 }
                 else if (rchbdl_Territory_Ter.CheckedItems.Count > 0)
                 {
 
-                  //  D = "select s.* ,case when s.PROD_ID=30003 then  (sales_car /30)*0.006 else (sales_car /50)*0.01 end as million from sales_android_v4 s where call_status_id ='S' and  branch_code in (" + x_region_ter + ") and SALES_TER_ID in(" + x_ter_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
-                    D = "select s.*  from sales_android_v4 s where call_status_id ='S' and  branch_code in (" + x_region_ter + ") and SALES_TER_ID in(" + x_ter_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                  //  D = "select s.* ,case when s.PROD_ID=30003 then  (sales_car /30)*0.006 else (sales_car /50)*0.01 end as million from sales_android_v4@sales s where call_status_id ='S' and  branch_code in (" + x_region_ter + ") and SALES_TER_ID in(" + x_ter_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select s.*  from sales_android_v4@sales s where call_status_id ='S' and  branch_code in (" + x_region_ter + ") and SALES_TER_ID in(" + x_ter_ter + ")  and to_date(day) >=to_date('" + dtp_fromdate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_Ter.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
 
                 }
                 else
@@ -1803,13 +1803,13 @@ namespace MDSF.Forms.Sales
                         }
                     }
 
-                   // D = "select * from sales_android_v4 where call_status_id ='S' and  branch_code in (" + x_region_reg + ")  and to_date("+date_reg+") >=to_date('" + dtp_fromdate_reg.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date("+date_reg+") <=to_date('" + dtp_to_Date_reg.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
-                    D = "select * from sales_android_v4 where call_status_id ='S' and  branch_code in (" + x_region_reg + ") "+ date_reg + " ";
+                   // D = "select * from sales_android_v4@sales where call_status_id ='S' and  branch_code in (" + x_region_reg + ")  and to_date("+date_reg+") >=to_date('" + dtp_fromdate_reg.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date("+date_reg+") <=to_date('" + dtp_to_Date_reg.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select * from sales_android_v4@sales where call_status_id ='S' and  branch_code in (" + x_region_reg + ") "+ date_reg + " ";
                 }
                 else if (rchbdl_Region_reg.CheckedItems.Count > 0)
                 {
-                   // D = "select * from sales_android_v4 where call_status_id ='S' and branch_code in(" + x_region_reg + ")  and to_date("+date_reg+") >=to_date('" + dtp_fromdate_reg.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date("+date_reg+") <=to_date('" + dtp_to_Date_reg.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
-                    D = "select * from sales_android_v4 where call_status_id ='S' and branch_code in(" + x_region_reg + ")  " + date_reg + " ";
+                   // D = "select * from sales_android_v4@sales where call_status_id ='S' and branch_code in(" + x_region_reg + ")  and to_date("+date_reg+") >=to_date('" + dtp_fromdate_reg.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date("+date_reg+") <=to_date('" + dtp_to_Date_reg.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    D = "select * from sales_android_v4@sales where call_status_id ='S' and branch_code in(" + x_region_reg + ")  " + date_reg + " ";
                 }
                 else
                 {
@@ -2051,7 +2051,7 @@ namespace MDSF.Forms.Sales
                             }
                         }
 
-                        D = "select distinct t.salesrep_name, t.pos_code,t.POS_NAME,t.visit_start_time,t.visit_end_time,t.CALL_STATUS_ID from sales_android_v4 t where " +
+                        D = "select distinct t.salesrep_name, t.pos_code,t.POS_NAME,t.visit_start_time,t.visit_end_time,t.CALL_STATUS_ID from sales_android_v4@sales t where " +
                         " branch_id in ("+ x_region_v + ") and  to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') order by t.visit_start_time ";
 
                     }
@@ -2069,7 +2069,7 @@ namespace MDSF.Forms.Sales
                                 x_ter_v = Convert.ToString(x_ter_v + "," + item["SALES_TER_ID"]);
                             }
                         }
-                        D = "select distinct t.salesrep_name, t.pos_code,t.POS_NAME,t.visit_start_time,t.visit_end_time,t.CALL_STATUS_ID from sales_android_v4 t where " +
+                        D = "select distinct t.salesrep_name, t.pos_code,t.POS_NAME,t.visit_start_time,t.visit_end_time,t.CALL_STATUS_ID from sales_android_v4@sales t where " +
                         "SALES_TER_ID in (" + x_ter_v + ") and branch_code in (" + x_region_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') order by t.visit_start_time ";
 
                     }
@@ -2087,14 +2087,14 @@ namespace MDSF.Forms.Sales
                                 x_salesrep_v = Convert.ToString(x_salesrep_v + "," + item["SALESREP_ID"]);
                             }
                         }
-                        D = "select distinct t.salesrep_name, t.pos_code,t.POS_NAME,t.visit_start_time,t.visit_end_time,t.CALL_STATUS_ID from sales_android_v4 t where " +
+                        D = "select distinct t.salesrep_name, t.pos_code,t.POS_NAME,t.visit_start_time,t.visit_end_time,t.CALL_STATUS_ID from sales_android_v4@sales t where " +
                         "SALES_TER_ID in (" + x_ter_v + ") and salesrep_id in (" + x_salesrep_v + ") and branch_code in (" + x_region_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') order by t.visit_start_time ";
 
                     }
                     else if (RChKBD_Salesrep_visit.CheckedItems.Count > 0)
                     {
 
-                        D = "select distinct t.salesrep_name, t.pos_code,t.POS_NAME,t.visit_start_time,t.visit_end_time,t.CALL_STATUS_ID from sales_android_v4 t where " +
+                        D = "select distinct t.salesrep_name, t.pos_code,t.POS_NAME,t.visit_start_time,t.visit_end_time,t.CALL_STATUS_ID from sales_android_v4@sales t where " +
                          "SALES_TER_ID in (" + x_ter_v + ") and salesrep_id in (" + x_salesrep_v + ") and branch_code in (" + x_region_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') order by t.visit_start_time ";
                     }
                     else
@@ -2126,13 +2126,13 @@ namespace MDSF.Forms.Sales
 
                         D = "select Tcall.salesrep_name, Tcall.Total_Call,Success_Call,nvl(Vcall.Visit_Call,0) Visit_Call " +
                              "from " +
-                             "(select t.salesrep_name,count(distinct pos_code) Total_Call from sales_android_v4 T where " +
+                             "(select t.salesrep_name,count(distinct pos_code) Total_Call from sales_android_v4@sales T where " +
                              "BRANCH_CODE in (" + x_region_v + ")  and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                              "group by t.salesrep_name)Tcall, " +
-                             "(select s.salesrep_name, count(distinct pos_code) Success_Call from sales_android_v4 s where call_status_id ='S' and " +
+                             "(select s.salesrep_name, count(distinct pos_code) Success_Call from sales_android_v4@sales s where call_status_id ='S' and " +
                              "BRANCH_CODE in (" + x_region_v + ")  and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                              "group by s.salesrep_name)Scall, " +
-                             "(select v.salesrep_name, count(distinct pos_code) Visit_Call from sales_android_v4 v where call_status_id ='V' and " +
+                             "(select v.salesrep_name, count(distinct pos_code) Visit_Call from sales_android_v4@sales v where call_status_id ='V' and " +
                              "BRANCH_CODE in (" + x_region_v + ")  and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                              "group by v.salesrep_name)Vcall " +
                              "where Tcall.salesrep_name=Scall.salesrep_name " +
@@ -2154,13 +2154,13 @@ namespace MDSF.Forms.Sales
                         }
                         D = "select Tcall.salesrep_name, Tcall.Total_Call,Success_Call,nvl(Vcall.Visit_Call,0) Visit_Call  " +
                             "from " +
-                            "(select t.salesrep_name,count(distinct pos_code) Total_Call from sales_android_v4 T where " +
+                            "(select t.salesrep_name,count(distinct pos_code) Total_Call from sales_android_v4@sales T where " +
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ")  and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                             "group by t.salesrep_name)Tcall, " +
-                            "(select s.salesrep_name, count(distinct pos_code) Success_Call from sales_android_v4 s where call_status_id ='S' and " +
+                            "(select s.salesrep_name, count(distinct pos_code) Success_Call from sales_android_v4@sales s where call_status_id ='S' and " +
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ")  and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                             "group by s.salesrep_name)Scall, " +
-                            "(select v.salesrep_name, count(distinct pos_code) Visit_Call from sales_android_v4 v where call_status_id ='V' and " +
+                            "(select v.salesrep_name, count(distinct pos_code) Visit_Call from sales_android_v4@sales v where call_status_id ='V' and " +
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ")  and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                             "group by v.salesrep_name)Vcall " +
                             "where Tcall.salesrep_name=Scall.salesrep_name " +
@@ -2182,13 +2182,13 @@ namespace MDSF.Forms.Sales
                         }
                         D = "select Tcall.salesrep_name, Tcall.Total_Call,Success_Call,nvl(Vcall.Visit_Call,0) Visit_Call " +
                             "from " +
-                            "(select t.salesrep_name,count(distinct pos_code) Total_Call from sales_android_v4 T where " +
+                            "(select t.salesrep_name,count(distinct pos_code) Total_Call from sales_android_v4@sales T where " +
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ") and SALESREP_ID in(" + x_salesrep_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                             "group by t.salesrep_name)Tcall, " +
-                            "(select s.salesrep_name, count(distinct pos_code) Success_Call from sales_android_v4 s where call_status_id ='S' and " +
+                            "(select s.salesrep_name, count(distinct pos_code) Success_Call from sales_android_v4@sales s where call_status_id ='S' and " +
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ") and SALESREP_ID in(" + x_salesrep_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                             "group by s.salesrep_name)Scall, " +
-                            "(select v.salesrep_name, count(distinct pos_code) Visit_Call from sales_android_v4 v where call_status_id ='V' and " +
+                            "(select v.salesrep_name, count(distinct pos_code) Visit_Call from sales_android_v4@sales v where call_status_id ='V' and " +
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ") and SALESREP_ID in(" + x_salesrep_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                             "group by v.salesrep_name)Vcall " +
                             "where Tcall.salesrep_name=Scall.salesrep_name " +
@@ -2199,13 +2199,13 @@ namespace MDSF.Forms.Sales
 
                         D = "select Tcall.salesrep_name, Tcall.Total_Call,Success_Call,nvl(Vcall.Visit_Call,0) Visit_Call " +
                             "from " +
-                            "(select t.salesrep_name,count(distinct pos_code) Total_Call from sales_android_v4 T where " +
+                            "(select t.salesrep_name,count(distinct pos_code) Total_Call from sales_android_v4@sales T where " +
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ") and SALESREP_ID in(" + x_salesrep_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                             "group by t.salesrep_name)Tcall, " +
-                            "(select s.salesrep_name, count(distinct pos_code) Success_Call from sales_android_v4 s where call_status_id ='S' and " +
+                            "(select s.salesrep_name, count(distinct pos_code) Success_Call from sales_android_v4@sales s where call_status_id ='S' and " +
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ") and SALESREP_ID in(" + x_salesrep_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                             "group by s.salesrep_name)Scall, " +
-                            "(select v.salesrep_name, count(distinct pos_code) Visit_Call from sales_android_v4 v where call_status_id ='V' and " +
+                            "(select v.salesrep_name, count(distinct pos_code) Visit_Call from sales_android_v4@sales v where call_status_id ='V' and " +
                             "BRANCH_CODE in (" + x_region_v + ")  and SALES_TER_ID in (" + x_ter_v + ") and SALESREP_ID in(" + x_salesrep_v + ") and to_date(day) >=to_date('" + DateTimePicker_DSR_from_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + DateTimePicker_DSR_To_v.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') " +
                             "group by v.salesrep_name)Vcall " +
                             "where Tcall.salesrep_name=Scall.salesrep_name " +
@@ -2230,7 +2230,7 @@ namespace MDSF.Forms.Sales
                 {
                     //--------------------------------------
                     DataSet ds = new DataSet();
-                    ds = DataAccessCS.getdata_sales(D);
+                    ds = DataAccessCS.getdata(D);
                     rgv_visit.DataSource = ds.Tables[0];
                     rgv_visit.Visible = true;
                     rgv_visit.BestFitColumns();
@@ -2461,7 +2461,7 @@ namespace MDSF.Forms.Sales
 
         private void cmb_pos_print_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //lbl_salescall_id.Text = DataAccessCS.getvalue("select distinct salescall_id from sales_android_v4 where pos_code ='"+cmb_pos_print.SelectedValue+ "'   and to_date(day) =to_date('" + dtp_journy_print.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') ");
+            //lbl_salescall_id.Text = DataAccessCS.getvalue("select distinct salescall_id from sales_android_v4@sales where pos_code ='"+cmb_pos_print.SelectedValue+ "'   and to_date(day) =to_date('" + dtp_journy_print.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') ");
             //DataAccessCS.conn.Close();
         }
 
