@@ -401,7 +401,7 @@ namespace MDSF.Forms.Master_Data
                   DataAccessCS.conn.Close();
                 // string journeyDec = DataAccessCS.getvalue("select max(lh.journey_sequence) as journey_sequence  from loading_header lh where lh.salesrep_id = " + cmb_salesrep_des.SelectedValue);
                 // string journeySeqDec =  journeyDec + seq ; 
-                string journeyDec = DataAccessCS.getvalue("select  journey_sequence from(select  journey_sequence from loading_header where salesrep_id =" + cmb_salesrep_des.SelectedValue + " and return_date is null order by loading_date desc)  where rownum = 1");
+                string journeySeqDec = DataAccessCS.getvalue("select  journey_sequence from(select  journey_sequence from loading_header where salesrep_id =" + cmb_salesrep_des.SelectedValue + " and return_date is null order by loading_date desc)  where rownum = 1");
                 DataAccessCS.conn.Close();
 
 
