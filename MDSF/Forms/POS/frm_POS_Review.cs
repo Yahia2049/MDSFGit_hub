@@ -174,13 +174,25 @@ namespace MDSF.Forms.Master_Data
                 {
                     if (chb_All_ter_salesrep.Checked == true && chb_All_salesrep_salesrep.Checked == true)
                     {
+                         x_region_salesrep = "";
+                        foreach (var item in rchbdl_Region.CheckedItems)
+                        {
+                            if (string.IsNullOrEmpty(x_region_salesrep))
+                            {
+                                x_region_salesrep = Convert.ToString(item["branch_code"]);
+                            }
+                            else
+                            {
+                                x_region_salesrep = Convert.ToString(x_region_salesrep + "," + item["branch_code"]);
+                            }
+                        }
                         if (txt_search_by_name.Text != "")
                         {
-                            D = "select* from new_pos@sales n where   to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') and pos_name like '%"+txt_search_by_name.Text+"%' ";
+                            D = "select s.name,n.* from new_pos@sales n ,salesman s where n.salesrep_id = s.sales_id and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy')   and pos_code_perm is null and s.branch_code in (" + x_region_salesrep + ")  and pos_name like '%"+txt_search_by_name.Text+"%' and  ";
                         }
                         else
                         {
-                            D = "select* from new_pos@sales n where   to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') ";
+                            D = "select s.name,n.* from new_pos @sales n ,salesman s where n.salesrep_id = s.sales_id and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy')    and s.branch_code in ("+ x_region_salesrep + ") ";;
                         }
                     }
                     else if (chb_All_ter_salesrep.Checked == false && chb_All_salesrep_salesrep.Checked == true)
@@ -200,11 +212,11 @@ namespace MDSF.Forms.Master_Data
 
                         if (txt_search_by_name.Text != "")
                         {
-                            D = "select* from new_pos@sales n where n.salesrep_id in (" + x_salesrep_salesrep + ") and   to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') and pos_name like '%" + txt_search_by_name.Text + "%' ";
+                            D = "select s.name,n.* from new_pos @sales n ,salesman s where n.salesrep_id = s.sales_id and n.salesrep_id in (" + x_salesrep_salesrep + ") and   to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') and pos_name like '%" + txt_search_by_name.Text + "%' ";
                         }
                         else
                         {
-                            D = "select* from new_pos@sales n where n.salesrep_id in (" + x_salesrep_salesrep + ") and   to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') ";
+                            D = "select s.name,n.* from new_pos @sales n ,salesman s where n.salesrep_id = s.sales_id and n.salesrep_id in (" + x_salesrep_salesrep + ") and   to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') ";
                         }
 
 
@@ -212,13 +224,14 @@ namespace MDSF.Forms.Master_Data
                     }
                     else if (rchbdl_salesrep.CheckedItems.Count > 0)
                     {
+
                         if (txt_search_by_name.Text != "")
                         {
-                            D = "select* from new_pos@sales n where n.salesrep_id in (" + x_salesrep_salesrep + ") and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy')  and pos_name like '%" + txt_search_by_name.Text + "%' ";
+                            D = "select s.name,n.* from new_pos @sales n ,salesman s where n.salesrep_id = s.sales_id and n.salesrep_id in (" + x_salesrep_salesrep + ") and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy')  and pos_name like '%" + txt_search_by_name.Text + "%' ";
                         }
                         else
                         {
-                            D = "select* from new_pos@sales n where n.salesrep_id in (" + x_salesrep_salesrep + ") and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy')";
+                            D = "select s.name,n.* from new_pos @sales n ,salesman s where n.salesrep_id = s.sales_id and n.salesrep_id in (" + x_salesrep_salesrep + ") and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy')";
                         }
                     }
                     else
@@ -231,13 +244,25 @@ namespace MDSF.Forms.Master_Data
                 {
                     if (chb_All_ter_salesrep.Checked == true && chb_All_salesrep_salesrep.Checked == true)
                     {
+                        x_region_salesrep = "";
+                        foreach (var item in rchbdl_Region.CheckedItems)
+                        {
+                            if (string.IsNullOrEmpty(x_region_salesrep))
+                            {
+                                x_region_salesrep = Convert.ToString(item["branch_code"]);
+                            }
+                            else
+                            {
+                                x_region_salesrep = Convert.ToString(x_region_salesrep + "," + item["branch_code"]);
+                            }
+                        }
                         if (txt_search_by_name.Text != "")
                         {
-                            D = "select* from new_pos@sales n where   to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') and pos_code_perm is null and pos_name like '%" + txt_search_by_name.Text + "%'";
+                            D = "select s.name,n.* from new_pos @sales n ,salesman s where n.salesrep_id = s.sales_id  and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy')   and pos_code_perm is null and s.branch_code in (" + x_region_salesrep + ") and pos_name like '%" + txt_search_by_name.Text + "%'";
                         }
                         else
                         {
-                            D = "select* from new_pos@sales n where   to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') and pos_code_perm is null";
+                            D = "select s.name,n.* from new_pos@sales n ,salesman s where n.salesrep_id = s.sales_id and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy')   and pos_code_perm is null and s.branch_code in ("+ x_region_salesrep + ") ";
                         }
                     }
                     else if (chb_All_ter_salesrep.Checked == false && chb_All_salesrep_salesrep.Checked == true)
@@ -256,11 +281,11 @@ namespace MDSF.Forms.Master_Data
                         }
                         if (txt_search_by_name.Text != "")
                         {
-                            D = "select* from new_pos@sales n where n.salesrep_id in (" + x_salesrep_salesrep + ") and   to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') and pos_name like '%" + txt_search_by_name.Text + "%' ";
+                            D = "select s.name,n.* from new_pos@sales n ,salesman s where n.salesrep_id = s.sales_id and n.salesrep_id in (" + x_salesrep_salesrep + ") and   to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') and pos_name like '%" + txt_search_by_name.Text + "%' ";
                         }
                         else
                         {
-                            D = "select* from new_pos@sales n where n.salesrep_id in (" + x_salesrep_salesrep + ") and   to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') ";
+                            D = "select s.name,n.* from new_pos@sales n ,salesman s where n.salesrep_id = s.sales_id and n.salesrep_id in (" + x_salesrep_salesrep + ") and   to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') ";
                         }
                     }
 
@@ -268,11 +293,11 @@ namespace MDSF.Forms.Master_Data
                     {
                         if (txt_search_by_name.Text != "")
                         {
-                            D = "select* from new_pos@sales n where n.salesrep_id in (" + x_salesrep_salesrep + ") and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') and pos_code_perm is null and pos_name like '%" + txt_search_by_name.Text + "%'";
+                            D = "select s.name,n.* from new_pos@sales n ,salesman s where n.salesrep_id = s.sales_id and n.salesrep_id in (" + x_salesrep_salesrep + ") and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') and pos_code_perm is null and pos_name like '%" + txt_search_by_name.Text + "%'";
                         }
                         else
                         {
-                            D = "select* from new_pos@sales n where n.salesrep_id in (" + x_salesrep_salesrep + ") and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') and pos_code_perm is null";
+                            D = "select s.name,n.* from new_pos@sales n ,salesman s where n.salesrep_id = s.sales_id and n.salesrep_id in (" + x_salesrep_salesrep + ") and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) >= TO_DATE('" + DateTimePicker_from.Value.Month + "/" + DateTimePicker_from.Value.Day + "/" + DateTimePicker_from.Value.Year + "', 'mm/dd/yyyy')   and to_char(to_date(n.create_date,'dd-mon-yyyy hh:mi:ss AM')) <= TO_DATE('" + DateTimePicker_TO.Value.Month + "/" + DateTimePicker_TO.Value.Day + "/" + DateTimePicker_TO.Value.Year + "', 'mm/dd/yyyy') and pos_code_perm is null";
                         }
                     }
                     else

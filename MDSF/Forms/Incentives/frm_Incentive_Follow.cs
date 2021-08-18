@@ -131,6 +131,62 @@ namespace MDSF.Forms.POS
             }
             this.Cursor = Cursors.Default;
         }
+        private void Fill_rchbdl_pos()
+        {
+            try
+            {
+                DataAccessCS.conn.Close();
+                string x_Ter_salesrep = "";
+                foreach (var item in rchbdl_ter_salesrep.CheckedItems)
+                {
+                    if (string.IsNullOrEmpty(x_Ter_salesrep))
+                    {
+                        x_Ter_salesrep = Convert.ToString(item["SALES_TER_ID"]);
+                    }
+                    else
+                    {
+                        x_Ter_salesrep = Convert.ToString(x_Ter_salesrep + "," + item["SALES_TER_ID"]);
+                    }
+                }
+                string x_salesrep_salesrep = "";
+                foreach (var item in rchbdl_salesrep_salesrep.CheckedItems)
+                {
+                    if (string.IsNullOrEmpty(x_salesrep_salesrep))
+                    {
+                        x_salesrep_salesrep = Convert.ToString(item["SALESREP_ID"]);
+                    }
+                    else
+                    {
+                        x_salesrep_salesrep = Convert.ToString(x_salesrep_salesrep + "," + item["SALESREP_ID"]);
+                    }
+                }
+                //--------------------------------------
+                DataSet ds = new DataSet();
+                string comm = "select distinct s.pos_code ,p.name POS_NAME " +
+                " from salescall@sales s , pos p, journey@sales j" +
+                " where p.TER_ID || '_' || p.pos_id = s.pos_code" +
+                " and s.jou_id = j.jou_id" +
+                " and j.SALESREP_ID in (" + x_salesrep_salesrep + ")" +
+                " and j.SALES_TER_ID in (" + x_Ter_salesrep + ")" +
+                //" and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) between TO_DATE('" + dtp_formdate_pos.Value.Month + "/" + dtp_formdate_pos.Value.Day + "/" + dtp_formdate_pos.Value.Year + "','mm/dd/yyyy') and TO_DATE('" + dtp_todate_pos.Value.Month + "/" + dtp_todate_pos.Value.Day + "/" + dtp_todate_pos.Value.Year + "','mm/dd/yyyy')" +
+                " order by p.name";
+                ds = DataAccessCS.getdata(comm);
+                rchbdl_pos.DataSource = ds.Tables[0];
+                rchbdl_pos.DisplayMember = "POS_NAME";
+                rchbdl_pos.ValueMember = "POS_CODE";
+                rchbdl_pos.SelectedIndex = -1;
+                rchbdl_pos.Text = "--Choose--";
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+                //--------------------------------------
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
 
         private void Fill_rchbdl_Month()
         {
@@ -175,46 +231,49 @@ namespace MDSF.Forms.POS
         {
             try
             {
-
-                string x_year = "";
-                foreach (var item in rchbdl_Year.CheckedItems)
+                if (rdb_month.Checked)
                 {
-                    if (string.IsNullOrEmpty(x_year))
+                    string x_year = "";
+                    foreach (var item in rchbdl_Year.CheckedItems)
                     {
-                        x_year = Convert.ToString(item["year"]);
+                        if (string.IsNullOrEmpty(x_year))
+                        {
+                            x_year = Convert.ToString(item["year"]);
+                        }
+                        else
+                        {
+                            x_year = Convert.ToString(x_year + "," + item["year"]);
+                        }
                     }
-                    else
-                    {
-                        x_year = Convert.ToString(x_year + "," + item["year"]);
-                    }
-                }
-                //--------------------------------------
+                    //--------------------------------------
 
-                string x_month = "";
-                foreach (var item in rchbdl_Month.CheckedItems)
-                {
-                    if (string.IsNullOrEmpty(x_month))
+                    string x_month = "";
+                    foreach (var item in rchbdl_Month.CheckedItems)
                     {
-                        x_month = Convert.ToString(item["month"]);
+                        if (string.IsNullOrEmpty(x_month))
+                        {
+                            x_month = Convert.ToString(item["month"]);
+                        }
+                        else
+                        {
+                            x_month = Convert.ToString(x_month + "," + item["month"]);
+                        }
                     }
-                    else
-                    {
-                        x_month = Convert.ToString(x_month + "," + item["month"]);
-                    }
-                }
-                //--------------------------------------
-                DataSet ds = new DataSet();
-                ds = DataAccessCS.getdata("select distinct  incentive_type FROM INCENTIVE_ASSIGNING where year in ("+x_year+") and month in ("+x_month+")");
-                rchbdl_incentive_type.DataSource = ds.Tables[0];
-                rchbdl_incentive_type.DisplayMember = "incentive_type";
-                rchbdl_incentive_type.ValueMember = "incentive_type";
-                rchbdl_incentive_type.SelectedIndex = -1;
-                rchbdl_incentive_type.Text = "--Choose--";
-                ds.Dispose();
-                DataAccessCS.conn.Close();
-                //--------------------------------------
+                    //--------------------------------------
+                    DataSet ds = new DataSet();
+                    ds = DataAccessCS.getdata("select distinct  incentive_type FROM INCENTIVE_ASSIGNING where year in (" + x_year + ") and month in (" + x_month + ")");
+                    rchbdl_incentive_type.DataSource = ds.Tables[0];
+                    rchbdl_incentive_type.DisplayMember = "incentive_type";
+                    rchbdl_incentive_type.ValueMember = "incentive_type";
+                    rchbdl_incentive_type.SelectedIndex = -1;
+                    rchbdl_incentive_type.Text = "--Choose--";
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
 
-                rchbdl_incentive_type.Enabled = true;
+                    rchbdl_incentive_type.Enabled = true;
+                }
+                
 
             }
             catch (Exception ex)
@@ -227,60 +286,64 @@ namespace MDSF.Forms.POS
         {
             try
             {
-
-                string x_year = "";
-                foreach (var item in rchbdl_Year.CheckedItems)
+             if (rdb_month.Checked)
                 {
-                    if (string.IsNullOrEmpty(x_year))
+                    string x_year = "";
+                    foreach (var item in rchbdl_Year.CheckedItems)
                     {
-                        x_year = Convert.ToString(item["year"]);
+                        if (string.IsNullOrEmpty(x_year))
+                        {
+                            x_year = Convert.ToString(item["year"]);
+                        }
+                        else
+                        {
+                            x_year = Convert.ToString(x_year + "," + item["year"]);
+                        }
                     }
-                    else
-                    {
-                        x_year = Convert.ToString(x_year + "," + item["year"]);
-                    }
-                }
-                //--------------------------------------
+                    //--------------------------------------
 
-                string x_month = "";
-                foreach (var item in rchbdl_Month.CheckedItems)
-                {
-                    if (string.IsNullOrEmpty(x_month))
+                    string x_month = "";
+                    foreach (var item in rchbdl_Month.CheckedItems)
                     {
-                        x_month = Convert.ToString(item["month"]);
+                        if (string.IsNullOrEmpty(x_month))
+                        {
+                            x_month = Convert.ToString(item["month"]);
+                        }
+                        else
+                        {
+                            x_month = Convert.ToString(x_month + "," + item["month"]);
+                        }
                     }
-                    else
+                    //--------------------------------------
+                    string x_incentive_type = "";
+                    foreach (var item in rchbdl_incentive_type.CheckedItems)
                     {
-                        x_month = Convert.ToString(x_month + "," + item["month"]);
+                        if (string.IsNullOrEmpty(x_incentive_type))
+                        {
+                            x_incentive_type = "'" + Convert.ToString(item["incentive_type"] + "'");
+                        }
+                        else
+                        {
+                            x_incentive_type = Convert.ToString(x_incentive_type + "," + "'" + item["incentive_type"] + "'");
+                        }
                     }
-                }
-                //--------------------------------------
-                string x_incentive_type = "";
-                foreach (var item in rchbdl_incentive_type.CheckedItems)
-                {
-                    if (string.IsNullOrEmpty(x_incentive_type))
-                    {
-                        x_incentive_type ="'"+ Convert.ToString(item["incentive_type"]+"'");
-                    }
-                    else
-                    {
-                        x_incentive_type = Convert.ToString(x_incentive_type + "," +"'"+item["incentive_type"]+"'");
-                    }
-                }
-                //--------------------------------------
-                DataSet ds = new DataSet();
-                ds = DataAccessCS.getdata("select distinct t.incentive_id,t.incentive_desc FROM INCENTIVE_ASSIGNING i, incentive_types t " +
-                    " where i.incentive_type_id=t.incentive_id and i.year in ("+x_year+") and i.month in("+x_month+") and i.incentive_type in("+x_incentive_type+") order by  t.incentive_desc");
-                rchbdl_incentives.DataSource = ds.Tables[0];
-                rchbdl_incentives.DisplayMember = "incentive_desc";
-                rchbdl_incentives.ValueMember = "incentive_id";
-                rchbdl_incentives.SelectedIndex = -1;
-                rchbdl_incentives.Text = "--Choose--";
-                ds.Dispose();
-                DataAccessCS.conn.Close();
-                //--------------------------------------
+                    //--------------------------------------
 
-                rchbdl_incentives.Enabled = true;
+                    DataSet ds = new DataSet();
+                    ds = DataAccessCS.getdata("select distinct t.incentive_id,t.incentive_desc FROM INCENTIVE_ASSIGNING i, incentive_types t " +
+                        " where i.incentive_type_id=t.incentive_id and i.year in (" + x_year + ") and i.month in(" + x_month + ") and i.incentive_type in(" + x_incentive_type + ") order by  t.incentive_desc");
+                    rchbdl_incentives.DataSource = ds.Tables[0];
+                    rchbdl_incentives.DisplayMember = "incentive_desc";
+                    rchbdl_incentives.ValueMember = "incentive_id";
+                    rchbdl_incentives.SelectedIndex = -1;
+                    rchbdl_incentives.Text = "--Choose--";
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+
+                    rchbdl_incentives.Enabled = true;
+                }
+                
 
             }
             catch (Exception ex)
@@ -305,55 +368,15 @@ namespace MDSF.Forms.POS
         private void btn_search_salesrep_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            try
+            if (rdb_month.Checked)
             {
-                string from_date = dtp_fromdate_salesrep.Value.ToString("dd-MMM-yyyy");
-                string to_date = dtp_todate_salesrep.Value.ToString("dd-MMM-yyyy");
+                try
+                {
+                    string from_date = dtp_fromdate_salesrep.Value.ToString("dd-MMM-yyyy");
+                    string to_date = dtp_todate_salesrep.Value.ToString("dd-MMM-yyyy");
 
-                string x_region_salesrep = "";
-                foreach (var item in rchbdl_Region_salesrep.CheckedItems)
-                {
-                    if (string.IsNullOrEmpty(x_region_salesrep))
-                    {
-                        x_region_salesrep = Convert.ToString(item["branch_code"]);
-                    }
-                    else
-                    {
-                        x_region_salesrep = Convert.ToString(x_region_salesrep + "," + item["branch_code"]);
-                    }
-                }
-
-                string x_ter_salesrep = "";
-                foreach (var item in rchbdl_ter_salesrep.CheckedItems)
-                {
-                    if (string.IsNullOrEmpty(x_ter_salesrep))
-                    {
-                        x_ter_salesrep = Convert.ToString(item["SALES_TER_ID"]);
-                    }
-                    else
-                    {
-                        x_ter_salesrep = Convert.ToString(x_ter_salesrep + "," + item["SALES_TER_ID"]);
-                    }
-                }
-                string x_salesrep_salesrep = "";
-                foreach (var item in rchbdl_salesrep_salesrep.CheckedItems)
-                {
-                    if (string.IsNullOrEmpty(x_salesrep_salesrep))
-                    {
-                        x_salesrep_salesrep = Convert.ToString(item["SALESREP_ID"]);
-                    }
-                    else
-                    {
-                        x_salesrep_salesrep = Convert.ToString(x_salesrep_salesrep + "," + item["SALESREP_ID"]);
-                    }
-                }
-                //-----To Load Data-----------------------------------------------------------------
-
-                string D;
-                if (chb_All_reg_salesrep.Checked == true && chb_All_ter_salesrep.Checked && chb_All_salesrep_salesrep.Checked)
-                {
-                    x_region_salesrep = "";
-                    foreach (var item in rchbdl_Region_salesrep.Items)
+                    string x_region_salesrep = "";
+                    foreach (var item in rchbdl_Region_salesrep.CheckedItems)
                     {
                         if (string.IsNullOrEmpty(x_region_salesrep))
                         {
@@ -365,16 +388,8 @@ namespace MDSF.Forms.POS
                         }
                     }
 
-
-                    D = "select  branch_code, region, fill_date, pos_code, pos_name, salesrep_id, name, survey_name, question, answer from  v_survey where survey_id = 77 " +
-                        "and branch_code in (" + x_region_salesrep + ")  " +
-                        "and fill_date >= '"+from_date+ "' and fill_date <= '" + to_date + "'   order by fill_date desc";
-                    //D = "select * from sales_android_v4 where call_status_id ='S'  and  branch_code in (" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
-                }
-                else if (rchbdl_Region_salesrep.CheckedItems.Count > 0 && chb_All_ter_salesrep.Checked && chb_All_salesrep_salesrep.Checked)
-                {
-                    x_ter_salesrep = "";
-                    foreach (var item in rchbdl_ter_salesrep.Items)
+                    string x_ter_salesrep = "";
+                    foreach (var item in rchbdl_ter_salesrep.CheckedItems)
                     {
                         if (string.IsNullOrEmpty(x_ter_salesrep))
                         {
@@ -385,16 +400,8 @@ namespace MDSF.Forms.POS
                             x_ter_salesrep = Convert.ToString(x_ter_salesrep + "," + item["SALES_TER_ID"]);
                         }
                     }
-                    D = "select  branch_code, region, fill_date, pos_code, pos_name, salesrep_id, name, survey_name, question, answer from  v_survey where survey_id = 77 " +
-                        " and branch_code in (" + x_region_salesrep + ")  " +
-                        "and fill_date >= '" + from_date + "' and fill_date <= '" + to_date + "' order by fill_date desc";
-
-                    // D = "select * from sales_android_v4 where call_status_id ='S' and SALES_TER_ID in(" + x_ter_salesrep + ") and branch_code in(" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
-                }
-                else if (rchbdl_ter_salesrep.CheckedItems.Count > 0 && chb_All_salesrep_salesrep.Checked)
-                {
-                    x_salesrep_salesrep = "";
-                    foreach (var item in rchbdl_salesrep_salesrep.Items)
+                    string x_salesrep_salesrep = "";
+                    foreach (var item in rchbdl_salesrep_salesrep.CheckedItems)
                     {
                         if (string.IsNullOrEmpty(x_salesrep_salesrep))
                         {
@@ -406,55 +413,184 @@ namespace MDSF.Forms.POS
                         }
                     }
 
-                    D = "select  branch_code, region, fill_date, pos_code, pos_name, salesrep_id, name, survey_name, question, answer from  v_survey where survey_id = 77 " +
-                        "and SALESREP_ID in(" + x_salesrep_salesrep + ") and branch_code in (" + x_region_salesrep + ")  " +
-                        "and fill_date >= '" + from_date + "'  and fill_date <= '" + to_date + "' order by fill_date desc";
-
-                    // D = "select * from sales_android_v4 where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_salesrep + ") and branch_code in(" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
-                }
-                else if (rchbdl_salesrep_salesrep.CheckedItems.Count > 0)
-                {
-                    D = "select  branch_code, region, fill_date, pos_code, pos_name, salesrep_id, name, survey_name, question, answer from  v_survey where survey_id = 77 " +
-                        "and  SALESREP_ID in(" + x_salesrep_salesrep + ") and branch_code in (" + x_region_salesrep + ")  " +
-                        "and fill_date >= '" + from_date + "' and fill_date <= '" + to_date + "' order by fill_date desc";
-
-                    //D = "select * from sales_android_v4 where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
-                }
-                else
-                {
-                    MessageBox.Show("برجاء تحديد المنطقة البيعية اولاً");
-                    D = "";
-                }
-                // ---Clear RPG ITEMs
-             
-
-
-
-                if (string.IsNullOrEmpty(D))
-                {
-                    rgv_pos_survey.DataSource = "";
-                    rgv_pos_survey.Visible = false;
-                }
-                else
-                {
-                    //--------------------------------------
-                    DataSet ds = new DataSet();
-                    ds = DataAccessCS.getdata_sales(D);
-                    DataTable dt = ds.Tables[0];
-                    rgv_pos_survey.DataSource = PivotTable.GetInversedDataTable(dt, "question", "pos_name", "answer", "لا يوجد", false); ;                   
-                    rgv_pos_survey.BestFitColumns();
-                    rgv_pos_survey.Visible = true;
-                    ds.Dispose();
-                    DataAccessCS.conn.Close();
+                    string x_year = "";
+                    foreach (var item in rchbdl_Year.CheckedItems)
+                    {
+                        if (string.IsNullOrEmpty(x_year))
+                        {
+                            x_year = Convert.ToString(item["year"]);
+                        }
+                        else
+                        {
+                            x_year = Convert.ToString(x_year + "," + item["year"]);
+                        }
+                    }
                     //--------------------------------------
 
+                    string x_month = "";
+                    foreach (var item in rchbdl_Month.CheckedItems)
+                    {
+                        if (string.IsNullOrEmpty(x_month))
+                        {
+                            x_month = Convert.ToString(item["month"]);
+                        }
+                        else
+                        {
+                            x_month = Convert.ToString(x_month + "," + item["month"]);
+                        }
+                    }
+                    //--------------------------------------
+                    string x_incentive_type = "";
+                    foreach (var item in rchbdl_incentive_type.CheckedItems)
+                    {
+                        if (string.IsNullOrEmpty(x_incentive_type))
+                        {
+                            x_incentive_type = "'" + Convert.ToString(item["incentive_type"] + "'");
+                        }
+                        else
+                        {
+                            x_incentive_type = Convert.ToString(x_incentive_type + "," + "'" + item["incentive_type"] + "'");
+                        }
+                    }
+
+                    //--------------------------------------
+                    string x_incentive = "";
+                    foreach (var item in rchbdl_incentives.CheckedItems)
+                    {
+                        if (string.IsNullOrEmpty(x_incentive))
+                        {
+                            x_incentive = Convert.ToString(item["incentive_id"]);
+                        }
+                        else
+                        {
+                            x_incentive = Convert.ToString(x_incentive + "," + item["incentive_id"]);
+                        }
+                    }
+                    //-----To Load Data-----------------------------------------------------------------
+
+                    string D;
+                    if (chb_All_reg_salesrep.Checked == true && chb_All_ter_salesrep.Checked && chb_All_salesrep_salesrep.Checked && chb_All_POS.Checked )
+                    {
+                        x_region_salesrep = "";
+                        foreach (var item in rchbdl_Region_salesrep.Items)
+                        {
+                            if (string.IsNullOrEmpty(x_region_salesrep))
+                            {
+                                x_region_salesrep = Convert.ToString(item["branch_code"]);
+                            }
+                            else
+                            {
+                                x_region_salesrep = Convert.ToString(x_region_salesrep + "," + item["branch_code"]);
+                            }
+                        }
+
+
+                        D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
+                            " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                            " WHERE  A.BRANCH_CODE IN ("+ x_region_salesrep + ") " +
+                            " AND A.INCENTIVE_TYPE in ("+x_incentive_type+") " +
+                            " AND A.YEAR in ("+x_year+") " +
+                            " AND A.MONTH in ("+x_month+") " +
+                            " AND  A.INCENTIVE_ID IN ("+x_incentive+") " +
+                            " /*AND A.TER_ID||'_'||A.POS_ID ='904_8145'*/ " +
+                            " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
+
+                    }
+                    else if (rchbdl_Region_salesrep.CheckedItems.Count > 0 && chb_All_ter_salesrep.Checked && chb_All_salesrep_salesrep.Checked)
+                    {
+                        x_region_salesrep = "";
+                        foreach (var item in rchbdl_Region_salesrep.CheckedItems)
+                        {
+                            if (string.IsNullOrEmpty(x_region_salesrep))
+                            {
+                                x_region_salesrep = Convert.ToString(item["branch_code"]);
+                            }
+                            else
+                            {
+                                x_region_salesrep = Convert.ToString(x_region_salesrep + "," + item["branch_code"]);
+                            }
+                        }
+                        D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
+                            " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                            " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
+                            " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
+                            " AND A.YEAR in (" + x_year + ") " +
+                            " AND A.MONTH in (" + x_month + ") " +
+                            " AND  A.INCENTIVE_ID IN (" + x_incentive + ") " +
+                            " /*AND A.TER_ID||'_'||A.POS_ID ='904_8145'*/ " +
+                            " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
+
+                        // D = "select * from sales_android_v4 where call_status_id ='S' and SALES_TER_ID in(" + x_ter_salesrep + ") and branch_code in(" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    }
+                    else if (rchbdl_ter_salesrep.CheckedItems.Count > 0 && chb_All_salesrep_salesrep.Checked)
+                    {
+                        x_salesrep_salesrep = "";
+                        foreach (var item in rchbdl_salesrep_salesrep.Items)
+                        {
+                            if (string.IsNullOrEmpty(x_salesrep_salesrep))
+                            {
+                                x_salesrep_salesrep = Convert.ToString(item["SALESREP_ID"]);
+                            }
+                            else
+                            {
+                                x_salesrep_salesrep = Convert.ToString(x_salesrep_salesrep + "," + item["SALESREP_ID"]);
+                            }
+                        }
+
+                        D = "select  branch_code, region, fill_date, pos_code, pos_name, salesrep_id, name, survey_name, question, answer from  v_survey where survey_id = 77 " +
+                            "and SALESREP_ID in(" + x_salesrep_salesrep + ") and branch_code in (" + x_region_salesrep + ")  " +
+                            "and fill_date >= '" + from_date + "'  and fill_date <= '" + to_date + "' order by fill_date desc";
+
+                        // D = "select * from sales_android_v4 where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_salesrep + ") and branch_code in(" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    }
+                    else if (rchbdl_salesrep_salesrep.CheckedItems.Count > 0)
+                    {
+                        D = "select  branch_code, region, fill_date, pos_code, pos_name, salesrep_id, name, survey_name, question, answer from  v_survey where survey_id = 77 " +
+                            "and  SALESREP_ID in(" + x_salesrep_salesrep + ") and branch_code in (" + x_region_salesrep + ")  " +
+                            "and fill_date >= '" + from_date + "' and fill_date <= '" + to_date + "' order by fill_date desc";
+
+                        //D = "select * from sales_android_v4 where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    }
+                    else
+                    {
+                        MessageBox.Show("برجاء تحديد المنطقة البيعية اولاً");
+                        D = "";
+                    }
+                    // ---Clear RPG ITEMs
+
+
+
+
+                    if (string.IsNullOrEmpty(D))
+                    {
+                        rgv_pos_survey.DataSource = "";
+                        rgv_pos_survey.Visible = false;
+                    }
+                    else
+                    {
+                        //--------------------------------------
+                        DataSet ds = new DataSet();
+                        ds = DataAccessCS.getdata(D);
+                        DataTable dt = ds.Tables[0];
+                        rgv_pos_survey.DataSource = ds.Tables[0];
+                        rgv_pos_survey.BestFitColumns();
+                        rgv_pos_survey.Visible = true;
+                        ds.Dispose();
+                        DataAccessCS.conn.Close();
+
+
+                     
+                        //--------------------------------------
+
+                    }
+                    lbl_pos_count.Text = rgv_pos_survey.RowCount.ToString();
                 }
-                lbl_pos_count.Text = rgv_pos_survey.RowCount.ToString();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+           
             this.Cursor = Cursors.Default;
         }
 
@@ -488,7 +624,7 @@ namespace MDSF.Forms.POS
 
         private void radCheckedDropDownList2_ItemCheckedChanged(object sender, Telerik.WinControls.UI.RadCheckedListDataItemEventArgs e)
         {
-
+            btn_search_salesrep.Enabled = true;
         }
 
         private void radCheckedDropDownList1_ItemCheckedChanged(object sender, Telerik.WinControls.UI.RadCheckedListDataItemEventArgs e)
@@ -535,6 +671,14 @@ namespace MDSF.Forms.POS
                 MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
+        }
+
+        private void rchbdl_salesrep_salesrep_ItemCheckedChanged(object sender, Telerik.WinControls.UI.RadCheckedListDataItemEventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            Fill_rchbdl_pos();
+            DataAccessCS.conn.Close();
+            this.Cursor = Cursors.Default;            
         }
     }
 }
