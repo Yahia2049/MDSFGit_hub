@@ -139,6 +139,7 @@
             this.coverdAndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNCENTIVESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newIncentiveTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.incentiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.targetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.targetAssigningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tradeProgramTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -152,7 +153,6 @@
             this.tobaccoSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lighterSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.incentiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -399,7 +399,7 @@
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
             this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(47, 20);
+            this.toolsMenu.Size = new System.Drawing.Size(46, 20);
             this.toolsMenu.Text = "&Tools";
             // 
             // optionsToolStripMenuItem
@@ -424,42 +424,42 @@
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.newWindowToolStripMenuItem.Text = "&New Window";
             this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.cascadeToolStripMenuItem.Text = "&Cascade";
             this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // tileVerticalToolStripMenuItem
             // 
             this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.tileVerticalToolStripMenuItem.Text = "Tile &Vertical";
             this.tileVerticalToolStripMenuItem.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // tileHorizontalToolStripMenuItem
             // 
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.tileHorizontalToolStripMenuItem.Text = "Tile &Horizontal";
             this.tileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.closeAllToolStripMenuItem.Text = "C&lose All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
             // 
             // arrangeIconsToolStripMenuItem
             // 
             this.arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
-            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.arrangeIconsToolStripMenuItem.Text = "&Arrange Icons";
             this.arrangeIconsToolStripMenuItem.Click += new System.EventHandler(this.ArrangeIconsToolStripMenuItem_Click);
             // 
@@ -1372,7 +1372,6 @@
             this.reassignRoutesToolStripMenuItem.Name = "reassignRoutesToolStripMenuItem";
             this.reassignRoutesToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
             this.reassignRoutesToolStripMenuItem.Text = "Reassign Routes";
-            this.reassignRoutesToolStripMenuItem.Visible = false;
             this.reassignRoutesToolStripMenuItem.Click += new System.EventHandler(this.reassignRoutesToolStripMenuItem_Click);
             // 
             // sALESToolStripMenuItem
@@ -1517,6 +1516,16 @@
             this.newIncentiveTypeToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
             this.newIncentiveTypeToolStripMenuItem.Text = "New Incentive Type";
             this.newIncentiveTypeToolStripMenuItem.Click += new System.EventHandler(this.newIncentiveTypeToolStripMenuItem_Click);
+            // 
+            // incentiveToolStripMenuItem
+            // 
+            this.incentiveToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.incentiveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.incentiveToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
+            this.incentiveToolStripMenuItem.Name = "incentiveToolStripMenuItem";
+            this.incentiveToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
+            this.incentiveToolStripMenuItem.Text = "Incentives Report";
+            this.incentiveToolStripMenuItem.Click += new System.EventHandler(this.incentiveToolStripMenuItem_Click);
             // 
             // targetToolStripMenuItem
             // 
@@ -1669,16 +1678,6 @@
             this.fineSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
             this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
             this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
-            // 
-            // incentiveToolStripMenuItem
-            // 
-            this.incentiveToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
-            this.incentiveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.incentiveToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
-            this.incentiveToolStripMenuItem.Name = "incentiveToolStripMenuItem";
-            this.incentiveToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
-            this.incentiveToolStripMenuItem.Text = "Incentives Report";
-            this.incentiveToolStripMenuItem.Click += new System.EventHandler(this.incentiveToolStripMenuItem_Click);
             // 
             // Main_form
             // 
