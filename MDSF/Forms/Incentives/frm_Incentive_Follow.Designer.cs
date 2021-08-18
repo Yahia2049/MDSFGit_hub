@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.rchbdl_salesrep_salesrep = new Telerik.WinControls.UI.RadCheckedDropDownList();
             this.rchbdl_ter_salesrep = new Telerik.WinControls.UI.RadCheckedDropDownList();
             this.chb_All_salesrep_salesrep = new System.Windows.Forms.CheckBox();
@@ -84,6 +84,7 @@
             this.rchbdl_salesrep_salesrep.Size = new System.Drawing.Size(239, 24);
             this.rchbdl_salesrep_salesrep.TabIndex = 284;
             this.rchbdl_salesrep_salesrep.ThemeName = "TelerikMetro";
+            this.rchbdl_salesrep_salesrep.ItemCheckedChanged += new Telerik.WinControls.UI.RadCheckedListDataItemEventHandler(this.rchbdl_salesrep_salesrep_ItemCheckedChanged);
             // 
             // rchbdl_ter_salesrep
             // 
@@ -147,7 +148,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(857, 104);
+            this.label8.Location = new System.Drawing.Point(869, 104);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 277;
@@ -187,7 +188,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(857, 80);
+            this.label9.Location = new System.Drawing.Point(869, 80);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(57, 13);
             this.label9.TabIndex = 269;
@@ -239,7 +240,7 @@
             // 
             // 
             // 
-            this.rgv_pos_survey.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.rgv_pos_survey.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.rgv_pos_survey.Name = "rgv_pos_survey";
             this.rgv_pos_survey.Size = new System.Drawing.Size(1172, 587);
             this.rgv_pos_survey.TabIndex = 287;
@@ -304,9 +305,9 @@
             this.rchbdl_incentives.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rchbdl_incentives.DropDownAnimationEnabled = false;
             this.rchbdl_incentives.Enabled = false;
-            this.rchbdl_incentives.Location = new System.Drawing.Point(453, 36);
+            this.rchbdl_incentives.Location = new System.Drawing.Point(475, 36);
             this.rchbdl_incentives.Name = "rchbdl_incentives";
-            this.rchbdl_incentives.Size = new System.Drawing.Size(378, 24);
+            this.rchbdl_incentives.Size = new System.Drawing.Size(356, 24);
             this.rchbdl_incentives.TabIndex = 300;
             this.rchbdl_incentives.ThemeName = "TelerikMetro";
             this.rchbdl_incentives.ItemCheckedChanged += new Telerik.WinControls.UI.RadCheckedListDataItemEventHandler(this.radCheckedDropDownList2_ItemCheckedChanged);
@@ -385,7 +386,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(857, 53);
+            this.label6.Location = new System.Drawing.Point(869, 53);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 305;
@@ -407,7 +408,7 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(859, 27);
+            this.label12.Location = new System.Drawing.Point(871, 27);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(29, 13);
             this.label12.TabIndex = 303;
