@@ -437,7 +437,7 @@ namespace MDSF.Forms.Master_Data
                         for (int i = 0; i < dgv_des.Rows.Count; i++)
                         {
                         //delete clients or pos
-                        String cmd = "Delete from route_pos_reassign@To_Sla_Cai r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Cai r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -445,7 +445,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
-                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -489,7 +489,7 @@ namespace MDSF.Forms.Master_Data
                     for (int i = 0; i < dgv_des.Rows.Count; i++)
                     {
                         //delete clients or pos
-                        String cmd = "Delete from route_pos_reassign@To_Sla_Alx r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Alx r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -497,7 +497,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
-                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -540,7 +540,7 @@ namespace MDSF.Forms.Master_Data
                     for (int i = 0; i < dgv_des.Rows.Count; i++)
                     {
                         //delete clients or pos
-                        String cmd = "Delete from route_pos_reassign@To_Sla_Man r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Man r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -548,7 +548,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
-                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -591,7 +591,7 @@ namespace MDSF.Forms.Master_Data
                     for (int i = 0; i < dgv_des.Rows.Count; i++)
                     {
                         //delete clients or pos
-                        String cmd = "Delete from route_pos_reassign@To_Sla_Ism r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Ism r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -599,7 +599,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
-                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -643,7 +643,7 @@ namespace MDSF.Forms.Master_Data
                     for (int i = 0; i < dgv_des.Rows.Count; i++)
                     {
                         //delete clients or pos
-                        String cmd = "Delete from route_pos_reassign@To_Sla_Ast r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Ast r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -651,7 +651,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
-                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -695,7 +695,7 @@ namespace MDSF.Forms.Master_Data
                     for (int i = 0; i < dgv_des.Rows.Count; i++)
                     {
                         //delete clients or pos
-                        String cmd = "Delete from route_pos_reassign@To_Sla_Tan r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Tan r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -703,7 +703,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
-                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -747,7 +747,7 @@ namespace MDSF.Forms.Master_Data
                     for (int i = 0; i < dgv_des.Rows.Count; i++)
                     {
                         //delete clients or pos
-                        String cmd = "Delete from route_pos_reassign@To_Sla_Upp r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        String cmd = "Delete from route_pos_reassign@To_Sla_Upp r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + "and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + "and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -755,7 +755,7 @@ namespace MDSF.Forms.Master_Data
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
-                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TERRITORY_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
+                        cmd = "Delete from route_pos_reassign r where r.salesrep_id_des=" + cmb_salesrep_des.SelectedValue + " and ter_id=" + dgv_des.Rows[i].Cells["TER_ID"].Value + " and pos_id=" + dgv_des.Rows[i].Cells["POS_ID"].Value + " and salester_id_des=" + dgv_des.Rows[i].Cells["SALES_TER_ID"].Value + " and to_date(r.assign_date)= to_date(SYSDATE) ";
                         DataAccessCS.update(cmd);
                         DataAccessCS.conn.Close();
 
@@ -1159,10 +1159,7 @@ namespace MDSF.Forms.Master_Data
             this.Cursor = Cursors.Default;
         }
 
-        private void cmb_salesrep_source_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
     }
 
