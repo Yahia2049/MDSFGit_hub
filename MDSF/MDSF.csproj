@@ -283,6 +283,12 @@
     <Compile Include="Forms\Incentives\frm_New_Incentive_Type.Designer.cs">
       <DependentUpon>frm_New_Incentive_Type.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Master_Data\frm_van_details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master_Data\frm_van_details.Designer.cs">
+      <DependentUpon>frm_van_details.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\POS\frm_payer_pos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -477,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Incentives\frm_New_Incentive_Type.resx">
       <DependentUpon>frm_New_Incentive_Type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master_Data\frm_van_details.resx">
+      <DependentUpon>frm_van_details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\POS\frm_payer_pos.resx">
       <DependentUpon>frm_payer_pos.cs</DependentUpon>

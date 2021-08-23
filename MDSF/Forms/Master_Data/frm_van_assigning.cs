@@ -609,6 +609,16 @@ namespace MDSF.Forms.Master_Data
         {
 
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_Region_Van_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
    
 }

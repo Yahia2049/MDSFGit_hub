@@ -127,6 +127,7 @@
             this.lastKMUpdateAndSendToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.productPriceListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reassignRoutesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vanDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sALESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.totalDailySalesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.postingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1310,7 +1311,8 @@
             this.kMUpdateToolStripMenuItem1,
             this.lastKMUpdateAndSendToolStripMenuItem1,
             this.productPriceListToolStripMenuItem,
-            this.reassignRoutesToolStripMenuItem});
+            this.reassignRoutesToolStripMenuItem,
+            this.vanDetailsToolStripMenuItem});
             this.mASTERDATAToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.mASTERDATAToolStripMenuItem.Image = global::MDSF.Properties.Resources.Mansour_Icon2;
             this.mASTERDATAToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1373,6 +1375,15 @@
             this.reassignRoutesToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
             this.reassignRoutesToolStripMenuItem.Text = "Reassign Routes";
             this.reassignRoutesToolStripMenuItem.Click += new System.EventHandler(this.reassignRoutesToolStripMenuItem_Click);
+            // 
+            // vanDetailsToolStripMenuItem
+            // 
+            this.vanDetailsToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.vanDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.FloralWhite;
+            this.vanDetailsToolStripMenuItem.Name = "vanDetailsToolStripMenuItem";
+            this.vanDetailsToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
+            this.vanDetailsToolStripMenuItem.Text = "Van Details";
+            this.vanDetailsToolStripMenuItem.Click += new System.EventHandler(this.vanDetailsToolStripMenuItem_Click);
             // 
             // sALESToolStripMenuItem
             // 
@@ -1849,6 +1860,7 @@
         private System.Windows.Forms.ToolStripMenuItem tobaccoSendToSAPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lighterSendToSAPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem incentiveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vanDetailsToolStripMenuItem;
     }
 }
 

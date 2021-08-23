@@ -1470,5 +1470,13 @@ namespace MDSF
 
             this.Cursor = Cursors.Default;
         }
+
+        private void vanDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var X_Form = new frm_van_details();
+            X_Form.Show();
+            X_Form.MdiParent = this;
+            
+        }
     }
 }
