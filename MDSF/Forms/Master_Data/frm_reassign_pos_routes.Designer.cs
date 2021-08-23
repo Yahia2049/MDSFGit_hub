@@ -88,7 +88,6 @@
             this.cmb_salesrep_source.Name = "cmb_salesrep_source";
             this.cmb_salesrep_source.Size = new System.Drawing.Size(257, 21);
             this.cmb_salesrep_source.TabIndex = 247;
-
             this.cmb_salesrep_source.SelectionChangeCommitted += new System.EventHandler(this.cmb_salesrep_source_SelectionChangeCommitted);
             // 
             // label3
@@ -144,6 +143,7 @@
             this.cmb_route_source.Name = "cmb_route_source";
             this.cmb_route_source.Size = new System.Drawing.Size(257, 21);
             this.cmb_route_source.TabIndex = 250;
+            this.cmb_route_source.SelectedIndexChanged += new System.EventHandler(this.cmb_route_source_SelectedIndexChanged);
             this.cmb_route_source.SelectionChangeCommitted += new System.EventHandler(this.cmb_route_source_SelectionChangeCommitted);
             // 
             // cmb_route_des

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.rchbdl_salesrep_salesrep = new Telerik.WinControls.UI.RadCheckedDropDownList();
             this.rchbdl_ter_salesrep = new Telerik.WinControls.UI.RadCheckedDropDownList();
             this.chb_All_salesrep_salesrep = new System.Windows.Forms.CheckBox();
@@ -63,6 +63,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.rdb_month = new System.Windows.Forms.RadioButton();
             this.rdb_date = new System.Windows.Forms.RadioButton();
+            this.chb_inc_All = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.rchbdl_salesrep_salesrep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rchbdl_ter_salesrep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rchbdl_Region_salesrep)).BeginInit();
@@ -240,7 +241,7 @@
             // 
             // 
             // 
-            this.rgv_pos_survey.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.rgv_pos_survey.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.rgv_pos_survey.Name = "rgv_pos_survey";
             this.rgv_pos_survey.Size = new System.Drawing.Size(1172, 587);
             this.rgv_pos_survey.TabIndex = 287;
@@ -307,7 +308,7 @@
             this.rchbdl_incentives.Enabled = false;
             this.rchbdl_incentives.Location = new System.Drawing.Point(475, 36);
             this.rchbdl_incentives.Name = "rchbdl_incentives";
-            this.rchbdl_incentives.Size = new System.Drawing.Size(356, 24);
+            this.rchbdl_incentives.Size = new System.Drawing.Size(334, 24);
             this.rchbdl_incentives.TabIndex = 300;
             this.rchbdl_incentives.ThemeName = "TelerikMetro";
             this.rchbdl_incentives.ItemCheckedChanged += new Telerik.WinControls.UI.RadCheckedListDataItemEventHandler(this.radCheckedDropDownList2_ItemCheckedChanged);
@@ -416,6 +417,7 @@
             // 
             // rdb_month
             // 
+            this.rdb_month.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdb_month.AutoSize = true;
             this.rdb_month.Location = new System.Drawing.Point(951, 0);
             this.rdb_month.Name = "rdb_month";
@@ -428,6 +430,7 @@
             // 
             // rdb_date
             // 
+            this.rdb_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdb_date.AutoSize = true;
             this.rdb_date.Location = new System.Drawing.Point(1047, 0);
             this.rdb_date.Name = "rdb_date";
@@ -437,11 +440,24 @@
             this.rdb_date.Text = "By Date";
             this.rdb_date.UseVisualStyleBackColor = true;
             // 
+            // chb_inc_All
+            // 
+            this.chb_inc_All.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chb_inc_All.AutoSize = true;
+            this.chb_inc_All.Location = new System.Drawing.Point(815, 40);
+            this.chb_inc_All.Name = "chb_inc_All";
+            this.chb_inc_All.Size = new System.Drawing.Size(37, 17);
+            this.chb_inc_All.TabIndex = 309;
+            this.chb_inc_All.Text = "All";
+            this.chb_inc_All.UseVisualStyleBackColor = true;
+            this.chb_inc_All.CheckedChanged += new System.EventHandler(this.chb_inc_All_CheckedChanged);
+            // 
             // frm_Incentive_Follow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 749);
+            this.Controls.Add(this.chb_inc_All);
             this.Controls.Add(this.rdb_date);
             this.Controls.Add(this.rdb_month);
             this.Controls.Add(this.rchbdl_Month);
@@ -529,5 +545,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.RadioButton rdb_month;
         private System.Windows.Forms.RadioButton rdb_date;
+        private System.Windows.Forms.CheckBox chb_inc_All;
     }
 }

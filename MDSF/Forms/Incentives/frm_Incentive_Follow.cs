@@ -405,14 +405,26 @@ namespace MDSF.Forms.POS
                     {
                         if (string.IsNullOrEmpty(x_salesrep_salesrep))
                         {
-                            x_salesrep_salesrep = Convert.ToString(item["SALESREP_ID"]);
+                            x_salesrep_salesrep = Convert.ToString( item["SALESREP_ID"] );
                         }
                         else
                         {
-                            x_salesrep_salesrep = Convert.ToString(x_salesrep_salesrep + "," + item["SALESREP_ID"]);
+                            x_salesrep_salesrep = Convert.ToString(x_salesrep_salesrep + "," +  item["SALESREP_ID"]  );
                         }
                     }
-
+                    string x_pos = "";
+                    foreach (var item in rchbdl_pos.CheckedItems)
+                    {
+                        if (string.IsNullOrEmpty(x_pos))
+                        {
+                            x_pos = Convert.ToString("'" + item["POS_CODE"] + "'");
+                        }
+                        else
+                        {
+                            x_pos = Convert.ToString(x_pos + "," + "'" + item["POS_CODE"] + "'");
+                        }
+                    }
+                    //----------------------------------------------------
                     string x_year = "";
                     foreach (var item in rchbdl_Year.CheckedItems)
                     {
@@ -484,19 +496,34 @@ namespace MDSF.Forms.POS
                             }
                         }
 
+                        if(chb_inc_All.Checked)
+                        {
+                            D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
+                                " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
+                                " AND A.YEAR in (" + x_year + ") " +
+                                " AND A.MONTH in (" + x_month + ") " +
+                                " /*AND A.TER_ID||'_'||A.POS_ID ='904_8145'*/ " +
+                                " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
 
-                        D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
-                            " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
-                            " WHERE  A.BRANCH_CODE IN ("+ x_region_salesrep + ") " +
-                            " AND A.INCENTIVE_TYPE in ("+x_incentive_type+") " +
-                            " AND A.YEAR in ("+x_year+") " +
-                            " AND A.MONTH in ("+x_month+") " +
-                            " AND  A.INCENTIVE_ID IN ("+x_incentive+") " +
-                            " /*AND A.TER_ID||'_'||A.POS_ID ='904_8145'*/ " +
-                            " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
+                        }
+                        else
+                        {
+                            D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
+                                " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
+                                " AND A.YEAR in (" + x_year + ") " +
+                                " AND A.MONTH in (" + x_month + ") " +
+                                " AND  A.INCENTIVE_ID IN (" + x_incentive + ") " +
+                                " /*AND A.TER_ID||'_'||A.POS_ID ='904_8145'*/ " +
+                                " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
+
+                        }
 
                     }
-                    else if (rchbdl_Region_salesrep.CheckedItems.Count > 0 && chb_All_ter_salesrep.Checked && chb_All_salesrep_salesrep.Checked)
+                    else if (rchbdl_Region_salesrep.CheckedItems.Count > 0 && chb_All_ter_salesrep.Checked && chb_All_salesrep_salesrep.Checked && chb_All_POS.Checked)
                     {
                         x_region_salesrep = "";
                         foreach (var item in rchbdl_Region_salesrep.CheckedItems)
@@ -510,44 +537,143 @@ namespace MDSF.Forms.POS
                                 x_region_salesrep = Convert.ToString(x_region_salesrep + "," + item["branch_code"]);
                             }
                         }
-                        D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
-                            " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
-                            " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
-                            " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
-                            " AND A.YEAR in (" + x_year + ") " +
-                            " AND A.MONTH in (" + x_month + ") " +
-                            " AND  A.INCENTIVE_ID IN (" + x_incentive + ") " +
-                            " /*AND A.TER_ID||'_'||A.POS_ID ='904_8145'*/ " +
-                            " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
+
+                        if (chb_inc_All.Checked)
+                        {
+                            D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
+                                " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
+                                " AND A.YEAR in (" + x_year + ") " +
+                                " AND A.MONTH in (" + x_month + ") " +
+                                " /*AND A.TER_ID||'_'||A.POS_ID ='904_8145'*/ " +
+                                " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
+
+                        }
+                        else
+                        {
+                            D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
+                                " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
+                                " AND A.YEAR in (" + x_year + ") " +
+                                " AND A.MONTH in (" + x_month + ") " +
+                                " AND  A.INCENTIVE_ID IN (" + x_incentive + ") " +
+                                " /*AND A.TER_ID||'_'||A.POS_ID ='904_8145'*/ " +
+                                " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
+
+                        }
 
                         // D = "select * from sales_android_v4 where call_status_id ='S' and SALES_TER_ID in(" + x_ter_salesrep + ") and branch_code in(" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                     }
-                    else if (rchbdl_ter_salesrep.CheckedItems.Count > 0 && chb_All_salesrep_salesrep.Checked)
+                    else if (rchbdl_ter_salesrep.CheckedItems.Count > 0 && chb_All_salesrep_salesrep.Checked && chb_All_POS.Checked)
                     {
-                        x_salesrep_salesrep = "";
-                        foreach (var item in rchbdl_salesrep_salesrep.Items)
+                         x_ter_salesrep = "";
+                        foreach (var item in rchbdl_ter_salesrep.CheckedItems)
                         {
-                            if (string.IsNullOrEmpty(x_salesrep_salesrep))
+                            if (string.IsNullOrEmpty(x_ter_salesrep))
                             {
-                                x_salesrep_salesrep = Convert.ToString(item["SALESREP_ID"]);
+                                x_ter_salesrep = Convert.ToString(item["SALES_TER_ID"]);
                             }
                             else
                             {
-                                x_salesrep_salesrep = Convert.ToString(x_salesrep_salesrep + "," + item["SALESREP_ID"]);
+                                x_ter_salesrep = Convert.ToString(x_ter_salesrep + "," + item["SALES_TER_ID"]);
                             }
                         }
+                        if (chb_inc_All.Checked)
+                        {
+                            D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
+                                 " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                 " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
+                                  " AND A.sales_ter_id like ('%" + x_ter_salesrep + "%') " +
+                                 " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
+                                 " AND A.YEAR in (" + x_year + ") " +
+                                 " AND A.MONTH in (" + x_month + ") " +
+                                 " /*AND A.TER_ID||'_'||A.POS_ID ='904_8145'*/ " +
+                                 " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
 
-                        D = "select  branch_code, region, fill_date, pos_code, pos_name, salesrep_id, name, survey_name, question, answer from  v_survey where survey_id = 77 " +
-                            "and SALESREP_ID in(" + x_salesrep_salesrep + ") and branch_code in (" + x_region_salesrep + ")  " +
-                            "and fill_date >= '" + from_date + "'  and fill_date <= '" + to_date + "' order by fill_date desc";
+                        }
+                        else
+                        {
+                            D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
+                                " AND A.sales_ter_id like ('%" + x_ter_salesrep + "%') " +
+                                " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
+                                " AND A.YEAR in (" + x_year + ") " +
+                                " AND A.MONTH in (" + x_month + ") " +
+                                " AND  A.INCENTIVE_ID IN (" + x_incentive + ") " +
+                                " /*AND A.TER_ID||'_'||A.POS_ID ='904_8145'*/ " +
+                                " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
+
+                        }
 
                         // D = "select * from sales_android_v4 where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_salesrep + ") and branch_code in(" + x_region_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                     }
-                    else if (rchbdl_salesrep_salesrep.CheckedItems.Count > 0)
+                    else if (rchbdl_salesrep_salesrep.CheckedItems.Count > 0 && chb_All_POS.Checked)
                     {
-                        D = "select  branch_code, region, fill_date, pos_code, pos_name, salesrep_id, name, survey_name, question, answer from  v_survey where survey_id = 77 " +
-                            "and  SALESREP_ID in(" + x_salesrep_salesrep + ") and branch_code in (" + x_region_salesrep + ")  " +
-                            "and fill_date >= '" + from_date + "' and fill_date <= '" + to_date + "' order by fill_date desc";
+                        if (chb_inc_All.Checked)
+                        {
+                            D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
+                                " AND A.salesrep_id like ('%" + x_salesrep_salesrep + "%') " +
+                                " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
+                                " AND A.YEAR in (" + x_year + ") " +
+                                " AND A.MONTH in (" + x_month + ") " +
+                                " /*AND A.TER_ID||'_'||A.POS_ID ='904_8145'*/ " +
+                                " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
+
+                        }
+                        else
+                        {
+                            D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
+                                " AND A.salesrep_id like ('%" + x_salesrep_salesrep + "%') " +
+                                " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
+                                " AND A.YEAR in (" + x_year + ") " +
+                                " AND A.MONTH in (" + x_month + ") " +
+                                " AND  A.INCENTIVE_ID IN (" + x_incentive + ") " +
+                                " /*AND A.TER_ID||'_'||A.POS_ID ='904_8145'*/ " +
+                                " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
+
+
+                        }
+
+
+                        //D = "select * from sales_android_v4 where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
+                    }
+                    else if ( rchbdl_pos.CheckedItems.Count>0)
+                    {
+                        if (chb_inc_All.Checked)
+                        {
+                            D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
+                                " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
+                                " AND A.YEAR in (" + x_year + ") " +
+                                " AND A.MONTH in (" + x_month + ") " +
+                                " AND A.TER_ID||'_'||A.POS_ID in (" + x_pos + ")" +
+                                " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
+
+
+                        }
+                        else
+                        {
+                            D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
+                                " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
+                                " AND A.YEAR in (" + x_year + ") " +
+                                " AND A.MONTH in (" + x_month + ") " +
+                                " AND  A.INCENTIVE_ID IN (" + x_incentive + ") " +
+                                " AND A.TER_ID||'_'||A.POS_ID in (" + x_pos + ")" +
+                                " group by A.REGION, A.TER_ID,A.POS_ID, A.pos_name,A.LAND_MARK,A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, A.SALES_TER_NAME, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE,A.TO_DATE,A.INCENTIVE_ID, A.INCENTIVE_DESC, A.INCENTIVE_TYPE,A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY, A.YEAR,A.MONTH,a.SALES_TER_id,a.salesrep_id ";
+
+
+                        }
+
 
                         //D = "select * from sales_android_v4 where call_status_id ='S' and SALESREP_ID in(" + x_salesrep_salesrep + ")  and to_date(day) >=to_date('" + dtp_fromdate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY') and to_date(day) <=to_date('" + dtp_todate_salesrep.Value.ToString("MM/dd/yyyy") + "','MM/DD/YYYY')";
                     }
@@ -679,6 +805,20 @@ namespace MDSF.Forms.POS
             Fill_rchbdl_pos();
             DataAccessCS.conn.Close();
             this.Cursor = Cursors.Default;            
+        }
+
+        private void chb_inc_All_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_inc_All.Checked)
+            {
+                rchbdl_incentives.Enabled = false;
+                btn_search_salesrep.Enabled = true;
+            }
+            else
+            {
+                rchbdl_incentives.Enabled = true;
+                btn_search_salesrep.Enabled = false;
+            }
         }
     }
 }

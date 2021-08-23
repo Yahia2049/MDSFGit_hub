@@ -153,6 +153,7 @@
             this.tobaccoSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lighterSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOSRouteAssigningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -399,7 +400,7 @@
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
             this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(46, 20);
+            this.toolsMenu.Size = new System.Drawing.Size(47, 20);
             this.toolsMenu.Text = "&Tools";
             // 
             // optionsToolStripMenuItem
@@ -424,42 +425,42 @@
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.newWindowToolStripMenuItem.Text = "&New Window";
             this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.cascadeToolStripMenuItem.Text = "&Cascade";
             this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // tileVerticalToolStripMenuItem
             // 
             this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.tileVerticalToolStripMenuItem.Text = "Tile &Vertical";
             this.tileVerticalToolStripMenuItem.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // tileHorizontalToolStripMenuItem
             // 
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.tileHorizontalToolStripMenuItem.Text = "Tile &Horizontal";
             this.tileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.closeAllToolStripMenuItem.Text = "C&lose All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
             // 
             // arrangeIconsToolStripMenuItem
             // 
             this.arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
-            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.arrangeIconsToolStripMenuItem.Text = "&Arrange Icons";
             this.arrangeIconsToolStripMenuItem.Click += new System.EventHandler(this.ArrangeIconsToolStripMenuItem_Click);
             // 
@@ -1419,7 +1420,8 @@
             this.changPOSTerritoryToolStripMenuItem,
             this.pOSTAXPhotoToolStripMenuItem,
             this.pOSSurveyToolStripMenuItem,
-            this.coverdAndToolStripMenuItem});
+            this.coverdAndToolStripMenuItem,
+            this.pOSRouteAssigningToolStripMenuItem});
             this.pOSToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.pOSToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
             this.pOSToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1510,20 +1512,22 @@
             // newIncentiveTypeToolStripMenuItem
             // 
             this.newIncentiveTypeToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.newIncentiveTypeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newIncentiveTypeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.newIncentiveTypeToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
             this.newIncentiveTypeToolStripMenuItem.Name = "newIncentiveTypeToolStripMenuItem";
-            this.newIncentiveTypeToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
+            this.newIncentiveTypeToolStripMenuItem.Size = new System.Drawing.Size(207, 32);
             this.newIncentiveTypeToolStripMenuItem.Text = "New Incentive Type";
             this.newIncentiveTypeToolStripMenuItem.Click += new System.EventHandler(this.newIncentiveTypeToolStripMenuItem_Click);
             // 
             // incentiveToolStripMenuItem
             // 
             this.incentiveToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.incentiveToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incentiveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.incentiveToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
             this.incentiveToolStripMenuItem.Name = "incentiveToolStripMenuItem";
-            this.incentiveToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
+            this.incentiveToolStripMenuItem.Size = new System.Drawing.Size(207, 32);
             this.incentiveToolStripMenuItem.Text = "Incentives Report";
             this.incentiveToolStripMenuItem.Click += new System.EventHandler(this.incentiveToolStripMenuItem_Click);
             // 
@@ -1678,6 +1682,17 @@
             this.fineSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
             this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
             this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
+            // 
+            // pOSRouteAssigningToolStripMenuItem
+            // 
+            this.pOSRouteAssigningToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.pOSRouteAssigningToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pOSRouteAssigningToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
+            this.pOSRouteAssigningToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.pOSRouteAssigningToolStripMenuItem.Name = "pOSRouteAssigningToolStripMenuItem";
+            this.pOSRouteAssigningToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
+            this.pOSRouteAssigningToolStripMenuItem.Text = "POS Route Assigning";
+            this.pOSRouteAssigningToolStripMenuItem.Click += new System.EventHandler(this.pOSRouteAssigningToolStripMenuItem_Click);
             // 
             // Main_form
             // 
@@ -1849,6 +1864,7 @@
         private System.Windows.Forms.ToolStripMenuItem tobaccoSendToSAPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lighterSendToSAPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem incentiveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pOSRouteAssigningToolStripMenuItem;
     }
 }
 

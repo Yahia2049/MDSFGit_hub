@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>77</ApplicationRevision>
+    <ApplicationRevision>81</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -325,6 +325,12 @@
     <Compile Include="Forms\POS\frm_ter_id_Change.Designer.cs">
       <DependentUpon>frm_ter_id_Change.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\POS\frm_Route_POS_Assigne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\POS\frm_Route_POS_Assigne.Designer.cs">
+      <DependentUpon>frm_Route_POS_Assigne.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\frm_oil_report.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -498,6 +504,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\POS\frm_ter_id_Change.resx">
       <DependentUpon>frm_ter_id_Change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\POS\frm_Route_POS_Assigne.resx">
+      <DependentUpon>frm_Route_POS_Assigne.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\frm_oil_report.resx">
       <DependentUpon>frm_oil_report.cs</DependentUpon>
