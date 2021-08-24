@@ -297,7 +297,7 @@ namespace MDSF.Forms.Master_Data
                     DataAccessCS.insert(insertNewPricelist);
                         DataAccessCS.conn.Close();
                         MessageBox.Show("تمت الاضافة بنجاح"); 
-                }
+                    }
 
 
                 ds = DataAccessCS.getdata("select  product_price_list.line_price_id , price_list_mst.accounts,price_list_mst.pos_type, products.Name ,product_price_list.product_id,product_price_list.pricelist_case,product_price_list.pricelist_carton,product_price_list.pricelist_pack,product_price_list.product_tax,product_price_list.tax_percentage,product_price_list.product_tax_rt,product_price_list.product_tax_ws,product_price_list.from_date,product_price_list.to_date   from products   INNER JOIN product_price_list ON  products.PROD_ID = product_price_list.PRODUCT_ID Inner join price_list_mst ON product_price_list.line_price_id=price_list_mst.price_list_id where  prod_id in (" + textProduct.Text + ")");
