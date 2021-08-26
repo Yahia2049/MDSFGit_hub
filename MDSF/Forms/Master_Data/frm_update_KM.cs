@@ -850,7 +850,7 @@ namespace MDSF.Forms.Master_Data
             {
                 
                 string fuel_date = dtp_fuel_time.Value.ToString("dd-MMM-yyyy");
-                String kmeinsrt = "Insert into km_transactions@sales ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES ( " + txt_salesrep_id.Text + ",'" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.SelectedValue + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
+                String kmeinsrt = "Insert into km_transactions@sales ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES ( " + txt_salesrep_id.Text + ",'" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.Text + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
                     DataAccessCS.insert(kmeinsrt);
                     DataAccessCS.conn.Close();
 
