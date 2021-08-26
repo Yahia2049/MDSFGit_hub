@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_update_KM));
             this.btn_update_journey = new Telerik.WinControls.UI.RadButton();
             this.rdb_by_salesman = new System.Windows.Forms.RadioButton();
@@ -81,20 +81,16 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnl_oil = new System.Windows.Forms.Panel();
             this.btn_print = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txt_van_id_oil = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.txt_price_oil = new System.Windows.Forms.TextBox();
             this.dtp_fuel_time_oil = new System.Windows.Forms.DateTimePicker();
             this.cmb_trans_type_oil = new System.Windows.Forms.ComboBox();
             this.txt_current_km_oil = new System.Windows.Forms.TextBox();
-            this.txt_plat_no_oil = new System.Windows.Forms.TextBox();
             this.txt_jou_id_oil = new System.Windows.Forms.TextBox();
             this.txt_salesrep_id_oil = new System.Windows.Forms.TextBox();
             this.btn_print_oil = new Telerik.WinControls.UI.RadButton();
@@ -343,33 +339,33 @@
             this.rgv_KM.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.rgv_KM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rgv_KM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.rgv_KM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.rgv_KM.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.rgv_KM.DefaultCellStyle = dataGridViewCellStyle14;
             this.rgv_KM.Location = new System.Drawing.Point(2, 170);
             this.rgv_KM.Name = "rgv_KM";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.rgv_KM.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rgv_KM.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.rgv_KM.Size = new System.Drawing.Size(994, 299);
             this.rgv_KM.TabIndex = 273;
             this.rgv_KM.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rgv_KM_CellClick);
@@ -654,20 +650,16 @@
             this.pnl_oil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnl_oil.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnl_oil.Controls.Add(this.btn_print);
-            this.pnl_oil.Controls.Add(this.label25);
-            this.pnl_oil.Controls.Add(this.txt_van_id_oil);
             this.pnl_oil.Controls.Add(this.label17);
             this.pnl_oil.Controls.Add(this.label18);
             this.pnl_oil.Controls.Add(this.label20);
             this.pnl_oil.Controls.Add(this.label21);
-            this.pnl_oil.Controls.Add(this.label22);
             this.pnl_oil.Controls.Add(this.label23);
             this.pnl_oil.Controls.Add(this.label24);
             this.pnl_oil.Controls.Add(this.txt_price_oil);
             this.pnl_oil.Controls.Add(this.dtp_fuel_time_oil);
             this.pnl_oil.Controls.Add(this.cmb_trans_type_oil);
             this.pnl_oil.Controls.Add(this.txt_current_km_oil);
-            this.pnl_oil.Controls.Add(this.txt_plat_no_oil);
             this.pnl_oil.Controls.Add(this.txt_jou_id_oil);
             this.pnl_oil.Controls.Add(this.txt_salesrep_id_oil);
             this.pnl_oil.Controls.Add(this.btn_print_oil);
@@ -690,26 +682,10 @@
             this.btn_print.UseVisualStyleBackColor = true;
             this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(241, 15);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(42, 13);
-            this.label25.TabIndex = 20;
-            this.label25.Text = "Van_ID";
-            // 
-            // txt_van_id_oil
-            // 
-            this.txt_van_id_oil.Location = new System.Drawing.Point(239, 32);
-            this.txt_van_id_oil.Name = "txt_van_id_oil";
-            this.txt_van_id_oil.Size = new System.Drawing.Size(87, 20);
-            this.txt_van_id_oil.TabIndex = 19;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(522, 13);
+            this.label17.Location = new System.Drawing.Point(494, 15);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(55, 13);
             this.label17.TabIndex = 18;
@@ -718,7 +694,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(766, 14);
+            this.label18.Location = new System.Drawing.Point(738, 16);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(30, 13);
             this.label18.TabIndex = 17;
@@ -727,7 +703,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(695, 13);
+            this.label20.Location = new System.Drawing.Point(667, 15);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(62, 13);
             this.label20.TabIndex = 15;
@@ -736,25 +712,16 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(428, 14);
+            this.label21.Location = new System.Drawing.Point(400, 16);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(63, 13);
             this.label21.TabIndex = 14;
             this.label21.Text = "Current_km";
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(333, 14);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(67, 13);
-            this.label22.TabIndex = 13;
-            this.label22.Text = "Plat_number";
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(13, 15);
+            this.label23.Location = new System.Drawing.Point(167, 16);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(38, 13);
             this.label23.TabIndex = 12;
@@ -763,7 +730,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(146, 14);
+            this.label24.Location = new System.Drawing.Point(300, 15);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(62, 13);
             this.label24.TabIndex = 11;
@@ -771,14 +738,14 @@
             // 
             // txt_price_oil
             // 
-            this.txt_price_oil.Location = new System.Drawing.Point(765, 30);
+            this.txt_price_oil.Location = new System.Drawing.Point(737, 32);
             this.txt_price_oil.Name = "txt_price_oil";
             this.txt_price_oil.Size = new System.Drawing.Size(65, 20);
             this.txt_price_oil.TabIndex = 9;
             // 
             // dtp_fuel_time_oil
             // 
-            this.dtp_fuel_time_oil.Location = new System.Drawing.Point(519, 30);
+            this.dtp_fuel_time_oil.Location = new System.Drawing.Point(491, 32);
             this.dtp_fuel_time_oil.Name = "dtp_fuel_time_oil";
             this.dtp_fuel_time_oil.Size = new System.Drawing.Size(170, 20);
             this.dtp_fuel_time_oil.TabIndex = 10;
@@ -786,35 +753,28 @@
             // cmb_trans_type_oil
             // 
             this.cmb_trans_type_oil.FormattingEnabled = true;
-            this.cmb_trans_type_oil.Location = new System.Drawing.Point(693, 30);
+            this.cmb_trans_type_oil.Location = new System.Drawing.Point(665, 32);
             this.cmb_trans_type_oil.Name = "cmb_trans_type_oil";
             this.cmb_trans_type_oil.Size = new System.Drawing.Size(66, 21);
             this.cmb_trans_type_oil.TabIndex = 7;
             // 
             // txt_current_km_oil
             // 
-            this.txt_current_km_oil.Location = new System.Drawing.Point(425, 31);
+            this.txt_current_km_oil.Location = new System.Drawing.Point(397, 33);
             this.txt_current_km_oil.Name = "txt_current_km_oil";
             this.txt_current_km_oil.Size = new System.Drawing.Size(88, 20);
             this.txt_current_km_oil.TabIndex = 6;
             // 
-            // txt_plat_no_oil
-            // 
-            this.txt_plat_no_oil.Location = new System.Drawing.Point(331, 31);
-            this.txt_plat_no_oil.Name = "txt_plat_no_oil";
-            this.txt_plat_no_oil.Size = new System.Drawing.Size(87, 20);
-            this.txt_plat_no_oil.TabIndex = 5;
-            // 
             // txt_jou_id_oil
             // 
-            this.txt_jou_id_oil.Location = new System.Drawing.Point(9, 31);
+            this.txt_jou_id_oil.Location = new System.Drawing.Point(163, 32);
             this.txt_jou_id_oil.Name = "txt_jou_id_oil";
             this.txt_jou_id_oil.Size = new System.Drawing.Size(132, 20);
             this.txt_jou_id_oil.TabIndex = 4;
             // 
             // txt_salesrep_id_oil
             // 
-            this.txt_salesrep_id_oil.Location = new System.Drawing.Point(143, 31);
+            this.txt_salesrep_id_oil.Location = new System.Drawing.Point(297, 32);
             this.txt_salesrep_id_oil.Name = "txt_salesrep_id_oil";
             this.txt_salesrep_id_oil.Size = new System.Drawing.Size(88, 20);
             this.txt_salesrep_id_oil.TabIndex = 3;
@@ -1000,18 +960,14 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.DateTimePicker dtp_fuel_time_oil;
         private System.Windows.Forms.TextBox txt_price_oil;
         private System.Windows.Forms.ComboBox cmb_trans_type_oil;
         private System.Windows.Forms.TextBox txt_current_km_oil;
-        private System.Windows.Forms.TextBox txt_plat_no_oil;
         private System.Windows.Forms.TextBox txt_jou_id_oil;
         private System.Windows.Forms.TextBox txt_salesrep_id_oil;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txt_van_id_oil;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Button btn_km_report;
