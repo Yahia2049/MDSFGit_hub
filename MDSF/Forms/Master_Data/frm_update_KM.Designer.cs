@@ -424,7 +424,6 @@
             this.label16.Size = new System.Drawing.Size(55, 13);
             this.label16.TabIndex = 18;
             this.label16.Text = "Fuel_Time";
-            this.label16.Visible = false;
             // 
             // label15
             // 
@@ -434,7 +433,6 @@
             this.label15.Size = new System.Drawing.Size(64, 13);
             this.label15.TabIndex = 17;
             this.label15.Text = "Fuel_values";
-            this.label15.Visible = false;
             // 
             // label14
             // 
@@ -444,7 +442,6 @@
             this.label14.Size = new System.Drawing.Size(56, 13);
             this.label14.TabIndex = 16;
             this.label14.Text = "Fuel_liters";
-            this.label14.Visible = false;
             // 
             // label13
             // 
@@ -454,7 +451,6 @@
             this.label13.Size = new System.Drawing.Size(55, 13);
             this.label13.TabIndex = 15;
             this.label13.Text = "Fuel_type";
-            this.label13.Visible = false;
             // 
             // label12
             // 
@@ -464,7 +460,6 @@
             this.label12.Size = new System.Drawing.Size(63, 13);
             this.label12.TabIndex = 14;
             this.label12.Text = "Current_km";
-            this.label12.Visible = false;
             // 
             // label11
             // 
@@ -474,7 +469,6 @@
             this.label11.Size = new System.Drawing.Size(50, 13);
             this.label11.TabIndex = 13;
             this.label11.Text = "Start_km";
-            this.label11.Visible = false;
             // 
             // label10
             // 
@@ -484,7 +478,6 @@
             this.label10.Size = new System.Drawing.Size(38, 13);
             this.label10.TabIndex = 12;
             this.label10.Text = "Jou_id";
-            this.label10.Visible = false;
             // 
             // label9
             // 
@@ -494,7 +487,6 @@
             this.label9.Size = new System.Drawing.Size(62, 13);
             this.label9.TabIndex = 11;
             this.label9.Text = "Salesrep_id";
-            this.label9.Visible = false;
             // 
             // dtp_fuel_time
             // 
@@ -502,7 +494,6 @@
             this.dtp_fuel_time.Name = "dtp_fuel_time";
             this.dtp_fuel_time.Size = new System.Drawing.Size(128, 20);
             this.dtp_fuel_time.TabIndex = 10;
-            this.dtp_fuel_time.Visible = false;
             // 
             // txt_fuel_values
             // 
@@ -510,7 +501,6 @@
             this.txt_fuel_values.Name = "txt_fuel_values";
             this.txt_fuel_values.Size = new System.Drawing.Size(65, 20);
             this.txt_fuel_values.TabIndex = 9;
-            this.txt_fuel_values.Visible = false;
             this.txt_fuel_values.TextChanged += new System.EventHandler(this.txt_fuel_values_TextChanged);
             // 
             // txt_fuel_liter
@@ -520,7 +510,6 @@
             this.txt_fuel_liter.Name = "txt_fuel_liter";
             this.txt_fuel_liter.Size = new System.Drawing.Size(59, 20);
             this.txt_fuel_liter.TabIndex = 8;
-            this.txt_fuel_liter.Visible = false;
             // 
             // cmb_fuel_type
             // 
@@ -529,7 +518,6 @@
             this.cmb_fuel_type.Name = "cmb_fuel_type";
             this.cmb_fuel_type.Size = new System.Drawing.Size(66, 21);
             this.cmb_fuel_type.TabIndex = 7;
-            this.cmb_fuel_type.Visible = false;
             // 
             // txt_current_km
             // 
@@ -537,7 +525,6 @@
             this.txt_current_km.Name = "txt_current_km";
             this.txt_current_km.Size = new System.Drawing.Size(88, 20);
             this.txt_current_km.TabIndex = 6;
-            this.txt_current_km.Visible = false;
             // 
             // txt_start_km
             // 
@@ -545,7 +532,6 @@
             this.txt_start_km.Name = "txt_start_km";
             this.txt_start_km.Size = new System.Drawing.Size(87, 20);
             this.txt_start_km.TabIndex = 5;
-            this.txt_start_km.Visible = false;
             // 
             // txt_jou_id
             // 
@@ -553,7 +539,6 @@
             this.txt_jou_id.Name = "txt_jou_id";
             this.txt_jou_id.Size = new System.Drawing.Size(132, 20);
             this.txt_jou_id.TabIndex = 4;
-            this.txt_jou_id.Visible = false;
             // 
             // txt_salesrep_id
             // 
@@ -561,7 +546,6 @@
             this.txt_salesrep_id.Name = "txt_salesrep_id";
             this.txt_salesrep_id.Size = new System.Drawing.Size(88, 20);
             this.txt_salesrep_id.TabIndex = 3;
-            this.txt_salesrep_id.Visible = false;
             // 
             // btn_print_kmt
             // 
@@ -580,14 +564,15 @@
             // btn_save_inv_kmt
             // 
             this.btn_save_inv_kmt.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_save_inv_kmt.Enabled = false;
+            this.btn_save_inv_kmt.EnableCodedUITests = true;
+            this.btn_save_inv_kmt.EnableKeyMap = true;
             this.btn_save_inv_kmt.Location = new System.Drawing.Point(575, 66);
             this.btn_save_inv_kmt.Name = "btn_save_inv_kmt";
             // 
             // 
             // 
             this.btn_save_inv_kmt.RootElement.ControlBounds = new System.Drawing.Rectangle(575, 66, 110, 24);
-            this.btn_save_inv_kmt.RootElement.Enabled = false;
+            this.btn_save_inv_kmt.RootElement.Enabled = true;
             this.btn_save_inv_kmt.Size = new System.Drawing.Size(110, 23);
             this.btn_save_inv_kmt.TabIndex = 1;
             this.btn_save_inv_kmt.Text = "ADD New Invoice";
@@ -713,7 +698,6 @@
             this.label25.Size = new System.Drawing.Size(42, 13);
             this.label25.TabIndex = 20;
             this.label25.Text = "Van_ID";
-            this.label25.Visible = false;
             // 
             // txt_van_id_oil
             // 
@@ -721,7 +705,6 @@
             this.txt_van_id_oil.Name = "txt_van_id_oil";
             this.txt_van_id_oil.Size = new System.Drawing.Size(87, 20);
             this.txt_van_id_oil.TabIndex = 19;
-            this.txt_van_id_oil.Visible = false;
             // 
             // label17
             // 
@@ -731,7 +714,6 @@
             this.label17.Size = new System.Drawing.Size(55, 13);
             this.label17.TabIndex = 18;
             this.label17.Text = "Fuel_Time";
-            this.label17.Visible = false;
             // 
             // label18
             // 
@@ -741,7 +723,6 @@
             this.label18.Size = new System.Drawing.Size(30, 13);
             this.label18.TabIndex = 17;
             this.label18.Text = "Price";
-            this.label18.Visible = false;
             // 
             // label20
             // 
@@ -751,7 +732,6 @@
             this.label20.Size = new System.Drawing.Size(62, 13);
             this.label20.TabIndex = 15;
             this.label20.Text = "Trans_type";
-            this.label20.Visible = false;
             // 
             // label21
             // 
@@ -761,7 +741,6 @@
             this.label21.Size = new System.Drawing.Size(63, 13);
             this.label21.TabIndex = 14;
             this.label21.Text = "Current_km";
-            this.label21.Visible = false;
             // 
             // label22
             // 
@@ -771,7 +750,6 @@
             this.label22.Size = new System.Drawing.Size(67, 13);
             this.label22.TabIndex = 13;
             this.label22.Text = "Plat_number";
-            this.label22.Visible = false;
             // 
             // label23
             // 
@@ -781,7 +759,6 @@
             this.label23.Size = new System.Drawing.Size(38, 13);
             this.label23.TabIndex = 12;
             this.label23.Text = "Jou_id";
-            this.label23.Visible = false;
             // 
             // label24
             // 
@@ -791,7 +768,6 @@
             this.label24.Size = new System.Drawing.Size(62, 13);
             this.label24.TabIndex = 11;
             this.label24.Text = "Salesrep_id";
-            this.label24.Visible = false;
             // 
             // txt_price_oil
             // 
@@ -799,7 +775,6 @@
             this.txt_price_oil.Name = "txt_price_oil";
             this.txt_price_oil.Size = new System.Drawing.Size(65, 20);
             this.txt_price_oil.TabIndex = 9;
-            this.txt_price_oil.Visible = false;
             // 
             // dtp_fuel_time_oil
             // 
@@ -807,7 +782,6 @@
             this.dtp_fuel_time_oil.Name = "dtp_fuel_time_oil";
             this.dtp_fuel_time_oil.Size = new System.Drawing.Size(170, 20);
             this.dtp_fuel_time_oil.TabIndex = 10;
-            this.dtp_fuel_time_oil.Visible = false;
             // 
             // cmb_trans_type_oil
             // 
@@ -816,7 +790,6 @@
             this.cmb_trans_type_oil.Name = "cmb_trans_type_oil";
             this.cmb_trans_type_oil.Size = new System.Drawing.Size(66, 21);
             this.cmb_trans_type_oil.TabIndex = 7;
-            this.cmb_trans_type_oil.Visible = false;
             // 
             // txt_current_km_oil
             // 
@@ -824,7 +797,6 @@
             this.txt_current_km_oil.Name = "txt_current_km_oil";
             this.txt_current_km_oil.Size = new System.Drawing.Size(88, 20);
             this.txt_current_km_oil.TabIndex = 6;
-            this.txt_current_km_oil.Visible = false;
             // 
             // txt_plat_no_oil
             // 
@@ -832,7 +804,6 @@
             this.txt_plat_no_oil.Name = "txt_plat_no_oil";
             this.txt_plat_no_oil.Size = new System.Drawing.Size(87, 20);
             this.txt_plat_no_oil.TabIndex = 5;
-            this.txt_plat_no_oil.Visible = false;
             // 
             // txt_jou_id_oil
             // 
@@ -840,7 +811,6 @@
             this.txt_jou_id_oil.Name = "txt_jou_id_oil";
             this.txt_jou_id_oil.Size = new System.Drawing.Size(132, 20);
             this.txt_jou_id_oil.TabIndex = 4;
-            this.txt_jou_id_oil.Visible = false;
             // 
             // txt_salesrep_id_oil
             // 
@@ -848,7 +818,6 @@
             this.txt_salesrep_id_oil.Name = "txt_salesrep_id_oil";
             this.txt_salesrep_id_oil.Size = new System.Drawing.Size(88, 20);
             this.txt_salesrep_id_oil.TabIndex = 3;
-            this.txt_salesrep_id_oil.Visible = false;
             // 
             // btn_print_oil
             // 
@@ -866,14 +835,14 @@
             // btn_new_invoice_oil
             // 
             this.btn_new_invoice_oil.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_new_invoice_oil.Enabled = false;
+            this.btn_new_invoice_oil.EnableKeyMap = true;
             this.btn_new_invoice_oil.Location = new System.Drawing.Point(575, 66);
             this.btn_new_invoice_oil.Name = "btn_new_invoice_oil";
             // 
             // 
             // 
             this.btn_new_invoice_oil.RootElement.ControlBounds = new System.Drawing.Rectangle(575, 66, 110, 24);
-            this.btn_new_invoice_oil.RootElement.Enabled = false;
+            this.btn_new_invoice_oil.RootElement.Enabled = true;
             this.btn_new_invoice_oil.Size = new System.Drawing.Size(110, 23);
             this.btn_new_invoice_oil.TabIndex = 1;
             this.btn_new_invoice_oil.Text = "ADD New Invoice";

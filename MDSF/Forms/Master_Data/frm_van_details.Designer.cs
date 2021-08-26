@@ -116,9 +116,9 @@ namespace MDSF.Forms.Master_Data
             this.label10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(442, 194);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 13);
+            this.label10.Size = new System.Drawing.Size(69, 13);
             this.label10.TabIndex = 295;
-            this.label10.Text = "Eng Num";
+            this.label10.Text = "Motor Num";
             // 
             // txt_eng_num
             // 
@@ -201,7 +201,7 @@ namespace MDSF.Forms.Master_Data
             // 
             // tnta_proc
             // 
-            this.tnta_proc.Location = new System.Drawing.Point(440, 309);
+            this.tnta_proc.Location = new System.Drawing.Point(463, 304);
             this.tnta_proc.Name = "tnta_proc";
             this.tnta_proc.Size = new System.Drawing.Size(75, 23);
             this.tnta_proc.TabIndex = 303;
@@ -211,7 +211,7 @@ namespace MDSF.Forms.Master_Data
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(440, 280);
+            this.button2.Location = new System.Drawing.Point(463, 275);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 304;
@@ -221,7 +221,7 @@ namespace MDSF.Forms.Master_Data
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(531, 280);
+            this.button3.Location = new System.Drawing.Point(554, 275);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 305;
@@ -231,7 +231,7 @@ namespace MDSF.Forms.Master_Data
             // 
             // mansoura_sla
             // 
-            this.mansoura_sla.Location = new System.Drawing.Point(623, 280);
+            this.mansoura_sla.Location = new System.Drawing.Point(646, 275);
             this.mansoura_sla.Name = "mansoura_sla";
             this.mansoura_sla.Size = new System.Drawing.Size(79, 23);
             this.mansoura_sla.TabIndex = 306;
@@ -241,7 +241,7 @@ namespace MDSF.Forms.Master_Data
             // 
             // btn_cnl_sla
             // 
-            this.btn_cnl_sla.Location = new System.Drawing.Point(623, 309);
+            this.btn_cnl_sla.Location = new System.Drawing.Point(646, 304);
             this.btn_cnl_sla.Name = "btn_cnl_sla";
             this.btn_cnl_sla.Size = new System.Drawing.Size(79, 23);
             this.btn_cnl_sla.TabIndex = 307;
@@ -251,7 +251,7 @@ namespace MDSF.Forms.Master_Data
             // 
             // btnAssioutsla
             // 
-            this.btnAssioutsla.Location = new System.Drawing.Point(531, 309);
+            this.btnAssioutsla.Location = new System.Drawing.Point(554, 304);
             this.btnAssioutsla.Name = "btnAssioutsla";
             this.btnAssioutsla.Size = new System.Drawing.Size(75, 23);
             this.btnAssioutsla.TabIndex = 308;
@@ -261,7 +261,7 @@ namespace MDSF.Forms.Master_Data
             // 
             // btnLuxorsla
             // 
-            this.btnLuxorsla.Location = new System.Drawing.Point(531, 338);
+            this.btnLuxorsla.Location = new System.Drawing.Point(554, 333);
             this.btnLuxorsla.Name = "btnLuxorsla";
             this.btnLuxorsla.Size = new System.Drawing.Size(79, 23);
             this.btnLuxorsla.TabIndex = 309;
