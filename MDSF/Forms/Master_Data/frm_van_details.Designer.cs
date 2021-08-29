@@ -133,9 +133,9 @@ namespace MDSF.Forms.Master_Data
             this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(447, 127);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 13);
+            this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 293;
-            this.label9.Text = "Model";
+            this.label9.Text = "Car Name";
             // 
             // txt_carNum
             // 
