@@ -127,6 +127,7 @@
             this.lastKMUpdateAndSendToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.productPriceListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reassignRoutesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vanDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sALESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.totalDailySalesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.postingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -137,6 +138,7 @@
             this.pOSTAXPhotoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOSSurveyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coverdAndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOSROUTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNCENTIVESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newIncentiveTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incentiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -153,7 +155,7 @@
             this.tobaccoSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lighterSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pOSRouteAssigningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newPOSReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -613,7 +615,7 @@
             this.pnl_Menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_Menu.Location = new System.Drawing.Point(38, 51);
             this.pnl_Menu.Name = "pnl_Menu";
-            this.pnl_Menu.Size = new System.Drawing.Size(225, 643);
+            this.pnl_Menu.Size = new System.Drawing.Size(2, 643);
             this.pnl_Menu.TabIndex = 4;
             this.pnl_Menu.Visible = false;
             // 
@@ -627,7 +629,7 @@
             this.pnl_android.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_android.Location = new System.Drawing.Point(0, 734);
             this.pnl_android.Name = "pnl_android";
-            this.pnl_android.Size = new System.Drawing.Size(208, 130);
+            this.pnl_android.Size = new System.Drawing.Size(2, 130);
             this.pnl_android.TabIndex = 10;
             // 
             // button20
@@ -641,7 +643,7 @@
             this.button20.Location = new System.Drawing.Point(0, 90);
             this.button20.Name = "button20";
             this.button20.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button20.Size = new System.Drawing.Size(208, 30);
+            this.button20.Size = new System.Drawing.Size(2, 30);
             this.button20.TabIndex = 3;
             this.button20.Text = "KM Transaction";
             this.button20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -659,7 +661,7 @@
             this.button21.Location = new System.Drawing.Point(0, 60);
             this.button21.Name = "button21";
             this.button21.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button21.Size = new System.Drawing.Size(208, 30);
+            this.button21.Size = new System.Drawing.Size(2, 30);
             this.button21.TabIndex = 2;
             this.button21.Text = "Edit Versions";
             this.button21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -677,7 +679,7 @@
             this.button22.Location = new System.Drawing.Point(0, 30);
             this.button22.Name = "button22";
             this.button22.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button22.Size = new System.Drawing.Size(208, 30);
+            this.button22.Size = new System.Drawing.Size(2, 30);
             this.button22.TabIndex = 1;
             this.button22.Text = "Open Permations";
             this.button22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -695,7 +697,7 @@
             this.button23.Location = new System.Drawing.Point(0, 0);
             this.button23.Name = "button23";
             this.button23.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button23.Size = new System.Drawing.Size(208, 30);
+            this.button23.Size = new System.Drawing.Size(2, 30);
             this.button23.TabIndex = 0;
             this.button23.Text = "Send Data";
             this.button23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -716,7 +718,7 @@
             this.button24.Location = new System.Drawing.Point(0, 704);
             this.button24.Name = "button24";
             this.button24.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button24.Size = new System.Drawing.Size(208, 30);
+            this.button24.Size = new System.Drawing.Size(2, 30);
             this.button24.TabIndex = 9;
             this.button24.Text = "ANDROID SALES SUPPORT";
             this.button24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -764,7 +766,7 @@
             this.pnl_Target.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Target.Location = new System.Drawing.Point(0, 574);
             this.pnl_Target.Name = "pnl_Target";
-            this.pnl_Target.Size = new System.Drawing.Size(208, 130);
+            this.pnl_Target.Size = new System.Drawing.Size(2, 130);
             this.pnl_Target.TabIndex = 8;
             // 
             // button15
@@ -778,7 +780,7 @@
             this.button15.Location = new System.Drawing.Point(0, 90);
             this.button15.Name = "button15";
             this.button15.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button15.Size = new System.Drawing.Size(208, 30);
+            this.button15.Size = new System.Drawing.Size(2, 30);
             this.button15.TabIndex = 3;
             this.button15.Text = "Target Search";
             this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -796,7 +798,7 @@
             this.button16.Location = new System.Drawing.Point(0, 60);
             this.button16.Name = "button16";
             this.button16.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button16.Size = new System.Drawing.Size(208, 30);
+            this.button16.Size = new System.Drawing.Size(2, 30);
             this.button16.TabIndex = 2;
             this.button16.Text = "Edite Target";
             this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -814,7 +816,7 @@
             this.button17.Location = new System.Drawing.Point(0, 30);
             this.button17.Name = "button17";
             this.button17.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button17.Size = new System.Drawing.Size(208, 30);
+            this.button17.Size = new System.Drawing.Size(2, 30);
             this.button17.TabIndex = 1;
             this.button17.Text = "Target Assining";
             this.button17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -832,7 +834,7 @@
             this.button18.Location = new System.Drawing.Point(0, 0);
             this.button18.Name = "button18";
             this.button18.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button18.Size = new System.Drawing.Size(208, 30);
+            this.button18.Size = new System.Drawing.Size(2, 30);
             this.button18.TabIndex = 0;
             this.button18.Text = "New Target";
             this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -853,7 +855,7 @@
             this.button19.Location = new System.Drawing.Point(0, 544);
             this.button19.Name = "button19";
             this.button19.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button19.Size = new System.Drawing.Size(208, 30);
+            this.button19.Size = new System.Drawing.Size(2, 30);
             this.button19.TabIndex = 7;
             this.button19.Text = "TARGETS";
             this.button19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -871,7 +873,7 @@
             this.pnl_Incentive.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Incentive.Location = new System.Drawing.Point(0, 414);
             this.pnl_Incentive.Name = "pnl_Incentive";
-            this.pnl_Incentive.Size = new System.Drawing.Size(208, 130);
+            this.pnl_Incentive.Size = new System.Drawing.Size(2, 130);
             this.pnl_Incentive.TabIndex = 6;
             // 
             // button10
@@ -885,7 +887,7 @@
             this.button10.Location = new System.Drawing.Point(0, 90);
             this.button10.Name = "button10";
             this.button10.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button10.Size = new System.Drawing.Size(208, 30);
+            this.button10.Size = new System.Drawing.Size(2, 30);
             this.button10.TabIndex = 3;
             this.button10.Text = "button10";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -903,7 +905,7 @@
             this.button11.Location = new System.Drawing.Point(0, 60);
             this.button11.Name = "button11";
             this.button11.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button11.Size = new System.Drawing.Size(208, 30);
+            this.button11.Size = new System.Drawing.Size(2, 30);
             this.button11.TabIndex = 2;
             this.button11.Text = "Incentive Search";
             this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -921,7 +923,7 @@
             this.button12.Location = new System.Drawing.Point(0, 30);
             this.button12.Name = "button12";
             this.button12.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button12.Size = new System.Drawing.Size(208, 30);
+            this.button12.Size = new System.Drawing.Size(2, 30);
             this.button12.TabIndex = 1;
             this.button12.Text = "Incentive Assining";
             this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -939,7 +941,7 @@
             this.button13.Location = new System.Drawing.Point(0, 0);
             this.button13.Name = "button13";
             this.button13.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button13.Size = new System.Drawing.Size(208, 30);
+            this.button13.Size = new System.Drawing.Size(2, 30);
             this.button13.TabIndex = 0;
             this.button13.Text = "New Incentive";
             this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -960,7 +962,7 @@
             this.button14.Location = new System.Drawing.Point(0, 384);
             this.button14.Name = "button14";
             this.button14.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button14.Size = new System.Drawing.Size(208, 30);
+            this.button14.Size = new System.Drawing.Size(2, 30);
             this.button14.TabIndex = 5;
             this.button14.Text = "INCENTIVES";
             this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -979,7 +981,7 @@
             this.pnl_pos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_pos.Location = new System.Drawing.Point(0, 225);
             this.pnl_pos.Name = "pnl_pos";
-            this.pnl_pos.Size = new System.Drawing.Size(208, 159);
+            this.pnl_pos.Size = new System.Drawing.Size(2, 159);
             this.pnl_pos.TabIndex = 4;
             // 
             // btn_Payer_pos
@@ -993,7 +995,7 @@
             this.btn_Payer_pos.Location = new System.Drawing.Point(0, 120);
             this.btn_Payer_pos.Name = "btn_Payer_pos";
             this.btn_Payer_pos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Payer_pos.Size = new System.Drawing.Size(208, 30);
+            this.btn_Payer_pos.Size = new System.Drawing.Size(2, 30);
             this.btn_Payer_pos.TabIndex = 4;
             this.btn_Payer_pos.Text = "Payer POS";
             this.btn_Payer_pos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1011,7 +1013,7 @@
             this.button5.Location = new System.Drawing.Point(0, 90);
             this.button5.Name = "button5";
             this.button5.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(208, 30);
+            this.button5.Size = new System.Drawing.Size(2, 30);
             this.button5.TabIndex = 3;
             this.button5.Text = "POS Search";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1029,7 +1031,7 @@
             this.button6.Location = new System.Drawing.Point(0, 60);
             this.button6.Name = "button6";
             this.button6.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(208, 30);
+            this.button6.Size = new System.Drawing.Size(2, 30);
             this.button6.TabIndex = 2;
             this.button6.Text = "Edite POS";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1047,7 +1049,7 @@
             this.button7.Location = new System.Drawing.Point(0, 30);
             this.button7.Name = "button7";
             this.button7.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(208, 30);
+            this.button7.Size = new System.Drawing.Size(2, 30);
             this.button7.TabIndex = 1;
             this.button7.Text = "New POS";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1066,7 +1068,7 @@
             this.button8.Name = "button8";
             this.button8.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.button8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button8.Size = new System.Drawing.Size(208, 30);
+            this.button8.Size = new System.Drawing.Size(2, 30);
             this.button8.TabIndex = 0;
             this.button8.Text = "New POS Review";
             this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1087,7 +1089,7 @@
             this.button9.Location = new System.Drawing.Point(0, 195);
             this.button9.Name = "button9";
             this.button9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button9.Size = new System.Drawing.Size(208, 30);
+            this.button9.Size = new System.Drawing.Size(2, 30);
             this.button9.TabIndex = 3;
             this.button9.Text = "POS (CUSTOMER)";
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1104,7 +1106,7 @@
             this.pnl_sales.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_sales.Location = new System.Drawing.Point(0, 65);
             this.pnl_sales.Name = "pnl_sales";
-            this.pnl_sales.Size = new System.Drawing.Size(208, 130);
+            this.pnl_sales.Size = new System.Drawing.Size(2, 130);
             this.pnl_sales.TabIndex = 2;
             // 
             // button4
@@ -1118,7 +1120,7 @@
             this.button4.Location = new System.Drawing.Point(0, 90);
             this.button4.Name = "button4";
             this.button4.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(208, 30);
+            this.button4.Size = new System.Drawing.Size(2, 30);
             this.button4.TabIndex = 3;
             this.button4.Text = "Invoice search";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1136,7 +1138,7 @@
             this.button3.Location = new System.Drawing.Point(0, 60);
             this.button3.Name = "button3";
             this.button3.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(208, 30);
+            this.button3.Size = new System.Drawing.Size(2, 30);
             this.button3.TabIndex = 2;
             this.button3.Text = "Posting";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1154,7 +1156,7 @@
             this.button2.Location = new System.Drawing.Point(0, 30);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(208, 30);
+            this.button2.Size = new System.Drawing.Size(2, 30);
             this.button2.TabIndex = 1;
             this.button2.Text = "Edite Sales";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1172,7 +1174,7 @@
             this.btn_totalDSR.Location = new System.Drawing.Point(0, 0);
             this.btn_totalDSR.Name = "btn_totalDSR";
             this.btn_totalDSR.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_totalDSR.Size = new System.Drawing.Size(208, 30);
+            this.btn_totalDSR.Size = new System.Drawing.Size(2, 30);
             this.btn_totalDSR.TabIndex = 0;
             this.btn_totalDSR.Text = "Total Daily Sales Report";
             this.btn_totalDSR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1193,7 +1195,7 @@
             this.btn_Menu_Masterdata.Location = new System.Drawing.Point(0, 35);
             this.btn_Menu_Masterdata.Name = "btn_Menu_Masterdata";
             this.btn_Menu_Masterdata.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Menu_Masterdata.Size = new System.Drawing.Size(208, 30);
+            this.btn_Menu_Masterdata.Size = new System.Drawing.Size(2, 30);
             this.btn_Menu_Masterdata.TabIndex = 1;
             this.btn_Menu_Masterdata.Text = "SALES";
             this.btn_Menu_Masterdata.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1209,7 +1211,7 @@
             this.pnl_menu_logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_menu_logo.Location = new System.Drawing.Point(0, 0);
             this.pnl_menu_logo.Name = "pnl_menu_logo";
-            this.pnl_menu_logo.Size = new System.Drawing.Size(208, 35);
+            this.pnl_menu_logo.Size = new System.Drawing.Size(2, 35);
             this.pnl_menu_logo.TabIndex = 0;
             // 
             // label1
@@ -1219,7 +1221,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(32, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 35);
+            this.label1.Size = new System.Drawing.Size(0, 35);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mansour Distribution Salesforce";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1297,7 +1299,7 @@
             this.androidSupportToolStripMenuItem,
             this.dailyActivityToolStripMenuItem,
             this.iNVENTORYToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(263, 51);
+            this.menuStrip2.Location = new System.Drawing.Point(40, 51);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.menuStrip2.Size = new System.Drawing.Size(180, 643);
@@ -1311,7 +1313,8 @@
             this.kMUpdateToolStripMenuItem1,
             this.lastKMUpdateAndSendToolStripMenuItem1,
             this.productPriceListToolStripMenuItem,
-            this.reassignRoutesToolStripMenuItem});
+            this.reassignRoutesToolStripMenuItem,
+            this.vanDetailsToolStripMenuItem});
             this.mASTERDATAToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.mASTERDATAToolStripMenuItem.Image = global::MDSF.Properties.Resources.Mansour_Icon2;
             this.mASTERDATAToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1375,6 +1378,15 @@
             this.reassignRoutesToolStripMenuItem.Text = "Reassign Routes";
             this.reassignRoutesToolStripMenuItem.Click += new System.EventHandler(this.reassignRoutesToolStripMenuItem_Click);
             // 
+            // vanDetailsToolStripMenuItem
+            // 
+            this.vanDetailsToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.vanDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.FloralWhite;
+            this.vanDetailsToolStripMenuItem.Name = "vanDetailsToolStripMenuItem";
+            this.vanDetailsToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
+            this.vanDetailsToolStripMenuItem.Text = "Van Details";
+            this.vanDetailsToolStripMenuItem.Click += new System.EventHandler(this.vanDetailsToolStripMenuItem_Click);
+            // 
             // sALESToolStripMenuItem
             // 
             this.sALESToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
@@ -1421,7 +1433,8 @@
             this.pOSTAXPhotoToolStripMenuItem,
             this.pOSSurveyToolStripMenuItem,
             this.coverdAndToolStripMenuItem,
-            this.pOSRouteAssigningToolStripMenuItem});
+            this.pOSROUTEToolStripMenuItem,
+            this.newPOSReportToolStripMenuItem});
             this.pOSToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.pOSToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
             this.pOSToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1496,6 +1509,17 @@
             this.coverdAndToolStripMenuItem.Text = "Covered and Uncovered POS";
             this.coverdAndToolStripMenuItem.Click += new System.EventHandler(this.coverdAndToolStripMenuItem_Click);
             // 
+            // pOSROUTEToolStripMenuItem
+            // 
+            this.pOSROUTEToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.pOSROUTEToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pOSROUTEToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.pOSROUTEToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.pOSROUTEToolStripMenuItem.Name = "pOSROUTEToolStripMenuItem";
+            this.pOSROUTEToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
+            this.pOSROUTEToolStripMenuItem.Text = "POS ROUTE";
+            this.pOSROUTEToolStripMenuItem.Click += new System.EventHandler(this.pOSROUTEToolStripMenuItem_Click);
+            // 
             // iNCENTIVESToolStripMenuItem
             // 
             this.iNCENTIVESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1512,22 +1536,20 @@
             // newIncentiveTypeToolStripMenuItem
             // 
             this.newIncentiveTypeToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
-            this.newIncentiveTypeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newIncentiveTypeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.newIncentiveTypeToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
             this.newIncentiveTypeToolStripMenuItem.Name = "newIncentiveTypeToolStripMenuItem";
-            this.newIncentiveTypeToolStripMenuItem.Size = new System.Drawing.Size(207, 32);
+            this.newIncentiveTypeToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
             this.newIncentiveTypeToolStripMenuItem.Text = "New Incentive Type";
             this.newIncentiveTypeToolStripMenuItem.Click += new System.EventHandler(this.newIncentiveTypeToolStripMenuItem_Click);
             // 
             // incentiveToolStripMenuItem
             // 
             this.incentiveToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
-            this.incentiveToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incentiveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.incentiveToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
             this.incentiveToolStripMenuItem.Name = "incentiveToolStripMenuItem";
-            this.incentiveToolStripMenuItem.Size = new System.Drawing.Size(207, 32);
+            this.incentiveToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
             this.incentiveToolStripMenuItem.Text = "Incentives Report";
             this.incentiveToolStripMenuItem.Click += new System.EventHandler(this.incentiveToolStripMenuItem_Click);
             // 
@@ -1683,16 +1705,16 @@
             this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
             this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
             // 
-            // pOSRouteAssigningToolStripMenuItem
+            // newPOSReportToolStripMenuItem
             // 
-            this.pOSRouteAssigningToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
-            this.pOSRouteAssigningToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pOSRouteAssigningToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
-            this.pOSRouteAssigningToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
-            this.pOSRouteAssigningToolStripMenuItem.Name = "pOSRouteAssigningToolStripMenuItem";
-            this.pOSRouteAssigningToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
-            this.pOSRouteAssigningToolStripMenuItem.Text = "POS Route Assigning";
-            this.pOSRouteAssigningToolStripMenuItem.Click += new System.EventHandler(this.pOSRouteAssigningToolStripMenuItem_Click);
+            this.newPOSReportToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.newPOSReportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newPOSReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.newPOSReportToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.newPOSReportToolStripMenuItem.Name = "newPOSReportToolStripMenuItem";
+            this.newPOSReportToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
+            this.newPOSReportToolStripMenuItem.Text = "New POS Report";
+            this.newPOSReportToolStripMenuItem.Click += new System.EventHandler(this.newPOSReportToolStripMenuItem_Click);
             // 
             // Main_form
             // 
@@ -1864,7 +1886,9 @@
         private System.Windows.Forms.ToolStripMenuItem tobaccoSendToSAPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lighterSendToSAPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem incentiveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pOSRouteAssigningToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vanDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pOSROUTEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newPOSReportToolStripMenuItem;
     }
 }
 

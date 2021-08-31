@@ -643,22 +643,26 @@ namespace MDSF
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
-                    "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=1001 ");
-                DataAccessCS.conn.Close();
-                if (check != "0")
-                {
-                    var X_Form = new frm_van_assigning();
-                    X_Form.Show();
-                    X_Form.MdiParent = this;
-                    X_Form.WindowState = FormWindowState.Normal;
-                }
-                else
-                {
-                    MessageBox.Show("غير مسموح بإستخدام الشاشة المختارة");
-                    this.Cursor = Cursors.Default;
-                    return;
-                }
+                var X_Form = new frm_van_assigning();
+                X_Form.Show();
+                X_Form.MdiParent = this;
+                X_Form.WindowState = FormWindowState.Normal;
+                //string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                //    "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=1001 ");
+                //DataAccessCS.conn.Close();
+                //if (check != "0")
+                //{
+                //    var X_Form = new frm_van_assigning();
+                //    X_Form.Show();
+                //    X_Form.MdiParent = this;
+                //    X_Form.WindowState = FormWindowState.Normal;
+                //}
+                //else
+                //{
+                //    MessageBox.Show("غير مسموح بإستخدام الشاشة المختارة");
+                //    this.Cursor = Cursors.Default;
+                //    return;
+                //}
 
                 this.Cursor = Cursors.Default;
             }
@@ -743,22 +747,27 @@ namespace MDSF
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                string check = DataAccessCS.getvalue("select nvl(count(*),0) "+
-                    " from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=2001 ");
-                DataAccessCS.conn.Close();
-                if (check !="0")
-                { 
                 var X_Form = new frm_Total_DSR();
                 X_Form.Show();
                 X_Form.MdiParent = this;
                 X_Form.WindowState = FormWindowState.Maximized;
-                }
-                else
-                {
-                    MessageBox.Show("غير مسموح بإستخدام الشاشة المختارة");
-                    this.Cursor = Cursors.Default;
-                    return;
-                }
+
+                //string check = DataAccessCS.getvalue("select nvl(count(*),0) "+
+                //    " from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=2001 ");
+                //DataAccessCS.conn.Close();
+                //if (check !="0")
+                //{ 
+                //var X_Form = new frm_Total_DSR();
+                //X_Form.Show();
+                //X_Form.MdiParent = this;
+                //X_Form.WindowState = FormWindowState.Maximized;
+                //}
+                //else
+                //{
+                //    MessageBox.Show("غير مسموح بإستخدام الشاشة المختارة");
+                //    this.Cursor = Cursors.Default;
+                //    return;
+                //}
                 this.Cursor = Cursors.Default;
             }
             catch (Exception ex)
@@ -1129,7 +1138,7 @@ namespace MDSF
                 DataAccessCS.conn.Close();
                 if (check != "0")
                 {
-                    var X_Form = new frm_android_support();
+                    var X_Form = new frm_android_support(user_id);
                     X_Form.Show();
                     X_Form.MdiParent = this;
                     X_Form.WindowState = FormWindowState.Maximized;
@@ -1227,24 +1236,29 @@ namespace MDSF
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
-                     "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=1003 ");
-                DataAccessCS.conn.Close();
-                if (check != "0")
-                {
-                    var X_Form = new frm_update_KM();
-                    X_Form.Show();
-                    X_Form.MdiParent = this;
-                    X_Form.WindowState = FormWindowState.Maximized;
-                }
-                else
-                {
-                    MessageBox.Show("غير مسموح بإستخدام الشاشة المختارة");
-                    this.Cursor = Cursors.Default;
-                    return;
-                }
+                var X_Form = new frm_update_KM();
+                X_Form.Show();
+                X_Form.MdiParent = this;
+                X_Form.WindowState = FormWindowState.Maximized;
 
-                this.Cursor = Cursors.Default;
+                //string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                //     "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=1003 ");
+                //DataAccessCS.conn.Close();
+                //if (check != "0")
+                //{
+                //    var X_Form = new frm_update_KM();
+                //    X_Form.Show();
+                //    X_Form.MdiParent = this;
+                //    X_Form.WindowState = FormWindowState.Maximized;
+                //}
+                //else
+                //{
+                //    MessageBox.Show("غير مسموح بإستخدام الشاشة المختارة");
+                //    this.Cursor = Cursors.Default;
+                //    return;
+                //}
+
+                //this.Cursor = Cursors.Default;
             }
             catch (Exception ex)
             {
@@ -1444,46 +1458,11 @@ namespace MDSF
             this.Cursor = Cursors.WaitCursor;
             try
             {
+
                 var X_Form = new frm_Incentive_Follow();
                 X_Form.Show();
                 X_Form.MdiParent = this;
-                X_Form.WindowState = FormWindowState.Maximized;
-                //string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
-                //     "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=4002 ");
-                //DataAccessCS.conn.Close();
-                //if (check != "0")
-                //{
-                //    var X_Form = new frm_Incentive_Follow();
-                //    X_Form.Show();
-                //    X_Form.MdiParent = this;
-                //    // X_Form.WindowState = FormWindowState.Maximized;
-                //}
-                //else
-                //{
-                //    MessageBox.Show("غير مسموح بإستخدام الشاشة المختارة");
-                //    this.Cursor = Cursors.Default;
-                //    return;
-                //}
-
-                this.Cursor = Cursors.Default;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            this.Cursor = Cursors.Default;
-        }
-
-        private void pOSRouteAssigningToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            try
-            {
-                var X_Form = new frm_Route_POS_Assigne();
-                X_Form.Show();
-                X_Form.MdiParent = this;
-                X_Form.WindowState = FormWindowState.Maximized;
+                // X_Form.WindowState = FormWindowState.Maximized;
                 //string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
                 //     "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=4002 ");
                 //DataAccessCS.conn.Close();
@@ -1516,8 +1495,79 @@ namespace MDSF
             var X_Form = new frm_van_details();
             X_Form.Show();
             X_Form.MdiParent = this;
+
             
         }
+
+        private void pOSROUTEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+                string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                     "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=3007 ");
+                DataAccessCS.conn.Close();
+                if (check != "0")
+                {
+                    var X_Form = new frm_Route_POS_Assigne();
+                    X_Form.Show();
+                    X_Form.MdiParent = this;
+                    // X_Form.WindowState = FormWindowState.Maximized;
+                }
+                else
+                {
+                    MessageBox.Show("غير مسموح بإستخدام الشاشة المختارة");
+                    this.Cursor = Cursors.Default;
+                    return;
+                }
+
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void newPOSReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+                var X_Form = new frm_NEW_POS_Review();
+                X_Form.Show();
+                X_Form.MdiParent = this;
+                X_Form.WindowState = FormWindowState.Maximized;
+                //string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                //     "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=4002 ");
+                //DataAccessCS.conn.Close();
+                //if (check != "0")
+                //{
+                //    var X_Form = new frm_Incentive_Follow();
+                //    X_Form.Show();
+                //    X_Form.MdiParent = this;
+                //    // X_Form.WindowState = FormWindowState.Maximized;
+                //}
+                //else
+                //{
+                //    MessageBox.Show("غير مسموح بإستخدام الشاشة المختارة");
+                //    this.Cursor = Cursors.Default;
+                //    return;
+                //}
+
+                this.Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
     }
-  
+    
 }

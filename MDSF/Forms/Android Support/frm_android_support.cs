@@ -12,9 +12,15 @@ namespace MDSF.Forms.Android_Support
 {
     public partial class frm_android_support : Form
     {
+        string user_id;
         public frm_android_support()
         {
             InitializeComponent();
+        }
+        public frm_android_support(string user_id)
+        {
+            InitializeComponent();
+            this.user_id = user_id;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -24,6 +30,17 @@ namespace MDSF.Forms.Android_Support
 
         private void frm_android_support_Load(object sender, EventArgs e)
         {
+            if (user_id == "19")
+            {
+                txt_region.Enabled = true;
+            }
+            else
+            {
+                txt_region.Enabled = false;
+            }
+
+
+
             this.KeyPreview = true;
             DataSet ds = new DataSet();
             ds = DataAccessCS.getdata("select tl.sfa_tablename from tab_loading@sales tl order by tl.sfa_tablename");
