@@ -1236,7 +1236,7 @@ namespace MDSF
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                var X_Form = new frm_update_KM();
+                var X_Form = new frm_update_KM(user_id);
                 X_Form.Show();
                 X_Form.MdiParent = this;
                 X_Form.WindowState = FormWindowState.Maximized;
