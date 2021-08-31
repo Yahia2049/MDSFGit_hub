@@ -94,7 +94,7 @@ namespace MDSF.Forms.Master_Data
                    + journeySeq + "','" + txt_model.Text + "','" + txt_carNum.Text + "','" + txt_eng_num.Text + "','" + textbodt_num.Text + "', SYSDATE ,'"  + 1 + "','I','" + 1 + "','" + cmb_Region_Van.SelectedValue +  "',' 2022 ' )";
                     DataAccessCS.insert(insertNewCar);
                     DataAccessCS.conn.Close();
-                    MessageBox.Show("تمت الاضافة بنجاح");
+                    MessageBox.Show("تمت اضافة سيارة جديده");
                    
                 }
             }
