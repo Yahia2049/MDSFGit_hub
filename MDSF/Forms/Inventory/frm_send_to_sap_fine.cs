@@ -237,7 +237,7 @@ namespace MDSF.Forms.Inventory
 
                 ds = DataAccessCS.getdata("select distinct p.SALESREP_ID ,(select distinct name from salesman where sales_id =p.SALESREP_ID and branch_code =" + cmb_Region.SelectedValue + " ) SALESREP_NAME " +
                               "from journey@sales p, ver_ctrl@sales v ,loading_header l " +
-                              "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id and l.category_id=5 " +
+                              "where l.journey_sequence = p.jou_seq and l.salesrep_id=p.salesrep_id  and v.salesrep_id=l.salesrep_id and l.category_id=5 " +
                               " and  p.salesrep_id = v.salesrep_id and v.branch_code = " + cmb_Region.SelectedValue + " " +
                               "and trunc(to_date(p.start_DATE,'dd - mon - yyyy hh: mi:ss AM')) = trunc(to_date('" + DateTimePicker.Value.ToString("dd-MMM-yyyy") + "')) order by SALESREP_NAME");
 
@@ -2386,8 +2386,8 @@ namespace MDSF.Forms.Inventory
                         decimal x = INCENTIVE_TEST - dt_inc;
                         //if (INCENTIVE_TEST != dt_inc)
                         // if (x > -0.5M && x < 0.5M)
-                        if ( x < 0.5M)
-                        { }
+                         if (x <= 0.5M && x >= -0.5M)
+                            { }
                         else
                         {
                             Inc_Differente.Text = (INCENTIVE_TEST - dt_inc).ToString();

@@ -29,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.cmb_trade_program = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_responsible_name = new System.Windows.Forms.TextBox();
@@ -37,13 +37,13 @@
             this.upseg = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.rchbdl_route_type = new Telerik.WinControls.UI.RadCheckedDropDownList();
             this.btn_Remove = new Telerik.WinControls.UI.RadButton();
             this.btn_Add = new Telerik.WinControls.UI.RadButton();
             this.btn_import_excel_Trade = new Telerik.WinControls.UI.RadButton();
             this.rgv_pos_route = new Telerik.WinControls.UI.RadGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.radThemeManager1 = new Telerik.WinControls.RadThemeManager();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
             this.tabControl1.SuspendLayout();
@@ -131,16 +131,6 @@
             this.tabPage1.Text = "POS ROUTES";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(963, 466);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "ADD NEW ROUTE";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -170,11 +160,12 @@
             // 
             // 
             // 
-            this.btn_Remove.RootElement.ControlBounds = new System.Drawing.Rectangle(772, 461, 110, 24);
+            this.btn_Remove.RootElement.ControlBounds = new System.Drawing.Rectangle(729, 427, 110, 24);
             this.btn_Remove.Size = new System.Drawing.Size(172, 31);
             this.btn_Remove.TabIndex = 272;
             this.btn_Remove.Text = "حذف من خطوط السير";
             this.btn_Remove.ThemeName = "TelerikMetro";
+            this.btn_Remove.Click += new System.EventHandler(this.btn_Remove_Click_1);
             // 
             // btn_Add
             // 
@@ -185,7 +176,7 @@
             // 
             // 
             // 
-            this.btn_Add.RootElement.ControlBounds = new System.Drawing.Rectangle(388, 433, 110, 24);
+            this.btn_Add.RootElement.ControlBounds = new System.Drawing.Rectangle(383, 406, 110, 24);
             this.btn_Add.Size = new System.Drawing.Size(172, 35);
             this.btn_Add.TabIndex = 271;
             this.btn_Add.Text = "أضافة الى خطوط السير";
@@ -201,7 +192,7 @@
             // 
             // 
             // 
-            this.btn_import_excel_Trade.RootElement.ControlBounds = new System.Drawing.Rectangle(388, 5, 110, 24);
+            this.btn_import_excel_Trade.RootElement.ControlBounds = new System.Drawing.Rectangle(383, 7, 110, 24);
             this.btn_import_excel_Trade.Size = new System.Drawing.Size(172, 31);
             this.btn_import_excel_Trade.TabIndex = 270;
             this.btn_import_excel_Trade.Text = "Import from Excel";
@@ -218,15 +209,25 @@
             // 
             // 
             // 
-            this.rgv_pos_route.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.rgv_pos_route.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.rgv_pos_route.Name = "rgv_pos_route";
             // 
             // 
             // 
-            this.rgv_pos_route.RootElement.ControlBounds = new System.Drawing.Rectangle(3, 42, 240, 150);
+            this.rgv_pos_route.RootElement.ControlBounds = new System.Drawing.Rectangle(3, 45, 240, 150);
             this.rgv_pos_route.Size = new System.Drawing.Size(957, 344);
             this.rgv_pos_route.TabIndex = 269;
             this.rgv_pos_route.ThemeName = "TelerikMetro";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(963, 466);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "ADD NEW ROUTE";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // frm_Route_POS_Assigne
             // 

@@ -14,9 +14,15 @@ namespace MDSF.Forms.Master_Data
 {
     public partial class frm_update_KM : Form
     {
+        string user_id;
         public frm_update_KM()
         {
             InitializeComponent();
+        }
+        public frm_update_KM(string user_id)
+        {
+            InitializeComponent();
+            this.user_id = user_id;
         }
         private void Form_load()
         {
@@ -249,22 +255,42 @@ namespace MDSF.Forms.Master_Data
                 DataSet ds = new DataSet();
                 if (rdb_km_trans.Checked)
                 {
+                    btn_km_report.Visible= true;
+                    btn_print.Visible = false;
 
                     if (rdb_by_salesman.Checked)
                     {
                         if (cmb_salesrep_salesman.SelectedIndex > -1)
                         {
                             ds = DataAccessCS.getdata("select * from km_transactions@sales k where  k.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + "' and   trunc(to_date(k.fuel_time,'dd-mon-yyyy hh:mi:ss AM')) > = '" + from_date + "' and trunc(to_date(k.fuel_time,'dd-mon-yyyy hh:mi:ss AM'))  <= '" + to_date + "' ");
-                           // ds = DataAccessCS.getdata("select salesrep_id, fuel_values,start_km,current_km,fuel_type,fuel_liters,fuel_values,to_char(to_date(fuel_time,'dd-mon-yyyy hh:mi:ss AM'), 'MM/DD/YYYY') as fuel_time from km_transactions k where  k.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + "' and   trunc(k.fuel_time) > = '" + from_date + "' trunc(k.fuel_time)  <= '" + to_date + "' ");
-                            panel1.Visible = true;
-                            btn_update_journey.Visible = false;
-                            pnl_oil.Visible = false;
+                            // ds = DataAccessCS.getdata("select salesrep_id, fuel_values,start_km,current_km,fuel_type,fuel_liters,fuel_values,to_char(to_date(fuel_time,'dd-mon-yyyy hh:mi:ss AM'), 'MM/DD/YYYY') as fuel_time from km_transactions k where  k.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + "' and   trunc(k.fuel_time) > = '" + from_date + "' trunc(k.fuel_time)  <= '" + to_date + "' ");
 
                             DataAccessCS.conn.Close();
                             rgv_KM.DataSource = ds.Tables[0];
                             rgv_KM.AutoResizeColumns();
                             ds.Dispose();
 
+
+                            string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                                                                "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=10031 ");
+                            DataAccessCS.conn.Close();
+                            if (check != "0")
+                            {
+                                panel1.Visible = true;
+                                pnl_oil.Visible = false;
+                                btn_update_journey.Visible = false;
+                            }
+                            else
+                            {
+                                panel1.Visible = false;
+                                pnl_oil.Visible = false;
+                                btn_update_journey.Visible = false;
+                            }
+                            
+
+                           
+
+                           
                             DataAccessCS.conn.Close();
                         }
                         else
@@ -283,11 +309,26 @@ namespace MDSF.Forms.Master_Data
                 }
                 else if (rdb_journey.Checked)
                 {
+                    btn_km_report.Visible = false;
+                    btn_print.Visible = false;
                     if (rdb_By_Vehicle.Checked)
                     {
-                        panel1.Visible = false;
-                        btn_update_journey.Visible = true;
-                        pnl_oil.Visible = false;
+                        DataAccessCS.conn.Close();
+                        string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                   "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=10031 ");
+                        DataAccessCS.conn.Close();
+                        if (check != "0")
+                        {
+                            panel1.Visible = false;
+                            pnl_oil.Visible = false;
+                            btn_update_journey.Visible = true;
+                        }
+                        else
+                        {
+                            panel1.Visible = false;
+                            pnl_oil.Visible = false;
+                            btn_update_journey.Visible = false;
+                        }
                         if ((cmb_Van_ID.SelectedIndex > -1 && cmb_Plate_Number.SelectedIndex == -1) || (cmb_Van_ID.SelectedIndex > -1 && cmb_Plate_Number.SelectedIndex > -1))
                         {
                             //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
@@ -306,12 +347,26 @@ namespace MDSF.Forms.Master_Data
                     }
                     else if (rdb_by_salesman.Checked)
                     {
-                        panel1.Visible = false;
-                        btn_update_journey.Visible = true;
-                        pnl_oil.Visible = false;
+                        string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                                      "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=10031 ");
+                        DataAccessCS.conn.Close();
+                        if (check != "0")
+                        {
+                            panel1.Visible = false;
+                            pnl_oil.Visible = false;
+                            btn_update_journey.Visible = true;
+                        }
+                        else
+                        {
+                            panel1.Visible = false;
+                            pnl_oil.Visible = false;
+                            btn_update_journey.Visible = false;
+                        }
                         if (cmb_salesrep_salesman.SelectedIndex > -1)
                         {
+                            DataAccessCS.conn.Close();
                             ds = DataAccessCS.getdata("select distinct j.salesrep_id,v.van_id ,v.car_num,j.start_date, j.jou_seq,j.jou_id,j.BEG_KM,j.END_KM,j.END_KM-j.BEG_KM as Def_KM  ,v.branch_code from journey@sales j ,van v where j.van_id =v.van_id and   j.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + "' and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) >= '" + from_date + "'  and trunc(to_date(j.start_date,'dd-mon-yyyy hh:mi:ss AM')) <= '" + to_date + "' and branch_code =" + cmb_Region_salesman.SelectedValue + "");
+                        
                         }
                         else
                         {
@@ -323,14 +378,33 @@ namespace MDSF.Forms.Master_Data
                 }
                 else if (rdb_Oil_trans.Checked)
                 {
+                    btn_km_report.Visible = false;
+                    btn_print.Visible = true;
                     if (rdb_by_salesman.Checked)
                     {
                         if (cmb_salesrep_salesman.SelectedIndex > -1)
                         {
+
+                            string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                                                                   "from MDSF_USER_SECURITY where user_id =" + user_id + " and SCREEN_ID=10031 ");
+                            DataAccessCS.conn.Close();
+                            if (check != "0")
+                            {
+                                panel1.Visible = false;
+                                pnl_oil.Visible = true;
+                                btn_update_journey.Visible = false;
+                            }
+                            else
+                            {
+                                panel1.Visible = false;
+                                pnl_oil.Visible = false;
+                                btn_update_journey.Visible = false;
+                            }
+
+                            DataAccessCS.conn.Close();
                             ds = DataAccessCS.getdata("select * from oil_transactions@sales k where  k.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + "' and   trunc(to_date(k.trans_time,'dd-mon-yyyy hh:mi:ss AM')) > = '" + from_date + "' and trunc(to_date(k.trans_time,'dd-mon-yyyy hh:mi:ss AM'))  <= '" + to_date + "' ");
-                            panel1.Visible = false;
-                            btn_update_journey.Visible = false;
-                            pnl_oil.Visible = true;
+                               
+
 
                         }
                         else
@@ -1090,6 +1164,11 @@ namespace MDSF.Forms.Master_Data
                 MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
+        }
+
+        private void rdb_km_trans_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
