@@ -139,6 +139,7 @@
             this.pOSSurveyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coverdAndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOSROUTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newPOSReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNCENTIVESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newIncentiveTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incentiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,7 +156,6 @@
             this.tobaccoSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lighterSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newPOSReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -1520,6 +1520,17 @@
             this.pOSROUTEToolStripMenuItem.Text = "POS ROUTE";
             this.pOSROUTEToolStripMenuItem.Click += new System.EventHandler(this.pOSROUTEToolStripMenuItem_Click);
             // 
+            // newPOSReportToolStripMenuItem
+            // 
+            this.newPOSReportToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.newPOSReportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newPOSReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.newPOSReportToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.newPOSReportToolStripMenuItem.Name = "newPOSReportToolStripMenuItem";
+            this.newPOSReportToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
+            this.newPOSReportToolStripMenuItem.Text = "New POS Report";
+            this.newPOSReportToolStripMenuItem.Click += new System.EventHandler(this.newPOSReportToolStripMenuItem_Click);
+            // 
             // iNCENTIVESToolStripMenuItem
             // 
             this.iNCENTIVESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1704,17 +1715,6 @@
             this.fineSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
             this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
             this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
-            // 
-            // newPOSReportToolStripMenuItem
-            // 
-            this.newPOSReportToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
-            this.newPOSReportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newPOSReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.newPOSReportToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
-            this.newPOSReportToolStripMenuItem.Name = "newPOSReportToolStripMenuItem";
-            this.newPOSReportToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
-            this.newPOSReportToolStripMenuItem.Text = "New POS Report";
-            this.newPOSReportToolStripMenuItem.Click += new System.EventHandler(this.newPOSReportToolStripMenuItem_Click);
             // 
             // Main_form
             // 
