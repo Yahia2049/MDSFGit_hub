@@ -613,7 +613,10 @@ namespace MDSF.Forms.Master_Data
 
         private void txt_fuel_values_TextChanged(object sender, EventArgs e)
         {
+            //  txt_fuel_liter.Text = (decimal.Parse(txt_fuel_values.Text) / decimal.Parse(cmb_fuel_type.SelectedValue.ToString())).ToString();
             txt_fuel_liter.Text = (decimal.Parse(txt_fuel_values.Text) / decimal.Parse(cmb_fuel_type.SelectedValue.ToString())).ToString();
+            decimal premium = Convert.ToDecimal(txt_fuel_liter.Text);
+             txt_fuel_liter.Text = Decimal.Round(premium, 2).ToString();
         }
 
         private void rdb_Oil_trans_CheckedChanged(object sender, EventArgs e)
