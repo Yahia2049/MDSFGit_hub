@@ -1208,9 +1208,9 @@
             this.groupBox5.Controls.Add(this.txt_month_kpi);
             this.groupBox5.Controls.Add(this.txt_year_kpi);
             this.groupBox5.Controls.Add(this.txt_branch_kpi);
-            this.groupBox5.Location = new System.Drawing.Point(19, 329);
+            this.groupBox5.Location = new System.Drawing.Point(19, 330);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(288, 135);
+            this.groupBox5.Size = new System.Drawing.Size(288, 133);
             this.groupBox5.TabIndex = 28;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Remove KPI ";
@@ -1246,13 +1246,13 @@
             // 
             this.btn_remove_kpi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_remove_kpi.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_remove_kpi.Location = new System.Drawing.Point(86, 89);
+            this.btn_remove_kpi.Location = new System.Drawing.Point(86, 86);
             this.btn_remove_kpi.Name = "btn_remove_kpi";
             // 
             // 
             // 
             this.btn_remove_kpi.RootElement.ControlBounds = new System.Drawing.Rectangle(86, 89, 110, 24);
-            this.btn_remove_kpi.Size = new System.Drawing.Size(113, 37);
+            this.btn_remove_kpi.Size = new System.Drawing.Size(113, 25);
             this.btn_remove_kpi.TabIndex = 8;
             this.btn_remove_kpi.Text = "Remove";
             this.btn_remove_kpi.ThemeName = "TelerikMetro";

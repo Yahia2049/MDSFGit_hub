@@ -31,11 +31,10 @@ namespace MDSF.Forms.Target
             {
                 //rpg_salesrep.Visible = false;
 
-                //--------------------------------------
+                //----------------CMB ROUTE POS----------------------
                 DataSet ds = new DataSet();
                 //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
                 ds = DataAccessCS.getdata("select r.route_type_id,r.route_type_code||'_'||r.name route_name from route_types r order by r.route_type_code||'_'||r.name");
-
 
                 rchbdl_route_type.DataSource = ds.Tables[0];
                 rchbdl_route_type.DisplayMember = "route_name";
@@ -45,16 +44,27 @@ namespace MDSF.Forms.Target
 
                 ds.Dispose();
                 DataAccessCS.conn.Close();
-                //--------------------------------------
+                //--------------------------------------------------
+                //----------------RGV Route POS----------------------
                  ds = new DataSet();
                 //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                ds = DataAccessCS.getdata("select y.*,y.rowid from pos_routes y where y.branch_code is null");
-
+                ds = DataAccessCS.getdata("select * from pos_routes y where y.branch_code is null");
 
                 rgv_pos_route.DataSource = ds.Tables[0];
                 rgv_pos_route.BestFitColumns();
                 ds.Dispose();
                 DataAccessCS.conn.Close();
+                //-----------------------------------------------------
+                //----------------RGV Route MST----------------------
+                ds = new DataSet();
+                //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
+                ds = DataAccessCS.getdata("select * from route_mst_y order by route_mst_id desc");
+
+                dgv_route_mst.DataSource = ds.Tables[0];
+                dgv_route_mst.AutoResizeColumns();
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+                //-----------------------------------------------------
 
             }
             catch (Exception ex)
@@ -150,9 +160,10 @@ namespace MDSF.Forms.Target
                     //-------------------------------------------------------
                            
 
-                    String nr = "Insert into POS_ROUTES_TSTY(PROD_GROUP_ID, TER_ID, POS_ID, SALES_TER_ID, ROUTE_ID,IND, BEST_50_PRCNT_STOCK, GRP, GRP_M, GRP_L, NEW, ACTION, TRANS_FLAG, BRANCH_CODE) " +
-                                " Values(" + rgv_pos_route.Rows[i].Cells["PROD_GROUP_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["TER_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["POS_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["SALES_TER_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["ROUTE_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["IND"].Value + ", NULL, NULL,  NULL, NULL, NULL," +
-                                " '" + rgv_pos_route.Rows[i].Cells["ACTION"].Value + "', '" + rgv_pos_route.Rows[i].Cells["TRANS_FLAG"].Value + "', " + rgv_pos_route.Rows[i].Cells["BRANCH_CODE"].Value + ")";
+                    String nr = "Insert into POS_ROUTES_TSTY(PROD_GROUP_ID, TER_ID, POS_ID, SALES_TER_ID, ROUTE_ID,IND, BEST_50_PRCNT_STOCK, GRP, GRP_M, GRP_L, NEW, ACTION, TRANS_FLAG, BRANCH_CODE,WEEK_NUM) " +
+                                " Values(" + rgv_pos_route.Rows[i].Cells["PROD_GROUP_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["TER_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["POS_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["SALES_TER_ID"].Value +
+                                ", " + rgv_pos_route.Rows[i].Cells["ROUTE_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["IND"].Value + ", NULL, NULL,  NULL, NULL, NULL," +
+                                " '" + rgv_pos_route.Rows[i].Cells["ACTION"].Value + "', '" + rgv_pos_route.Rows[i].Cells["TRANS_FLAG"].Value + "', " + rgv_pos_route.Rows[i].Cells["BRANCH_CODE"].Value + ", " + rgv_pos_route.Rows[i].Cells["WEEK_NUM"].Value + ")";
 
 
                     DataAccessCS.insert(nr);
@@ -207,6 +218,83 @@ namespace MDSF.Forms.Target
             }
             this.Cursor = Cursors.Default;
         }
+
+        private void radButton10_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataAccessCS.ExportExcelDGV(rgv_pos_route);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btn_save_route_mst_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                              
+                    //insert DVD_target
+                    String route_mst = "insert into  route_mst_y (sales_ter_id,curr_sales_id,route_mst_id,route_mst_name,active,branch_code)" +
+                    "values("+txt_sales_ter_id_mst.Text+","+txt_salesrep_id_mst.Text+","+txt_route_mst_id_mst.Text+",'"+txt_route_mst_name_mst.Text+"',"+txt_active_mst.Text+","+txt_branch_code_mst.Text+")";
+                    DataAccessCS.insert(route_mst);
+                    DataAccessCS.conn.Close();
+
+               
+
+                MessageBox.Show("ROUTE MST Saved");
+                //----------------RGV Route MST----------------------
+               DataSet ds = new DataSet();
+                //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
+                ds = DataAccessCS.getdata("select * from route_mst_y order by route_mst_id desc");
+
+                dgv_route_mst.DataSource = ds.Tables[0];
+                dgv_route_mst.AutoResizeColumns();
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+                //-----------------------------------------------------
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+                //----------------RGV Route MST----------------------
+                DataSet ds = new DataSet();
+                //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
+                ds = DataAccessCS.getdata("select * from routes_y where route_mst_id ="+txt_route_mst_id_rout.Text +"order by route_mst_id desc");
+
+                dgv_routs.DataSource = ds.Tables[0];
+                dgv_routs.AutoResizeColumns();
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+                //-----------------------------------------------------
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
     }
+   
 
 }
