@@ -65,7 +65,42 @@ namespace MDSF.Forms.Target
                 ds.Dispose();
                 DataAccessCS.conn.Close();
                 //-----------------------------------------------------
+                //----------load branch code
+                 ds = new DataSet();
 
+                ds = DataAccessCS.getdata("select distinct b.branch_code,b.Region from regions_bi b ,sales_territories t where b.branch_code = t.branch_code and t.sales_ter_id in (" + DataAccessCS.x_sales_ter + ") ");
+                cmb_Region_source.DataSource = ds.Tables[0];
+                cmb_Region_source.DisplayMember = "Region";
+                cmb_Region_source.ValueMember = "branch_code";
+                cmb_Region_source.SelectedIndex = -1;
+                cmb_Region_source.Text = "--Choose--";
+
+
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+                //----------------------load prod_id
+                 ds = new DataSet();
+                //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
+                ds = DataAccessCS.getdata("select   b.company_name, b.company_id from product_company b ");
+                cmb_prodGroup.DataSource = ds.Tables[0];
+                cmb_prodGroup.DisplayMember = "company_name";
+                cmb_prodGroup.ValueMember = "company_id";
+                cmb_prodGroup.SelectedIndex = -1;
+                cmb_prodGroup.Text = "--Choose--";
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+
+                //--------------Loading route types-----------------
+                ds = new DataSet();
+         
+                ds = DataAccessCS.getdata("select  b.name, b.route_type_id from route_types b ");
+                cmb_routeType.DataSource = ds.Tables[0];
+                cmb_routeType.DisplayMember = "name";
+                cmb_routeType.ValueMember = "route_type_id";
+                cmb_routeType.SelectedIndex = -1;
+                cmb_routeType.Text = "--Choose--";
+                ds.Dispose();
+                DataAccessCS.conn.Close();
             }
             catch (Exception ex)
             {
@@ -274,22 +309,172 @@ namespace MDSF.Forms.Target
             this.Cursor = Cursors.WaitCursor;
             try
             {
+                if(txt_route_mst_id_rout.Text == "")
+                {
+                    MessageBox.Show("Insert Rout_mst_id please");
+                }
+                else
+                {
+                    //----------------RGV Route MST----------------------
+                    DataSet ds = new DataSet();
+                    //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
+                    ds = DataAccessCS.getdata("select * from routes_y where route_mst_id =" + txt_route_mst_id_rout.Text + "order by route_mst_id desc");
 
-                //----------------RGV Route MST----------------------
-                DataSet ds = new DataSet();
-                //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                ds = DataAccessCS.getdata("select * from routes_y where route_mst_id ="+txt_route_mst_id_rout.Text +"order by route_mst_id desc");
+                    dgv_routs.DataSource = ds.Tables[0];
+                    dgv_routs.AutoResizeColumns();
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //-----------------------------------------------------
 
-                dgv_routs.DataSource = ds.Tables[0];
-                dgv_routs.AutoResizeColumns();
-                ds.Dispose();
-                DataAccessCS.conn.Close();
-                //-----------------------------------------------------
+                }
 
             }
             catch (Exception ex)
             {
 
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        //fill sales ter
+        public void Fill_cmb_SalesTer()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+                //--------------------------------------
+                DataSet ds = new DataSet();
+                ds = DataAccessCS.getdata("select  t.SALES_TER_ID,t.NAME from sales_territories_active t where t.BRANCH_CODE in(" + cmb_Region_source.SelectedValue + ") and  t.SALES_TER_ID in (" + DataAccessCS.x_sales_ter + ")  order by t.NAME asc ");
+                cmb_sales_ter_source.DataSource = ds.Tables[0];
+                cmb_sales_ter_source.DisplayMember = "NAME";
+                cmb_sales_ter_source.ValueMember = "SALES_TER_ID";
+                cmb_sales_ter_source.SelectedIndex = -1;
+                cmb_sales_ter_source.Text = "--Choose--";
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+                //--------------------------------------
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        public void Fill_cmb_Salesrep_source()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+
+                //--------------------------------------
+                DataSet ds = new DataSet();
+                ds = DataAccessCS.getdata("select distinct p.sales_id SALESREP_ID , p.name SALESREP_NAME  from salesmen s , salesman  p  where s.SALES_TER_ID in  (" + cmb_sales_ter_source.SelectedValue + ") and s.TO_DATE is null " +
+                    //" and (s.TO_DATE is null or s.TO_DATE >= TO_DATE('" + dtp_todate_dsr.Value.Month + "/" + dtp_todate_dsr.Value.Day + "/" + dtp_todate_dsr.Value.Year + "','mm/dd/yyyy')) " +
+                    // "   and s.FROM_DATE <= TO_DATE('" + dtp_formdate_dsr.Value.Month + "/" + dtp_formdate_dsr.Value.Day + "/" + dtp_formdate_dsr.Value.Year + "','mm/dd/yyyy')" +
+                    "   and s.manger_id is not null  and p.SALES_ID = s.SALEs_ID order by p.name");
+                cmb_salesrep_source.DataSource = ds.Tables[0];
+                cmb_salesrep_source.DisplayMember = "SALESREP_NAME";
+                cmb_salesrep_source.ValueMember = "SALESREP_ID";
+                cmb_salesrep_source.SelectedIndex = -1;
+                cmb_salesrep_source.Text = "--Choose--";
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+
+                //--------------------------------------
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        //fill route source
+        public void Fill_cmb_Route()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataSet ds = new DataSet();
+                // ds = DataAccessCS.getdata("select distinct ird.route_id,ird.routedays,r.curr_sales_id, salesrep_id,r.sales_ter_id from int_route_day ird , routes r where r.active =1 and r.route_id=ird.route_id and  r.curr_sales_id= " + cmb_salesrep_source.SelectedValue + "and r.SALES_TER_ID =" + cmb_sales_ter_source.SelectedValue );
+                ds = DataAccessCS.getdata("select distinct ird.route_id,ird.routedays, salesrep_id,r.sales_ter_id from int_route_day ird , routes r where r.active =1 and r.route_id = ird.route_id and  salesrep_id = " + cmb_salesrep_source.SelectedValue + "and r.SALES_TER_ID =" + cmb_sales_ter_source.SelectedValue);
+                cmb_route_id.DataSource = ds.Tables[0];
+                cmb_route_id.DisplayMember = "routedays";
+                cmb_route_id.ValueMember = "route_id";
+                cmb_route_id.SelectedIndex = -1;
+                cmb_route_id.Text = "--Choose--";
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        //prod id
+      
+        private void cmb_Region_source_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Fill_cmb_SalesTer();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+        }
+
+        private void cmb_sales_ter_source_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Fill_cmb_Salesrep_source();
+        }
+
+        private void cmb_salesrep_source_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Fill_cmb_Route();
+        }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+              //  string entry_date = dtp_entry_date.Value.ToString("MM/dd/yyyy");
+               // string up_date = dtp_upd_date.Value.ToString("MM/dd/yyyy");
+                //string up_date = dtp_upd_date.Value.ToString("MM/DD/YYYY");
+                DataSet ds = new DataSet();
+               
+
+                if (txt_route_code.Text == "" || cmb_Region_source.SelectedIndex == -1 || cmb_sales_ter_source.SelectedIndex==-1 || cmb_salesrep_source.SelectedIndex == -1|| cmb_route_id.SelectedIndex == -1 || cmb_prodGroup.SelectedIndex == -1 || cmb_routeType.SelectedIndex == -1 || cmb_active.SelectedIndex == -1)
+                {
+                    MessageBox.Show("برجاء ادخال البيانات");
+                }
+                else
+                {
+                    String insertRoute = "Insert into routes_y ( sales_ter_id ,route_id,route_code,route_type,name,prod_group_id,curr_sales_id,entry_date,active,action,trans_flag,branch_code, route_mst_id) VALUES (' "
+                   + cmb_sales_ter_source.SelectedValue + "','" + cmb_route_id.SelectedValue + "','" + txt_route_code.Text + "','" + cmb_routeType.SelectedValue + "','" + txt_name.Text + "','" + cmb_prodGroup.SelectedValue + "','" + cmb_salesrep_source.SelectedValue + "' , trunc(sysdate)  ,'"+ cmb_active.SelectedIndex+"','I','1', '" + cmb_Region_source.SelectedValue + "','"+ txt_route_mst_id_rout .Text+ "' )";
+                    DataAccessCS.insert(insertRoute);
+                    DataAccessCS.conn.Close();
+                    MessageBox.Show("تمت الاضافة بنجاح");
+                }
+                ds = new DataSet();
+                //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
+                ds = DataAccessCS.getdata("select * from routes_y where route_mst_id =" + txt_route_mst_id_rout.Text + "order by route_mst_id desc");
+
+                dgv_routs.DataSource = ds.Tables[0];
+                dgv_routs.AutoResizeColumns();
+                ds.Dispose();
+                DataAccessCS.conn.Close();
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;

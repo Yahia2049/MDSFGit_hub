@@ -262,7 +262,7 @@ namespace MDSF.Forms.Master_Data
                     {
                         if (cmb_salesrep_salesman.SelectedIndex > -1)
                         {
-                            ds = DataAccessCS.getdata("select * from km_transactions@sales k where  k.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + "' and   trunc(to_date(k.fuel_time,'dd-mon-yyyy hh:mi:ss AM')) > = '" + from_date + "' and trunc(to_date(k.fuel_time,'dd-mon-yyyy hh:mi:ss AM'))  <= '" + to_date + "' ");
+                            ds = DataAccessCS.getdata("select * from km_transactions@sales k where  k.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + "' and   trunc(to_date(k.fuel_time,'dd-mon-yyyy hh:mi:ss AM')) > = '" + from_date + "' and trunc(to_date(k.fuel_time,'dd-mon-yyyy hh:mi:ss AM'))  <= '" + to_date + "' order by (to_date(fuel_time,'dd-mon-yyyy hh:mi:ss AM'))   ");
                             // ds = DataAccessCS.getdata("select salesrep_id, fuel_values,start_km,current_km,fuel_type,fuel_liters,fuel_values,to_char(to_date(fuel_time,'dd-mon-yyyy hh:mi:ss AM'), 'MM/DD/YYYY') as fuel_time from km_transactions k where  k.salesrep_id = '" + cmb_salesrep_salesman.SelectedValue + "' and   trunc(k.fuel_time) > = '" + from_date + "' trunc(k.fuel_time)  <= '" + to_date + "' ");
 
                             DataAccessCS.conn.Close();

@@ -265,7 +265,7 @@
             this.cmb_Region_source.Name = "cmb_Region_source";
             this.cmb_Region_source.Size = new System.Drawing.Size(257, 21);
             this.cmb_Region_source.TabIndex = 266;
-            this.cmb_Region_source.SelectedIndexChanged += new System.EventHandler(this.cmb_Region_source_SelectedIndexChanged);
+            this.cmb_Region_source.SelectedIndexChanged += new System.EventHandler(this.cmb_salesrep_des_SelectionChangeCommitted);
             this.cmb_Region_source.SelectionChangeCommitted += new System.EventHandler(this.cmb_Region_salesman_SelectionChangeCommitted);
             // 
             // label9
