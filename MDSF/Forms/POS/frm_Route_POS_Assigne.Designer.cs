@@ -29,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.cmb_trade_program = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_responsible_name = new System.Windows.Forms.TextBox();
@@ -238,7 +238,7 @@
             // 
             // 
             // 
-            this.rgv_pos_route.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.rgv_pos_route.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.rgv_pos_route.Name = "rgv_pos_route";
             // 
             // 
@@ -271,15 +271,15 @@
             this.radButton10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.radButton10.CausesValidation = false;
             this.radButton10.ImageIndex = 0;
-            this.radButton10.Location = new System.Drawing.Point(772, 4);
+            this.radButton10.Location = new System.Drawing.Point(761, 4);
             this.radButton10.Name = "radButton10";
             // 
             // 
             // 
             this.radButton10.RootElement.ControlBounds = new System.Drawing.Rectangle(810, 4, 110, 24);
-            this.radButton10.Size = new System.Drawing.Size(187, 34);
+            this.radButton10.Size = new System.Drawing.Size(198, 34);
             this.radButton10.TabIndex = 275;
-            this.radButton10.Text = "Export KPI Templet To Excel";
+            this.radButton10.Text = "Export Routes Templet To Excel";
             this.radButton10.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.radButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.radButton10.ThemeName = "TelerikMetro";
