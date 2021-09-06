@@ -51,7 +51,7 @@ namespace MDSF.Forms.Reports
             this.reportViewer1.LocalReport.SetParameters(p1);
 
             DataSet ds = new DataSet();
-            ds = DataAccessCS.getdata("select * from oil_transactions@sales  where  salesrep_id = '" + xsalesrep_id + "' and trunc(to_date(trans_time,'dd-mon-yyyy hh:mi:ss AM')) > = to_char(to_date('" + xfrom_date + "','MM/DD/YYYY'),'dd-mon-yyyy')  and trunc(to_date(trans_time,'dd-mon-yyyy hh:mi:ss AM')) < = to_char(to_date('" + xto_date + "','MM/DD/YYYY'),'dd-mon-yyyy')");
+            ds = DataAccessCS.getdata("select * from oil_transactions@sales  where  salesrep_id = '" + xsalesrep_id + "' and trunc(to_date(trans_time,'dd-mon-yyyy hh:mi:ss AM')) > = to_char(to_date('" + xfrom_date + "','MM/DD/YYYY'),'dd-mon-yyyy')  and trunc(to_date(trans_time,'dd-mon-yyyy hh:mi:ss AM')) < = to_char(to_date('" + xto_date + "','MM/DD/YYYY'),'dd-mon-yyyy') order by (to_date(trans_time,'dd-mon-yyyy hh:mi:ss AM')) ");
             //  ds = DataAccessCS.getdata("select * from km_transactions@sales k where  k.salesrep_id = '" + xsalesrep_id + "' and   trunc(to_date(k.fuel_time,'dd-mon-yyyy')) > = trunc(to_date(" + xfrom_date + ",'dd-mon-yyyy '))   and trunc(to_date(k.fuel_time,'dd-mon-yyyy '))  <=  trunc(to_date(" + xto_date + ",'dd-mon-yyyy '))");
             DataAccessCS.conn.Close();
             ReportDataSource rds = new ReportDataSource("Oil_trans", ds.Tables[0]);
