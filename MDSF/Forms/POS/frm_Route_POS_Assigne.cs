@@ -309,7 +309,10 @@ namespace MDSF.Forms.Target
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                if(txt_route_mst_id_rout.Text == "")
+                string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
+                    "from route_mst_y  where route_mst_id =" + txt_route_mst_id_rout.Text + " ");
+                DataAccessCS.conn.Close();
+                if (check == "0")
                 {
                     MessageBox.Show("Insert Rout_mst_id please");
                 }
