@@ -54,7 +54,6 @@
             this.btn_search = new Telerik.WinControls.UI.RadButton();
             this.rgv_KM = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_km_report = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -75,12 +74,12 @@
             this.btn_save_inv_kmt = new Telerik.WinControls.UI.RadButton();
             this.btn_remove_kmt = new Telerik.WinControls.UI.RadButton();
             this.btn_update_kmt = new Telerik.WinControls.UI.RadButton();
+            this.btn_km_report = new System.Windows.Forms.Button();
             this.rdb_journey = new System.Windows.Forms.RadioButton();
             this.rdb_km_trans = new System.Windows.Forms.RadioButton();
             this.rdb_Oil_trans = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnl_oil = new System.Windows.Forms.Panel();
-            this.btn_print = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -97,6 +96,7 @@
             this.btn_new_invoice_oil = new Telerik.WinControls.UI.RadButton();
             this.btn_remove_oil = new Telerik.WinControls.UI.RadButton();
             this.btn_update_oil = new Telerik.WinControls.UI.RadButton();
+            this.btn_print = new System.Windows.Forms.Button();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.btn_update_journey)).BeginInit();
@@ -369,6 +369,7 @@
             this.rgv_KM.Size = new System.Drawing.Size(994, 299);
             this.rgv_KM.TabIndex = 273;
             this.rgv_KM.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rgv_KM_CellClick);
+            this.rgv_KM.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rgv_KM_CellDoubleClick);
             // 
             // panel1
             // 
@@ -399,18 +400,6 @@
             this.panel1.Size = new System.Drawing.Size(859, 100);
             this.panel1.TabIndex = 275;
             this.panel1.Visible = false;
-            // 
-            // btn_km_report
-            // 
-            this.btn_km_report.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_km_report.Image = ((System.Drawing.Image)(resources.GetObject("btn_km_report.Image")));
-            this.btn_km_report.Location = new System.Drawing.Point(909, 528);
-            this.btn_km_report.Name = "btn_km_report";
-            this.btn_km_report.Size = new System.Drawing.Size(70, 62);
-            this.btn_km_report.TabIndex = 24;
-            this.btn_km_report.UseVisualStyleBackColor = true;
-            this.btn_km_report.Visible = false;
-            this.btn_km_report.Click += new System.EventHandler(this.btn_km_report_Click);
             // 
             // label16
             // 
@@ -602,6 +591,18 @@
             this.btn_update_kmt.Text = "Update ";
             this.btn_update_kmt.Click += new System.EventHandler(this.btn_update_kmt_Click);
             // 
+            // btn_km_report
+            // 
+            this.btn_km_report.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_km_report.Image = ((System.Drawing.Image)(resources.GetObject("btn_km_report.Image")));
+            this.btn_km_report.Location = new System.Drawing.Point(909, 528);
+            this.btn_km_report.Name = "btn_km_report";
+            this.btn_km_report.Size = new System.Drawing.Size(70, 62);
+            this.btn_km_report.TabIndex = 24;
+            this.btn_km_report.UseVisualStyleBackColor = true;
+            this.btn_km_report.Visible = false;
+            this.btn_km_report.Click += new System.EventHandler(this.btn_km_report_Click);
+            // 
             // rdb_journey
             // 
             this.rdb_journey.AutoSize = true;
@@ -671,18 +672,6 @@
             this.pnl_oil.Size = new System.Drawing.Size(859, 99);
             this.pnl_oil.TabIndex = 276;
             this.pnl_oil.Visible = false;
-            // 
-            // btn_print
-            // 
-            this.btn_print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_print.Image = ((System.Drawing.Image)(resources.GetObject("btn_print.Image")));
-            this.btn_print.Location = new System.Drawing.Point(904, 528);
-            this.btn_print.Name = "btn_print";
-            this.btn_print.Size = new System.Drawing.Size(75, 60);
-            this.btn_print.TabIndex = 21;
-            this.btn_print.UseVisualStyleBackColor = true;
-            this.btn_print.Visible = false;
-            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
             // label17
             // 
@@ -837,6 +826,18 @@
             this.btn_update_oil.TabIndex = 0;
             this.btn_update_oil.Text = "Update ";
             this.btn_update_oil.Click += new System.EventHandler(this.btn_update_oil_Click);
+            // 
+            // btn_print
+            // 
+            this.btn_print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_print.Image = ((System.Drawing.Image)(resources.GetObject("btn_print.Image")));
+            this.btn_print.Location = new System.Drawing.Point(904, 528);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(75, 60);
+            this.btn_print.TabIndex = 21;
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Visible = false;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
             // printPreviewDialog1
             // 

@@ -461,8 +461,10 @@ namespace MDSF.Forms.Target
                 }
                 else
                 {
-                    String insertRoute = "Insert into routes_y ( sales_ter_id ,route_id,route_code,route_type,name,prod_group_id,curr_sales_id,entry_date,active,action,trans_flag,branch_code, route_mst_id) VALUES (' "
-                   + cmb_sales_ter_source.SelectedValue + "','" + cmb_route_id.SelectedValue + "','" + txt_route_code.Text + "','" + cmb_routeType.SelectedValue + "','" + txt_name.Text + "','" + cmb_prodGroup.SelectedValue + "','" + cmb_salesrep_source.SelectedValue + "' , trunc(sysdate)  ,'"+ cmb_active.SelectedIndex+"','I','1', '" + cmb_Region_source.SelectedValue + "','"+ txt_route_mst_id_rout .Text+ "' )";
+                     String insertRoute = "Insert into routes_y ( sales_ter_id ,route_id,route_code,route_type,name,prod_group_id,curr_sales_id,entry_date,active,action,trans_flag,branch_code, route_mst_id) VALUES (' "
+                    + cmb_sales_ter_source.SelectedValue + "','" + cmb_route_id.SelectedValue + "','" + txt_route_code.Text + "','" + cmb_routeType.SelectedValue + "','" + txt_name.Text + "','" + cmb_prodGroup.SelectedValue + "','" + cmb_salesrep_source.SelectedValue + "' , trunc(sysdate)  ,'"+ cmb_active.SelectedIndex+"','I','1', '" + cmb_Region_source.SelectedValue + "','"+ txt_route_mst_id_rout .Text+ "' )";
+                   // String insertRoute = $"Insert into routes_y ( sales_ter_id ,route_id,route_code,route_type,name,prod_group_id,curr_sales_id,entry_date,active,action,trans_flag,branch_code, route_mst_id) VALUES ('
+                   //{ cmb_sales_ter_source.SelectedValue}','{ cmb_route_id.SelectedValue } ','{ txt_route_code.Text } ','{ cmb_routeType.SelectedValue } ','{ txt_name.Text} ','{ cmb_prodGroup.SelectedValue} ','{ cmb_salesrep_source.SelectedValue} ' , trunc(sysdate)  ,'{ cmb_active.SelectedIndex} ','I','1', '{ cmb_Region_source.SelectedValue } ','{ txt_route_mst_id_rout.Text } ' )";
                     DataAccessCS.insert(insertRoute);
                     DataAccessCS.conn.Close();
                     MessageBox.Show("تمت الاضافة بنجاح");
