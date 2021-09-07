@@ -994,30 +994,15 @@ namespace MDSF.Forms.Master_Data
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                string from_date = dtp_from_date.Value.ToString("dd-MMM-yyyy");
-                string to_date = dtp_to_date.Value.ToString("dd-MMM-yyyy");
-               //// var X_Form = new frm_print_km_report(cmb_Region_salesman.SelectedValue.ToString(), cmb_sales_ter_Salesman.SelectedValue.ToString(), cmb_salesrep_salesman.SelectedValue.ToString(), from_date, to_date);
-               // X_Form.Show();
-               // //X_Form.MdiParent = Main_form;
-               // X_Form.WindowState = FormWindowState.Maximized;
-               // this.Cursor = Cursors.Default;
+                string salesrep = this.rgv_KM.CurrentRow.Cells[0].Value.ToString();
+                string curr_km = this.rgv_KM.CurrentRow.Cells[3].Value.ToString();
+                string fuel_type = this.rgv_KM.CurrentRow.Cells[4].Value.ToString();
+                string fuel_lit = this.rgv_KM.CurrentRow.Cells[5].Value.ToString();
+                string fuel_val = this.rgv_KM.CurrentRow.Cells[6].Value.ToString();
+                string fuel_tim = this.rgv_KM.CurrentRow.Cells[7].Value.ToString();
+                frm_print_km_report f = new frm_print_km_report(salesrep, curr_km, fuel_type, fuel_lit, fuel_val, fuel_tim);
 
-
-                ////Resize DataGridView to full height.
-                //int height = rgv_KM.Height;
-                //rgv_KM.Height = rgv_KM.RowCount * rgv_KM.RowTemplate.Height;
-
-                ////Create a Bitmap and draw the DataGridView on it.
-                //bitmap = new Bitmap(this.rgv_KM.Width, this.rgv_KM.Height);
-                //rgv_KM.DrawToBitmap(bitmap, new Rectangle(0, 0, this.rgv_KM.Width, this.rgv_KM.Height));
-
-                ////Resize DataGridView back to original height.
-                //rgv_KM.Height = height;
-
-                ////Show the Print Preview Dialog.
-                //printPreviewDialog1.Document = printDocument1;
-                //printPreviewDialog1.PrintPreviewControl.Zoom = 1;
-                //printPreviewDialog1.ShowDialog();
+                f.Show();
 
 
             }

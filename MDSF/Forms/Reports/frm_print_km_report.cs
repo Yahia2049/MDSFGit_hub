@@ -31,7 +31,6 @@ namespace MDSF.Forms.Reports
         }
 
         public frm_print_km_report( string salesrep_id,string curr_km, string fuelType, string fuel_litt, string fuel_valu, string fuel_tim)
-        // public frm_print_km_report(string region_id, string sales_ter, string salesrep_id, string from_date, string to_date, string curr_km, string fuelType, string fuel_litt, string fuel_valu, string fuel_tim)
         {
             //,string curr_km,string fuelType,string fuel_litt,string fuel_valu,string fuel_tim
             InitializeComponent();
