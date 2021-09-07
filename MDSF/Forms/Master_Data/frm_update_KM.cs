@@ -996,11 +996,11 @@ namespace MDSF.Forms.Master_Data
             {
                 string from_date = dtp_from_date.Value.ToString("dd-MMM-yyyy");
                 string to_date = dtp_to_date.Value.ToString("dd-MMM-yyyy");
-                var X_Form = new frm_print_km_report(cmb_Region_salesman.SelectedValue.ToString(), cmb_sales_ter_Salesman.SelectedValue.ToString(), cmb_salesrep_salesman.SelectedValue.ToString(), from_date, to_date);
-                X_Form.Show();
-                //X_Form.MdiParent = Main_form;
-                X_Form.WindowState = FormWindowState.Maximized;
-                this.Cursor = Cursors.Default;
+               //// var X_Form = new frm_print_km_report(cmb_Region_salesman.SelectedValue.ToString(), cmb_sales_ter_Salesman.SelectedValue.ToString(), cmb_salesrep_salesman.SelectedValue.ToString(), from_date, to_date);
+               // X_Form.Show();
+               // //X_Form.MdiParent = Main_form;
+               // X_Form.WindowState = FormWindowState.Maximized;
+               // this.Cursor = Cursors.Default;
 
 
                 ////Resize DataGridView to full height.
@@ -1169,6 +1169,19 @@ namespace MDSF.Forms.Master_Data
         private void rdb_km_trans_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void rgv_KM_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string salesrep = this.rgv_KM.CurrentRow.Cells[0].Value.ToString();
+            string curr_km = this.rgv_KM.CurrentRow.Cells[3].Value.ToString();
+            string fuel_type = this.rgv_KM.CurrentRow.Cells[4].Value.ToString();
+            string fuel_lit = this.rgv_KM.CurrentRow.Cells[5].Value.ToString();
+            string fuel_val = this.rgv_KM.CurrentRow.Cells[6].Value.ToString();
+            string fuel_tim = this.rgv_KM.CurrentRow.Cells[7].Value.ToString();
+            frm_print_km_report f = new frm_print_km_report(salesrep, curr_km, fuel_type, fuel_lit, fuel_val, fuel_tim);
+            
+            f.Show();
         }
     }
 }
