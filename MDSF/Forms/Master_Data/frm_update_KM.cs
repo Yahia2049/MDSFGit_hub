@@ -1158,15 +1158,15 @@ namespace MDSF.Forms.Master_Data
 
         private void rgv_KM_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string salesrep = this.rgv_KM.CurrentRow.Cells[0].Value.ToString();
-            string curr_km = this.rgv_KM.CurrentRow.Cells[3].Value.ToString();
-            string fuel_type = this.rgv_KM.CurrentRow.Cells[4].Value.ToString();
-            string fuel_lit = this.rgv_KM.CurrentRow.Cells[5].Value.ToString();
-            string fuel_val = this.rgv_KM.CurrentRow.Cells[6].Value.ToString();
-            string fuel_tim = this.rgv_KM.CurrentRow.Cells[7].Value.ToString();
-            frm_print_km_report f = new frm_print_km_report(salesrep, curr_km, fuel_type, fuel_lit, fuel_val, fuel_tim);
+            //string salesrep = this.rgv_KM.CurrentRow.Cells[0].Value.ToString();
+            //string curr_km = this.rgv_KM.CurrentRow.Cells[3].Value.ToString();
+            //string fuel_type = this.rgv_KM.CurrentRow.Cells[4].Value.ToString();
+            //string fuel_lit = this.rgv_KM.CurrentRow.Cells[5].Value.ToString();
+            //string fuel_val = this.rgv_KM.CurrentRow.Cells[6].Value.ToString();
+            //string fuel_tim = this.rgv_KM.CurrentRow.Cells[7].Value.ToString();
+            //frm_print_km_report f = new frm_print_km_report(salesrep, curr_km, fuel_type, fuel_lit, fuel_val, fuel_tim);
             
-            f.Show();
+            //f.Show();
         }
     }
 }
