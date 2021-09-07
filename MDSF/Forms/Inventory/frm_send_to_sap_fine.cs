@@ -1876,7 +1876,7 @@ namespace MDSF.Forms.Inventory
 
                                 string incentive_details_KA = "select LINE_NUMBER,INCENTIVE_TYPE_ID,INCENTIVE_PAYED,POS_CODE " +
                                      "from INT_INVENTORY_DS_KA_INC_ALL " +
-                                     "where  JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
+                                     "where  category_id in(5) and JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
                                      "and LOADING_NUMBER= " + max_load + " and branch_code =" + cmb_Region.SelectedValue + "";
                                 DataSet ds_incentive_KA = DataAccessCS.getdata(incentive_details_KA);
                                 dv_incentive_Retail_KA = new DataView(ds_incentive_KA.Tables[0]);
