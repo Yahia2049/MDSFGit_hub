@@ -1342,7 +1342,7 @@
             this.kMUpdateToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("kMUpdateToolStripMenuItem1.Image")));
             this.kMUpdateToolStripMenuItem1.Name = "kMUpdateToolStripMenuItem1";
             this.kMUpdateToolStripMenuItem1.Size = new System.Drawing.Size(244, 32);
-            this.kMUpdateToolStripMenuItem1.Text = "KM Update";
+            this.kMUpdateToolStripMenuItem1.Text = "KM Transactions";
             this.kMUpdateToolStripMenuItem1.Click += new System.EventHandler(this.kMUpdateToolStripMenuItem1_Click);
             // 
             // lastKMUpdateAndSendToolStripMenuItem1

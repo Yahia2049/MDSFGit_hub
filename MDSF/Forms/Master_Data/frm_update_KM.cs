@@ -257,6 +257,7 @@ namespace MDSF.Forms.Master_Data
                 {
                     btn_km_report.Visible= true;
                     btn_print.Visible = false;
+                    btn_print_kmt.Visible = true;
 
                     if (rdb_by_salesman.Checked)
                     {
@@ -311,6 +312,7 @@ namespace MDSF.Forms.Master_Data
                 {
                     btn_km_report.Visible = false;
                     btn_print.Visible = false;
+                    btn_print_kmt.Visible = false;
                     if (rdb_By_Vehicle.Checked)
                     {
                         DataAccessCS.conn.Close();
@@ -379,7 +381,8 @@ namespace MDSF.Forms.Master_Data
                 else if (rdb_Oil_trans.Checked)
                 {
                     btn_km_report.Visible = false;
-                    btn_print.Visible = true;
+                    btn_print.Visible = false;
+                    btn_print_kmt.Visible = false;
                     if (rdb_by_salesman.Checked)
                     {
                         if (cmb_salesrep_salesman.SelectedIndex > -1)
