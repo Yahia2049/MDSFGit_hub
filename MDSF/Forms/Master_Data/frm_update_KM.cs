@@ -39,6 +39,8 @@ namespace MDSF.Forms.Master_Data
                 cmb_Region_Van.ValueMember = "branch_code";
                 cmb_Region_Van.SelectedIndex = -1;
                 cmb_Region_Van.Text = "--Choose--";
+                ds.Dispose();
+                DataAccessCS.conn.Close();
 
                 cmb_Region_salesman.DataSource = ds.Tables[0];
                 cmb_Region_salesman.DisplayMember = "Region";

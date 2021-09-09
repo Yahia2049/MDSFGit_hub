@@ -402,7 +402,7 @@
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
             this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(47, 20);
+            this.toolsMenu.Size = new System.Drawing.Size(46, 20);
             this.toolsMenu.Text = "&Tools";
             // 
             // optionsToolStripMenuItem
@@ -427,42 +427,42 @@
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.newWindowToolStripMenuItem.Text = "&New Window";
             this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.cascadeToolStripMenuItem.Text = "&Cascade";
             this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // tileVerticalToolStripMenuItem
             // 
             this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.tileVerticalToolStripMenuItem.Text = "Tile &Vertical";
             this.tileVerticalToolStripMenuItem.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // tileHorizontalToolStripMenuItem
             // 
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.tileHorizontalToolStripMenuItem.Text = "Tile &Horizontal";
             this.tileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.closeAllToolStripMenuItem.Text = "C&lose All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
             // 
             // arrangeIconsToolStripMenuItem
             // 
             this.arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
-            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.arrangeIconsToolStripMenuItem.Text = "&Arrange Icons";
             this.arrangeIconsToolStripMenuItem.Click += new System.EventHandler(this.ArrangeIconsToolStripMenuItem_Click);
             // 
@@ -1230,7 +1230,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::MDSF.Properties.Resources.Mansour_Icon;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 35);
@@ -1274,7 +1274,7 @@
             // SMI_MENU
             // 
             this.SMI_MENU.ForeColor = System.Drawing.Color.White;
-            this.SMI_MENU.Image = global::MDSF.Properties.Resources.Mansour_Icon;
+            this.SMI_MENU.Image = ((System.Drawing.Image)(resources.GetObject("SMI_MENU.Image")));
             this.SMI_MENU.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.SMI_MENU.Name = "SMI_MENU";
             this.SMI_MENU.Size = new System.Drawing.Size(25, 103);
@@ -1316,7 +1316,7 @@
             this.reassignRoutesToolStripMenuItem,
             this.vanDetailsToolStripMenuItem});
             this.mASTERDATAToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.mASTERDATAToolStripMenuItem.Image = global::MDSF.Properties.Resources.Mansour_Icon2;
+            this.mASTERDATAToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mASTERDATAToolStripMenuItem.Image")));
             this.mASTERDATAToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mASTERDATAToolStripMenuItem.Name = "mASTERDATAToolStripMenuItem";
             this.mASTERDATAToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
@@ -1361,7 +1361,7 @@
             this.productPriceListToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.productPriceListToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productPriceListToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.productPriceListToolStripMenuItem.Image = global::MDSF.Properties.Resources.Price_1;
+            this.productPriceListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("productPriceListToolStripMenuItem.Image")));
             this.productPriceListToolStripMenuItem.Name = "productPriceListToolStripMenuItem";
             this.productPriceListToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
             this.productPriceListToolStripMenuItem.Text = "Product Price List";
@@ -1394,7 +1394,7 @@
             this.totalDailySalesReportToolStripMenuItem,
             this.postingToolStripMenuItem});
             this.sALESToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.sALESToolStripMenuItem.Image = global::MDSF.Properties.Resources._1_19862_sales_icon_png_direct_sale_icon_transparent_png;
+            this.sALESToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sALESToolStripMenuItem.Image")));
             this.sALESToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sALESToolStripMenuItem.Name = "sALESToolStripMenuItem";
             this.sALESToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1407,7 +1407,7 @@
             this.totalDailySalesReportToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.totalDailySalesReportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalDailySalesReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.totalDailySalesReportToolStripMenuItem.Image = global::MDSF.Properties.Resources._1_19862_sales_icon_png_direct_sale_icon_transparent_png;
+            this.totalDailySalesReportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("totalDailySalesReportToolStripMenuItem.Image")));
             this.totalDailySalesReportToolStripMenuItem.Name = "totalDailySalesReportToolStripMenuItem";
             this.totalDailySalesReportToolStripMenuItem.Size = new System.Drawing.Size(234, 32);
             this.totalDailySalesReportToolStripMenuItem.Text = "Total Daily Sales Report";
@@ -1418,7 +1418,7 @@
             this.postingToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.postingToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.postingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.postingToolStripMenuItem.Image = global::MDSF.Properties.Resources._1_19862_sales_icon_png_direct_sale_icon_transparent_png;
+            this.postingToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("postingToolStripMenuItem.Image")));
             this.postingToolStripMenuItem.Name = "postingToolStripMenuItem";
             this.postingToolStripMenuItem.Size = new System.Drawing.Size(234, 32);
             this.postingToolStripMenuItem.Text = "Posting";
@@ -1436,7 +1436,7 @@
             this.pOSROUTEToolStripMenuItem,
             this.newPOSReportToolStripMenuItem});
             this.pOSToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.pOSToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.pOSToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pOSToolStripMenuItem.Image")));
             this.pOSToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pOSToolStripMenuItem.Name = "pOSToolStripMenuItem";
             this.pOSToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
@@ -1448,7 +1448,7 @@
             this.reviewNewPOSToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.reviewNewPOSToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reviewNewPOSToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.reviewNewPOSToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.reviewNewPOSToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reviewNewPOSToolStripMenuItem.Image")));
             this.reviewNewPOSToolStripMenuItem.Name = "reviewNewPOSToolStripMenuItem";
             this.reviewNewPOSToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
             this.reviewNewPOSToolStripMenuItem.Text = "Review New POS";
@@ -1459,7 +1459,7 @@
             this.payerPOSToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.payerPOSToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.payerPOSToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.payerPOSToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.payerPOSToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("payerPOSToolStripMenuItem.Image")));
             this.payerPOSToolStripMenuItem.Name = "payerPOSToolStripMenuItem";
             this.payerPOSToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
             this.payerPOSToolStripMenuItem.Text = "Payer POS";
@@ -1470,7 +1470,7 @@
             this.changPOSTerritoryToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.changPOSTerritoryToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changPOSTerritoryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.changPOSTerritoryToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.changPOSTerritoryToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("changPOSTerritoryToolStripMenuItem.Image")));
             this.changPOSTerritoryToolStripMenuItem.Name = "changPOSTerritoryToolStripMenuItem";
             this.changPOSTerritoryToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
             this.changPOSTerritoryToolStripMenuItem.Text = "Chang Territory for POSs ";
@@ -1481,7 +1481,7 @@
             this.pOSTAXPhotoToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.pOSTAXPhotoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pOSTAXPhotoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.pOSTAXPhotoToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.pOSTAXPhotoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pOSTAXPhotoToolStripMenuItem.Image")));
             this.pOSTAXPhotoToolStripMenuItem.Name = "pOSTAXPhotoToolStripMenuItem";
             this.pOSTAXPhotoToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
             this.pOSTAXPhotoToolStripMenuItem.Text = "POS TAX Photo";
@@ -1492,7 +1492,7 @@
             this.pOSSurveyToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.pOSSurveyToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pOSSurveyToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.pOSSurveyToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.pOSSurveyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pOSSurveyToolStripMenuItem.Image")));
             this.pOSSurveyToolStripMenuItem.Name = "pOSSurveyToolStripMenuItem";
             this.pOSSurveyToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
             this.pOSSurveyToolStripMenuItem.Text = "POS Survey";
@@ -1503,7 +1503,7 @@
             this.coverdAndToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.coverdAndToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coverdAndToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.coverdAndToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.coverdAndToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("coverdAndToolStripMenuItem.Image")));
             this.coverdAndToolStripMenuItem.Name = "coverdAndToolStripMenuItem";
             this.coverdAndToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
             this.coverdAndToolStripMenuItem.Text = "Covered and Uncovered POS";
@@ -1514,7 +1514,7 @@
             this.pOSROUTEToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.pOSROUTEToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pOSROUTEToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.pOSROUTEToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.pOSROUTEToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pOSROUTEToolStripMenuItem.Image")));
             this.pOSROUTEToolStripMenuItem.Name = "pOSROUTEToolStripMenuItem";
             this.pOSROUTEToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
             this.pOSROUTEToolStripMenuItem.Text = "POS ROUTE";
@@ -1525,7 +1525,7 @@
             this.newPOSReportToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.newPOSReportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newPOSReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.newPOSReportToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
+            this.newPOSReportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newPOSReportToolStripMenuItem.Image")));
             this.newPOSReportToolStripMenuItem.Name = "newPOSReportToolStripMenuItem";
             this.newPOSReportToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
             this.newPOSReportToolStripMenuItem.Text = "New POS Report";
@@ -1537,7 +1537,7 @@
             this.newIncentiveTypeToolStripMenuItem,
             this.incentiveToolStripMenuItem});
             this.iNCENTIVESToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.iNCENTIVESToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
+            this.iNCENTIVESToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("iNCENTIVESToolStripMenuItem.Image")));
             this.iNCENTIVESToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iNCENTIVESToolStripMenuItem.Name = "iNCENTIVESToolStripMenuItem";
             this.iNCENTIVESToolStripMenuItem.Size = new System.Drawing.Size(167, 29);
@@ -1548,7 +1548,7 @@
             // 
             this.newIncentiveTypeToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.newIncentiveTypeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.newIncentiveTypeToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
+            this.newIncentiveTypeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newIncentiveTypeToolStripMenuItem.Image")));
             this.newIncentiveTypeToolStripMenuItem.Name = "newIncentiveTypeToolStripMenuItem";
             this.newIncentiveTypeToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
             this.newIncentiveTypeToolStripMenuItem.Text = "New Incentive Type";
@@ -1558,7 +1558,7 @@
             // 
             this.incentiveToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.incentiveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.incentiveToolStripMenuItem.Image = global::MDSF.Properties.Resources.incentiv;
+            this.incentiveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("incentiveToolStripMenuItem.Image")));
             this.incentiveToolStripMenuItem.Name = "incentiveToolStripMenuItem";
             this.incentiveToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
             this.incentiveToolStripMenuItem.Text = "Incentives Report";
@@ -1570,7 +1570,7 @@
             this.targetAssigningToolStripMenuItem,
             this.tradeProgramTransactionToolStripMenuItem});
             this.targetToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.targetToolStripMenuItem.Image = global::MDSF.Properties.Resources.target;
+            this.targetToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("targetToolStripMenuItem.Image")));
             this.targetToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.targetToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.targetToolStripMenuItem.Name = "targetToolStripMenuItem";
@@ -1583,7 +1583,7 @@
             this.targetAssigningToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.targetAssigningToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.targetAssigningToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.targetAssigningToolStripMenuItem.Image = global::MDSF.Properties.Resources.target;
+            this.targetAssigningToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("targetAssigningToolStripMenuItem.Image")));
             this.targetAssigningToolStripMenuItem.Name = "targetAssigningToolStripMenuItem";
             this.targetAssigningToolStripMenuItem.Size = new System.Drawing.Size(253, 32);
             this.targetAssigningToolStripMenuItem.Text = "Target Assigning";
@@ -1594,7 +1594,7 @@
             this.tradeProgramTransactionToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.tradeProgramTransactionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tradeProgramTransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.tradeProgramTransactionToolStripMenuItem.Image = global::MDSF.Properties.Resources.target;
+            this.tradeProgramTransactionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tradeProgramTransactionToolStripMenuItem.Image")));
             this.tradeProgramTransactionToolStripMenuItem.Name = "tradeProgramTransactionToolStripMenuItem";
             this.tradeProgramTransactionToolStripMenuItem.Size = new System.Drawing.Size(253, 32);
             this.tradeProgramTransactionToolStripMenuItem.Text = "Trade Program Transaction";
@@ -1606,7 +1606,7 @@
             this.sendDataToolStripMenuItem,
             this.devAndroidSupportToolStripMenuItem});
             this.androidSupportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.androidSupportToolStripMenuItem.Image = global::MDSF.Properties.Resources.images__1_;
+            this.androidSupportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("androidSupportToolStripMenuItem.Image")));
             this.androidSupportToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.androidSupportToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.androidSupportToolStripMenuItem.Name = "androidSupportToolStripMenuItem";
@@ -1620,7 +1620,7 @@
             this.sendDataToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.sendDataToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sendDataToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.sendDataToolStripMenuItem.Image = global::MDSF.Properties.Resources.images__1_;
+            this.sendDataToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendDataToolStripMenuItem.Image")));
             this.sendDataToolStripMenuItem.Name = "sendDataToolStripMenuItem";
             this.sendDataToolStripMenuItem.Size = new System.Drawing.Size(218, 32);
             this.sendDataToolStripMenuItem.Text = "Send Data";
@@ -1631,7 +1631,7 @@
             this.devAndroidSupportToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.devAndroidSupportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.devAndroidSupportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.devAndroidSupportToolStripMenuItem.Image = global::MDSF.Properties.Resources.images__1_;
+            this.devAndroidSupportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("devAndroidSupportToolStripMenuItem.Image")));
             this.devAndroidSupportToolStripMenuItem.Name = "devAndroidSupportToolStripMenuItem";
             this.devAndroidSupportToolStripMenuItem.Size = new System.Drawing.Size(218, 32);
             this.devAndroidSupportToolStripMenuItem.Text = "Dev Android Support";
@@ -1688,7 +1688,7 @@
             this.tobaccoSendToSAPToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.tobaccoSendToSAPToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tobaccoSendToSAPToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.tobaccoSendToSAPToolStripMenuItem.Image = global::MDSF.Properties.Resources.tobacco2;
+            this.tobaccoSendToSAPToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tobaccoSendToSAPToolStripMenuItem.Image")));
             this.tobaccoSendToSAPToolStripMenuItem.Name = "tobaccoSendToSAPToolStripMenuItem";
             this.tobaccoSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
             this.tobaccoSendToSAPToolStripMenuItem.Text = "Tobacco Send to SAP";
@@ -1721,7 +1721,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::MDSF.Properties.Resources.pgm21;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1370, 716);
             this.Controls.Add(this.menuStrip2);
