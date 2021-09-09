@@ -39,6 +39,8 @@ namespace MDSF.Forms.Master_Data
                 cmb_Region_Van.ValueMember = "branch_code";
                 cmb_Region_Van.SelectedIndex = -1;
                 cmb_Region_Van.Text = "--Choose--";
+                ds.Dispose();
+                DataAccessCS.conn.Close();
 
                 cmb_Region_salesman.DataSource = ds.Tables[0];
                 cmb_Region_salesman.DisplayMember = "Region";
@@ -381,7 +383,7 @@ namespace MDSF.Forms.Master_Data
                 else if (rdb_Oil_trans.Checked)
                 {
                     btn_km_report.Visible = false;
-                    btn_print.Visible = false;
+                    btn_print.Visible = true;
                     btn_print_kmt.Visible = false;
                     if (rdb_by_salesman.Checked)
                     {
