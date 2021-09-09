@@ -381,7 +381,7 @@ namespace MDSF.Forms.Master_Data
                 else if (rdb_Oil_trans.Checked)
                 {
                     btn_km_report.Visible = false;
-                    btn_print.Visible = false;
+                    btn_print.Visible = true;
                     btn_print_kmt.Visible = false;
                     if (rdb_by_salesman.Checked)
                     {
