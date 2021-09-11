@@ -1129,7 +1129,7 @@ namespace MDSF.Forms.Master_Data
                 " and r.sales_ter_id = st.sales_ter_id " +
                 " and rt.route_type_id = st.route_type_id " +
                 " and r.curr_sales_id =" + cmb_salesrep_source.SelectedValue + " " +
-                " and r.branch_code = 1 " +
+                " and r.branch_code =" + cmb_Region_source.SelectedValue +
                 " and rd.branch_code = r.branch_code " +
                 " and pos.branch_code=rd.branch_code " +
                 " and r.branch_code = st.branch_code " +
