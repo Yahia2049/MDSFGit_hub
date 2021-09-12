@@ -156,6 +156,7 @@
             this.tobaccoSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lighterSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.routesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -1434,7 +1435,8 @@
             this.pOSSurveyToolStripMenuItem,
             this.coverdAndToolStripMenuItem,
             this.pOSROUTEToolStripMenuItem,
-            this.newPOSReportToolStripMenuItem});
+            this.newPOSReportToolStripMenuItem,
+            this.routesToolStripMenuItem});
             this.pOSToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.pOSToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pOSToolStripMenuItem.Image")));
             this.pOSToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1716,6 +1718,15 @@
             this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
             this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
             // 
+            // routesToolStripMenuItem
+            // 
+            this.routesToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.routesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.routesToolStripMenuItem.Name = "routesToolStripMenuItem";
+            this.routesToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
+            this.routesToolStripMenuItem.Text = "Routes";
+            this.routesToolStripMenuItem.Click += new System.EventHandler(this.routesToolStripMenuItem_Click);
+            // 
             // Main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1889,6 +1900,7 @@
         private System.Windows.Forms.ToolStripMenuItem vanDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pOSROUTEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newPOSReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem routesToolStripMenuItem;
     }
 }
 
