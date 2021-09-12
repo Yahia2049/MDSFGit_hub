@@ -1491,7 +1491,7 @@ namespace MDSF.Forms.Inventory
                             "iis.LINE_NUMBER,iis.ITEM_PRICE,iis.vdatu " + " from  INT_INVENTORY_SOLD_RETAIL iis " + "" +
                             " where  iis.salesrep_id=  '" + cmb_salesrep.SelectedValue + "' " + " " +
                             " and iis.category_id=5 and iis.JOURNEY_SEQUENCE='" + dv_inventory[0]["JOURNEY_SEQUENCE"] + "'  " +
-                            "and iis.LOADING_no= " + max_load + " and iis.branch_code =" + cmb_Region.SelectedValue + ""; ;
+                            "and iis.LOADING_no= " + max_load + " and iis.branch_code =" + cmb_Region.SelectedValue + ""; 
 
 
                         DataSet ds_item_details = DataAccessCS.getdata(item_details_retail);
