@@ -191,11 +191,34 @@ namespace MDSF.Forms.POS
         {
             Fill_cmb_Salesrep_source();
             Fill_cmb_Salesrep_dec();
+
+            DataSet ds = new DataSet();
+            // ds = DataAccessCS.getdata(" select distinct r.route_id,r.name,s.sales_id,s.salesrep_name  from routes r, gen_active_salesrep_info s where   r.sales_ter_id = "+ cmb_sales_ter_source.SelectedValue + " and r.sales_ter_id = s.sales_ter_id  and r.branch_code = " + cmb_Region_source.SelectedValue +  "and r.active = 1");
+            ds = DataAccessCS.getdata("select distinct r.route_id,r.sales_ter_id,r.name,s.sales_id,s.salesrep_name ,count(pr.route_id) as count_pos from routes r, gen_active_salesrep_info s, pos_routes pr where   r.sales_ter_id =" + cmb_sales_ter_source.SelectedValue + " and r.sales_ter_id = s.sales_ter_id and r.branch_code =" + cmb_Region_source.SelectedValue + " and r.active = 1  and pr.route_id = r.route_id  and s.sales_id = r.curr_sales_id  and r.sales_ter_id = pr.sales_ter_id  and s.sales_ter_id = pr.sales_ter_id  group by r.route_id, r.sales_ter_id, r.name, s.sales_id, s.salesrep_name");
+           
+            DataAccessCS.conn.Close();
+            dgv_source.DataSource = ds.Tables[0];
+            dgv_source.AutoResizeColumns();
+            ds.Dispose();
+
+            DataAccessCS.conn.Close();
+            count_grid();
         }
 
         private void cmb_salesrep_source_SelectionChangeCommitted(object sender, EventArgs e)
         {
             Fill_cmb_Route();
+            DataSet ds = new DataSet();
+            // ds = DataAccessCS.getdata(" select distinct r.route_id,r.name,s.sales_id,s.salesrep_name  from routes r, gen_active_salesrep_info s where   r.sales_ter_id = "+ cmb_sales_ter_source.SelectedValue + " and r.sales_ter_id = s.sales_ter_id  and r.branch_code = " + cmb_Region_source.SelectedValue +  "and r.active = 1");
+            ds = DataAccessCS.getdata("select distinct r.route_id,r.sales_ter_id,r.name,s.sales_id,s.salesrep_name ,count(pr.route_id) as count_pos from routes r, gen_active_salesrep_info s, pos_routes pr where   r.sales_ter_id =" + cmb_sales_ter_source.SelectedValue + " and r.sales_ter_id = s.sales_ter_id and s.sales_id = r.curr_sales_id  and r.branch_code =" + cmb_Region_source.SelectedValue + " and r.active = 1  and pr.route_id = r.route_id  and s.sales_id =" + cmb_salesrep_source .SelectedValue + " and r.sales_ter_id = pr.sales_ter_id  and s.sales_ter_id = pr.sales_ter_id  group by r.route_id, r.sales_ter_id, r.name, s.sales_id, s.salesrep_name");
+
+            DataAccessCS.conn.Close();
+            dgv_source.DataSource = ds.Tables[0];
+            dgv_source.AutoResizeColumns();
+            ds.Dispose();
+
+            DataAccessCS.conn.Close();
+            count_grid();
         }
 
         private void cmb_route_source_SelectionChangeCommitted(object sender, EventArgs e)
@@ -235,6 +258,9 @@ namespace MDSF.Forms.POS
                 DataAccessCS.conn.Close();
                 count_grid();
 
+                dgv_source.Visible = true;
+                Label_CountH.Visible = true;
+                Label_CountS.Visible = true;
             }
             catch (Exception ex)
             {
@@ -260,7 +286,12 @@ namespace MDSF.Forms.POS
             this.Cursor = Cursors.WaitCursor;
             try
             {
-
+                dgv_source.Visible = false;
+                Label_CountH.Visible = false;
+                Label_CountS.Visible = false;
+                dgv_des.Visible = true;
+                label11.Visible = true;
+                Label_CountD.Visible = true;
                 DataSet ds = new DataSet();
                // ds = DataAccessCS.getdata("select salesrep_id_source,salesrep_id_des,ter_id,pos_id,assign_date from route_pos_reassign  where salesrep_id_des= '" + cmb_salesrep_des.SelectedValue+ "' and assign_date= trunc(sysdate)");
                 ds = DataAccessCS.getdata("select p.name, r.salesrep_id_source,r.salesrep_id_des,r.ter_id,r.pos_id,r.assign_date  from route_pos_reassign r, pos p where r.ter_id=p.ter_id and r.pos_id=p.pos_id and salesrep_id_des= '" + cmb_salesrep_des.SelectedValue + "' and assign_date= trunc(sysdate)");
@@ -278,6 +309,11 @@ namespace MDSF.Forms.POS
                 MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
+        }
+
+        private void dgv_source_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
