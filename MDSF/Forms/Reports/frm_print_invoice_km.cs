@@ -68,7 +68,7 @@ namespace MDSF.Forms.Reports
             ReportDataSource rds = new ReportDataSource("KM_TRANS", ds.Tables[0]);
             //select van details
             DataSet dsVan = new DataSet();
-            dsVan = DataAccessCS.getdata("select * from INT_KM_TRANSACTION_SALESREP  where trunc(JOURNEY_DATE)  between to_date('" + xfrom_date + "','MM/DD/YYYY') and to_date('" + xto_date + "','MM/DD/YYYY') and salesrep_id= '" + xsalesrep_id + "'");
+            dsVan = DataAccessCS.getdata("select * from INT_KM_TRANSACTION_SALESREP_2  where branch_code="+ xregion_id + " and trunc(JOURNEY_DATE)  between to_date('" + xfrom_date + "','MM/DD/YYYY') and to_date('" + xto_date + "','MM/DD/YYYY') and salesrep_id= '" + xsalesrep_id + "'");
             DataAccessCS.conn.Close();
             ReportDataSource rdsVan = new ReportDataSource("DataSet1", dsVan.Tables[0]);
             //reportViewer1.LocalReport.ReportPath = "D:\\Ahmed HaMada Share\\MDSFGit_hub\\MDSF\\Forms\\Reports\\km_print_invoice.rdlc";
