@@ -293,8 +293,8 @@ namespace MDSF.Forms.POS
                 label11.Visible = true;
                 Label_CountD.Visible = true;
                 DataSet ds = new DataSet();
-               // ds = DataAccessCS.getdata("select salesrep_id_source,salesrep_id_des,ter_id,pos_id,assign_date from route_pos_reassign  where salesrep_id_des= '" + cmb_salesrep_des.SelectedValue+ "' and assign_date= trunc(sysdate)");
-                ds = DataAccessCS.getdata("select p.name, r.salesrep_id_source,r.salesrep_id_des,r.ter_id,r.pos_id,r.assign_date  from route_pos_reassign r, pos p where r.ter_id=p.ter_id and r.pos_id=p.pos_id and salesrep_id_des= '" + cmb_salesrep_des.SelectedValue + "' and assign_date= trunc(sysdate)");
+                ds = DataAccessCS.getdata("select  salesrep_id,pos_code,pos_name,route_id from to_sfa_pos where  salesrep_id= '" + cmb_salesrep_des.SelectedValue + "'");
+                //ds = DataAccessCS.getdata("select p.name, r.salesrep_id_source,r.salesrep_id_des,r.ter_id,r.pos_id,r.assign_date  from route_pos_reassign r, pos p where r.ter_id=p.ter_id and r.pos_id=p.pos_id and salesrep_id_des= '" + cmb_salesrep_des.SelectedValue + "' and assign_date= trunc(sysdate)");
                 DataAccessCS.conn.Close();
                 dgv_des.DataSource = ds.Tables[0];
                 dgv_des.AutoResizeColumns();
