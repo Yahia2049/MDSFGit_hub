@@ -51,6 +51,7 @@ namespace MDSF.Forms.POS
             this.label7 = new System.Windows.Forms.Label();
             this.cmb_sales_ter_dest = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.btn_exl = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_source)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_des)).BeginInit();
             this.SuspendLayout();
@@ -196,7 +197,7 @@ namespace MDSF.Forms.POS
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(59, 479);
+            this.label11.Location = new System.Drawing.Point(59, 500);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(40, 13);
             this.label11.TabIndex = 291;
@@ -208,7 +209,7 @@ namespace MDSF.Forms.POS
             this.Label_CountD.AutoSize = true;
             this.Label_CountD.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.Label_CountD.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Label_CountD.Location = new System.Drawing.Point(105, 479);
+            this.Label_CountD.Location = new System.Drawing.Point(105, 500);
             this.Label_CountD.Name = "Label_CountD";
             this.Label_CountD.Size = new System.Drawing.Size(14, 13);
             this.Label_CountD.TabIndex = 290;
@@ -238,7 +239,7 @@ namespace MDSF.Forms.POS
             // 
             this.dgv_des.AllowUserToAddRows = false;
             this.dgv_des.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_des.Location = new System.Drawing.Point(40, 495);
+            this.dgv_des.Location = new System.Drawing.Point(40, 516);
             this.dgv_des.Name = "dgv_des";
             this.dgv_des.Size = new System.Drawing.Size(731, 227);
             this.dgv_des.TabIndex = 287;
@@ -286,11 +287,22 @@ namespace MDSF.Forms.POS
             this.label8.TabIndex = 283;
             this.label8.Text = "Sales Territory";
             // 
+            // btn_exl
+            // 
+            this.btn_exl.Location = new System.Drawing.Point(650, 475);
+            this.btn_exl.Name = "btn_exl";
+            this.btn_exl.Size = new System.Drawing.Size(100, 23);
+            this.btn_exl.TabIndex = 292;
+            this.btn_exl.Text = "Export to Excell";
+            this.btn_exl.UseVisualStyleBackColor = true;
+            this.btn_exl.Click += new System.EventHandler(this.btn_exl_Click);
+            // 
             // frm_routes_details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 755);
+            this.Controls.Add(this.btn_exl);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Label_CountD);
             this.Controls.Add(this.cmb_region_des);
@@ -347,5 +359,6 @@ namespace MDSF.Forms.POS
         internal System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmb_sales_ter_dest;
         internal System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btn_exl;
     }
 }

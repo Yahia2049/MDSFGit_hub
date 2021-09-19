@@ -315,5 +315,10 @@ namespace MDSF.Forms.POS
         {
 
         }
+
+        private void btn_exl_Click(object sender, EventArgs e)
+        {
+            DataAccessCS.ExportExcelDGV(dgv_source);
+        }
     }
 }
