@@ -1165,7 +1165,7 @@ namespace MDSF
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                var X_Form = new frm_POS_Covered();
+                var X_Form = new Forms.Master_Data.frm_loading();
                 X_Form.Show();
                 X_Form.MdiParent = this;
                 X_Form.WindowState = FormWindowState.Maximized;

@@ -253,6 +253,12 @@
     <Compile Include="Forms\Master_Data\frm_NotActive_Salesrep_van.Designer.cs">
       <DependentUpon>frm_NotActive_Salesrep_van.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Master_Data\frm_loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master_Data\frm_loading.Designer.cs">
+      <DependentUpon>frm_loading.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Master_Data\frm_POS_Review.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,17 +313,17 @@
     <Compile Include="Forms\Master_Data\frm_van_assigning.Designer.cs">
       <DependentUpon>frm_van_assigning.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\POS\frm_POS_Covered.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\POS\frm_POS_Covered.Designer.cs">
-      <DependentUpon>frm_POS_Covered.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\POS\frm_NEW_POS_Review .cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\POS\frm_NEW_POS_Review .Designer.cs">
       <DependentUpon>frm_NEW_POS_Review .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\POS\frm_POS_Covered.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\POS\frm_POS_Covered.Designer.cs">
+      <DependentUpon>frm_POS_Covered.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\POS\frm_pos_Survay.cs">
       <SubType>Form</SubType>
@@ -487,6 +493,9 @@
     <EmbeddedResource Include="Forms\Master_Data\frm_NotActive_Salesrep_van.resx">
       <DependentUpon>frm_NotActive_Salesrep_van.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master_Data\frm_loading.resx">
+      <DependentUpon>frm_loading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master_Data\frm_POS_Review.resx">
       <DependentUpon>frm_POS_Review.cs</DependentUpon>
     </EmbeddedResource>
@@ -514,11 +523,11 @@
     <EmbeddedResource Include="Forms\Master_Data\frm_van_assigning.resx">
       <DependentUpon>frm_van_assigning.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\POS\frm_POS_Covered.resx">
-      <DependentUpon>frm_POS_Covered.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\POS\frm_NEW_POS_Review .resx">
       <DependentUpon>frm_NEW_POS_Review .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\POS\frm_POS_Covered.resx">
+      <DependentUpon>frm_POS_Covered.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\POS\frm_pos_Survay.resx">
       <DependentUpon>frm_pos_Survay.cs</DependentUpon>
