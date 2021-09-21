@@ -930,8 +930,18 @@ namespace MDSF.Forms.Master_Data
             this.Cursor = Cursors.WaitCursor;
             try 
             {
-                
+                string from_date = dtp_from_date.Value.ToString("dd-MMM-yyyy");
                 string fuel_date = dtp_fuel_time.Value.ToString("dd-MMM-yyyy");
+                string van_id = DataAccessCS.getvalue("select van_id from journey@sales  where salesrep_id='" + cmb_salesrep_salesman.SelectedValue + "' and trunc(to_date(start_date,'dd-mon-yyyy hh:mi:ss AM')) = '" + from_date + "'");
+                DataAccessCS.conn.Close();
+                string salesTer = DataAccessCS.getvalue("select sales_ter_id from journey@sales  where salesrep_id='" + cmb_salesrep_salesman.SelectedValue + "' and trunc(to_date(start_date,'dd-mon-yyyy hh:mi:ss AM')) = '" + from_date + "'");
+                DataAccessCS.conn.Close();
+                string route_id = DataAccessCS.getvalue("select route_id from journey@sales  where salesrep_id='" + cmb_salesrep_salesman.SelectedValue + "' and trunc(to_date(start_date,'dd-mon-yyyy hh:mi:ss AM')) = '" + from_date + "'");
+                DataAccessCS.conn.Close();
+
+                string journey_insert= "Insert into journey@sales ( sales_ter_id,jou_id,route_id,salesrep_id,start_date,end_date,van_id,beg_km,end_km,jou_seq) VALUES ( " + salesTer + ",'" + txt_jou_id.Text + "','" + route_id + "','" + txt_salesrep_id.Text + "','" + fuel_date + "','" + fuel_date + "','" + van_id + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + txt_jou_id.Text + "')";
+                DataAccessCS.insert(journey_insert);
+                DataAccessCS.conn.Close();
                 String kmeinsrt = "Insert into km_transactions@sales ( salesrep_id,jou_id,start_km,current_km,fuel_type,fuel_liters,fuel_values,fuel_time) VALUES ( " + txt_salesrep_id.Text + ",'" + txt_jou_id.Text + "','" + txt_start_km.Text + "','" + txt_current_km.Text + "','" + cmb_fuel_type.Text + "','" + txt_fuel_liter.Text + "','" + txt_fuel_values.Text + "','" + fuel_date + "')";
                     DataAccessCS.insert(kmeinsrt);
                     DataAccessCS.conn.Close();
