@@ -151,7 +151,7 @@ namespace MDSF.Forms.Target
                         //Add to pos_program_transactions Table 
                         //-----------------------------------------------
                         String cmdInsrtProgTrans = "Insert into pos_program_transactions ( BRANCH_CODE ,TER_ID,POS_ID,MON,YEAR,PROG_ID,TRANS_TYPE) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_CODE"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
-                   "','" + rgv_Trade_prog.Rows[i].Cells["MON"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["YEAR"].Value +
+                   "','" + rgv_Trade_prog.Rows[i].Cells["MONTH"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["YEAR"].Value +
                    "','" + rgv_Trade_prog.Rows[i].Cells["PROG_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TRANS_TYPE"].Value + "')";
                         DataAccessCS.insert(cmdInsrtProgTrans);
                         DataAccessCS.conn.Close();
@@ -236,7 +236,7 @@ namespace MDSF.Forms.Target
                     //Add to pos_program_transactions (Remove)
                     //-------------------------------------------------------
                     String cmdPosTrans = "Insert into pos_program_transactions ( BRANCH_CODE ,TER_ID,POS_ID,MON,YEAR,PROG_ID,TRANS_TYPE) VALUES (' " + rgv_Trade_prog.Rows[i].Cells["BRANCH_CODE"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value +
-                                              "','" + rgv_Trade_prog.Rows[i].Cells["MON"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["YEAR"].Value +
+                                              "','" + rgv_Trade_prog.Rows[i].Cells["MONTH"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["YEAR"].Value +
                                               "','" + rgv_Trade_prog.Rows[i].Cells["PROG_ID"].Value + "','" + rgv_Trade_prog.Rows[i].Cells["TRANS_TYPE"].Value + "')";
                     DataAccessCS.insert(cmdPosTrans);
                     DataAccessCS.conn.Close();
