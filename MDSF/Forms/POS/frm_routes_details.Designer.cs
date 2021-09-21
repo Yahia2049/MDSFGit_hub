@@ -52,6 +52,9 @@ namespace MDSF.Forms.POS
             this.cmb_sales_ter_dest = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_exl = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btn_all = new System.Windows.Forms.Button();
+            this.btn_distinct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_source)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_des)).BeginInit();
             this.SuspendLayout();
@@ -297,11 +300,47 @@ namespace MDSF.Forms.POS
             this.btn_exl.UseVisualStyleBackColor = true;
             this.btn_exl.Click += new System.EventHandler(this.btn_exl_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(395, 153);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(37, 17);
+            this.checkBox1.TabIndex = 293;
+            this.checkBox1.Text = "All";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // btn_all
+            // 
+            this.btn_all.Location = new System.Drawing.Point(431, 153);
+            this.btn_all.Name = "btn_all";
+            this.btn_all.Size = new System.Drawing.Size(74, 23);
+            this.btn_all.TabIndex = 294;
+            this.btn_all.Text = "All routes";
+            this.btn_all.UseVisualStyleBackColor = true;
+            this.btn_all.Visible = false;
+            this.btn_all.Click += new System.EventHandler(this.btn_all_Click);
+            // 
+            // btn_distinct
+            // 
+            this.btn_distinct.Location = new System.Drawing.Point(511, 153);
+            this.btn_distinct.Name = "btn_distinct";
+            this.btn_distinct.Size = new System.Drawing.Size(70, 23);
+            this.btn_distinct.TabIndex = 295;
+            this.btn_distinct.Text = "بدون تكرار";
+            this.btn_distinct.UseVisualStyleBackColor = true;
+            this.btn_distinct.Visible = false;
+            this.btn_distinct.Click += new System.EventHandler(this.btn_distinct_Click);
+            // 
             // frm_routes_details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 755);
+            this.Controls.Add(this.btn_distinct);
+            this.Controls.Add(this.btn_all);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btn_exl);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Label_CountD);
@@ -360,5 +399,8 @@ namespace MDSF.Forms.POS
         private System.Windows.Forms.ComboBox cmb_sales_ter_dest;
         internal System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_exl;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btn_all;
+        private System.Windows.Forms.Button btn_distinct;
     }
 }
