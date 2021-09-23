@@ -1733,6 +1733,7 @@
             // 
             this.fineTargetToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
             this.fineTargetToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.fineTargetToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fineTargetToolStripMenuItem.Image")));
             this.fineTargetToolStripMenuItem.Name = "fineTargetToolStripMenuItem";
             this.fineTargetToolStripMenuItem.Size = new System.Drawing.Size(253, 32);
             this.fineTargetToolStripMenuItem.Text = "Fine Target";
