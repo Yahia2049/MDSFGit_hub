@@ -415,6 +415,12 @@
     <Compile Include="Forms\Target\frm_Add_Target_month.Designer.cs">
       <DependentUpon>frm_Add_Target_month.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Target\frm_fine_target.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Target\frm_fine_target.Designer.cs">
+      <DependentUpon>frm_fine_target.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Target\frm_trade_prog_transaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -579,6 +585,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Target\frm_Add_Target_month.resx">
       <DependentUpon>frm_Add_Target_month.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Target\frm_fine_target.resx">
+      <DependentUpon>frm_fine_target.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Target\frm_trade_prog_transaction.resx">
       <DependentUpon>frm_trade_prog_transaction.cs</DependentUpon>

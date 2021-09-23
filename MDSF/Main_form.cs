@@ -1576,6 +1576,15 @@ namespace MDSF
             X_Form.MdiParent = this;
             X_Form.WindowState = FormWindowState.Maximized;
         }
+
+        private void fineTargetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var X_Form = new frm_fine_target();
+            X_Form.Show();
+            X_Form.MdiParent = this;
+            X_Form.WindowState = FormWindowState.Maximized;
+
+        }
     }
     
 }
