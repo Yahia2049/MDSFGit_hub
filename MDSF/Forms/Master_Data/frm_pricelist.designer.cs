@@ -62,6 +62,7 @@
             this.btn_UpdatePrice = new System.Windows.Forms.Button();
             this.txtPack = new System.Windows.Forms.TextBox();
             this.btn_Add_price = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_priceList)).BeginInit();
             this.GroupBox10.SuspendLayout();
             this.SuspendLayout();
@@ -135,13 +136,14 @@
             // 
             // dgv_priceList
             // 
+            this.dgv_priceList.AllowUserToAddRows = false;
             this.dgv_priceList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_priceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_priceList.Location = new System.Drawing.Point(22, 275);
+            this.dgv_priceList.Location = new System.Drawing.Point(22, 306);
             this.dgv_priceList.Name = "dgv_priceList";
-            this.dgv_priceList.Size = new System.Drawing.Size(986, 278);
+            this.dgv_priceList.Size = new System.Drawing.Size(986, 247);
             this.dgv_priceList.TabIndex = 7;
             this.dgv_priceList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_priceList_CellClick);
             // 
@@ -401,11 +403,22 @@
             this.btn_Add_price.UseVisualStyleBackColor = true;
             this.btn_Add_price.Click += new System.EventHandler(this.btn_Add_price_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(40, 277);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 297;
+            this.button1.Text = "Excell";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frm_pricelist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1026, 558);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.GroupBox10);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dgv_priceList);
@@ -463,5 +476,6 @@
         private System.Windows.Forms.TextBox txt_ws;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txt_percentage;
+        private System.Windows.Forms.Button button1;
     }
 }

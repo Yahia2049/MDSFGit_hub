@@ -48,7 +48,7 @@ namespace MDSF.Forms.POS
                 DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
                 dataGridViewCheckBoxColumn.DefaultCellStyle.BackColor = Color.Red;
 
-
+               
 
             }
             catch (Exception ex)
@@ -293,8 +293,8 @@ namespace MDSF.Forms.POS
                 label11.Visible = true;
                 Label_CountD.Visible = true;
                 DataSet ds = new DataSet();
-               // ds = DataAccessCS.getdata("select salesrep_id_source,salesrep_id_des,ter_id,pos_id,assign_date from route_pos_reassign  where salesrep_id_des= '" + cmb_salesrep_des.SelectedValue+ "' and assign_date= trunc(sysdate)");
-                ds = DataAccessCS.getdata("select p.name, r.salesrep_id_source,r.salesrep_id_des,r.ter_id,r.pos_id,r.assign_date  from route_pos_reassign r, pos p where r.ter_id=p.ter_id and r.pos_id=p.pos_id and salesrep_id_des= '" + cmb_salesrep_des.SelectedValue + "' and assign_date= trunc(sysdate)");
+                ds = DataAccessCS.getdata("select  salesrep_id,pos_code,pos_name,route_id from to_sfa_pos where  salesrep_id= '" + cmb_salesrep_des.SelectedValue + "'");
+                //ds = DataAccessCS.getdata("select p.name, r.salesrep_id_source,r.salesrep_id_des,r.ter_id,r.pos_id,r.assign_date  from route_pos_reassign r, pos p where r.ter_id=p.ter_id and r.pos_id=p.pos_id and salesrep_id_des= '" + cmb_salesrep_des.SelectedValue + "' and assign_date= trunc(sysdate)");
                 DataAccessCS.conn.Close();
                 dgv_des.DataSource = ds.Tables[0];
                 dgv_des.AutoResizeColumns();
@@ -319,6 +319,107 @@ namespace MDSF.Forms.POS
         private void btn_exl_Click(object sender, EventArgs e)
         {
             DataAccessCS.ExportExcelDGV(dgv_source);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                btn_all.Visible = true;
+                btn_distinct.Visible = true;
+            }
+            if (checkBox1.Checked == false)
+            {
+                btn_all.Visible = false;
+                btn_distinct.Visible = false;
+            }
+        }
+
+        private void btn_all_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+                DataSet ds = new DataSet();
+                ds = DataAccessCS.getdata(" select distinct r.name||'_'||wd.day_ar_name as Route_Name_Day ,pos.pos_code,pos.name,pos.ter_id,pos.pos_id,pr.sales_ter_id,r.curr_sales_id from pos_routes pr , routes r, route_day rd, week_days wd, sales_territories st, route_types rt, pos_inf pos" +
+
+                " where pr.route_id = r.route_id " + 
+                " and pr.sales_ter_id =" + cmb_sales_ter_source.SelectedValue + " " +
+                " and pr.TER_ID||'_'||pr.POS_ID =pos.ter_id||'_'||pos.pos_id" +
+                " and r.sales_ter_id = st.sales_ter_id " +
+                " and rt.route_type_id = st.route_type_id " +
+                " and r.curr_sales_id =" + cmb_salesrep_source.SelectedValue + " " +
+                " and r.branch_code =" + cmb_Region_source.SelectedValue +
+                " and rd.branch_code = r.branch_code " +
+                " and pos.branch_code=rd.branch_code " +
+                " and r.branch_code = st.branch_code " +
+                " and r.route_id = rd.route_id " +
+                " and r.sales_ter_id = rd.sales_ter_id " +
+                " and wd.day_id = rd.week_day " +
+                " and r.active = 1");
+
+                DataAccessCS.conn.Close();
+                dgv_source.DataSource = ds.Tables[0];
+                dgv_source.AutoResizeColumns();
+                ds.Dispose();
+
+                DataAccessCS.conn.Close();
+                count_grid();
+
+                dgv_source.Visible = true;
+                Label_CountH.Visible = true;
+                Label_CountS.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btn_distinct_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+                DataSet ds = new DataSet();
+                ds = DataAccessCS.getdata(" select distinct /*r.name||'_'||wd.day_ar_name as Route_Name_Day ,*/pos.pos_code,pos.name,pos.ter_id,pos.pos_id,pr.sales_ter_id from pos_routes pr , routes r, route_day rd, week_days wd, sales_territories st, route_types rt, pos_inf pos " +
+
+                 "where pr.route_id = r.route_id" +
+                " and pr.sales_ter_id ="+ cmb_sales_ter_source.SelectedValue + " " + 
+                 "and pr.TER_ID || '_' || pr.POS_ID = pos.ter_id || '_' || pos.pos_id" +
+                " and r.sales_ter_id = st.sales_ter_id" +
+                " and rt.route_type_id = st.route_type_id" +
+               " and r.curr_sales_id =" + cmb_salesrep_source.SelectedValue + " " +
+                " and r.branch_code =" + cmb_Region_source.SelectedValue +
+                " and rd.branch_code = r.branch_code " +
+                " and pos.branch_code=rd.branch_code " +
+                " and r.branch_code = st.branch_code " +
+                " and r.route_id = rd.route_id " +
+                " and r.sales_ter_id = rd.sales_ter_id " +
+                " and wd.day_id = rd.week_day " +
+                " and r.active = 1");
+               
+
+                DataAccessCS.conn.Close();
+                dgv_source.DataSource = ds.Tables[0];
+                dgv_source.AutoResizeColumns();
+                ds.Dispose();
+
+                DataAccessCS.conn.Close();
+                count_grid();
+
+                dgv_source.Visible = true;
+                Label_CountH.Visible = true;
+                Label_CountS.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
         }
     }
 }

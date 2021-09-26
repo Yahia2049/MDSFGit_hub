@@ -1241,26 +1241,26 @@ namespace MDSF.Forms.Target
                 {
                     //Delete old data from target_retail_pos 
                     //---------------------------------------------
-                    String cmdDelSeg = "Delete from  target_retail_pos  WHERE TER_ID = " + rgv_pos_target.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_pos_target.Rows[i].Cells["POS_ID"].Value + " AND MONTH = " + rgv_pos_target.Rows[i].Cells["MON"].Value + " AND YEAR = " + rgv_pos_target.Rows[i].Cells["YEAR"].Value ;
+                    String cmdDelSeg = "Delete from  target_retail_pos  WHERE TER_ID = " + rgv_pos_target.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_pos_target.Rows[i].Cells["POS_ID"].Value + " AND MONTH = " + rgv_pos_target.Rows[i].Cells["MONTH"].Value + " AND YEAR = " + rgv_pos_target.Rows[i].Cells["YEAR"].Value ;
                     DataAccessCS.delete(cmdDelSeg);
                     DataAccessCS.conn.Close();
                     //insert DVD_target
                     String updatePosTarget = "Insert into target_retail_pos (POS_ID,TER_ID,YEAR,MONTH,TARGET_SALES,ACTION,TRANS_FLAG,TARGET_TYPE_ID,BRANCH_CODE,SALES_REGION) VALUES (' " + rgv_pos_target.Rows[i].Cells["POS_ID"].Value + "','" + rgv_pos_target.Rows[i].Cells["TER_ID"].Value + "','" + rgv_pos_target.Rows[i].Cells["YEAR"].Value +
-                  "','" + rgv_pos_target.Rows[i].Cells["MON"].Value + "','" + rgv_pos_target.Rows[i].Cells["DVD_Target"].Value +
+                  "','" + rgv_pos_target.Rows[i].Cells["MONTH"].Value + "','" + rgv_pos_target.Rows[i].Cells["DVD_Target"].Value +
                   "', 'I' , '1' , '27' , '" + rgv_pos_target.Rows[i].Cells["BRANCH_CODE"].Value + "','" + rgv_pos_target.Rows[i].Cells["SALES_REGION"].Value +  "')";
                     DataAccessCS.insert(updatePosTarget);
                     DataAccessCS.conn.Close();
 
                     //inert Time_Target
                      updatePosTarget = "Insert into target_retail_pos (POS_ID,TER_ID,YEAR,MONTH,TARGET_SALES,ACTION,TRANS_FLAG,TARGET_TYPE_ID,BRANCH_CODE,SALES_REGION) VALUES (' " + rgv_pos_target.Rows[i].Cells["POS_ID"].Value + "','" + rgv_pos_target.Rows[i].Cells["TER_ID"].Value + "','" + rgv_pos_target.Rows[i].Cells["YEAR"].Value +
-                 "','" + rgv_pos_target.Rows[i].Cells["MON"].Value + "','" + rgv_pos_target.Rows[i].Cells["Time_Target"].Value +
+                 "','" + rgv_pos_target.Rows[i].Cells["MONTH"].Value + "','" + rgv_pos_target.Rows[i].Cells["Time_Target"].Value +
                  "', 'I' , '1' , '37' , '" + rgv_pos_target.Rows[i].Cells["BRANCH_CODE"].Value + "','" + rgv_pos_target.Rows[i].Cells["SALES_REGION"].Value + "')";
                     DataAccessCS.insert(updatePosTarget);
                     DataAccessCS.conn.Close();
 
                     //inert Target_Target
                     updatePosTarget = "Insert into target_retail_pos (POS_ID,TER_ID,YEAR,MONTH,TARGET_SALES,ACTION,TRANS_FLAG,TARGET_TYPE_ID,BRANCH_CODE,SALES_REGION) VALUES (' " + rgv_pos_target.Rows[i].Cells["POS_ID"].Value + "','" + rgv_pos_target.Rows[i].Cells["TER_ID"].Value + "','" + rgv_pos_target.Rows[i].Cells["YEAR"].Value +
-                "','" + rgv_pos_target.Rows[i].Cells["MON"].Value + "','" + rgv_pos_target.Rows[i].Cells["Target_Target"].Value +
+                "','" + rgv_pos_target.Rows[i].Cells["MONTH"].Value + "','" + rgv_pos_target.Rows[i].Cells["Target_Target"].Value +
                 "', 'I' , '1' , '39' , '" + rgv_pos_target.Rows[i].Cells["BRANCH_CODE"].Value + "','" + rgv_pos_target.Rows[i].Cells["SALES_REGION"].Value + "')";
                     DataAccessCS.insert(updatePosTarget);
                     DataAccessCS.conn.Close();

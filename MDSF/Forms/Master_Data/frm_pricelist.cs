@@ -92,9 +92,33 @@ namespace MDSF.Forms.Master_Data
             this.Cursor = Cursors.Default;
         }
 
+        private void all_product_company()
+        {
+            try
+            {
+
+                //--------------------------------------
+                DataSet ds = new DataSet();
+               // ds = DataAccessCS.getdata("select  Name , PROD_ID from products where enable =0 and  prod_cat_id in (select prod_cat_id from prod_categories where family_id in  (select family_id from prod_family where company_id in  (" + cmbCompany.SelectedValue + "))) order by name ");
+                ds = DataAccessCS.getdata("select  product_price_list.line_price_id, price_list_mst.accounts, price_list_mst.pos_type, products.Name, product_price_list.product_id, product_price_list.pricelist_case, product_price_list.pricelist_carton, product_price_list.pricelist_pack, product_price_list.product_tax, product_price_list.tax_percentage, product_price_list.product_tax_rt, product_price_list.product_tax_ws, product_price_list.from_date, product_price_list.to_date  from products INNER JOIN product_price_list ON  products.PROD_ID = product_price_list.PRODUCT_ID Inner join price_list_mst ON product_price_list.line_price_id = price_list_mst.price_list_id where  prod_id in (select   PROD_ID from products where enable = 0 and  prod_cat_id in (select prod_cat_id from prod_categories where family_id in (select family_id from prod_family where company_id ="+cmbCompany.SelectedValue + ")))");
+                DataAccessCS.conn.Close();
+                dgv_priceList.DataSource = ds.Tables[0];
+                dgv_priceList.AutoResizeColumns();
+                ds.Dispose();
+                //--------------------------------------
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
         private void cmbCompany_SelectionChangeCommitted(object sender, EventArgs e)
         {
             Fill_cmb_productName();
+            all_product_company();
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -337,6 +361,13 @@ namespace MDSF.Forms.Master_Data
                 MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
+        }
+
+       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataAccessCS.ExportExcelDGV(dgv_priceList);
         }
     }
 }
