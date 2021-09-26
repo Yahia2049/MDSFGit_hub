@@ -555,7 +555,7 @@ namespace MDSF.Forms.Master_Data
             {
 
                 // String cmd = "update km_transactions@sales set jou_id=" + txt_jou_id.Text + ",start_km=" + txt_start_km.Text + ",current_km=" + txt_current_km.Text + ", fuel_type='" + cmb_fuel_type.Text + "', fuel_values=" + txt_fuel_values.Text + ", fuel_time=" + dtp_fuel_time.Value + " where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + "and jou_id= " + txt_jou_id.Text + "" ;
-                string kmedit = "update km_transactions@sales set current_km=" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + ", fuel_time= '" + rgv_KM.CurrentRow.Cells["fuel_time"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
+                string kmedit = "update km_transactions@sales set fuel_liters="+ rgv_KM.CurrentRow.Cells["fuel_liters"].Value + " ,current_km =" + rgv_KM.CurrentRow.Cells["current_km"].Value + ", fuel_type='" + rgv_KM.CurrentRow.Cells["fuel_type"].Value + "', fuel_values=" + rgv_KM.CurrentRow.Cells["fuel_values"].Value + ", fuel_time= '" + rgv_KM.CurrentRow.Cells["fuel_time"].Value + "' where salesrep_id=" + rgv_KM.CurrentRow.Cells["salesrep_id"].Value.ToString() + " and jou_id= " + rgv_KM.CurrentRow.Cells["jou_id"].Value.ToString();
                 DataAccessCS.update(kmedit);
                 DataAccessCS.conn.Close();
 
