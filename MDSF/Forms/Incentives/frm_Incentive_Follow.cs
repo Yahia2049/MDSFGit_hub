@@ -499,7 +499,7 @@ namespace MDSF.Forms.POS
                         if(chb_inc_All.Checked)
                         {
                             D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
-                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg_N A " +
                                 " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
                                 " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
                                 " AND A.YEAR in (" + x_year + ") " +
@@ -511,7 +511,7 @@ namespace MDSF.Forms.POS
                         else
                         {
                             D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
-                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg_N A " +
                                 " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
                                 " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
                                 " AND A.YEAR in (" + x_year + ") " +
@@ -541,7 +541,7 @@ namespace MDSF.Forms.POS
                         if (chb_inc_All.Checked)
                         {
                             D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
-                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg_N A " +
                                 " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
                                 " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
                                 " AND A.YEAR in (" + x_year + ") " +
@@ -553,7 +553,7 @@ namespace MDSF.Forms.POS
                         else
                         {
                             D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
-                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg_N A " +
                                 " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
                                 " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
                                 " AND A.YEAR in (" + x_year + ") " +
@@ -583,7 +583,7 @@ namespace MDSF.Forms.POS
                         if (chb_inc_All.Checked)
                         {
                             D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
-                                 " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                 " FROM INCENTIVE_ASSIGNING_ALL_agg_N A " +
                                  " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
                                   " AND A.sales_ter_id like ('%" + x_ter_salesrep + "%') " +
                                  " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
@@ -596,7 +596,7 @@ namespace MDSF.Forms.POS
                         else
                         {
                             D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
-                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg_N A " +
                                 " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
                                 " AND A.sales_ter_id like ('%" + x_ter_salesrep + "%') " +
                                 " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
@@ -615,7 +615,7 @@ namespace MDSF.Forms.POS
                         if (chb_inc_All.Checked)
                         {
                             D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
-                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg_N A " +
                                 " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
                                 " AND A.salesrep_id like ('%" + x_salesrep_salesrep + "%') " +
                                 " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
@@ -628,7 +628,7 @@ namespace MDSF.Forms.POS
                         else
                         {
                             D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
-                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg_N A " +
                                 " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
                                 " AND A.salesrep_id like ('%" + x_salesrep_salesrep + "%') " +
                                 " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
@@ -649,7 +649,7 @@ namespace MDSF.Forms.POS
                         if (chb_inc_All.Checked)
                         {
                             D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
-                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg_N A " +
                                 " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
                                 " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
                                 " AND A.YEAR in (" + x_year + ") " +
@@ -662,7 +662,7 @@ namespace MDSF.Forms.POS
                         else
                         {
                             D = " SELECT A.REGION, A.TER_ID,A.POS_ID, A.pos_name,  A.LAND_MARK, A.ADDRESS, A.QUALITY, A.BAT_EXCLUSIVES, A.EXCLUSIVES, a.SALES_TER_id, A.SALES_TER_NAME, a.salesrep_id, A.SALESMAN_NAME, A.ASSIGN_ID, A.FROM_DATE, A.TO_DATE, A.INCENTIVE_ID, A.INCENTIVE_DESC,A.INCENTIVE_TYPE, sum(A.INCENTIVE_VALUE) INCENTIVE_VALUE, sum(A.VALUE_USAGE) VALUE_USAGE , A.RECIEVED_FLAG,A.MSG_ID, A.MESSAGE_BODY,A.YEAR,A.MONTH,listagg (call_date , ' / ') WITHIN GROUP  (ORDER BY call_date)  inc_date " +
-                                " FROM INCENTIVE_ASSIGNING_ALL_agg A " +
+                                " FROM INCENTIVE_ASSIGNING_ALL_agg_N A " +
                                 " WHERE  A.BRANCH_CODE IN (" + x_region_salesrep + ") " +
                                 " AND A.INCENTIVE_TYPE in (" + x_incentive_type + ") " +
                                 " AND A.YEAR in (" + x_year + ") " +

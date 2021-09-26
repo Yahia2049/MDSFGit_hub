@@ -499,37 +499,37 @@ namespace MDSF.Forms.Target
                     int branch_code = int.Parse(txt_branch_ter_del.Text);
                     if (branch_code == 1)
                     {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_cai s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_cai s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code == 2)
                     {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_alx s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + "and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_alx s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + "and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code == 3)
                     {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_man s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + "and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_man s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + "and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code == 4)
                     {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_ism s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + "and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_ism s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + "and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code == 5)
                     {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_ast s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_ast s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code == 6)
                     {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_tan s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_tan s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code == 7)
                     {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_upp s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_upp s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id== " + txt_company_id_ter.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else
@@ -568,37 +568,37 @@ namespace MDSF.Forms.Target
                     int branch_code_s = int.Parse(txt_branch_salesrep_del.Text);
                     if (branch_code_s == 1)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_cai s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_cai s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code_s == 2)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_alx s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_alx s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code_s == 3)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_man s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_man s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code_s == 4)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_ism s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_ism s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id=" + txt_com_id_salesrep.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code_s == 5)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_ast s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_ast s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code_s == 6)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_tan s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_tan s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else if (branch_code_s == 7)
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_upp s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select product_id from products p where p.product_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_upp s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
                         DataAccessCS.conn.Close();
                     }
                     else

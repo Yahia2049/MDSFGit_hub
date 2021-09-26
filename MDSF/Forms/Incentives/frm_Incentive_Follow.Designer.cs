@@ -199,7 +199,7 @@
             // 
             this.btn_search_salesrep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_search_salesrep.Enabled = false;
-            this.btn_search_salesrep.Location = new System.Drawing.Point(575, 64);
+            this.btn_search_salesrep.Location = new System.Drawing.Point(575, 66);
             this.btn_search_salesrep.Name = "btn_search_salesrep";
             this.btn_search_salesrep.Size = new System.Drawing.Size(148, 34);
             this.btn_search_salesrep.TabIndex = 268;

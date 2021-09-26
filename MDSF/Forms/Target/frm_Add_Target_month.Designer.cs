@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Add_Target_month));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -268,7 +268,7 @@
             // 
             this.btn_ter_del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_ter_del.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_ter_del.Location = new System.Drawing.Point(200, 52);
+            this.btn_ter_del.Location = new System.Drawing.Point(200, 64);
             this.btn_ter_del.Name = "btn_ter_del";
             // 
             // 
@@ -455,7 +455,7 @@
             // 
             // 
             // 
-            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition5;
             this.rgv_salester_target.Name = "rgv_salester_target";
             // 
             // 
@@ -723,7 +723,7 @@
             // 
             // 
             // 
-            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition6;
             this.rgv_Salesrep_target.Name = "rgv_Salesrep_target";
             // 
             // 
@@ -1071,7 +1071,7 @@
             // 
             // 
             // 
-            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition7;
             this.rgv_pos_target.Name = "rgv_pos_target";
             // 
             // 
@@ -1331,7 +1331,7 @@
             // 
             // 
             // 
-            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition8;
             this.rgv_kpi_insert.Name = "rgv_kpi_insert";
             // 
             // 
