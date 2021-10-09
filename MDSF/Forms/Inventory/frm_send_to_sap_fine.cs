@@ -1780,60 +1780,60 @@ namespace MDSF.Forms.Inventory
                                     dtConditions.AcceptChanges();
                                 }
 
-                                // --Yahia 05-07-2020
-                                // ' add gift to issue
+                                //// --Yahia 05-07-2020
+                                //// ' add gift to issue
 
-                                if (dv_item_gift_Retail_KA.Count > 0)
-                                {
-                                    for (int i = 0, loopTo7 = dv_item_gift_Retail_KA.Count - 1; i <= loopTo7; i++)
-                                    {
-                                        DataRow drIssusedItems;
-                                        drIssusedItems = dtIssusedItems.NewRow();
-                                        drIssusedItems["Item_id"] = dv_item_gift_Retail_KA[i]["PRODUCT_ID"];
-                                        drIssusedItems["Sold"] = dv_item_gift_Retail_KA[i]["SOLD"];
-                                        drIssusedItems["UOM"] = dv_item_gift_Retail_KA[i]["UOM"];
-                                        drIssusedItems["line_no"] = dv_item_gift_Retail_KA[i]["LINE_NUMBER"];
-                                        drIssusedItems["Customer_id"] = dv_POS_COUNT[count]["POS_CODE"];
-                                        if (dtIssusedItems.Rows.Count == 0)
-                                        {
-                                            dtIssusedItems.Rows.InsertAt(drIssusedItems, 0);
-                                        }
-                                        else
-                                        {
-                                            dtIssusedItems.Rows.InsertAt(drIssusedItems, dtIssusedItems.Rows.Count - 1);
-                                        }
+                                //if (dv_item_gift_Retail_KA.Count > 0)
+                                //{
+                                //    for (int i = 0, loopTo7 = dv_item_gift_Retail_KA.Count - 1; i <= loopTo7; i++)
+                                //    {
+                                //        DataRow drIssusedItems;
+                                //        drIssusedItems = dtIssusedItems.NewRow();
+                                //        drIssusedItems["Item_id"] = dv_item_gift_Retail_KA[i]["PRODUCT_ID"];
+                                //        drIssusedItems["Sold"] = dv_item_gift_Retail_KA[i]["SOLD"];
+                                //        drIssusedItems["UOM"] = dv_item_gift_Retail_KA[i]["UOM"];
+                                //        drIssusedItems["line_no"] = dv_item_gift_Retail_KA[i]["LINE_NUMBER"];
+                                //        drIssusedItems["Customer_id"] = dv_item_gift_Retail_KA[count]["POS_CODE"];
+                                //        if (dtIssusedItems.Rows.Count == 0)
+                                //        {
+                                //            dtIssusedItems.Rows.InsertAt(drIssusedItems, 0);
+                                //        }
+                                //        else
+                                //        {
+                                //            dtIssusedItems.Rows.InsertAt(drIssusedItems, dtIssusedItems.Rows.Count - 1);
+                                //        }
 
-                                        dtIssusedItems.AcceptChanges();
-                                        DataRow drConditions;
-                                        drConditions = dtConditions.NewRow();
-                                        drConditions["line_no"] = dv_item_gift_Retail_KA[i]["LINE_NUMBER"];
-                                        drConditions["Type"] = "999";
-                                        drConditions["Value"] = Math.Round(Convert.ToDouble( dv_item_gift_Retail_KA[i]["ITEM_PRICE"]), 2);
-                                        drConditions["EGP"] = "EGP";
-                                        drConditions["Customer_id"] = dv_POS_COUNT[count]["POS_CODE"];
-                                        if (dtConditions.Rows.Count - 1 <0)
-                                        {
-                                            dtConditions.Rows.InsertAt(drConditions, 0);
-                                        }
-                                        else
-                                        {
-                                            dtConditions.Rows.InsertAt(drConditions, dtConditions.Rows.Count - 1);
-                                        }
+                                //        dtIssusedItems.AcceptChanges();
+                                //        DataRow drConditions;
+                                //        drConditions = dtConditions.NewRow();
+                                //        drConditions["line_no"] = dv_item_gift_Retail_KA[i]["LINE_NUMBER"];
+                                //        drConditions["Type"] = "999";
+                                //        drConditions["Value"] = Math.Round(Convert.ToDouble( dv_item_gift_Retail_KA[i]["ITEM_PRICE"]), 2);
+                                //        drConditions["EGP"] = "EGP";
+                                //        drConditions["Customer_id"] = dv_item_gift_Retail_KA[count]["POS_CODE"];
+                                //        if (dtConditions.Rows.Count - 1 <0)
+                                //        {
+                                //            dtConditions.Rows.InsertAt(drConditions, 0);
+                                //        }
+                                //        else
+                                //        {
+                                //            dtConditions.Rows.InsertAt(drConditions, dtConditions.Rows.Count - 1);
+                                //        }
 
-                                        dtConditions.AcceptChanges();
-                                        // If item_txt_details = Nothing Then
-                                        // item_txt_details = "$%" & dv_item_details_Retail_KA(i)("PRODUCT_ID") & "%" & dv_item_details_Retail_KA(i)("SOLD") & "%" & dv_item_details_Retail_KA(i)("UOM") & "%" & dv_item_details_Retail_KA(i)("LINE_NUMBER") & "%"
-                                        // Else
-                                        // item_txt_details = item_txt_details & "$%" & dv_item_details_Retail_KA(i)("PRODUCT_ID") & "%" & dv_item_details_Retail_KA(i)("SOLD") & "%" & dv_item_details_Retail_KA(i)("UOM") & "%" & dv_item_details_Retail_KA(i)("LINE_NUMBER") & "%"
-                                        // End If
-                                        // If price_txt = Nothing Then
-                                        // price_txt = "$%" & dv_item_details_Retail_KA(i)("LINE_NUMBER") & "%999%" & dv_item_details_Retail_KA(i)("ITEM_PRICE") & "%EGP%"
-                                        // Else
-                                        // price_txt = price_txt & "$%" & dv_item_details_Retail_KA(i)("LINE_NUMBER") & "%999%" & dv_item_details_Retail_KA(i)("ITEM_PRICE") & "%EGP%"
-                                        // End If
-                                    }
-                                }
-                                // -- End Yahia 05-07-2020
+                                //        dtConditions.AcceptChanges();
+                                //        // If item_txt_details = Nothing Then
+                                //        // item_txt_details = "$%" & dv_item_details_Retail_KA(i)("PRODUCT_ID") & "%" & dv_item_details_Retail_KA(i)("SOLD") & "%" & dv_item_details_Retail_KA(i)("UOM") & "%" & dv_item_details_Retail_KA(i)("LINE_NUMBER") & "%"
+                                //        // Else
+                                //        // item_txt_details = item_txt_details & "$%" & dv_item_details_Retail_KA(i)("PRODUCT_ID") & "%" & dv_item_details_Retail_KA(i)("SOLD") & "%" & dv_item_details_Retail_KA(i)("UOM") & "%" & dv_item_details_Retail_KA(i)("LINE_NUMBER") & "%"
+                                //        // End If
+                                //        // If price_txt = Nothing Then
+                                //        // price_txt = "$%" & dv_item_details_Retail_KA(i)("LINE_NUMBER") & "%999%" & dv_item_details_Retail_KA(i)("ITEM_PRICE") & "%EGP%"
+                                //        // Else
+                                //        // price_txt = price_txt & "$%" & dv_item_details_Retail_KA(i)("LINE_NUMBER") & "%999%" & dv_item_details_Retail_KA(i)("ITEM_PRICE") & "%EGP%"
+                                //        // End If
+                                //    }
+                                //}
+                                //// -- End Yahia 05-07-2020
 
 
                                 // ' to collect conditions(incentive)
@@ -1911,6 +1911,61 @@ namespace MDSF.Forms.Inventory
 
                                 // ' item_flag = test.CreateIssueOrder("YSO", "3000", "31", "09", dv_item_details_Retail_KA(0)("POS_CODE"), "SB", salesrep_id, dv_item_details_Retail_KA(0)("LOADING_NO"), dv_item_details_Retail_KA(0)("SALESCALL_ID"), dv_item_details_Retail_KA(0)("SALES_TER_ID"), item_txt_details, price_txt + incenive_txt).flag
                             }
+
+                            // --Yahia 29-09-2021
+                            // ' add gift to issue
+
+                            if (dv_item_gift_Retail_KA.Count > 0)
+                            {
+                                for (int i = 0, loopTo7 = dv_item_gift_Retail_KA.Count - 1; i <= loopTo7; i++)
+                                {
+                                    DataRow drIssusedItems;
+                                    drIssusedItems = dtIssusedItems.NewRow();
+                                    drIssusedItems["Item_id"] = dv_item_gift_Retail_KA[i]["PRODUCT_ID"];
+                                    drIssusedItems["Sold"] = dv_item_gift_Retail_KA[i]["SOLD"];
+                                    drIssusedItems["UOM"] = dv_item_gift_Retail_KA[i]["UOM"];
+                                    drIssusedItems["line_no"] = dv_item_gift_Retail_KA[i]["LINE_NUMBER"];
+                                    drIssusedItems["Customer_id"] = dv_item_gift_Retail_KA[i]["POS_CODE"];
+                                    if (dtIssusedItems.Rows.Count == 0)
+                                    {
+                                        dtIssusedItems.Rows.InsertAt(drIssusedItems, 0);
+                                    }
+                                    else
+                                    {
+                                        dtIssusedItems.Rows.InsertAt(drIssusedItems, dtIssusedItems.Rows.Count - 1);
+                                    }
+
+                                    dtIssusedItems.AcceptChanges();
+                                    DataRow drConditions;
+                                    drConditions = dtConditions.NewRow();
+                                    drConditions["line_no"] = dv_item_gift_Retail_KA[i]["LINE_NUMBER"];
+                                    drConditions["Type"] = "999";
+                                    drConditions["Value"] = Math.Round(Convert.ToDouble(dv_item_gift_Retail_KA[i]["ITEM_PRICE"]), 2);
+                                    drConditions["EGP"] = "EGP";
+                                    drConditions["Customer_id"] = dv_item_gift_Retail_KA[i]["POS_CODE"];
+                                    if (dtConditions.Rows.Count - 1 < 0)
+                                    {
+                                        dtConditions.Rows.InsertAt(drConditions, 0);
+                                    }
+                                    else
+                                    {
+                                        dtConditions.Rows.InsertAt(drConditions, dtConditions.Rows.Count - 1);
+                                    }
+
+                                    dtConditions.AcceptChanges();
+                                    // If item_txt_details = Nothing Then
+                                    // item_txt_details = "$%" & dv_item_details_Retail_KA(i)("PRODUCT_ID") & "%" & dv_item_details_Retail_KA(i)("SOLD") & "%" & dv_item_details_Retail_KA(i)("UOM") & "%" & dv_item_details_Retail_KA(i)("LINE_NUMBER") & "%"
+                                    // Else
+                                    // item_txt_details = item_txt_details & "$%" & dv_item_details_Retail_KA(i)("PRODUCT_ID") & "%" & dv_item_details_Retail_KA(i)("SOLD") & "%" & dv_item_details_Retail_KA(i)("UOM") & "%" & dv_item_details_Retail_KA(i)("LINE_NUMBER") & "%"
+                                    // End If
+                                    // If price_txt = Nothing Then
+                                    // price_txt = "$%" & dv_item_details_Retail_KA(i)("LINE_NUMBER") & "%999%" & dv_item_details_Retail_KA(i)("ITEM_PRICE") & "%EGP%"
+                                    // Else
+                                    // price_txt = price_txt & "$%" & dv_item_details_Retail_KA(i)("LINE_NUMBER") & "%999%" & dv_item_details_Retail_KA(i)("ITEM_PRICE") & "%EGP%"
+                                    // End If
+                                }
+                            }
+                            // -- End Yahia 29-09-2020
                         }
 
 

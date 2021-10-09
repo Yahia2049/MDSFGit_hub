@@ -199,6 +199,12 @@
     <Compile Include="Forms\Android Support\frm_Android_sales_support_Dev.Designer.cs">
       <DependentUpon>frm_Android_sales_support_Dev.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Android Support\frm_android_support_manag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Android Support\frm_android_support_manag.Designer.cs">
+      <DependentUpon>frm_android_support_manag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Android Support\frm_android_support.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -471,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Android Support\frm_Android_sales_support_Dev.resx">
       <DependentUpon>frm_Android_sales_support_Dev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Android Support\frm_android_support_manag.resx">
+      <DependentUpon>frm_android_support_manag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Android Support\frm_android_support.resx">
       <DependentUpon>frm_android_support.cs</DependentUpon>

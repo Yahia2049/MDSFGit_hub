@@ -360,16 +360,16 @@ namespace MDSF.Forms.Daily_Activity
                 }
                 else if(txt_van_id.Text !="")
                 {
-                    salesrep_id = DataAccessCS.getvalue("select distinct s.salesrep_id from to_sfa_salesrep_android@to_sla_cai s where s.salesrep_van_id=" + txt_van_id.Text + "");
+                    salesrep_id = DataAccessCS.getvalue("select distinct s.salesrep_id from to_sfa_salesrep_android s where s.salesrep_van_id=" + txt_van_id.Text + "");
                     DataAccessCS.conn.Close();
                 }
                 DataSet ds = new DataSet();
-                ds = DataAccessCS.getdata("select s.salesrep_name,s.salesrep_van_id,s.salesrep_van_number,s.salesrep_last_km from to_sfa_salesrep_android@to_sla_cai s where s.salesrep_id=" + salesrep_id + "");
+                ds = DataAccessCS.getdata("select s.salesrep_name,s.salesrep_van_id,s.salesrep_van_number,s.salesrep_last_km from to_sfa_salesrep_android s where s.salesrep_id=" + salesrep_id + "");
                 DataAccessCS.conn.Close();
                 dgv_current.DataSource = ds.Tables[0];
                 dgv_current.AutoResizeColumns();
                 ds.Dispose();
-                lbl_Van_ID.Text = DataAccessCS.getvalue("select s.salesrep_van_id from to_sfa_salesrep_android@to_sla_cai s where s.salesrep_id="+salesrep_id+"");
+                lbl_Van_ID.Text = DataAccessCS.getvalue("select s.salesrep_van_id from to_sfa_salesrep_android s where s.salesrep_id="+salesrep_id+"");
                 DataAccessCS.conn.Close();
             }
             catch (Exception ex)

@@ -2394,10 +2394,11 @@ namespace MDSF.Forms.Inventory
 
                     if (dv_SALESREP_COUNT.Count > 0)  // Android
                     {
-                        INCENTIVE_TEST_string = "  select nvl(sum (round(incentive_amount,2)),0) as android_Incentive " +
-                            "from  int_salescall_details@TO_SLA_ISM where category_id=1 " +
-                            "and salescall_id in " + "(select salescall_id from sc_invoice@sales where loading_number ='" + max_load + "' " +
-                            "and salescall_id in " + "(select salescall_id  from salescall@sales where call_status_id ='S' and jou_id in " + "(select jou_id  from journey@sales where jou_seq ='" + journey_seq + "')))";
+                        INCENTIVE_TEST_string = "  select nvl(sum (round(incentive_amount,2)),0) as android_Incentive" +
+                         " from  int_salescall_details where category_id in (1) and salescall_id in " + "(select salescall_id from sc_invoice@sales " +
+                         "where loading_number ='" + max_load + "' and salescall_id in " +
+                         "(select salescall_id  from salescall@sales where call_status_id ='S' and jou_id in " +
+                         "(select jou_id  from journey@sales where jou_seq ='" + journey_seq + "')))";
 
 
                         INCENTIVE_TEST_SET = DataAccessCS.getdata(INCENTIVE_TEST_string);

@@ -147,6 +147,7 @@
             this.targetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.targetAssigningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tradeProgramTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fineTargetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.androidSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devAndroidSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -157,7 +158,7 @@
             this.tobaccoSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lighterSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fineTargetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.managersAndroidSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -404,7 +405,7 @@
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
             this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(46, 20);
+            this.toolsMenu.Size = new System.Drawing.Size(47, 20);
             this.toolsMenu.Text = "&Tools";
             // 
             // optionsToolStripMenuItem
@@ -429,42 +430,42 @@
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.newWindowToolStripMenuItem.Text = "&New Window";
             this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.cascadeToolStripMenuItem.Text = "&Cascade";
             this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // tileVerticalToolStripMenuItem
             // 
             this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.tileVerticalToolStripMenuItem.Text = "Tile &Vertical";
             this.tileVerticalToolStripMenuItem.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // tileHorizontalToolStripMenuItem
             // 
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.tileHorizontalToolStripMenuItem.Text = "Tile &Horizontal";
             this.tileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.closeAllToolStripMenuItem.Text = "C&lose All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
             // 
             // arrangeIconsToolStripMenuItem
             // 
             this.arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
-            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.arrangeIconsToolStripMenuItem.Text = "&Arrange Icons";
             this.arrangeIconsToolStripMenuItem.Click += new System.EventHandler(this.ArrangeIconsToolStripMenuItem_Click);
             // 
@@ -1613,11 +1614,22 @@
             this.tradeProgramTransactionToolStripMenuItem.Text = "Trade Program Transaction";
             this.tradeProgramTransactionToolStripMenuItem.Click += new System.EventHandler(this.tradeProgramTransactionToolStripMenuItem_Click);
             // 
+            // fineTargetToolStripMenuItem
+            // 
+            this.fineTargetToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.fineTargetToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.fineTargetToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fineTargetToolStripMenuItem.Image")));
+            this.fineTargetToolStripMenuItem.Name = "fineTargetToolStripMenuItem";
+            this.fineTargetToolStripMenuItem.Size = new System.Drawing.Size(253, 32);
+            this.fineTargetToolStripMenuItem.Text = "Fine Target";
+            this.fineTargetToolStripMenuItem.Click += new System.EventHandler(this.fineTargetToolStripMenuItem_Click);
+            // 
             // androidSupportToolStripMenuItem
             // 
             this.androidSupportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sendDataToolStripMenuItem,
-            this.devAndroidSupportToolStripMenuItem});
+            this.devAndroidSupportToolStripMenuItem,
+            this.managersAndroidSupportToolStripMenuItem});
             this.androidSupportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.androidSupportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("androidSupportToolStripMenuItem.Image")));
             this.androidSupportToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1635,7 +1647,7 @@
             this.sendDataToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.sendDataToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendDataToolStripMenuItem.Image")));
             this.sendDataToolStripMenuItem.Name = "sendDataToolStripMenuItem";
-            this.sendDataToolStripMenuItem.Size = new System.Drawing.Size(218, 32);
+            this.sendDataToolStripMenuItem.Size = new System.Drawing.Size(254, 32);
             this.sendDataToolStripMenuItem.Text = "Send Data";
             this.sendDataToolStripMenuItem.Click += new System.EventHandler(this.sendDataToolStripMenuItem_Click);
             // 
@@ -1646,7 +1658,7 @@
             this.devAndroidSupportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.devAndroidSupportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("devAndroidSupportToolStripMenuItem.Image")));
             this.devAndroidSupportToolStripMenuItem.Name = "devAndroidSupportToolStripMenuItem";
-            this.devAndroidSupportToolStripMenuItem.Size = new System.Drawing.Size(218, 32);
+            this.devAndroidSupportToolStripMenuItem.Size = new System.Drawing.Size(254, 32);
             this.devAndroidSupportToolStripMenuItem.Text = "Dev Android Support";
             this.devAndroidSupportToolStripMenuItem.Click += new System.EventHandler(this.devAndroidSupportToolStripMenuItem_Click);
             // 
@@ -1729,15 +1741,16 @@
             this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
             this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
             // 
-            // fineTargetToolStripMenuItem
+            // managersAndroidSupportToolStripMenuItem
             // 
-            this.fineTargetToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
-            this.fineTargetToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.fineTargetToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fineTargetToolStripMenuItem.Image")));
-            this.fineTargetToolStripMenuItem.Name = "fineTargetToolStripMenuItem";
-            this.fineTargetToolStripMenuItem.Size = new System.Drawing.Size(253, 32);
-            this.fineTargetToolStripMenuItem.Text = "Fine Target";
-            this.fineTargetToolStripMenuItem.Click += new System.EventHandler(this.fineTargetToolStripMenuItem_Click);
+            this.managersAndroidSupportToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.managersAndroidSupportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.managersAndroidSupportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.managersAndroidSupportToolStripMenuItem.Image = global::MDSF.Properties.Resources.images__1_;
+            this.managersAndroidSupportToolStripMenuItem.Name = "managersAndroidSupportToolStripMenuItem";
+            this.managersAndroidSupportToolStripMenuItem.Size = new System.Drawing.Size(254, 32);
+            this.managersAndroidSupportToolStripMenuItem.Text = "Managers Android Support";
+            this.managersAndroidSupportToolStripMenuItem.Click += new System.EventHandler(this.managersAndroidSupportToolStripMenuItem_Click);
             // 
             // Main_form
             // 
@@ -1914,6 +1927,7 @@
         private System.Windows.Forms.ToolStripMenuItem newPOSReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem routesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fineTargetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem managersAndroidSupportToolStripMenuItem;
     }
 }
 
