@@ -253,6 +253,12 @@
     <Compile Include="Forms\Inventory\frm_send_to_sap_fine.Designer.cs">
       <DependentUpon>frm_send_to_sap_fine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Master_Data\frm_active_salesTer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master_Data\frm_active_salesTer.Designer.cs">
+      <DependentUpon>frm_active_salesTer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Master_Data\frm_NotActive_Salesrep_van.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -504,6 +510,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory\frm_send_to_sap_fine.resx">
       <DependentUpon>frm_send_to_sap_fine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master_Data\frm_active_salesTer.resx">
+      <DependentUpon>frm_active_salesTer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master_Data\frm_NotActive_Salesrep_van.resx">
       <DependentUpon>frm_NotActive_Salesrep_van.cs</DependentUpon>
