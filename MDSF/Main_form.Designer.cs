@@ -151,6 +151,7 @@
             this.androidSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devAndroidSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.managersAndroidSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyActivityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wrongDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNVENTORYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -158,7 +159,6 @@
             this.tobaccoSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lighterSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.managersAndroidSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -405,7 +405,7 @@
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
             this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(47, 20);
+            this.toolsMenu.Size = new System.Drawing.Size(46, 20);
             this.toolsMenu.Text = "&Tools";
             // 
             // optionsToolStripMenuItem
@@ -430,42 +430,42 @@
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.newWindowToolStripMenuItem.Text = "&New Window";
             this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.cascadeToolStripMenuItem.Text = "&Cascade";
             this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // tileVerticalToolStripMenuItem
             // 
             this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.tileVerticalToolStripMenuItem.Text = "Tile &Vertical";
             this.tileVerticalToolStripMenuItem.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // tileHorizontalToolStripMenuItem
             // 
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.tileHorizontalToolStripMenuItem.Text = "Tile &Horizontal";
             this.tileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.closeAllToolStripMenuItem.Text = "C&lose All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
             // 
             // arrangeIconsToolStripMenuItem
             // 
             this.arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
-            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.arrangeIconsToolStripMenuItem.Text = "&Arrange Icons";
             this.arrangeIconsToolStripMenuItem.Click += new System.EventHandler(this.ArrangeIconsToolStripMenuItem_Click);
             // 
@@ -1662,6 +1662,17 @@
             this.devAndroidSupportToolStripMenuItem.Text = "Dev Android Support";
             this.devAndroidSupportToolStripMenuItem.Click += new System.EventHandler(this.devAndroidSupportToolStripMenuItem_Click);
             // 
+            // managersAndroidSupportToolStripMenuItem
+            // 
+            this.managersAndroidSupportToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.managersAndroidSupportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.managersAndroidSupportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.managersAndroidSupportToolStripMenuItem.Image = global::MDSF.Properties.Resources.images__1_;
+            this.managersAndroidSupportToolStripMenuItem.Name = "managersAndroidSupportToolStripMenuItem";
+            this.managersAndroidSupportToolStripMenuItem.Size = new System.Drawing.Size(254, 32);
+            this.managersAndroidSupportToolStripMenuItem.Text = "Managers Android Support";
+            this.managersAndroidSupportToolStripMenuItem.Click += new System.EventHandler(this.managersAndroidSupportToolStripMenuItem_Click);
+            // 
             // dailyActivityToolStripMenuItem
             // 
             this.dailyActivityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1740,17 +1751,6 @@
             this.fineSendToSAPToolStripMenuItem.Size = new System.Drawing.Size(216, 32);
             this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
             this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
-            // 
-            // managersAndroidSupportToolStripMenuItem
-            // 
-            this.managersAndroidSupportToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
-            this.managersAndroidSupportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.managersAndroidSupportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.managersAndroidSupportToolStripMenuItem.Image = global::MDSF.Properties.Resources.images__1_;
-            this.managersAndroidSupportToolStripMenuItem.Name = "managersAndroidSupportToolStripMenuItem";
-            this.managersAndroidSupportToolStripMenuItem.Size = new System.Drawing.Size(254, 32);
-            this.managersAndroidSupportToolStripMenuItem.Text = "Managers Android Support";
-            this.managersAndroidSupportToolStripMenuItem.Click += new System.EventHandler(this.managersAndroidSupportToolStripMenuItem_Click);
             // 
             // Main_form
             // 
