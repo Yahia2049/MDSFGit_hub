@@ -289,6 +289,32 @@ namespace MDSF.Forms.Target
             }
             this.Cursor = Cursors.Default;
         }
+
+        private void btn_delete_targt_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                for (int i = 0; i < rgv_Trade_prog.Rows.Count; i++)
+                {
+                    //Delete old data from target_retail_pos 
+                    //---------------------------------------------
+                    String cmdDelSeg = "Delete from  target_retail_pos  WHERE TER_ID = " + rgv_Trade_prog.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_Trade_prog.Rows[i].Cells["POS_ID"].Value + " AND MONTH = " + rgv_Trade_prog.Rows[i].Cells["MONTH"].Value + " AND YEAR = " + rgv_Trade_prog.Rows[i].Cells["YEAR"].Value;
+                    DataAccessCS.delete(cmdDelSeg);
+                    DataAccessCS.conn.Close();
+                  
+                }
+
+                MessageBox.Show("target sales deleted successfully");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
     }
 
 }

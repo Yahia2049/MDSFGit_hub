@@ -38,6 +38,7 @@
             this.txt_responsible_name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.upseg = new System.Windows.Forms.Button();
+            this.btn_delete_targt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_Trade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_Trade_prog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_Trade_prog.MasterTemplate)).BeginInit();
@@ -161,11 +162,23 @@
             this.upseg.UseVisualStyleBackColor = true;
             this.upseg.Click += new System.EventHandler(this.upseg_Click);
             // 
+            // btn_delete_targt
+            // 
+            this.btn_delete_targt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_delete_targt.Location = new System.Drawing.Point(788, 453);
+            this.btn_delete_targt.Name = "btn_delete_targt";
+            this.btn_delete_targt.Size = new System.Drawing.Size(75, 23);
+            this.btn_delete_targt.TabIndex = 16;
+            this.btn_delete_targt.Text = "Delete target";
+            this.btn_delete_targt.UseVisualStyleBackColor = true;
+            this.btn_delete_targt.Click += new System.EventHandler(this.btn_delete_targt_Click);
+            // 
             // frm_trade_prog_transaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 492);
+            this.Controls.Add(this.btn_delete_targt);
             this.Controls.Add(this.upseg);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_responsible_name);
@@ -199,5 +212,6 @@
         private System.Windows.Forms.TextBox txt_responsible_name;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button upseg;
+        private System.Windows.Forms.Button btn_delete_targt;
     }
 }
