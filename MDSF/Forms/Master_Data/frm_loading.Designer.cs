@@ -114,7 +114,7 @@
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(178, 32);
             this.btn_search.TabIndex = 257;
-            this.btn_search.Text = "Search All New POSs";
+            this.btn_search.Text = "Search ";
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 

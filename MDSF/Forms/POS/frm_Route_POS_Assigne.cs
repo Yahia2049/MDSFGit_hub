@@ -484,6 +484,11 @@ namespace MDSF.Forms.Target
             }
             this.Cursor = Cursors.Default;
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
    
 

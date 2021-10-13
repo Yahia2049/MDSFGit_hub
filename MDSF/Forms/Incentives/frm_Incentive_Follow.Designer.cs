@@ -439,6 +439,7 @@
             this.rdb_date.TabStop = true;
             this.rdb_date.Text = "By Date";
             this.rdb_date.UseVisualStyleBackColor = true;
+            this.rdb_date.CheckedChanged += new System.EventHandler(this.rdb_date_CheckedChanged);
             // 
             // chb_inc_All
             // 

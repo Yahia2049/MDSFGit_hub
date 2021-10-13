@@ -519,7 +519,7 @@ namespace MDSF.Forms.Inventory
                 dt_inc = 0;
 
                 string c_txt_item = " select distinct ITEM_ID,REMAINING_QTY,UOM,LINE_NUMBER,LOADING_NO,trunc(vdatu,'dd') as vdatu  " +
-                     "from INT_INVENTORY_DAILY_SALES ds  where  ds.salesrep_id=  '" + salesrep_id + "' " + " and " +
+                     "from INT_INVENTORY_DAILY_SALES_new ds  where  ds.salesrep_id=  '" + salesrep_id + "' " + " and " +
                      "ds.trans_id= '" + max_trans + "' and ds.category_id= 5 and trunc(UNLOAD_DATE,'dd') = TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') and ITEM_ID not in ('33333','33344','33355') and  ds.LOADING_NO= " + max_load + "";
                 DataSet ds_txt_item = DataAccessCS.getdata(c_txt_item);
                 dv_txt_total = new DataView(ds_txt_item.Tables[0]);
@@ -2422,7 +2422,7 @@ namespace MDSF.Forms.Inventory
                             "from  int_salescall_details where category_id=5 and salescall_id in " + "(select salescall_id from sc_invoice@sales " +
                             "where loading_number ='" + max_load + "' and salescall_id in " + "(select salescall_id  " +
                             "from salescall@sales where call_status_id ='S' and jou_id in " + "(select jou_id  from journey@sales " +
-                            "where jou_seq ='" + journey_seq + "')))";
+                            "where  jou_seq ='" + journey_seq + "')))";
 
 
                         INCENTIVE_TEST_SET = DataAccessCS.getdata(INCENTIVE_TEST_string);

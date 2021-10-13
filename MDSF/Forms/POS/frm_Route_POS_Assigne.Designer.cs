@@ -29,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.cmb_trade_program = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_responsible_name = new System.Windows.Forms.TextBox();
@@ -46,6 +46,7 @@
             this.rgv_pos_route = new Telerik.WinControls.UI.RadGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_save = new System.Windows.Forms.Button();
             this.txt_name = new System.Windows.Forms.TextBox();
             this.cmb_salesrep_source = new System.Windows.Forms.ComboBox();
             this.cmb_active = new System.Windows.Forms.ComboBox();
@@ -86,7 +87,6 @@
             this.txt_sales_ter_id_mst = new System.Windows.Forms.TextBox();
             this.radThemeManager1 = new Telerik.WinControls.RadThemeManager();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
-            this.btn_save = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radButton10)).BeginInit();
@@ -179,6 +179,7 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "POS ROUTES";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // radButton10
             // 
@@ -285,7 +286,7 @@
             // 
             // 
             // 
-            this.rgv_pos_route.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.rgv_pos_route.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.rgv_pos_route.Name = "rgv_pos_route";
             // 
             // 
@@ -337,6 +338,16 @@
             this.panel1.Size = new System.Drawing.Size(883, 157);
             this.panel1.TabIndex = 7;
             this.panel1.Visible = false;
+            // 
+            // btn_save
+            // 
+            this.btn_save.Location = new System.Drawing.Point(760, 85);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(75, 52);
+            this.btn_save.TabIndex = 310;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // txt_name
             // 
@@ -685,16 +696,6 @@
             this.txt_sales_ter_id_mst.Name = "txt_sales_ter_id_mst";
             this.txt_sales_ter_id_mst.Size = new System.Drawing.Size(100, 20);
             this.txt_sales_ter_id_mst.TabIndex = 0;
-            // 
-            // btn_save
-            // 
-            this.btn_save.Location = new System.Drawing.Point(760, 85);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(75, 52);
-            this.btn_save.TabIndex = 310;
-            this.btn_save.Text = "Save";
-            this.btn_save.UseVisualStyleBackColor = true;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // frm_Route_POS_Assigne
             // 

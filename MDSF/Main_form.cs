@@ -1165,7 +1165,7 @@ namespace MDSF
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                var X_Form = new Forms.Master_Data.frm_loading();
+                var X_Form = new Forms.Master_Data.frm_POS_Covered();
                 X_Form.Show();
                 X_Form.MdiParent = this;
                 X_Form.WindowState = FormWindowState.Maximized;
@@ -1574,7 +1574,7 @@ namespace MDSF
             var X_Form = new frm_routes_details();
             X_Form.Show();
             X_Form.MdiParent = this;
-            X_Form.WindowState = FormWindowState.Maximized;
+           // X_Form.WindowState = FormWindowState.Maximized;
         }
 
         private void fineTargetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1624,7 +1624,7 @@ namespace MDSF
             var X_Form = new frm_active_salesTer();
             X_Form.Show();
             X_Form.MdiParent = this;
-            X_Form.WindowState = FormWindowState.Maximized;
+            //X_Form.WindowState = FormWindowState.Maximized;
         }
     }
     

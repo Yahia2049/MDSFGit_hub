@@ -146,6 +146,8 @@ namespace MDSF.Forms.Daily_Activity
                     DataAccessCS.conn.Close();
                     DataAccessCS.update("update van j set j.ending_km=" + txt_new_KM.Text + "  where j.van_id=" + lbl_Van_ID.Text + " and branch_code="+cmb_region_km.SelectedValue+" ");
                     DataAccessCS.conn.Close();
+                    DataAccessCS.update("update vehicle_assigning vs set vs.ending_km =" + txt_new_KM.Text + " where vs.van_id = " + lbl_Van_ID.Text + " and  vs.salesrep_id="+ txt_salesrep_id.Text + " and vs.de_assigning_date is null and vs.branch_code="+ Convert.ToInt32(cmb_region_km.SelectedValue) + " ");
+                    DataAccessCS.conn.Close();
                     int branch_code = Convert.ToInt32(cmb_region_km.SelectedValue);
                     if (branch_code == 1)
                     {

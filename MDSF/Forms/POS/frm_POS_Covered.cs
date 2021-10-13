@@ -68,13 +68,32 @@ namespace MDSF.Forms.Master_Data
                 ds.Dispose();
                 DataAccessCS.conn.Close();
                 //--------------------------------------
-                
+
+                //----------------CMB ROUTE POS----------------------
+                DataSet ds2 = new DataSet();
+                //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
+                ds2 = DataAccessCS.getdata("select r.route_type_id,r.route_type_code||'_'||r.name route_name from route_types r order by r.route_type_code||'_'||r.name");
+
+                rchbdl_route_type.DataSource = ds2.Tables[0];
+                rchbdl_route_type.DisplayMember = "route_name";
+                rchbdl_route_type.ValueMember = "route_type_id";
+                rchbdl_route_type.SelectedIndex = -1;
+                rchbdl_route_type.Text = "--Choose--";
+
+                ds2.Dispose();
+                DataAccessCS.conn.Close();
+                //--------------------------------------------------
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
+
+           
+
+
         }
         private void Fill_rchbdl_SalesTer()
         {
@@ -93,18 +112,47 @@ namespace MDSF.Forms.Master_Data
                         x_region_salesrep = Convert.ToString(x_region_salesrep + "," + item["branch_code"]);
                     }
                 }
+                //----------------------------------------
+                string x_Route_type = "";
+                foreach (var item in rchbdl_route_type.CheckedItems)
+                {
+                    if (string.IsNullOrEmpty(x_Route_type))
+                    {
+                        x_Route_type = Convert.ToString(item["route_type_id"]);
+                    }
+                    else
+                    {
+                        x_Route_type = Convert.ToString(x_Route_type + "," + item["route_type_id"]);
+                    }
+                }
                 //--------------------------------------
-                DataSet ds = new DataSet();
-                ds = DataAccessCS.getdata("select  t.SALES_TER_ID,t.NAME from sales_territories_active t where t.BRANCH_CODE in(" + x_region_salesrep + ") and  t.SALES_TER_ID in (" + DataAccessCS.x_sales_ter + ")  order by t.NAME asc ");
-                rchbdl_salester.DataSource = ds.Tables[0];
-                rchbdl_salester.DisplayMember = "NAME";
-                rchbdl_salester.ValueMember = "SALES_TER_ID";
-                rchbdl_salester.SelectedIndex = -1;
-                rchbdl_salester.Text = "--Choose--";
-                ds.Dispose();
-                DataAccessCS.conn.Close();
                 //--------------------------------------
-               
+                if (rchbdl_route_type.CheckedItems.Count > 0 && chb_All_route_type.Checked ==false)
+                {
+                    DataSet ds = new DataSet();
+                    ds = DataAccessCS.getdata("select  t.SALES_TER_ID,t.NAME from sales_territories_active t where t.BRANCH_CODE in(" + x_region_salesrep + ") and  t.SALES_TER_ID in (" + DataAccessCS.x_sales_ter + ") and route_type_id in (" + x_Route_type + ")  order by t.NAME asc ");
+                    rchbdl_salester.DataSource = ds.Tables[0];
+                    rchbdl_salester.DisplayMember = "NAME";
+                    rchbdl_salester.ValueMember = "SALES_TER_ID";
+                    rchbdl_salester.SelectedIndex = -1;
+                    rchbdl_salester.Text = "--Choose--";
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
+                else
+                {
+                    DataSet ds = new DataSet();
+                    ds = DataAccessCS.getdata("select  t.SALES_TER_ID,t.NAME from sales_territories_active t where t.BRANCH_CODE in(" + x_region_salesrep + ") and  t.SALES_TER_ID in (" + DataAccessCS.x_sales_ter + ")   order by t.NAME asc ");
+                    rchbdl_salester.DataSource = ds.Tables[0];
+                    rchbdl_salester.DisplayMember = "NAME";
+                    rchbdl_salester.ValueMember = "SALES_TER_ID";
+                    rchbdl_salester.SelectedIndex = -1;
+                    rchbdl_salester.Text = "--Choose--";
+                    ds.Dispose();
+                    DataAccessCS.conn.Close();
+                    //--------------------------------------
+                }
             }
             catch (Exception ex)
             {
@@ -187,23 +235,40 @@ namespace MDSF.Forms.Master_Data
                         }
                     }
 
-                    D = "select salesrep_id,(select max(name) from salesman where sales_id = p.salesrep_id ) salesrep_name,pos_code,pos_name,pos_address, " +
-                        " ( select count(distinct start_time) from salescall@sales s , journey@sales j where s.jou_id  = j.jou_id and pos_code = p.pos_code " +
-                        " and trunc(to_date(start_time,'dd-mon-yyyy hh:mi:ss AM')) between '"+from_date+"' and '"+to_date+"' and j.salesrep_id = p.salesrep_id " +
-                        " and call_status_id in ('V','S')) count_vists " +
-                        " from to_sfa_pos p " +
-                        " where salesrep_id IN( "+ x_salesrep_salesrep + " )";
-                }
-                    else if (chb_All_salesrep_salesrep.Checked == false )
-                    {
-                       
-                        D = "select salesrep_id,(select max(name) from salesman where sales_id = p.salesrep_id ) salesrep_name,pos_code,pos_name,pos_address, " +
-                        " ( select count(distinct start_time) from salescall@sales s , journey@sales j where s.jou_id  = j.jou_id and pos_code = p.pos_code " +
+                    D = "select branch_code ,( select BRANCH_NAME from branches where branch_code = p.BRANCH_CODE ) branch_name ," +
+                        "SALES_TERRITORY_ID, (select name from sales_territories where sales_ter_id = p.SALES_TERRITORY_ID ) sales_ter_name,salesrep_id,(select max(name) " +
+                        "from salesman where sales_id = p.salesrep_id ) salesrep_name,pos_code,pos_name,pos_address, ( select count(distinct start_time)from salescall@sales s ," +
+                        " journey@sales j where s.jou_id  = j.jou_id and pos_code = p.pos_code" +
                         " and trunc(to_date(start_time,'dd-mon-yyyy hh:mi:ss AM')) between '" + from_date + "' and '" + to_date + "' and j.salesrep_id = p.salesrep_id " +
                         " and call_status_id in ('V','S')) count_vists " +
                         " from to_sfa_pos p " +
                         " where salesrep_id IN( " + x_salesrep_salesrep + " )";
-                    }                   
+
+                    //D = "select salesrep_id,(select max(name) from salesman where sales_id = p.salesrep_id ) salesrep_name,pos_code,pos_name,pos_address, " +
+                    //    " ( select count(distinct start_time) from salescall@sales s , journey@sales j where s.jou_id  = j.jou_id and pos_code = p.pos_code " +
+                    //    " and trunc(to_date(start_time,'dd-mon-yyyy hh:mi:ss AM')) between '"+from_date+"' and '"+to_date+"' and j.salesrep_id = p.salesrep_id " +
+                    //    " and call_status_id in ('V','S')) count_vists " +
+                    //    " from to_sfa_pos p " +
+                    //    " where salesrep_id IN( "+ x_salesrep_salesrep + " )";
+                }
+                    else if (chb_All_salesrep_salesrep.Checked == false )
+                    {
+                       
+                        D = "select branch_code ,( select BRANCH_NAME from branches where branch_code = p.BRANCH_CODE ) branch_name ,SALES_TERRITORY_ID, (select name from sales_territories where sales_ter_id = p.SALES_TERRITORY_ID )" +
+                        " sales_ter_name,salesrep_id,(select max(name) from salesman where sales_id = p.salesrep_id ) salesrep_name,pos_code,pos_name,pos_address, ( select count(distinct start_time)from salescall@sales s ," +
+                        " journey@sales j where s.jou_id  = j.jou_id and pos_code = p.pos_code" +
+                        " and trunc(to_date(start_time,'dd-mon-yyyy hh:mi:ss AM')) between '" + from_date + "' and '" + to_date + "' and j.salesrep_id = p.salesrep_id " +
+                        " and call_status_id in ('V','S')) count_vists " +
+                        " from to_sfa_pos p " +
+                        " where salesrep_id IN( " + x_salesrep_salesrep + " )";
+
+                    //D = "select salesrep_id,(select max(name) from salesman where sales_id = p.salesrep_id ) salesrep_name,pos_code,pos_name,pos_address, " +
+                    //   " ( select count(distinct start_time) from salescall@sales s , journey@sales j where s.jou_id  = j.jou_id and pos_code = p.pos_code " +
+                    //   " and trunc(to_date(start_time,'dd-mon-yyyy hh:mi:ss AM')) between '" + from_date + "' and '" + to_date + "' and j.salesrep_id = p.salesrep_id " +
+                    //   " and call_status_id in ('V','S')) count_vists " +
+                    //   " from to_sfa_pos p " +
+                    //   " where salesrep_id IN( " + x_salesrep_salesrep + " )";
+                }                   
                     else
                     {
                         MessageBox.Show("برجاء تحديد المندوب اولاً");
@@ -363,6 +428,11 @@ namespace MDSF.Forms.Master_Data
             }
 
             this.Cursor = Cursors.Default;
+        }
+
+        private void rchbdl_route_type_ItemCheckedChanged(object sender, Telerik.WinControls.UI.RadCheckedListDataItemEventArgs e)
+        {
+          
         }
     }
    

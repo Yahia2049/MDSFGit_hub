@@ -123,11 +123,11 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.mASTERDATAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vanAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vanDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kMUpdateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.lastKMUpdateAndSendToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.productPriceListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reassignRoutesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vanDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sALESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.totalDailySalesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -406,7 +406,7 @@
             this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
             this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(46, 20);
+            this.toolsMenu.Size = new System.Drawing.Size(47, 20);
             this.toolsMenu.Text = "&Tools";
             // 
             // optionsToolStripMenuItem
@@ -431,42 +431,42 @@
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.newWindowToolStripMenuItem.Text = "&New Window";
             this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.cascadeToolStripMenuItem.Text = "&Cascade";
             this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // tileVerticalToolStripMenuItem
             // 
             this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.tileVerticalToolStripMenuItem.Text = "Tile &Vertical";
             this.tileVerticalToolStripMenuItem.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // tileHorizontalToolStripMenuItem
             // 
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.tileHorizontalToolStripMenuItem.Text = "Tile &Horizontal";
             this.tileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.closeAllToolStripMenuItem.Text = "C&lose All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
             // 
             // arrangeIconsToolStripMenuItem
             // 
             this.arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
-            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.arrangeIconsToolStripMenuItem.Text = "&Arrange Icons";
             this.arrangeIconsToolStripMenuItem.Click += new System.EventHandler(this.ArrangeIconsToolStripMenuItem_Click);
             // 
@@ -1314,11 +1314,11 @@
             // 
             this.mASTERDATAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vanAToolStripMenuItem,
+            this.vanDetailsToolStripMenuItem,
             this.kMUpdateToolStripMenuItem1,
             this.lastKMUpdateAndSendToolStripMenuItem1,
             this.productPriceListToolStripMenuItem,
             this.reassignRoutesToolStripMenuItem,
-            this.vanDetailsToolStripMenuItem,
             this.toolStripMenuItem1});
             this.mASTERDATAToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.mASTERDATAToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mASTERDATAToolStripMenuItem.Image")));
@@ -1335,9 +1335,20 @@
             this.vanAToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.vanAToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("vanAToolStripMenuItem.Image")));
             this.vanAToolStripMenuItem.Name = "vanAToolStripMenuItem";
-            this.vanAToolStripMenuItem.Size = new System.Drawing.Size(257, 32);
+            this.vanAToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
             this.vanAToolStripMenuItem.Text = "Reassign Van";
             this.vanAToolStripMenuItem.Click += new System.EventHandler(this.vanAToolStripMenuItem_Click);
+            // 
+            // vanDetailsToolStripMenuItem
+            // 
+            this.vanDetailsToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.vanDetailsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vanDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.FloralWhite;
+            this.vanDetailsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("vanDetailsToolStripMenuItem.Image")));
+            this.vanDetailsToolStripMenuItem.Name = "vanDetailsToolStripMenuItem";
+            this.vanDetailsToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
+            this.vanDetailsToolStripMenuItem.Text = "Van Details";
+            this.vanDetailsToolStripMenuItem.Click += new System.EventHandler(this.vanDetailsToolStripMenuItem_Click);
             // 
             // kMUpdateToolStripMenuItem1
             // 
@@ -1346,7 +1357,7 @@
             this.kMUpdateToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.kMUpdateToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("kMUpdateToolStripMenuItem1.Image")));
             this.kMUpdateToolStripMenuItem1.Name = "kMUpdateToolStripMenuItem1";
-            this.kMUpdateToolStripMenuItem1.Size = new System.Drawing.Size(257, 32);
+            this.kMUpdateToolStripMenuItem1.Size = new System.Drawing.Size(244, 32);
             this.kMUpdateToolStripMenuItem1.Text = "KM Transactions";
             this.kMUpdateToolStripMenuItem1.Click += new System.EventHandler(this.kMUpdateToolStripMenuItem1_Click);
             // 
@@ -1357,7 +1368,7 @@
             this.lastKMUpdateAndSendToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.lastKMUpdateAndSendToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("lastKMUpdateAndSendToolStripMenuItem1.Image")));
             this.lastKMUpdateAndSendToolStripMenuItem1.Name = "lastKMUpdateAndSendToolStripMenuItem1";
-            this.lastKMUpdateAndSendToolStripMenuItem1.Size = new System.Drawing.Size(257, 32);
+            this.lastKMUpdateAndSendToolStripMenuItem1.Size = new System.Drawing.Size(244, 32);
             this.lastKMUpdateAndSendToolStripMenuItem1.Text = "Last KM Update and send";
             this.lastKMUpdateAndSendToolStripMenuItem1.Click += new System.EventHandler(this.lastKMUpdateAndSendToolStripMenuItem1_Click);
             // 
@@ -1368,7 +1379,7 @@
             this.productPriceListToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.productPriceListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("productPriceListToolStripMenuItem.Image")));
             this.productPriceListToolStripMenuItem.Name = "productPriceListToolStripMenuItem";
-            this.productPriceListToolStripMenuItem.Size = new System.Drawing.Size(257, 32);
+            this.productPriceListToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
             this.productPriceListToolStripMenuItem.Text = "Product Price List";
             this.productPriceListToolStripMenuItem.Click += new System.EventHandler(this.productPriceListToolStripMenuItem_Click);
             // 
@@ -1379,27 +1390,18 @@
             this.reassignRoutesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.reassignRoutesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reassignRoutesToolStripMenuItem.Image")));
             this.reassignRoutesToolStripMenuItem.Name = "reassignRoutesToolStripMenuItem";
-            this.reassignRoutesToolStripMenuItem.Size = new System.Drawing.Size(257, 32);
+            this.reassignRoutesToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
             this.reassignRoutesToolStripMenuItem.Text = "Reassign Routes";
             this.reassignRoutesToolStripMenuItem.Click += new System.EventHandler(this.reassignRoutesToolStripMenuItem_Click);
             // 
-            // vanDetailsToolStripMenuItem
-            // 
-            this.vanDetailsToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
-            this.vanDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.FloralWhite;
-            this.vanDetailsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("vanDetailsToolStripMenuItem.Image")));
-            this.vanDetailsToolStripMenuItem.Name = "vanDetailsToolStripMenuItem";
-            this.vanDetailsToolStripMenuItem.Size = new System.Drawing.Size(257, 32);
-            this.vanDetailsToolStripMenuItem.Text = "Van Details";
-            this.vanDetailsToolStripMenuItem.Click += new System.EventHandler(this.vanDetailsToolStripMenuItem_Click);
-            // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.toolStripMenuItem1.BackColor = System.Drawing.Color.DarkGreen;
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(257, 32);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(244, 32);
             this.toolStripMenuItem1.Text = "Active sales territories";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -1445,11 +1447,11 @@
             this.pOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reviewNewPOSToolStripMenuItem,
             this.payerPOSToolStripMenuItem,
+            this.pOSROUTEToolStripMenuItem,
             this.changPOSTerritoryToolStripMenuItem,
             this.pOSTAXPhotoToolStripMenuItem,
             this.pOSSurveyToolStripMenuItem,
             this.coverdAndToolStripMenuItem,
-            this.pOSROUTEToolStripMenuItem,
             this.newPOSReportToolStripMenuItem,
             this.routesToolStripMenuItem});
             this.pOSToolStripMenuItem.ForeColor = System.Drawing.Color.White;
@@ -1534,7 +1536,7 @@
             this.pOSROUTEToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pOSROUTEToolStripMenuItem.Image")));
             this.pOSROUTEToolStripMenuItem.Name = "pOSROUTEToolStripMenuItem";
             this.pOSROUTEToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
-            this.pOSROUTEToolStripMenuItem.Text = "POS ROUTE";
+            this.pOSROUTEToolStripMenuItem.Text = "POS ROUTE ASSIGN";
             this.pOSROUTEToolStripMenuItem.Click += new System.EventHandler(this.pOSROUTEToolStripMenuItem_Click);
             // 
             // newPOSReportToolStripMenuItem
@@ -1551,10 +1553,12 @@
             // routesToolStripMenuItem
             // 
             this.routesToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.routesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.routesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.routesToolStripMenuItem.Image = global::MDSF.Properties.Resources.pos;
             this.routesToolStripMenuItem.Name = "routesToolStripMenuItem";
             this.routesToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
-            this.routesToolStripMenuItem.Text = "Routes";
+            this.routesToolStripMenuItem.Text = "Routes Search";
             this.routesToolStripMenuItem.Click += new System.EventHandler(this.routesToolStripMenuItem_Click);
             // 
             // iNCENTIVESToolStripMenuItem

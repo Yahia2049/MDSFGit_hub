@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_POS_Covered));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
             this.Label2 = new System.Windows.Forms.Label();
             this.Label3 = new System.Windows.Forms.Label();
             this.DateTimePicker_from = new System.Windows.Forms.DateTimePicker();
@@ -55,12 +55,16 @@
             this.radButton3 = new Telerik.WinControls.UI.RadButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.rchbdl_route_type = new Telerik.WinControls.UI.RadCheckedDropDownList();
+            this.chb_All_route_type = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.rchbdl_salesrep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rchbdl_salester)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rchbdl_Region)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_ALL_New)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_ALL_New.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rchbdl_route_type)).BeginInit();
             this.SuspendLayout();
             // 
             // Label2
@@ -110,7 +114,7 @@
             // btn_search
             // 
             this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_search.Location = new System.Drawing.Point(508, 37);
+            this.btn_search.Location = new System.Drawing.Point(472, 83);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(178, 32);
             this.btn_search.TabIndex = 257;
@@ -121,7 +125,7 @@
             // rchbdl_salesrep
             // 
             this.rchbdl_salesrep.DropDownAnimationEnabled = false;
-            this.rchbdl_salesrep.Location = new System.Drawing.Point(96, 61);
+            this.rchbdl_salesrep.Location = new System.Drawing.Point(102, 92);
             this.rchbdl_salesrep.Name = "rchbdl_salesrep";
             this.rchbdl_salesrep.Size = new System.Drawing.Size(239, 24);
             this.rchbdl_salesrep.TabIndex = 266;
@@ -130,7 +134,7 @@
             // rchbdl_salester
             // 
             this.rchbdl_salester.DropDownAnimationEnabled = false;
-            this.rchbdl_salester.Location = new System.Drawing.Point(96, 32);
+            this.rchbdl_salester.Location = new System.Drawing.Point(102, 63);
             this.rchbdl_salester.Name = "rchbdl_salester";
             this.rchbdl_salester.Size = new System.Drawing.Size(239, 24);
             this.rchbdl_salester.TabIndex = 267;
@@ -140,7 +144,7 @@
             // chb_All_salesrep_salesrep
             // 
             this.chb_All_salesrep_salesrep.AutoSize = true;
-            this.chb_All_salesrep_salesrep.Location = new System.Drawing.Point(341, 61);
+            this.chb_All_salesrep_salesrep.Location = new System.Drawing.Point(347, 92);
             this.chb_All_salesrep_salesrep.Name = "chb_All_salesrep_salesrep";
             this.chb_All_salesrep_salesrep.Size = new System.Drawing.Size(37, 17);
             this.chb_All_salesrep_salesrep.TabIndex = 264;
@@ -150,7 +154,7 @@
             // chb_All_ter_salesrep
             // 
             this.chb_All_ter_salesrep.AutoSize = true;
-            this.chb_All_ter_salesrep.Location = new System.Drawing.Point(341, 37);
+            this.chb_All_ter_salesrep.Location = new System.Drawing.Point(347, 68);
             this.chb_All_ter_salesrep.Name = "chb_All_ter_salesrep";
             this.chb_All_ter_salesrep.Size = new System.Drawing.Size(37, 17);
             this.chb_All_ter_salesrep.TabIndex = 265;
@@ -161,7 +165,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(11, 62);
+            this.label11.Location = new System.Drawing.Point(17, 93);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(48, 13);
             this.label11.TabIndex = 262;
@@ -170,7 +174,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 36);
+            this.label7.Location = new System.Drawing.Point(17, 67);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 13);
             this.label7.TabIndex = 263;
@@ -179,7 +183,7 @@
             // rchbdl_Region
             // 
             this.rchbdl_Region.DropDownAnimationEnabled = false;
-            this.rchbdl_Region.Location = new System.Drawing.Point(96, 5);
+            this.rchbdl_Region.Location = new System.Drawing.Point(102, 33);
             this.rchbdl_Region.Name = "rchbdl_Region";
             this.rchbdl_Region.Size = new System.Drawing.Size(239, 24);
             this.rchbdl_Region.TabIndex = 261;
@@ -189,7 +193,7 @@
             // chb_All_reg_salesrep
             // 
             this.chb_All_reg_salesrep.AutoSize = true;
-            this.chb_All_reg_salesrep.Location = new System.Drawing.Point(341, 12);
+            this.chb_All_reg_salesrep.Location = new System.Drawing.Point(347, 40);
             this.chb_All_reg_salesrep.Name = "chb_All_reg_salesrep";
             this.chb_All_reg_salesrep.Size = new System.Drawing.Size(37, 17);
             this.chb_All_reg_salesrep.TabIndex = 260;
@@ -200,7 +204,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(11, 11);
+            this.label10.Location = new System.Drawing.Point(17, 39);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(40, 13);
             this.label10.TabIndex = 259;
@@ -219,13 +223,13 @@
             this.Grid_ALL_New.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Grid_ALL_New.Location = new System.Drawing.Point(14, 96);
+            this.Grid_ALL_New.Location = new System.Drawing.Point(14, 122);
             // 
             // 
             // 
-            this.Grid_ALL_New.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.Grid_ALL_New.MasterTemplate.ViewDefinition = tableViewDefinition5;
             this.Grid_ALL_New.Name = "Grid_ALL_New";
-            this.Grid_ALL_New.Size = new System.Drawing.Size(1144, 477);
+            this.Grid_ALL_New.Size = new System.Drawing.Size(1144, 451);
             this.Grid_ALL_New.TabIndex = 269;
             this.Grid_ALL_New.ThemeName = "TelerikMetro";
             // 
@@ -240,7 +244,7 @@
             this.lbl_new_pos_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_new_pos_count.AutoSize = true;
             this.lbl_new_pos_count.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_new_pos_count.Location = new System.Drawing.Point(1091, 75);
+            this.lbl_new_pos_count.Location = new System.Drawing.Point(762, 102);
             this.lbl_new_pos_count.Name = "lbl_new_pos_count";
             this.lbl_new_pos_count.Size = new System.Drawing.Size(15, 14);
             this.lbl_new_pos_count.TabIndex = 279;
@@ -250,7 +254,7 @@
             // 
             this.label40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(1002, 75);
+            this.label40.Location = new System.Drawing.Point(673, 102);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(59, 13);
             this.label40.TabIndex = 280;
@@ -277,7 +281,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(441, 77);
+            this.label1.Location = new System.Drawing.Point(522, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 282;
@@ -288,17 +292,56 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(530, 77);
+            this.label4.Location = new System.Drawing.Point(611, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(15, 14);
             this.label4.TabIndex = 281;
             this.label4.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 284;
+            this.label5.Text = "Route Type";
+            // 
+            // rchbdl_route_type
+            // 
+            this.rchbdl_route_type.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rchbdl_route_type.DropDownAnimationEnabled = false;
+            this.rchbdl_route_type.Location = new System.Drawing.Point(102, 4);
+            this.rchbdl_route_type.Name = "rchbdl_route_type";
+            // 
+            // 
+            // 
+            this.rchbdl_route_type.RootElement.ControlBounds = new System.Drawing.Rectangle(748, 435, 125, 20);
+            this.rchbdl_route_type.RootElement.StretchVertically = true;
+            this.rchbdl_route_type.Size = new System.Drawing.Size(239, 24);
+            this.rchbdl_route_type.TabIndex = 283;
+            this.rchbdl_route_type.ThemeName = "TelerikMetro";
+            this.rchbdl_route_type.ItemCheckedChanged += new Telerik.WinControls.UI.RadCheckedListDataItemEventHandler(this.rchbdl_route_type_ItemCheckedChanged);
+            // 
+            // chb_All_route_type
+            // 
+            this.chb_All_route_type.AutoSize = true;
+            this.chb_All_route_type.Location = new System.Drawing.Point(347, 10);
+            this.chb_All_route_type.Name = "chb_All_route_type";
+            this.chb_All_route_type.Size = new System.Drawing.Size(37, 17);
+            this.chb_All_route_type.TabIndex = 285;
+            this.chb_All_route_type.Text = "All";
+            this.chb_All_route_type.UseVisualStyleBackColor = true;
             // 
             // frm_POS_Covered
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1165, 585);
+            this.Controls.Add(this.btn_search);
+            this.Controls.Add(this.chb_All_route_type);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.rchbdl_route_type);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Grid_ALL_New);
@@ -311,7 +354,6 @@
             this.Controls.Add(this.rchbdl_Region);
             this.Controls.Add(this.chb_All_reg_salesrep);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.btn_search);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.Label3);
             this.Controls.Add(this.DateTimePicker_from);
@@ -328,6 +370,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Grid_ALL_New.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_ALL_New)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rchbdl_route_type)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,5 +401,8 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private Telerik.WinControls.UI.RadCheckedDropDownList rchbdl_route_type;
+        private System.Windows.Forms.CheckBox chb_All_route_type;
     }
 }
