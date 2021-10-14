@@ -655,7 +655,8 @@ namespace MDSF.Forms.Inventory
                     else // Windows Salesrep
                     {
                         // --------------
-                        type = " select js.journey_sequence " + " from SALES_TERRITORIES st,JOURNEY_START js,dsr d,GEN_ACTIVE_SALESREP_INFO gs" + " where(st.sales_ter_id = d.sales_ter_id) " + " and js.journey_sequence=d.journey_sequence " + " and upper(st.SALES_TER_NAME)  not like '%MERCH%' and upper(st.SALES_TER_NAME)  not like '%ENGAG%' " + " and (st.ROUTETYPE_ID  = 1 Or    gs.KEY_ACC_FLAG = 1) " + " and gs.salesrep_id=js.salesrep_id   and gs.sales_ter_id=st.sales_ter_id  and st.sales_ter_id=d.sales_ter_id " + " and gs.salesrep_id='" + cmb_salesrep.SelectedValue + "' " + " and trunc(js.start_time,'dd')= TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
+                        type = " select js.journey_sequence " + " from SALES_TERRITORIES st,JOURNEY_START js,dsr d,GEN_ACTIVE_SALESREP_INFO gs" + " where(st.sales_ter_id = d.sales_ter_id) " + " " +
+                            "and js.journey_sequence=d.journey_sequence " + " and upper(st.SALES_TER_NAME)  not like '%MERCH%' and upper(st.SALES_TER_NAME)  not like '%ENGAG%' " + " and (st.ROUTETYPE_ID  = 1 Or    gs.KEY_ACC_FLAG = 1) " + " and gs.salesrep_id=js.salesrep_id   and gs.sales_ter_id=st.sales_ter_id  and st.sales_ter_id=d.sales_ter_id " + " and gs.salesrep_id='" + cmb_salesrep.SelectedValue + "' " + " and trunc(js.start_time,'dd')= TO_DATE('" + DateTimePicker.Value.Month + "/" + DateTimePicker.Value.Day + "/" + DateTimePicker.Value.Year + "','mm/dd/yyyy') ";
 
                     }
 
