@@ -439,6 +439,12 @@
     <Compile Include="Forms\Target\frm_fine_target.Designer.cs">
       <DependentUpon>frm_fine_target.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Target\frm_target_details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Target\frm_target_details.Designer.cs">
+      <DependentUpon>frm_target_details.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Target\frm_trade_prog_transaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -615,6 +621,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Target\frm_fine_target.resx">
       <DependentUpon>frm_fine_target.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Target\frm_target_details.resx">
+      <DependentUpon>frm_target_details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Target\frm_trade_prog_transaction.resx">
       <DependentUpon>frm_trade_prog_transaction.cs</DependentUpon>
