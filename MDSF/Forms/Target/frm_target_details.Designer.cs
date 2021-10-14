@@ -85,7 +85,7 @@ namespace MDSF.Forms.Target
             // 
             this.labelter.AutoSize = true;
             this.labelter.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelter.Location = new System.Drawing.Point(431, 110);
+            this.labelter.Location = new System.Drawing.Point(431, 105);
             this.labelter.Name = "labelter";
             this.labelter.Size = new System.Drawing.Size(41, 14);
             this.labelter.TabIndex = 313;
@@ -94,7 +94,7 @@ namespace MDSF.Forms.Target
             // 
             // txtter_id
             // 
-            this.txtter_id.Location = new System.Drawing.Point(483, 108);
+            this.txtter_id.Location = new System.Drawing.Point(483, 103);
             this.txtter_id.Name = "txtter_id";
             this.txtter_id.Size = new System.Drawing.Size(81, 20);
             this.txtter_id.TabIndex = 312;
@@ -136,9 +136,11 @@ namespace MDSF.Forms.Target
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(158, 4);
+            this.label1.Location = new System.Drawing.Point(345, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 23);
             this.label1.TabIndex = 307;
@@ -166,10 +168,12 @@ namespace MDSF.Forms.Target
             // dgv_source
             // 
             this.dgv_source.AllowUserToAddRows = false;
+            this.dgv_source.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_source.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_source.Location = new System.Drawing.Point(35, 197);
+            this.dgv_source.Location = new System.Drawing.Point(12, 197);
             this.dgv_source.Name = "dgv_source";
-            this.dgv_source.Size = new System.Drawing.Size(719, 276);
+            this.dgv_source.Size = new System.Drawing.Size(772, 289);
             this.dgv_source.TabIndex = 304;
             // 
             // cmb_salesrep_source
@@ -196,7 +200,7 @@ namespace MDSF.Forms.Target
             // cmb_sales_ter_source
             // 
             this.cmb_sales_ter_source.FormattingEnabled = true;
-            this.cmb_sales_ter_source.Location = new System.Drawing.Point(143, 108);
+            this.cmb_sales_ter_source.Location = new System.Drawing.Point(143, 102);
             this.cmb_sales_ter_source.Name = "cmb_sales_ter_source";
             this.cmb_sales_ter_source.Size = new System.Drawing.Size(257, 21);
             this.cmb_sales_ter_source.TabIndex = 303;
@@ -208,7 +212,7 @@ namespace MDSF.Forms.Target
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(32, 108);
+            this.label4.Location = new System.Drawing.Point(32, 102);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 300;
@@ -221,7 +225,7 @@ namespace MDSF.Forms.Target
             this.btn_search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_search.Location = new System.Drawing.Point(571, 134);
             this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(45, 37);
+            this.btn_search.Size = new System.Drawing.Size(58, 37);
             this.btn_search.TabIndex = 317;
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Visible = false;
@@ -251,7 +255,7 @@ namespace MDSF.Forms.Target
             this.Controls.Add(this.cmb_sales_ter_source);
             this.Controls.Add(this.label4);
             this.Name = "frm_target_details";
-            this.Text = "frm_target_details";
+            this.Text = "Target Search";
             this.Load += new System.EventHandler(this.frm_target_details_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_source)).EndInit();
             this.ResumeLayout(false);

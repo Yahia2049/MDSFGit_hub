@@ -129,6 +129,7 @@
             this.productPriceListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reassignRoutesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOSMAssigningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sALESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.totalDailySalesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.postingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -160,7 +161,7 @@
             this.tobaccoSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lighterSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pOSMAssigningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.targeyDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -1407,6 +1408,16 @@
             this.toolStripMenuItem1.Text = "Active sales territories";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
+            // pOSMAssigningToolStripMenuItem
+            // 
+            this.pOSMAssigningToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.pOSMAssigningToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pOSMAssigningToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.pOSMAssigningToolStripMenuItem.Name = "pOSMAssigningToolStripMenuItem";
+            this.pOSMAssigningToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
+            this.pOSMAssigningToolStripMenuItem.Text = "POSM Assigning";
+            this.pOSMAssigningToolStripMenuItem.Click += new System.EventHandler(this.pOSMAssigningToolStripMenuItem_Click);
+            // 
             // sALESToolStripMenuItem
             // 
             this.sALESToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
@@ -1601,7 +1612,8 @@
             this.targetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.targetAssigningToolStripMenuItem,
             this.tradeProgramTransactionToolStripMenuItem,
-            this.fineTargetToolStripMenuItem});
+            this.fineTargetToolStripMenuItem,
+            this.targeyDetailsToolStripMenuItem});
             this.targetToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.targetToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("targetToolStripMenuItem.Image")));
             this.targetToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1771,15 +1783,16 @@
             this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
             this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
             // 
-            // pOSMAssigningToolStripMenuItem
+            // targeyDetailsToolStripMenuItem
             // 
-            this.pOSMAssigningToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
-            this.pOSMAssigningToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pOSMAssigningToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.pOSMAssigningToolStripMenuItem.Name = "pOSMAssigningToolStripMenuItem";
-            this.pOSMAssigningToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
-            this.pOSMAssigningToolStripMenuItem.Text = "POSM Assigning";
-            this.pOSMAssigningToolStripMenuItem.Click += new System.EventHandler(this.pOSMAssigningToolStripMenuItem_Click);
+            this.targeyDetailsToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.targeyDetailsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.targeyDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.targeyDetailsToolStripMenuItem.Image = global::MDSF.Properties.Resources.target;
+            this.targeyDetailsToolStripMenuItem.Name = "targeyDetailsToolStripMenuItem";
+            this.targeyDetailsToolStripMenuItem.Size = new System.Drawing.Size(253, 32);
+            this.targeyDetailsToolStripMenuItem.Text = "Targey Details";
+            this.targeyDetailsToolStripMenuItem.Click += new System.EventHandler(this.targeyDetailsToolStripMenuItem_Click);
             // 
             // Main_form
             // 
@@ -1959,6 +1972,7 @@
         private System.Windows.Forms.ToolStripMenuItem managersAndroidSupportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pOSMAssigningToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem targeyDetailsToolStripMenuItem;
     }
 }
 
