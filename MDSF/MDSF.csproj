@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>102</ApplicationRevision>
+    <ApplicationRevision>104</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -289,6 +289,12 @@
     <Compile Include="Forms\Master_Data\frm_reassign_pos_routes.Designer.cs">
       <DependentUpon>frm_reassign_pos_routes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Master_Data\frm_POSM_Assign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master_Data\frm_POSM_Assign.Designer.cs">
+      <DependentUpon>frm_POSM_Assign.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Master_Data\frm_update_KM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -528,6 +534,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master_Data\frm_reassign_pos_routes.resx">
       <DependentUpon>frm_reassign_pos_routes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master_Data\frm_POSM_Assign.resx">
+      <DependentUpon>frm_POSM_Assign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master_Data\frm_update_KM.resx">
       <DependentUpon>frm_update_KM.cs</DependentUpon>

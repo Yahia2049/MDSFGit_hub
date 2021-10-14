@@ -234,15 +234,21 @@ namespace MDSF.Forms.Master_Data
                             x_salesrep_salesrep = Convert.ToString(x_salesrep_salesrep + "," + item["SALESREP_ID"]);
                         }
                     }
+                    //ahmed hamada
+                    //                    D= "select branch_code ,( select BRANCH_NAME from branches where branch_code = p.BRANCH_CODE ) branch_name ,SALES_TERRITORY_ID,"+
+                    //"(select name from sales_territories where sales_ter_id = p.SALES_TERRITORY_ID and branch_code = p.BRANCH_CODE) sales_ter_name,salesrep_id,(select max(name) from salesman" +
+                    //" where sales_id = p.salesrep_id ) salesrep_name,pos_code,pos_name,pos_address, (select count(distinct start_time)from salescall @sales s , journey @sales j" +
+                    //" where s.jou_id = j.jou_id and pos_code = p.pos_code and trunc(to_date(start_time,'dd-mon-yyyy hh:mi:ss AM')) between '"+ from_date+ "' and '"+ to_date+ "' and j.salesrep_id = p.salesrep_id  and call_status_id in ('V', 'S')) count_vists from to_sfa_pos p"+
+                    //" where salesrep_id IN( " + x_salesrep_salesrep + " )";
 
                     D = "select branch_code ,( select BRANCH_NAME from branches where branch_code = p.BRANCH_CODE ) branch_name ," +
-                        "SALES_TERRITORY_ID, (select name from sales_territories where sales_ter_id = p.SALES_TERRITORY_ID ) sales_ter_name,salesrep_id,(select max(name) " +
-                        "from salesman where sales_id = p.salesrep_id ) salesrep_name,pos_code,pos_name,pos_address, ( select count(distinct start_time)from salescall@sales s ," +
-                        " journey@sales j where s.jou_id  = j.jou_id and pos_code = p.pos_code" +
-                        " and trunc(to_date(start_time,'dd-mon-yyyy hh:mi:ss AM')) between '" + from_date + "' and '" + to_date + "' and j.salesrep_id = p.salesrep_id " +
-                        " and call_status_id in ('V','S')) count_vists " +
-                        " from to_sfa_pos p " +
-                        " where salesrep_id IN( " + x_salesrep_salesrep + " )";
+                          "SALES_TERRITORY_ID, (select name from sales_territories where sales_ter_id = p.SALES_TERRITORY_ID and branch_code = p.BRANCH_CODE) sales_ter_name,salesrep_id,(select max(name) " +
+                       "from salesman where sales_id = p.salesrep_id ) salesrep_name,pos_code,pos_name,pos_address, ( select count(distinct start_time)from salescall@sales s ," +
+                          " journey@sales j where s.jou_id  = j.jou_id and pos_code = p.pos_code" +
+                      " and trunc(to_date(start_time,'dd-mon-yyyy hh:mi:ss AM')) between '" + from_date + "' and '" + to_date + "' and j.salesrep_id = p.salesrep_id " +
+                     " and call_status_id in ('V','S')) count_vists " +
+                     " from to_sfa_pos p " +
+                    " where salesrep_id IN( " + x_salesrep_salesrep + " )";
 
                     //D = "select salesrep_id,(select max(name) from salesman where sales_id = p.salesrep_id ) salesrep_name,pos_code,pos_name,pos_address, " +
                     //    " ( select count(distinct start_time) from salescall@sales s , journey@sales j where s.jou_id  = j.jou_id and pos_code = p.pos_code " +
@@ -251,10 +257,10 @@ namespace MDSF.Forms.Master_Data
                     //    " from to_sfa_pos p " +
                     //    " where salesrep_id IN( "+ x_salesrep_salesrep + " )";
                 }
-                    else if (chb_All_salesrep_salesrep.Checked == false )
+                else if (chb_All_salesrep_salesrep.Checked == false )
                     {
                        
-                        D = "select branch_code ,( select BRANCH_NAME from branches where branch_code = p.BRANCH_CODE ) branch_name ,SALES_TERRITORY_ID, (select name from sales_territories where sales_ter_id = p.SALES_TERRITORY_ID )" +
+                        D = "select branch_code ,( select BRANCH_NAME from branches where branch_code = p.BRANCH_CODE ) branch_name ,SALES_TERRITORY_ID, (select name from sales_territories where sales_ter_id = p.SALES_TERRITORY_ID and branch_code = p.BRANCH_CODE)" +
                         " sales_ter_name,salesrep_id,(select max(name) from salesman where sales_id = p.salesrep_id ) salesrep_name,pos_code,pos_name,pos_address, ( select count(distinct start_time)from salescall@sales s ," +
                         " journey@sales j where s.jou_id  = j.jou_id and pos_code = p.pos_code" +
                         " and trunc(to_date(start_time,'dd-mon-yyyy hh:mi:ss AM')) between '" + from_date + "' and '" + to_date + "' and j.salesrep_id = p.salesrep_id " +

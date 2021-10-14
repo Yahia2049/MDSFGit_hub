@@ -135,11 +135,11 @@
             this.pOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reviewNewPOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.payerPOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOSROUTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changPOSTerritoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOSTAXPhotoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOSSurveyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coverdAndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pOSROUTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPOSReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.routesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNCENTIVESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -160,6 +160,7 @@
             this.tobaccoSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lighterSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fineSendToSAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOSMAssigningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
@@ -1319,7 +1320,8 @@
             this.lastKMUpdateAndSendToolStripMenuItem1,
             this.productPriceListToolStripMenuItem,
             this.reassignRoutesToolStripMenuItem,
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.pOSMAssigningToolStripMenuItem});
             this.mASTERDATAToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.mASTERDATAToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mASTERDATAToolStripMenuItem.Image")));
             this.mASTERDATAToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1484,6 +1486,17 @@
             this.payerPOSToolStripMenuItem.Text = "Payer POS";
             this.payerPOSToolStripMenuItem.Click += new System.EventHandler(this.payerPOSToolStripMenuItem_Click);
             // 
+            // pOSROUTEToolStripMenuItem
+            // 
+            this.pOSROUTEToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.pOSROUTEToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pOSROUTEToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.pOSROUTEToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pOSROUTEToolStripMenuItem.Image")));
+            this.pOSROUTEToolStripMenuItem.Name = "pOSROUTEToolStripMenuItem";
+            this.pOSROUTEToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
+            this.pOSROUTEToolStripMenuItem.Text = "POS ROUTE ASSIGN";
+            this.pOSROUTEToolStripMenuItem.Click += new System.EventHandler(this.pOSROUTEToolStripMenuItem_Click);
+            // 
             // changPOSTerritoryToolStripMenuItem
             // 
             this.changPOSTerritoryToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
@@ -1527,17 +1540,6 @@
             this.coverdAndToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
             this.coverdAndToolStripMenuItem.Text = "Covered and Uncovered POS";
             this.coverdAndToolStripMenuItem.Click += new System.EventHandler(this.coverdAndToolStripMenuItem_Click);
-            // 
-            // pOSROUTEToolStripMenuItem
-            // 
-            this.pOSROUTEToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
-            this.pOSROUTEToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pOSROUTEToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.pOSROUTEToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pOSROUTEToolStripMenuItem.Image")));
-            this.pOSROUTEToolStripMenuItem.Name = "pOSROUTEToolStripMenuItem";
-            this.pOSROUTEToolStripMenuItem.Size = new System.Drawing.Size(262, 32);
-            this.pOSROUTEToolStripMenuItem.Text = "POS ROUTE ASSIGN";
-            this.pOSROUTEToolStripMenuItem.Click += new System.EventHandler(this.pOSROUTEToolStripMenuItem_Click);
             // 
             // newPOSReportToolStripMenuItem
             // 
@@ -1769,6 +1771,16 @@
             this.fineSendToSAPToolStripMenuItem.Text = "Fine Send to SAP";
             this.fineSendToSAPToolStripMenuItem.Click += new System.EventHandler(this.fineSendToSAPToolStripMenuItem_Click);
             // 
+            // pOSMAssigningToolStripMenuItem
+            // 
+            this.pOSMAssigningToolStripMenuItem.BackColor = System.Drawing.Color.DarkGreen;
+            this.pOSMAssigningToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pOSMAssigningToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.pOSMAssigningToolStripMenuItem.Name = "pOSMAssigningToolStripMenuItem";
+            this.pOSMAssigningToolStripMenuItem.Size = new System.Drawing.Size(244, 32);
+            this.pOSMAssigningToolStripMenuItem.Text = "POSM Assigning";
+            this.pOSMAssigningToolStripMenuItem.Click += new System.EventHandler(this.pOSMAssigningToolStripMenuItem_Click);
+            // 
             // Main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1946,6 +1958,7 @@
         private System.Windows.Forms.ToolStripMenuItem fineTargetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem managersAndroidSupportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem pOSMAssigningToolStripMenuItem;
     }
 }
 
