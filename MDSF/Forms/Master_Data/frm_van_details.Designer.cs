@@ -53,6 +53,10 @@ namespace MDSF.Forms.Master_Data
             this.btn_cnl_sla = new System.Windows.Forms.Button();
             this.btnAssioutsla = new System.Windows.Forms.Button();
             this.btnLuxorsla = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmb_re = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_move = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_van_details)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +82,7 @@ namespace MDSF.Forms.Master_Data
             this.dgv_van_details.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_van_details.Location = new System.Drawing.Point(12, 97);
             this.dgv_van_details.Name = "dgv_van_details";
-            this.dgv_van_details.Size = new System.Drawing.Size(370, 235);
+            this.dgv_van_details.Size = new System.Drawing.Size(370, 114);
             this.dgv_van_details.TabIndex = 5;
             // 
             // button1
@@ -269,11 +273,53 @@ namespace MDSF.Forms.Master_Data
             this.btnLuxorsla.UseVisualStyleBackColor = true;
             this.btnLuxorsla.Click += new System.EventHandler(this.btnLuxorsla_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 241);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 310;
+            this.label4.Text = "Move car to";
+            // 
+            // cmb_re
+            // 
+            this.cmb_re.FormattingEnabled = true;
+            this.cmb_re.Location = new System.Drawing.Point(143, 240);
+            this.cmb_re.Name = "cmb_re";
+            this.cmb_re.Size = new System.Drawing.Size(147, 21);
+            this.cmb_re.TabIndex = 312;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(92, 240);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 14);
+            this.label5.TabIndex = 311;
+            this.label5.Text = "Region";
+            // 
+            // btn_move
+            // 
+            this.btn_move.Image = ((System.Drawing.Image)(resources.GetObject("btn_move.Image")));
+            this.btn_move.Location = new System.Drawing.Point(307, 232);
+            this.btn_move.Name = "btn_move";
+            this.btn_move.Size = new System.Drawing.Size(45, 42);
+            this.btn_move.TabIndex = 313;
+            this.btn_move.UseVisualStyleBackColor = true;
+            this.btn_move.Click += new System.EventHandler(this.btn_move_Click);
+            // 
             // frm_van_details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_move);
+            this.Controls.Add(this.cmb_re);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnLuxorsla);
             this.Controls.Add(this.btnAssioutsla);
             this.Controls.Add(this.btn_cnl_sla);
@@ -331,5 +377,9 @@ namespace MDSF.Forms.Master_Data
         private System.Windows.Forms.Button btn_cnl_sla;
         private System.Windows.Forms.Button btnAssioutsla;
         private System.Windows.Forms.Button btnLuxorsla;
+        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.ComboBox cmb_re;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_move;
     }
 }

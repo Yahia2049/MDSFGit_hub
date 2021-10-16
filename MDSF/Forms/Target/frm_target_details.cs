@@ -139,8 +139,9 @@ namespace MDSF.Forms.Target
                 else
                 {
                     DataSet ds = new DataSet();
-                    ds = DataAccessCS.getdata("select distinct  i.name,n.target_type_name ,t.target_sales,t.achieved, t.ter_id,t.pos_id,t.year,t.month,t.target_type_id,t.sales_region from target_retail_pos t,pos_inf i,target_types n where n.target_type_id=t.target_type_id and t.ter_id=i.ter_id and t.pos_id=i.pos_id and t.ter_id=" + cmb_sales_ter_source.SelectedValue + "and t.month=" + txt_mon.Text + "and t.year=" + txt_year.Text);
-
+                    // ds = DataAccessCS.getdata("select distinct  i.name,n.target_type_name ,t.target_sales,t.achieved, t.ter_id,t.pos_id,t.year,t.month,t.target_type_id,t.sales_region from target_retail_pos t,pos_inf i,target_types n where n.target_type_id=t.target_type_id and t.ter_id=i.ter_id and t.pos_id=i.pos_id and t.ter_id=" + cmb_sales_ter_source.SelectedValue + "and t.month=" + txt_mon.Text + "and t.year=" + txt_year.Text);
+                    ds = DataAccessCS.getdata("select distinct i.name, v.salesrep_id,v.ter_id,v.pos_id,v.target_name,v.target_value,v.achieved_value,v.month,v.year from TO_SFA_TARGETS_details v " +
+                        " , pos_inf i where v.ter_id = i.ter_id and v.POS_ID = i.pos_id and v.TER_ID ="+ cmb_sales_ter_source.SelectedValue + "and month ="+txt_mon.Text+ "and year ="+txt_year.Text );
                     DataAccessCS.conn.Close();
                     dgv_source.DataSource = ds.Tables[0];
                     dgv_source.AutoResizeColumns();
@@ -167,10 +168,14 @@ namespace MDSF.Forms.Target
                 else
                 {
                     DataSet ds = new DataSet();
-                    ds = DataAccessCS.getdata("select distinct s.SALESREP_ID,Substr(s.pos_code, 1, Instr(s.pos_code, '_') - 1)  ter_id,Substr(s.pos_code, Instr(s.pos_code, '_') + 1) pos_id ," +
-                      " i.name, n.target_type_name, t.target_sales,t.achieved, t.year, t.month, t.target_type_id, t.sales_region" +
-                       " from to_sfa_pos s , target_retail_pos t, pos_inf i, target_types n where Substr(s.pos_code, 1, Instr(s.pos_code, '_') - 1) = t.ter_id and Substr(s.pos_code, Instr(s.pos_code, '_') + 1) = t.pos_id" +
-                        " and s.SALESREP_ID =" + cmb_salesrep_source.SelectedValue + "and n.target_type_id = t.target_type_id and t.ter_id = i.ter_id and t.pos_id = i.pos_id   and t.month =" + txt_mon.Text + "and t.year =" + txt_year.Text);
+                    //ds = DataAccessCS.getdata("select distinct s.SALESREP_ID,Substr(s.pos_code, 1, Instr(s.pos_code, '_') - 1)  ter_id,Substr(s.pos_code, Instr(s.pos_code, '_') + 1) pos_id ," +
+                    //  " i.name, n.target_type_name, t.target_sales,t.achieved, t.year, t.month, t.target_type_id, t.sales_region" +
+                    //   " from to_sfa_pos s , target_retail_pos t, pos_inf i, target_types n where Substr(s.pos_code, 1, Instr(s.pos_code, '_') - 1) = t.ter_id and Substr(s.pos_code, Instr(s.pos_code, '_') + 1) = t.pos_id" +
+                    //    " and s.SALESREP_ID =" + cmb_salesrep_source.SelectedValue + "and n.target_type_id = t.target_type_id and t.ter_id = i.ter_id and t.pos_id = i.pos_id   and t.month =" + txt_mon.Text + "and t.year =" + txt_year.Text);
+                    //DataAccessCS.conn.Close();
+
+                    ds = DataAccessCS.getdata("select distinct i.name, v.salesrep_id,v.ter_id,v.pos_id,v.target_name,v.target_value,v.achieved_value,v.month,v.year from TO_SFA_TARGETS_details v " +
+                       " , pos_inf i where v.ter_id = i.ter_id and v.POS_ID = i.pos_id and v.salesrep_id =" + cmb_salesrep_source.SelectedValue + "and month =" + txt_mon.Text + "and year =" + txt_year.Text);
                     DataAccessCS.conn.Close();
                     dgv_source.DataSource = ds.Tables[0];
                     dgv_source.AutoResizeColumns();

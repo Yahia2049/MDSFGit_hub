@@ -67,6 +67,15 @@ namespace MDSF.Forms.Master_Data
 
                 ds.Dispose();
                 DataAccessCS.conn.Close();
+
+                cmb_re.DataSource = ds.Tables[0];
+                cmb_re.DisplayMember = "Region";
+                cmb_re.ValueMember = "branch_code";
+                cmb_re.SelectedIndex = -1;
+                cmb_re.Text = "--Choose--";
+
+                ds.Dispose();
+                DataAccessCS.conn.Close();
             }
             catch (Exception ex)
             {
@@ -228,6 +237,38 @@ namespace MDSF.Forms.Master_Data
                 MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
+        }
+
+        private void btn_move_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (textMoto.Text == ""  && cmb_re.SelectedIndex == -1)
+                {
+                    MessageBox.Show("برجاء ادخال رقم الموتور و اختيار المحافظه المراد نقل السياره لها ");
+                }
+                else
+                {
+                    string move = "update van set branch_code=" + cmb_re.SelectedValue + ", action='I' where van_id=" + dgv_van_details.CurrentRow.Cells["van_id"].Value.ToString() + " and eng_num=" + textMoto.Text;
+                    DataAccessCS.update(move);
+                    DataAccessCS.conn.Close();
+
+                    MessageBox.Show("تم نقل السياره بنجاح");
+                    DataSet ds = new DataSet();
+                    ds = DataAccessCS.getdata("select  van_id,model,car_num,eng_num,bod_num,active,branch_code  from van  where  eng_num = '" + textMoto.Text + "'");
+                    DataAccessCS.conn.Close();
+                    dgv_van_details.DataSource = ds.Tables[0];
+                    dgv_van_details.AutoResizeColumns();
+                    ds.Dispose();
+
+                    DataAccessCS.conn.Close();
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
