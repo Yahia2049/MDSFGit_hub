@@ -211,6 +211,7 @@ namespace MDSF.Forms.Target
             }
         }
 
+        //search by ter and pos
         private void btn_search_Click(object sender, EventArgs e)
         {
             try
