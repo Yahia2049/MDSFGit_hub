@@ -238,5 +238,10 @@ namespace MDSF.Forms.Target
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btn_exl_Click(object sender, EventArgs e)
+        {
+            DataAccessCS.ExportExcelDGV(dgv_source);
+        }
     }
 }

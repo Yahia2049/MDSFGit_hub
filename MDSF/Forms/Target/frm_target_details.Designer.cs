@@ -48,6 +48,7 @@ namespace MDSF.Forms.Target
             this.cmb_sales_ter_source = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_search = new System.Windows.Forms.Button();
+            this.btn_exl = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_source)).BeginInit();
             this.SuspendLayout();
             // 
@@ -231,11 +232,22 @@ namespace MDSF.Forms.Target
             this.btn_search.Visible = false;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
+            // btn_exl
+            // 
+            this.btn_exl.Location = new System.Drawing.Point(649, 141);
+            this.btn_exl.Name = "btn_exl";
+            this.btn_exl.Size = new System.Drawing.Size(100, 23);
+            this.btn_exl.TabIndex = 318;
+            this.btn_exl.Text = "Export to Excell";
+            this.btn_exl.UseVisualStyleBackColor = true;
+            this.btn_exl.Click += new System.EventHandler(this.btn_exl_Click);
+            // 
             // frm_target_details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 498);
+            this.Controls.Add(this.btn_exl);
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.labelpos);
@@ -283,5 +295,6 @@ namespace MDSF.Forms.Target
         internal System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmb_sales_ter_source;
         internal System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_exl;
     }
 }
