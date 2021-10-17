@@ -166,7 +166,7 @@ namespace MDSF.Forms.Master_Data
             }
             this.Cursor = Cursors.Default;
         }
-
+        //ahmed hamada
         private void mansoura_sla_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
