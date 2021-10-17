@@ -141,7 +141,7 @@ namespace MDSF.Forms.Target
                     DataSet ds = new DataSet();
                     // ds = DataAccessCS.getdata("select distinct  i.name,n.target_type_name ,t.target_sales,t.achieved, t.ter_id,t.pos_id,t.year,t.month,t.target_type_id,t.sales_region from target_retail_pos t,pos_inf i,target_types n where n.target_type_id=t.target_type_id and t.ter_id=i.ter_id and t.pos_id=i.pos_id and t.ter_id=" + cmb_sales_ter_source.SelectedValue + "and t.month=" + txt_mon.Text + "and t.year=" + txt_year.Text);
                     ds = DataAccessCS.getdata("select distinct i.name, v.salesrep_id,v.ter_id,v.pos_id,v.target_name,v.target_value,v.achieved_value,v.month,v.year from TO_SFA_TARGETS_details v " +
-                        " , pos_inf i where v.ter_id = i.ter_id and v.POS_ID = i.pos_id and v.TER_ID ="+ cmb_sales_ter_source.SelectedValue + "and month ="+txt_mon.Text+ "and year ="+txt_year.Text );
+                        " , pos_inf i where v.ter_id = i.ter_id and v.POS_ID = i.pos_id and v.SALESREP_ID=i.curr_sales_id and  v.BRANCH_CODE=i.BRANCH_CODE and v.branch_code="+ cmb_Region_source.SelectedValue+ " and i.sales_ter_id=" + cmb_sales_ter_source.SelectedValue + "and month ="+txt_mon.Text+ "and year ="+txt_year.Text );
                     DataAccessCS.conn.Close();
                     dgv_source.DataSource = ds.Tables[0];
                     dgv_source.AutoResizeColumns();
