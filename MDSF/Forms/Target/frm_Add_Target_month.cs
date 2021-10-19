@@ -21,15 +21,24 @@ namespace MDSF.Forms.Target
         public frm_Add_Target_month()
         {
             InitializeComponent();
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataSet dsT = new DataSet();
+                dsT = DataAccessCS.getdata("select * from salesman_targets where branch_code=0");
+                DataAccessCS.conn.Close();
+                rgv_kpi_insert.DataSource = dsT.Tables[0];
+                //rgv_kpi_insert.AutoResizeColumns();
+                dsT.Dispose();
 
-            DataSet dsT = new DataSet();
-            dsT = DataAccessCS.getdata("select * from salesman_targets where branch_code=0");
-            DataAccessCS.conn.Close();
-            rgv_kpi_insert.DataSource = dsT.Tables[0];
-            //rgv_kpi_insert.AutoResizeColumns();
-            dsT.Dispose();
+                DataAccessCS.conn.Close();
+            }
+            catch (Exception ex)
+            {
 
-            DataAccessCS.conn.Close();
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
         }
 
         private void btn_import_excel_salester_Click(object sender, EventArgs e)
@@ -492,60 +501,94 @@ namespace MDSF.Forms.Target
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                if (txt_branch_ter_del.Text != "" && txt_month_ter_del.Text!="" && txt_year_ter_del.Text !="" && txt_company_id_ter.Text !="")
+                var selectedOption = MessageBox.Show(" هل انت متأكد من حذف اهداف المناطق المطلوبة", "Dialog Value Demo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                // If the no button was pressed ...
+
+                if (selectedOption == DialogResult.Yes)
+
                 {
-                    DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'delete from sales_territory_target for branche code= " + txt_branch_ter_del.Text + " month="+txt_month_ter_del.Text+" year ="+txt_year_ter_del.Text+ " ','','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
-                    DataAccessCS.conn.Close();
-                    int branch_code = int.Parse(txt_branch_ter_del.Text);
-                    if (branch_code == 1)
+
+                    MessageBox.Show("Yes is pressed!", "Yes Dialog", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (txt_branch_ter_del.Text != "" && txt_month_ter_del.Text != "" && txt_year_ter_del.Text != "" && txt_company_id_ter.Text != "")
                     {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_cai s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
+                        DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am '), 'delete from sales_territory_target for branche code= " + txt_branch_ter_del.Text + " month=" + txt_month_ter_del.Text + " year =" + txt_year_ter_del.Text + " ','','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                         DataAccessCS.conn.Close();
-                    }
-                    else if (branch_code == 2)
-                    {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_alx s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + "and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
+                        int branch_code = int.Parse(txt_branch_ter_del.Text);
+                        if (branch_code == 1)
+                        {
+                            DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_cai s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else if (branch_code == 2)
+                        {
+                            DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_alx s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + "and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else if (branch_code == 3)
+                        {
+                            DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_man s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + "and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else if (branch_code == 4)
+                        {
+                            DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_ism s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + "and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else if (branch_code == 5)
+                        {
+                            DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_ast s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else if (branch_code == 6)
+                        {
+                            DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_tan s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else if (branch_code == 7)
+                        {
+                            DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_upp s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id== " + txt_company_id_ter.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("برجاء ادخال رقم المنطقة الصحيح");
+                            this.Cursor = Cursors.Default;
+                            return;
+                        }
+                        DataAccessCS.delete("delete  from target_sales_territories s where s.branch_code =" + branch_code + " and month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and prod_group_id=" + txt_company_id_ter.Text + "");
                         DataAccessCS.conn.Close();
-                    }
-                    else if (branch_code == 3)
-                    {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_man s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + "and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
-                        DataAccessCS.conn.Close();
-                    }
-                    else if (branch_code == 4)
-                    {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_ism s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + "and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
-                        DataAccessCS.conn.Close();
-                    }
-                    else if (branch_code == 5)
-                    {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_ast s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
-                        DataAccessCS.conn.Close();
-                    }
-                    else if (branch_code == 6)
-                    {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_tan s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_company_id_ter.Text + ")");
-                        DataAccessCS.conn.Close();
-                    }
-                    else if (branch_code == 7)
-                    {
-                        DataAccessCS.delete("delete from sales_territory_target_assign@to_sla_upp s where  month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id== " + txt_company_id_ter.Text + ")");
-                        DataAccessCS.conn.Close();
+                        MessageBox.Show("برجاء المراجعة SFIS و SLA تم حذف الاهداف من ");
                     }
                     else
                     {
-                        MessageBox.Show("برجاء ادخال رقم المنطقة الصحيح");
-                        this.Cursor = Cursors.Default;
-                        return;                        
+                        MessageBox.Show("برجاء ادخال رقم المنطقة والشهر والسنة اولا بالشكل الصحيح");
                     }
-                    DataAccessCS.delete("delete  from target_sales_territories s where s.branch_code =" + branch_code + " and month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and prod_group_id="+txt_company_id_ter.Text+"");
-                    DataAccessCS.conn.Close();
-                    MessageBox.Show("برجاء المراجعة SFIS و SLA تم حذف الاهداف من ");
+
                 }
-                else
+
+                else if (selectedOption == DialogResult.No)
+
                 {
-                    MessageBox.Show("برجاء ادخال رقم المنطقة والشهر والسنة اولا بالشكل الصحيح");
+
+                    MessageBox.Show("No is pressed!", "No Dialog", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
                 }
+
+                else
+
+                {
+
+                    MessageBox.Show("Cancel is pressed", "Cancel Dialog", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+
+
+
+
+
+               
             }
             catch (Exception ex)
             {
@@ -559,62 +602,98 @@ namespace MDSF.Forms.Target
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                if (txt_branch_salesrep_del.Text != "" && txt_month_salesrep_del.Text != "" && txt_year_salesrep_del.Text != "" && txt_com_id_salesrep.Text !="")
-                {
-                    DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am ')"+
-                        ", 'delete from salesrep_target for branche_code= " + txt_branch_salesrep_del.Text + " month=" + txt_month_salesrep_del.Text + " year =" + txt_year_salesrep_del.Text + " ','','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
-                    DataAccessCS.conn.Close();
+                var selectedOption = MessageBox.Show("هل انت متأكد من حذف اهداف المناديب المطلوبة", "Dialog Value Demo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-                    int branch_code_s = int.Parse(txt_branch_salesrep_del.Text);
-                    if (branch_code_s == 1)
+
+
+                // If the no button was pressed ...
+
+                if (selectedOption == DialogResult.Yes)
+
+                {
+
+                    MessageBox.Show("Yes is pressed!", "Yes Dialog", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (txt_branch_salesrep_del.Text != "" && txt_month_salesrep_del.Text != "" && txt_year_salesrep_del.Text != "" && txt_com_id_salesrep.Text != "")
                     {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_cai s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
+                        DataAccessCS.insert("insert into MDSF_LOG_TABLE values(" + DataAccessCS.x_user_id + " ,'" + DataAccessCS.x_user_name + "',to_date(to_char(sysdate,'dd/mm/rrrr hh:mi:ss am '),'dd/mm/rrrr hh:mi:ss am ')" +
+                            ", 'delete from salesrep_target for branche_code= " + txt_branch_salesrep_del.Text + " month=" + txt_month_salesrep_del.Text + " year =" + txt_year_salesrep_del.Text + " ','','" + System.Security.Principal.WindowsIdentity.GetCurrent().Name + "," + System.Environment.MachineName + "','')");
                         DataAccessCS.conn.Close();
-                    }
-                    else if (branch_code_s == 2)
-                    {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_alx s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
+
+                        int branch_code_s = int.Parse(txt_branch_salesrep_del.Text);
+                        if (branch_code_s == 1)
+                        {
+                            DataAccessCS.delete("delete from salesrep_target_assign@to_sla_cai s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else if (branch_code_s == 2)
+                        {
+                            DataAccessCS.delete("delete from salesrep_target_assign@to_sla_alx s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else if (branch_code_s == 3)
+                        {
+                            DataAccessCS.delete("delete from salesrep_target_assign@to_sla_man s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else if (branch_code_s == 4)
+                        {
+                            DataAccessCS.delete("delete from salesrep_target_assign@to_sla_ism s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id=" + txt_com_id_salesrep.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else if (branch_code_s == 5)
+                        {
+                            DataAccessCS.delete("delete from salesrep_target_assign@to_sla_ast s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else if (branch_code_s == 6)
+                        {
+                            DataAccessCS.delete("delete from salesrep_target_assign@to_sla_tan s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else if (branch_code_s == 7)
+                        {
+                            DataAccessCS.delete("delete from salesrep_target_assign@to_sla_upp s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
+                            DataAccessCS.conn.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("برجاء ادخال رقم المنطقة الصحيح");
+                            this.Cursor = Cursors.Default;
+                            return;
+                        }
+                        DataAccessCS.delete("delete  from target_salesmen s where s.branch_code =" + branch_code_s + " and month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and prod_group_id =" + txt_com_id_salesrep.Text + "");
                         DataAccessCS.conn.Close();
-                    }
-                    else if (branch_code_s == 3)
-                    {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_man s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
-                        DataAccessCS.conn.Close();
-                    }
-                    else if (branch_code_s == 4)
-                    {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_ism s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id=" + txt_com_id_salesrep.Text + ")");
-                        DataAccessCS.conn.Close();
-                    }
-                    else if (branch_code_s == 5)
-                    {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_ast s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
-                        DataAccessCS.conn.Close();
-                    }
-                    else if (branch_code_s == 6)
-                    {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_tan s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
-                        DataAccessCS.conn.Close();
-                    }
-                    else if (branch_code_s == 7)
-                    {
-                        DataAccessCS.delete("delete from salesrep_target_assign@to_sla_upp s where  month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and s.product_id in (select prod_id from products p where p.prod_group_id= " + txt_com_id_salesrep.Text + ")");
-                        DataAccessCS.conn.Close();
+                        MessageBox.Show("برجاء المراجعة SFIS و SLA تم حذف الاهداف من ");
                     }
                     else
                     {
-                        MessageBox.Show("برجاء ادخال رقم المنطقة الصحيح");
-                        this.Cursor = Cursors.Default;
-                        return;
+                        MessageBox.Show("برجاء ادخال رقم المنطقة والشهر والسنة اولا بالشكل الصحيح");
                     }
-                    DataAccessCS.delete("delete  from target_salesmen s where s.branch_code =" + branch_code_s + " and month=" + txt_month_salesrep_del.Text + " and year=" + txt_year_salesrep_del.Text + " and prod_group_id ="+txt_com_id_salesrep.Text+"");
-                    DataAccessCS.conn.Close();
-                    MessageBox.Show("برجاء المراجعة SFIS و SLA تم حذف الاهداف من ");
+
                 }
-                else
+
+                else if (selectedOption == DialogResult.No)
+
                 {
-                    MessageBox.Show("برجاء ادخال رقم المنطقة والشهر والسنة اولا بالشكل الصحيح");
+
+                    MessageBox.Show("No is pressed!", "No Dialog", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
                 }
+
+                else
+
+                {
+
+                    MessageBox.Show("Cancel is pressed", "Cancel Dialog", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+
+
+
+
+
+                
             }
             catch (Exception ex)
             {
@@ -1399,6 +1478,54 @@ namespace MDSF.Forms.Target
         private void tabPage3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void radButton11_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataSet dsT = new DataSet();
+                dsT = DataAccessCS.getdata("select * from target_sales_territories s where s.branch_code =" + txt_branch_ter_del.Text + " and month=" + txt_month_ter_del.Text + " and year=" + txt_year_ter_del.Text + " and prod_group_id in(" + txt_company_id_ter.Text + ")");
+                DataAccessCS.conn.Close();
+                rgv_salester_target.DataSource = dsT.Tables[0];
+                rgv_salester_target.BestFitColumns();
+                //rgv_kpi_insert.AutoResizeColumns();
+                dsT.Dispose();
+
+                DataAccessCS.conn.Close();
+                lbl_count_sales_ter_target.Text = rgv_salester_target.Rows.Count.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btn_salesman_target_search_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataSet dsT = new DataSet();
+                dsT = DataAccessCS.getdata("select * from target_salesmen s where s.branch_code =" + txt_branch_salesrep_del.Text + " and s.month=" + txt_month_salesrep_del.Text + " and s.year=" + txt_year_salesrep_del.Text + " and s.prod_group_id in (" + txt_com_id_salesrep.Text + ")");
+                DataAccessCS.conn.Close();
+                rgv_Salesrep_target.DataSource = dsT.Tables[0];
+                rgv_Salesrep_target.BestFitColumns();
+                //rgv_kpi_insert.AutoResizeColumns();
+                dsT.Dispose();
+
+                DataAccessCS.conn.Close();
+                lbl_count_salesman_target.Text = rgv_Salesrep_target.Rows.Count.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
         }
     }
 }

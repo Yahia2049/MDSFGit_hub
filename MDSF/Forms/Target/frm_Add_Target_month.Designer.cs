@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Add_Target_month));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txt_company_id_ter = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,6 +58,8 @@
             this.rgv_salester_target = new Telerik.WinControls.UI.RadGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txt_com_id_salesrep = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -123,10 +127,12 @@
             this.btn_import_excel_kpi = new Telerik.WinControls.UI.RadButton();
             this.rgv_kpi_insert = new Telerik.WinControls.UI.RadGridView();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
-            this.label26 = new System.Windows.Forms.Label();
-            this.txt_company_id_ter = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.txt_com_id_salesrep = new System.Windows.Forms.TextBox();
+            this.btn_sales_ter_target_search = new Telerik.WinControls.UI.RadButton();
+            this.btn_salesman_target_search = new Telerik.WinControls.UI.RadButton();
+            this.label28 = new System.Windows.Forms.Label();
+            this.lbl_count_sales_ter_target = new System.Windows.Forms.Label();
+            this.lbl_count_salesman_target = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -181,6 +187,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_sales_ter_target_search)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_salesman_target_search)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -198,6 +206,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lbl_count_sales_ter_target);
+            this.tabPage1.Controls.Add(this.label28);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.btn_proc_sla_lux_salester);
             this.tabPage1.Controls.Add(this.btn_proc_sla_ism_salester);
@@ -220,6 +230,7 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.btn_sales_ter_target_search);
             this.groupBox2.Controls.Add(this.label26);
             this.groupBox2.Controls.Add(this.txt_company_id_ter);
             this.groupBox2.Controls.Add(this.label3);
@@ -235,6 +246,22 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Remove Sales Territories Target ";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(10, 88);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(66, 13);
+            this.label26.TabIndex = 13;
+            this.label26.Text = "Company ID";
+            // 
+            // txt_company_id_ter
+            // 
+            this.txt_company_id_ter.Location = new System.Drawing.Point(94, 84);
+            this.txt_company_id_ter.Name = "txt_company_id_ter";
+            this.txt_company_id_ter.Size = new System.Drawing.Size(100, 20);
+            this.txt_company_id_ter.TabIndex = 12;
             // 
             // label3
             // 
@@ -273,7 +300,7 @@
             // 
             // 
             // 
-            this.btn_ter_del.RootElement.ControlBounds = new System.Drawing.Rectangle(86, 89, 110, 24);
+            this.btn_ter_del.RootElement.ControlBounds = new System.Drawing.Rectangle(200, 64, 110, 24);
             this.btn_ter_del.Size = new System.Drawing.Size(82, 37);
             this.btn_ter_del.TabIndex = 8;
             this.btn_ter_del.Text = "Remove";
@@ -433,7 +460,7 @@
             // 
             this.btn_import_excel_salester.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_import_excel_salester.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_import_excel_salester.Location = new System.Drawing.Point(482, 15);
+            this.btn_import_excel_salester.Location = new System.Drawing.Point(401, 17);
             this.btn_import_excel_salester.Name = "btn_import_excel_salester";
             // 
             // 
@@ -455,7 +482,7 @@
             // 
             // 
             // 
-            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition5;
+            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.rgv_salester_target.Name = "rgv_salester_target";
             // 
             // 
@@ -467,6 +494,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lbl_count_salesman_target);
+            this.tabPage2.Controls.Add(this.label30);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.btn_proc_sla_lux_salesrep);
             this.tabPage2.Controls.Add(this.btn_proc_sla_ism_salesrep);
@@ -489,6 +518,7 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.btn_salesman_target_search);
             this.groupBox1.Controls.Add(this.label27);
             this.groupBox1.Controls.Add(this.txt_com_id_salesrep);
             this.groupBox1.Controls.Add(this.label4);
@@ -504,6 +534,22 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Remove Salesman Target ";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(9, 91);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(66, 13);
+            this.label27.TabIndex = 15;
+            this.label27.Text = "Company ID";
+            // 
+            // txt_com_id_salesrep
+            // 
+            this.txt_com_id_salesrep.Location = new System.Drawing.Point(93, 87);
+            this.txt_com_id_salesrep.Name = "txt_com_id_salesrep";
+            this.txt_com_id_salesrep.Size = new System.Drawing.Size(100, 20);
+            this.txt_com_id_salesrep.TabIndex = 14;
             // 
             // label4
             // 
@@ -536,12 +582,12 @@
             // 
             this.btn_target_salesrep_del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_target_salesrep_del.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_target_salesrep_del.Location = new System.Drawing.Point(208, 44);
+            this.btn_target_salesrep_del.Location = new System.Drawing.Point(208, 69);
             this.btn_target_salesrep_del.Name = "btn_target_salesrep_del";
             // 
             // 
             // 
-            this.btn_target_salesrep_del.RootElement.ControlBounds = new System.Drawing.Rectangle(86, 89, 110, 24);
+            this.btn_target_salesrep_del.RootElement.ControlBounds = new System.Drawing.Rectangle(208, 44, 110, 24);
             this.btn_target_salesrep_del.Size = new System.Drawing.Size(93, 37);
             this.btn_target_salesrep_del.TabIndex = 8;
             this.btn_target_salesrep_del.Text = "Remove";
@@ -723,7 +769,7 @@
             // 
             // 
             // 
-            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.rgv_Salesrep_target.Name = "rgv_Salesrep_target";
             // 
             // 
@@ -1071,7 +1117,7 @@
             // 
             // 
             // 
-            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition7;
+            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.rgv_pos_target.Name = "rgv_pos_target";
             // 
             // 
@@ -1331,7 +1377,7 @@
             // 
             // 
             // 
-            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition8;
+            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.rgv_kpi_insert.Name = "rgv_kpi_insert";
             // 
             // 
@@ -1341,37 +1387,77 @@
             this.rgv_kpi_insert.TabIndex = 18;
             this.rgv_kpi_insert.ThemeName = "TelerikMetro";
             // 
-            // label26
+            // btn_sales_ter_target_search
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(10, 88);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(66, 13);
-            this.label26.TabIndex = 13;
-            this.label26.Text = "Company ID";
+            this.btn_sales_ter_target_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_sales_ter_target_search.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_sales_ter_target_search.Location = new System.Drawing.Point(200, 18);
+            this.btn_sales_ter_target_search.Name = "btn_sales_ter_target_search";
             // 
-            // txt_company_id_ter
             // 
-            this.txt_company_id_ter.Location = new System.Drawing.Point(94, 84);
-            this.txt_company_id_ter.Name = "txt_company_id_ter";
-            this.txt_company_id_ter.Size = new System.Drawing.Size(100, 20);
-            this.txt_company_id_ter.TabIndex = 12;
             // 
-            // label27
+            this.btn_sales_ter_target_search.RootElement.ControlBounds = new System.Drawing.Rectangle(200, 64, 110, 24);
+            this.btn_sales_ter_target_search.Size = new System.Drawing.Size(82, 37);
+            this.btn_sales_ter_target_search.TabIndex = 14;
+            this.btn_sales_ter_target_search.Text = "Search";
+            this.btn_sales_ter_target_search.ThemeName = "TelerikMetro";
+            this.btn_sales_ter_target_search.Click += new System.EventHandler(this.radButton11_Click);
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(9, 91);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(66, 13);
-            this.label27.TabIndex = 15;
-            this.label27.Text = "Company ID";
+            // btn_salesman_target_search
             // 
-            // txt_com_id_salesrep
+            this.btn_salesman_target_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_salesman_target_search.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_salesman_target_search.Location = new System.Drawing.Point(208, 19);
+            this.btn_salesman_target_search.Name = "btn_salesman_target_search";
             // 
-            this.txt_com_id_salesrep.Location = new System.Drawing.Point(93, 87);
-            this.txt_com_id_salesrep.Name = "txt_com_id_salesrep";
-            this.txt_com_id_salesrep.Size = new System.Drawing.Size(100, 20);
-            this.txt_com_id_salesrep.TabIndex = 14;
+            // 
+            // 
+            this.btn_salesman_target_search.RootElement.ControlBounds = new System.Drawing.Rectangle(200, 18, 110, 24);
+            this.btn_salesman_target_search.Size = new System.Drawing.Size(93, 36);
+            this.btn_salesman_target_search.TabIndex = 16;
+            this.btn_salesman_target_search.Text = "Search";
+            this.btn_salesman_target_search.ThemeName = "TelerikMetro";
+            this.btn_salesman_target_search.Click += new System.EventHandler(this.btn_salesman_target_search_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(32, 38);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(57, 14);
+            this.label28.TabIndex = 17;
+            this.label28.Text = "Count : ";
+            // 
+            // lbl_count_sales_ter_target
+            // 
+            this.lbl_count_sales_ter_target.AutoSize = true;
+            this.lbl_count_sales_ter_target.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_count_sales_ter_target.Location = new System.Drawing.Point(87, 38);
+            this.lbl_count_sales_ter_target.Name = "lbl_count_sales_ter_target";
+            this.lbl_count_sales_ter_target.Size = new System.Drawing.Size(15, 14);
+            this.lbl_count_sales_ter_target.TabIndex = 17;
+            this.lbl_count_sales_ter_target.Text = "0";
+            // 
+            // lbl_count_salesman_target
+            // 
+            this.lbl_count_salesman_target.AutoSize = true;
+            this.lbl_count_salesman_target.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_count_salesman_target.Location = new System.Drawing.Point(73, 36);
+            this.lbl_count_salesman_target.Name = "lbl_count_salesman_target";
+            this.lbl_count_salesman_target.Size = new System.Drawing.Size(15, 14);
+            this.lbl_count_salesman_target.TabIndex = 18;
+            this.lbl_count_salesman_target.Text = "0";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(18, 36);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(57, 14);
+            this.label30.TabIndex = 19;
+            this.label30.Text = "Count : ";
             // 
             // frm_Add_Target_month
             // 
@@ -1384,6 +1470,7 @@
             this.Load += new System.EventHandler(this.frm_Add_Target_month_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_ter_del)).EndInit();
@@ -1399,6 +1486,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgv_salester_target.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_salester_target)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_target_salesrep_del)).EndInit();
@@ -1442,6 +1530,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_import_excel_kpi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_sales_ter_target_search)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_salesman_target_search)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1568,5 +1658,11 @@
         private System.Windows.Forms.TextBox txt_company_id_ter;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txt_com_id_salesrep;
+        private Telerik.WinControls.UI.RadButton btn_sales_ter_target_search;
+        private Telerik.WinControls.UI.RadButton btn_salesman_target_search;
+        private System.Windows.Forms.Label lbl_count_sales_ter_target;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lbl_count_salesman_target;
+        private System.Windows.Forms.Label label30;
     }
 }

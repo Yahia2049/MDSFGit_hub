@@ -4799,6 +4799,63 @@ E:\Yahia_Projects\MDSFGit_hub\MDSF\obj\Debug\MDSF.csproj.CopyComplete
 E:\Yahia_Projects\MDSFGit_hub\MDSF\obj\Debug\MDSF.exe
 E:\Yahia_Projects\MDSFGit_hub\MDSF\obj\Debug\MDSF.pdb
 E:\Yahia_Projects\MDSFGit_hub\MDSF\obj\Debug\MDSF.csprojAssemblyReference.cache
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Zip.dll
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Shell.Interop.9.0.dll
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.ProjectAggregator.dll
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Debugger.InteropA.dll
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Data.Services.dll
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Shell.Interop.11.0.dll
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Data.Core.dll
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Shell.Interop.10.0.dll
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.ManagedInterfaces.dll
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.11.0.dll
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.10.0.dll
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Documents.SpreadsheetStreaming.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.ChartView.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.GridView.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.PdfViewer.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.PivotGrid.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.RadMap.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.RadSpreadsheet.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.RadSpreadsheet.dll.config
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.RadWebCam.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.UI.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Documents.Core.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Documents.Fixed.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Documents.Spreadsheet.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Xls.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\TelerikData.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\TelerikExport.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Zip.xml
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.csproj.AssemblyReference.cache
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.exe.config
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Android_Support.frm_android_support_manag.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.POS.frm_loading.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.POS.frm_Incentive_Follow.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Inventory.frm_send_to_sap_lighter.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Inventory.frm_send_to_sap_all.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Inventory.frm_send_to_sap_tobacco.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Inventory.frm_send_to_sap_fine.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Master_Data.frm_active_salesTer.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Master_Data.frm_loading.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Master_Data.frm_reassign_pos_routes.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Target.frm_POSM_Assign.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Master_Data.frm_van_details.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Master_Data.frm_NEW_POS_Review.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.POS.frm_routes_details.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Target.frm_Route_POS_Assigne.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Reports.frm_oil_report.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Reports.frm_print_invoice_km.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Reports.frm_print_km_report.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Target.frm_fine_target.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Target.frm_target_details.resources
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\RdlCompile.cache
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\RdlCompile.compiled
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.csproj.CoreCompileInputs.cache
+D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.csproj.CopyComplete
 E:\MDSF Sources\MDSFGit_hub\MDSF\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 E:\MDSF Sources\MDSFGit_hub\MDSF\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 E:\MDSF Sources\MDSFGit_hub\MDSF\bin\Debug\SqlServerTypes\x86\msvcr120.dll
@@ -4926,6 +4983,7 @@ E:\MDSF Sources\MDSFGit_hub\MDSF\bin\Debug\pt\Microsoft.ReportViewer.WinForms.re
 E:\MDSF Sources\MDSFGit_hub\MDSF\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 E:\MDSF Sources\MDSFGit_hub\MDSF\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 E:\MDSF Sources\MDSFGit_hub\MDSF\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.csprojAssemblyReference.cache
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.Form1.resources
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Android_Support.frm_Android_sales_support_Dev.resources
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Android_Support.frm_android_support_manag.resources
@@ -4968,6 +5026,7 @@ E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Sales.frm_posting.resource
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Sales.frm_Total_DSR.resources
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Target.frm_Add_Target_month.resources
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Target.frm_fine_target.resources
+E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Target.frm_target_details.resources
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Target.frm_trade_prog_transaction.resources
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.login_frm.resources
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.MainForm2.resources
@@ -4983,61 +5042,3 @@ E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.application
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.csproj.CopyComplete
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.exe
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.pdb
-E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.csprojAssemblyReference.cache
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Zip.dll
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Shell.Interop.9.0.dll
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.ProjectAggregator.dll
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Debugger.InteropA.dll
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Data.Services.dll
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Shell.Interop.11.0.dll
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Data.Core.dll
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Shell.Interop.10.0.dll
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.ManagedInterfaces.dll
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.11.0.dll
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.10.0.dll
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Documents.SpreadsheetStreaming.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.ChartView.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.GridView.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.PdfViewer.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.PivotGrid.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.RadMap.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.RadSpreadsheet.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.RadSpreadsheet.dll.config
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.RadWebCam.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.WinControls.UI.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Documents.Core.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Documents.Fixed.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Documents.Spreadsheet.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Xls.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\TelerikData.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\TelerikExport.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\bin\Debug\Telerik.Windows.Zip.xml
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.csproj.AssemblyReference.cache
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.exe.config
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Android_Support.frm_android_support_manag.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.POS.frm_loading.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.POS.frm_Incentive_Follow.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Inventory.frm_send_to_sap_lighter.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Inventory.frm_send_to_sap_all.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Inventory.frm_send_to_sap_tobacco.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Inventory.frm_send_to_sap_fine.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Master_Data.frm_active_salesTer.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Master_Data.frm_loading.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Master_Data.frm_reassign_pos_routes.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Target.frm_POSM_Assign.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Master_Data.frm_van_details.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Master_Data.frm_NEW_POS_Review.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.POS.frm_routes_details.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Target.frm_Route_POS_Assigne.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Reports.frm_oil_report.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Reports.frm_print_invoice_km.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Reports.frm_print_km_report.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Target.frm_fine_target.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Target.frm_target_details.resources
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\RdlCompile.cache
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\RdlCompile.compiled
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.csproj.CoreCompileInputs.cache
-D:\Ahmed HaMada Share\MDSFGit_hub\MDSF\obj\Debug\MDSF.csproj.CopyComplete

@@ -46,27 +46,9 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_save = new System.Windows.Forms.Button();
-            this.txt_name = new System.Windows.Forms.TextBox();
-            this.cmb_salesrep_source = new System.Windows.Forms.ComboBox();
-            this.cmb_active = new System.Windows.Forms.ComboBox();
-            this.cmb_routeType = new System.Windows.Forms.ComboBox();
-            this.cmb_route_id = new System.Windows.Forms.ComboBox();
-            this.cmb_prodGroup = new System.Windows.Forms.ComboBox();
-            this.cmb_Region_source = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.cmb_sales_ter_source = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txt_route_code = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.btn_mst_search = new System.Windows.Forms.Button();
             this.dgv_pos_materal = new System.Windows.Forms.DataGridView();
+            this.btn_mst_search = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_route_mst_id_rout = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -74,6 +56,10 @@
             this.btn_save_route_mst = new System.Windows.Forms.Button();
             this.radThemeManager1 = new Telerik.WinControls.RadThemeManager();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_posm_name = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmb_posm_type = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radButton10)).BeginInit();
@@ -296,25 +282,11 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.cmb_posm_type);
+            this.panel1.Controls.Add(this.txt_posm_name);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btn_save);
-            this.panel1.Controls.Add(this.txt_name);
-            this.panel1.Controls.Add(this.cmb_salesrep_source);
-            this.panel1.Controls.Add(this.cmb_active);
-            this.panel1.Controls.Add(this.cmb_routeType);
-            this.panel1.Controls.Add(this.cmb_route_id);
-            this.panel1.Controls.Add(this.cmb_prodGroup);
-            this.panel1.Controls.Add(this.cmb_Region_source);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.cmb_sales_ter_source);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.txt_route_code);
-            this.panel1.Controls.Add(this.label13);
             this.panel1.Location = new System.Drawing.Point(53, 340);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(883, 157);
@@ -331,172 +303,6 @@
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
-            // txt_name
-            // 
-            this.txt_name.Location = new System.Drawing.Point(806, 11);
-            this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(65, 20);
-            this.txt_name.TabIndex = 305;
-            // 
-            // cmb_salesrep_source
-            // 
-            this.cmb_salesrep_source.FormattingEnabled = true;
-            this.cmb_salesrep_source.Location = new System.Drawing.Point(551, 8);
-            this.cmb_salesrep_source.Name = "cmb_salesrep_source";
-            this.cmb_salesrep_source.Size = new System.Drawing.Size(162, 21);
-            this.cmb_salesrep_source.TabIndex = 304;
-            this.cmb_salesrep_source.SelectionChangeCommitted += new System.EventHandler(this.cmb_salesrep_source_SelectionChangeCommitted);
-            // 
-            // cmb_active
-            // 
-            this.cmb_active.FormattingEnabled = true;
-            this.cmb_active.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-            this.cmb_active.Location = new System.Drawing.Point(806, 51);
-            this.cmb_active.Name = "cmb_active";
-            this.cmb_active.Size = new System.Drawing.Size(65, 21);
-            this.cmb_active.TabIndex = 303;
-            // 
-            // cmb_routeType
-            // 
-            this.cmb_routeType.FormattingEnabled = true;
-            this.cmb_routeType.Location = new System.Drawing.Point(551, 51);
-            this.cmb_routeType.Name = "cmb_routeType";
-            this.cmb_routeType.Size = new System.Drawing.Size(162, 21);
-            this.cmb_routeType.TabIndex = 302;
-            // 
-            // cmb_route_id
-            // 
-            this.cmb_route_id.FormattingEnabled = true;
-            this.cmb_route_id.Location = new System.Drawing.Point(73, 48);
-            this.cmb_route_id.Name = "cmb_route_id";
-            this.cmb_route_id.Size = new System.Drawing.Size(109, 21);
-            this.cmb_route_id.TabIndex = 300;
-            // 
-            // cmb_prodGroup
-            // 
-            this.cmb_prodGroup.FormattingEnabled = true;
-            this.cmb_prodGroup.Location = new System.Drawing.Point(277, 48);
-            this.cmb_prodGroup.Name = "cmb_prodGroup";
-            this.cmb_prodGroup.Size = new System.Drawing.Size(163, 21);
-            this.cmb_prodGroup.TabIndex = 299;
-            // 
-            // cmb_Region_source
-            // 
-            this.cmb_Region_source.FormattingEnabled = true;
-            this.cmb_Region_source.Location = new System.Drawing.Point(73, 8);
-            this.cmb_Region_source.Name = "cmb_Region_source";
-            this.cmb_Region_source.Size = new System.Drawing.Size(109, 21);
-            this.cmb_Region_source.TabIndex = 298;
-            this.cmb_Region_source.SelectionChangeCommitted += new System.EventHandler(this.cmb_Region_source_SelectionChangeCommitted);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(19, 10);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(50, 14);
-            this.label21.TabIndex = 297;
-            this.label21.Text = "Region";
-            // 
-            // cmb_sales_ter_source
-            // 
-            this.cmb_sales_ter_source.FormattingEnabled = true;
-            this.cmb_sales_ter_source.Location = new System.Drawing.Point(277, 8);
-            this.cmb_sales_ter_source.Name = "cmb_sales_ter_source";
-            this.cmb_sales_ter_source.Size = new System.Drawing.Size(163, 21);
-            this.cmb_sales_ter_source.TabIndex = 296;
-            this.cmb_sales_ter_source.SelectionChangeCommitted += new System.EventHandler(this.cmb_sales_ter_source_SelectionChangeCommitted);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(470, 11);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(56, 13);
-            this.label18.TabIndex = 292;
-            this.label18.Text = "Salesrep";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(201, 11);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 13);
-            this.label11.TabIndex = 280;
-            this.label11.Text = "Sales ter id";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(757, 54);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(43, 13);
-            this.label20.TabIndex = 289;
-            this.label20.Text = "Active";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(470, 56);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(72, 13);
-            this.label14.TabIndex = 286;
-            this.label14.Text = "Route Type";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(198, 51);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(69, 13);
-            this.label15.TabIndex = 285;
-            this.label15.Text = "Prod group";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(761, 11);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(39, 13);
-            this.label16.TabIndex = 283;
-            this.label16.Text = "Name";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 102);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(72, 13);
-            this.label12.TabIndex = 279;
-            this.label12.Text = "Route Code";
-            // 
-            // txt_route_code
-            // 
-            this.txt_route_code.Location = new System.Drawing.Point(77, 99);
-            this.txt_route_code.Name = "txt_route_code";
-            this.txt_route_code.Size = new System.Drawing.Size(105, 20);
-            this.txt_route_code.TabIndex = 278;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(15, 51);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 13);
-            this.label13.TabIndex = 277;
-            this.label13.Text = "Route id";
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(438, 294);
@@ -506,16 +312,6 @@
             this.button3.Text = "ADD NEW POSM";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // btn_mst_search
-            // 
-            this.btn_mst_search.Location = new System.Drawing.Point(544, 11);
-            this.btn_mst_search.Name = "btn_mst_search";
-            this.btn_mst_search.Size = new System.Drawing.Size(81, 23);
-            this.btn_mst_search.TabIndex = 5;
-            this.btn_mst_search.Text = "Search";
-            this.btn_mst_search.UseVisualStyleBackColor = true;
-            this.btn_mst_search.Click += new System.EventHandler(this.button2_Click);
             // 
             // dgv_pos_materal
             // 
@@ -527,6 +323,16 @@
             this.dgv_pos_materal.Name = "dgv_pos_materal";
             this.dgv_pos_materal.Size = new System.Drawing.Size(883, 285);
             this.dgv_pos_materal.TabIndex = 4;
+            // 
+            // btn_mst_search
+            // 
+            this.btn_mst_search.Location = new System.Drawing.Point(544, 11);
+            this.btn_mst_search.Name = "btn_mst_search";
+            this.btn_mst_search.Size = new System.Drawing.Size(81, 23);
+            this.btn_mst_search.TabIndex = 5;
+            this.btn_mst_search.Text = "Search";
+            this.btn_mst_search.UseVisualStyleBackColor = true;
+            this.btn_mst_search.Click += new System.EventHandler(this.button2_Click);
             // 
             // label10
             // 
@@ -576,6 +382,39 @@
             this.btn_save_route_mst.Text = "Search";
             this.btn_save_route_mst.UseVisualStyleBackColor = true;
             this.btn_save_route_mst.Click += new System.EventHandler(this.btn_save_route_mst_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 311;
+            this.label4.Text = "POSM Name";
+            // 
+            // txt_posm_name
+            // 
+            this.txt_posm_name.Location = new System.Drawing.Point(84, 8);
+            this.txt_posm_name.Name = "txt_posm_name";
+            this.txt_posm_name.Size = new System.Drawing.Size(389, 20);
+            this.txt_posm_name.TabIndex = 312;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.TabIndex = 311;
+            this.label5.Text = "POSM Type";
+            // 
+            // cmb_posm_type
+            // 
+            this.cmb_posm_type.FormattingEnabled = true;
+            this.cmb_posm_type.Location = new System.Drawing.Point(86, 36);
+            this.cmb_posm_type.Name = "cmb_posm_type";
+            this.cmb_posm_type.Size = new System.Drawing.Size(121, 21);
+            this.cmb_posm_type.TabIndex = 313;
             // 
             // frm_POSM_Assign
             // 
@@ -638,25 +477,11 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dgv_POSM_transaction;
         private System.Windows.Forms.Button btn_save_route_mst;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txt_route_code;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox cmb_sales_ter_source;
-        private System.Windows.Forms.ComboBox cmb_active;
-        private System.Windows.Forms.ComboBox cmb_routeType;
-        private System.Windows.Forms.ComboBox cmb_route_id;
-        private System.Windows.Forms.ComboBox cmb_prodGroup;
-        private System.Windows.Forms.ComboBox cmb_Region_source;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox cmb_salesrep_source;
-        private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.ComboBox cbm_posm_material;
+        private System.Windows.Forms.TextBox txt_posm_name;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmb_posm_type;
     }
 }
