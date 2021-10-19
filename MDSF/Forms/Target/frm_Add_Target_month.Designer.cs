@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition13 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition14 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition15 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Add_Target_month));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition16 = new Telerik.WinControls.UI.TableViewDefinition();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -133,6 +133,8 @@
             this.lbl_count_sales_ter_target = new System.Windows.Forms.Label();
             this.lbl_count_salesman_target = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.radButton11 = new Telerik.WinControls.UI.RadButton();
+            this.radButton15 = new Telerik.WinControls.UI.RadButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -189,6 +191,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_sales_ter_target_search)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salesman_target_search)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton15)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -206,6 +210,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.radButton11);
             this.tabPage1.Controls.Add(this.lbl_count_sales_ter_target);
             this.tabPage1.Controls.Add(this.label28);
             this.tabPage1.Controls.Add(this.groupBox2);
@@ -482,7 +487,7 @@
             // 
             // 
             // 
-            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.rgv_salester_target.MasterTemplate.ViewDefinition = tableViewDefinition13;
             this.rgv_salester_target.Name = "rgv_salester_target";
             // 
             // 
@@ -494,6 +499,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.radButton15);
             this.tabPage2.Controls.Add(this.lbl_count_salesman_target);
             this.tabPage2.Controls.Add(this.label30);
             this.tabPage2.Controls.Add(this.groupBox1);
@@ -769,7 +775,7 @@
             // 
             // 
             // 
-            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.rgv_Salesrep_target.MasterTemplate.ViewDefinition = tableViewDefinition14;
             this.rgv_Salesrep_target.Name = "rgv_Salesrep_target";
             // 
             // 
@@ -1117,7 +1123,7 @@
             // 
             // 
             // 
-            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.rgv_pos_target.MasterTemplate.ViewDefinition = tableViewDefinition15;
             this.rgv_pos_target.Name = "rgv_pos_target";
             // 
             // 
@@ -1377,7 +1383,7 @@
             // 
             // 
             // 
-            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.rgv_kpi_insert.MasterTemplate.ViewDefinition = tableViewDefinition16;
             this.rgv_kpi_insert.Name = "rgv_kpi_insert";
             // 
             // 
@@ -1459,6 +1465,50 @@
             this.label30.TabIndex = 19;
             this.label30.Text = "Count : ";
             // 
+            // radButton11
+            // 
+            this.radButton11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.radButton11.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radButton11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radButton11.CausesValidation = false;
+            this.radButton11.ImageIndex = 0;
+            this.radButton11.ImageList = this.imageList1;
+            this.radButton11.Location = new System.Drawing.Point(706, 6);
+            this.radButton11.Name = "radButton11";
+            // 
+            // 
+            // 
+            this.radButton11.RootElement.ControlBounds = new System.Drawing.Rectangle(810, 4, 110, 24);
+            this.radButton11.Size = new System.Drawing.Size(123, 45);
+            this.radButton11.TabIndex = 266;
+            this.radButton11.Text = "Export To Excel";
+            this.radButton11.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.radButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.radButton11.ThemeName = "TelerikMetro";
+            this.radButton11.Click += new System.EventHandler(this.radButton11_Click_1);
+            // 
+            // radButton15
+            // 
+            this.radButton15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.radButton15.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radButton15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radButton15.CausesValidation = false;
+            this.radButton15.ImageIndex = 0;
+            this.radButton15.ImageList = this.imageList1;
+            this.radButton15.Location = new System.Drawing.Point(759, 6);
+            this.radButton15.Name = "radButton15";
+            // 
+            // 
+            // 
+            this.radButton15.RootElement.ControlBounds = new System.Drawing.Rectangle(706, 6, 110, 24);
+            this.radButton15.Size = new System.Drawing.Size(123, 45);
+            this.radButton15.TabIndex = 267;
+            this.radButton15.Text = "Export To Excel";
+            this.radButton15.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.radButton15.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.radButton15.ThemeName = "TelerikMetro";
+            this.radButton15.Click += new System.EventHandler(this.radButton15_Click);
+            // 
             // frm_Add_Target_month
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1532,6 +1582,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgv_kpi_insert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_sales_ter_target_search)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salesman_target_search)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton15)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1664,5 +1716,7 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label lbl_count_salesman_target;
         private System.Windows.Forms.Label label30;
+        private Telerik.WinControls.UI.RadButton radButton11;
+        private Telerik.WinControls.UI.RadButton radButton15;
     }
 }

@@ -1527,5 +1527,35 @@ namespace MDSF.Forms.Target
             }
             this.Cursor = Cursors.Default;
         }
+
+        private void radButton15_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataAccessCS.ExportExcelDGV(rgv_Salesrep_target);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void radButton11_Click_1(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                DataAccessCS.ExportExcelDGV(rgv_salester_target);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            this.Cursor = Cursors.Default;
+        }
     }
 }
