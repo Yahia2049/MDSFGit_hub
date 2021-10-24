@@ -362,7 +362,7 @@ namespace MDSF.Forms.Master_Data
                         {
                             c = "select distinct   p.branch_code,p.salesman_name,p.SALES_TER_NAME,p.ter_id,p.pos_id,p.name,p.type,p.district,p.sub_district,p.area,p.build_no,p.str_id,p.contact,p.phone,p.mobile,p.land_mark,p.acc_id,p.cat_id,p.longitude,p.latitude,p.pos_owner," +
                                                              " calc_distance_meter (SUBSTR(p.latitude,0,7),SUBSTR(p.longitude,0,7),CAST(SUBSTR('" + latitude + "',0,7) AS number),CAST(SUBSTR('" + longitude + "',0,7) AS number)) dis_meter" +
-                                                             " from pos_inf@sfis p where ( p." + cmb_search_by.Text + " like '%" + txt_search_by.Text + "%') /*and  sales_ter_id is not null and p.longitude is not null*/" +
+                                                             " from pos_inf@sfis p where p.branch_code = "+txt_branch_cod_serch.Text+" and ( p." + cmb_search_by.Text + " like '%" + txt_search_by.Text + "%') /*and  sales_ter_id is not null and p.longitude is not null*/" +
                                                              " and calc_distance_meter (SUBSTR(p.latitude,0,7),SUBSTR(p.longitude,0,7),CAST(SUBSTR('" + latitude + "',0,7) AS number),CAST(SUBSTR('" + longitude + "',0,7) AS number)) <= " + txt_meter.Text + " ";
                         }
                         else
@@ -371,28 +371,28 @@ namespace MDSF.Forms.Master_Data
                             {
                                 c = "select distinct   p.branch_code,p.salesman_name,p.SALES_TER_NAME,p.ter_id,p.pos_id,p.name,p.type,p.district,p.sub_district,p.area,p.build_no,p.str_id,p.contact,p.phone,p.mobile,p.land_mark,p.acc_id,p.cat_id,p.longitude,p.latitude,p.pos_owner," +
                                      " calc_distance_meter (SUBSTR(p.latitude,0,7),SUBSTR(p.longitude,0,7),CAST(SUBSTR('" + latitude + "',0,7) AS number),CAST(SUBSTR('" + longitude + "',0,7) AS number)) dis_meter" +
-                                     " from pos_inf@sfis p where ( p.contact like '%" + contact + "%') /*and  sales_ter_id is not null and p.longitude is not null*/" +
+                                     " from pos_inf@sfis p where p.branch_code = " + txt_branch_cod_serch.Text + " and ( p.contact like '%" + contact + "%') /*and  sales_ter_id is not null and p.longitude is not null*/" +
                                      " and calc_distance_meter (SUBSTR(p.latitude,0,7),SUBSTR(p.longitude,0,7),CAST(SUBSTR('" + latitude + "',0,7) AS number),CAST(SUBSTR('" + longitude + "',0,7) AS number)) <= " + txt_meter.Text + " ";
                             }
                             else if (cmb_search_by.Text == "name")
                             {
                                 c = "select distinct   p.branch_code,p.salesman_name,p.SALES_TER_NAME,p.ter_id,p.pos_id,p.name,p.type,p.district,p.sub_district,p.area,p.build_no,p.str_id,p.contact,p.phone,p.mobile,p.land_mark,p.acc_id,p.cat_id,p.longitude,p.latitude,p.pos_owner," +
                                     " calc_distance_meter (SUBSTR(p.latitude,0,7),SUBSTR(p.longitude,0,7),CAST(SUBSTR('" + latitude + "',0,7) AS number),CAST(SUBSTR('" + longitude + "',0,7) AS number)) dis_meter" +
-                                    " from pos_inf@sfis p where ( p.name  like '%" + name2 + "%') /*and  sales_ter_id is not null and p.longitude is not null*/" +
+                                    " from pos_inf@sfis p where p.branch_code = " + txt_branch_cod_serch.Text + " and ( p.name  like '%" + name2 + "%') /*and  sales_ter_id is not null and p.longitude is not null*/" +
                                     " and calc_distance_meter (SUBSTR(p.latitude,0,7),SUBSTR(p.longitude,0,7),CAST(SUBSTR('" + latitude + "',0,7) AS number),CAST(SUBSTR('" + longitude + "',0,7) AS number)) <= " + txt_meter.Text + " ";
                             }
                             else if (cmb_search_by.Text == "mobile")
                             {
                                 c = "select distinct   p.branch_code,p.salesman_name,p.SALES_TER_NAME,p.ter_id,p.pos_id,p.name,p.type,p.district,p.sub_district,p.area,p.build_no,p.str_id,p.contact,p.phone,p.mobile,p.land_mark,p.acc_id,p.cat_id,p.longitude,p.latitude,p.pos_owner," +
                                                                " calc_distance_meter (SUBSTR(p.latitude,0,7),SUBSTR(p.longitude,0,7),CAST(SUBSTR('" + latitude + "',0,7) AS number),CAST(SUBSTR('" + longitude + "',0,7) AS number)) dis_meter" +
-                                                               " from pos_inf@sfis p where ( p.mobile like '%" + mobile + "%') /*and  sales_ter_id is not null and p.longitude is not null*/" +
+                                                               " from pos_inf@sfis p where p.branch_code = " + txt_branch_cod_serch.Text + " and ( p.mobile like '%" + mobile + "%') /*and  sales_ter_id is not null and p.longitude is not null*/" +
                                                                " and calc_distance_meter (SUBSTR(p.latitude,0,7),SUBSTR(p.longitude,0,7),CAST(SUBSTR('" + latitude + "',0,7) AS number),CAST(SUBSTR('" + longitude + "',0,7) AS number)) <= " + txt_meter.Text + " ";
                             }
                             else if (cmb_search_by.Text == "phone")
                             {
                                 c = "select distinct   p.branch_code,p.salesman_name,p.SALES_TER_NAME,p.ter_id,p.pos_id,p.name,p.type,p.district,p.sub_district,p.area,p.build_no,p.str_id,p.contact,p.phone,p.mobile,p.land_mark,p.acc_id,p.cat_id,p.longitude,p.latitude,p.pos_owner," +
                                                                " calc_distance_meter (SUBSTR(p.latitude,0,7),SUBSTR(p.longitude,0,7),CAST(SUBSTR('" + latitude + "',0,7) AS number),CAST(SUBSTR('" + longitude + "',0,7) AS number)) dis_meter" +
-                                                               " from pos_inf@sfis p where (  p.phone  like '%" + phone + "%' ) /*and  sales_ter_id is not null and p.longitude is not null*/" +
+                                                               " from pos_inf@sfis p where p.branch_code = " + txt_branch_cod_serch.Text + " and (  p.phone  like '%" + phone + "%' ) /*and  sales_ter_id is not null and p.longitude is not null*/" +
                                                                " and calc_distance_meter (SUBSTR(p.latitude,0,7),SUBSTR(p.longitude,0,7),CAST(SUBSTR('" + latitude + "',0,7) AS number),CAST(SUBSTR('" + longitude + "',0,7) AS number)) <= " + txt_meter.Text + " ";
                             }
                             else if (cmb_search_by.Text == "land_mark")
@@ -400,7 +400,7 @@ namespace MDSF.Forms.Master_Data
 
                                 c = "select distinct   p.branch_code,p.salesman_name,p.SALES_TER_NAME,p.ter_id,p.pos_id,p.name,p.type,p.district,p.sub_district,p.area,p.build_no,p.str_id,p.contact,p.phone,p.mobile,p.land_mark,p.acc_id,p.cat_id,p.longitude,p.latitude,p.pos_owner," +
                                                                " calc_distance_meter (SUBSTR(p.latitude,0,7),SUBSTR(p.longitude,0,7),CAST(SUBSTR('" + latitude + "',0,7) AS number),CAST(SUBSTR('" + longitude + "',0,7) AS number)) dis_meter" +
-                                                               " from pos_inf@sfis p where ( p.land_mark like '%" + land_mark + "%') /*and  sales_ter_id is not null and p.longitude is not null*/" +
+                                                               " from pos_inf@sfis p where p.branch_code = " + txt_branch_cod_serch.Text + " and ( p.land_mark like '%" + land_mark + "%') /*and  sales_ter_id is not null and p.longitude is not null*/" +
                                                                " and calc_distance_meter (SUBSTR(p.latitude,0,7),SUBSTR(p.longitude,0,7),CAST(SUBSTR('" + latitude + "',0,7) AS number),CAST(SUBSTR('" + longitude + "',0,7) AS number)) <= " + txt_meter.Text + " ";
                             }
                         }

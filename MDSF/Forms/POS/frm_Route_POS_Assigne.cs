@@ -48,7 +48,7 @@ namespace MDSF.Forms.Target
                 //----------------RGV Route POS----------------------
                  ds = new DataSet();
                 //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                ds = DataAccessCS.getdata("select * from pos_routes y where y.branch_code is null");
+                ds = DataAccessCS.getdata(" select distinct 0 prod_group_id, 0 ter_id, 0 pos_id, 0 sales_ter_id, 0 route_id, 0 ind, '' entry_date, '' update_date, '' best_50_prcnt_stock, '' grp, '' grp_m, '' grp_l, '' new,'I' action,0 trans_flag,0 branch_code,'' week_num from POS_ROUTES");
 
                 rgv_pos_route.DataSource = ds.Tables[0];
                 rgv_pos_route.BestFitColumns();
@@ -58,7 +58,7 @@ namespace MDSF.Forms.Target
                 //----------------RGV Route MST----------------------
                 ds = new DataSet();
                 //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                ds = DataAccessCS.getdata("select * from route_mst_y order by route_mst_id desc");
+                ds = DataAccessCS.getdata("select * from route_mst order by route_mst_id desc");
 
                 dgv_route_mst.DataSource = ds.Tables[0];
                 dgv_route_mst.AutoResizeColumns();
@@ -185,7 +185,7 @@ namespace MDSF.Forms.Target
             this.Cursor = Cursors.WaitCursor;
             try
             {
-
+                string Week_num ;
                 // String cmd = "";
                 //string branch_code = "";
                 for (int i = 0; i < rgv_pos_route.Rows.Count; i++)
@@ -193,12 +193,19 @@ namespace MDSF.Forms.Target
 
                     //insert pos_route
                     //-------------------------------------------------------
-                           
+                    if (rgv_pos_route.Rows[i].Cells["WEEK_NUM"].Value.ToString() == "")
+                    {
+                        Week_num = DBNull.Value.ToString();
+                    }
+                    else
+                    {
+                        Week_num = rgv_pos_route.Rows[i].Cells["WEEK_NUM"].Value.ToString();
+                    }
 
-                    String nr = "Insert into POS_ROUTES_TSTY(PROD_GROUP_ID, TER_ID, POS_ID, SALES_TER_ID, ROUTE_ID,IND, BEST_50_PRCNT_STOCK, GRP, GRP_M, GRP_L, NEW, ACTION, TRANS_FLAG, BRANCH_CODE,WEEK_NUM) " +
+                    String nr = "Insert into POS_ROUTES (PROD_GROUP_ID, TER_ID, POS_ID, SALES_TER_ID, ROUTE_ID,IND, BEST_50_PRCNT_STOCK, GRP, GRP_M, GRP_L, NEW, ACTION, TRANS_FLAG, BRANCH_CODE,WEEK_NUM) " +
                                 " Values(" + rgv_pos_route.Rows[i].Cells["PROD_GROUP_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["TER_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["POS_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["SALES_TER_ID"].Value +
                                 ", " + rgv_pos_route.Rows[i].Cells["ROUTE_ID"].Value + ", " + rgv_pos_route.Rows[i].Cells["IND"].Value + ", NULL, NULL,  NULL, NULL, NULL," +
-                                " '" + rgv_pos_route.Rows[i].Cells["ACTION"].Value + "', '" + rgv_pos_route.Rows[i].Cells["TRANS_FLAG"].Value + "', " + rgv_pos_route.Rows[i].Cells["BRANCH_CODE"].Value + ", " + rgv_pos_route.Rows[i].Cells["WEEK_NUM"].Value + ")";
+                                " '" + rgv_pos_route.Rows[i].Cells["ACTION"].Value + "', '" + rgv_pos_route.Rows[i].Cells["TRANS_FLAG"].Value + "', " + rgv_pos_route.Rows[i].Cells["BRANCH_CODE"].Value + ", '" + Week_num + "')";
 
 
                     DataAccessCS.insert(nr);
@@ -210,7 +217,7 @@ namespace MDSF.Forms.Target
                 }
                 MessageBox.Show("تم ربط العملاء المرفقة برجاء المراجعة");
             }
-            catch (Exception ex)
+             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -240,7 +247,7 @@ namespace MDSF.Forms.Target
 
                    
                     //------------------------------------------------------------------
-                    String delRout = "delete from POS_ROUTES_tsty p where  sales_ter_id in ( select sales_ter_id from routes r where r.route_type  in (" + x_route_type + "))and ter_id= " + rgv_pos_route.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_pos_route.Rows[i].Cells["POS_ID"].Value + " and branch_code = " + rgv_pos_route.Rows[i].Cells["BRANCH_CODE"].Value + "";
+                    String delRout = "delete from POS_ROUTES p where  sales_ter_id in ( select sales_ter_id from routes r where r.route_type  in (" + x_route_type + "))and ter_id= " + rgv_pos_route.Rows[i].Cells["TER_ID"].Value + " AND POS_ID = " + rgv_pos_route.Rows[i].Cells["POS_ID"].Value + " and branch_code = " + rgv_pos_route.Rows[i].Cells["BRANCH_CODE"].Value + "";
                     DataAccessCS.delete(delRout);
                     DataAccessCS.conn.Close();
 
@@ -276,7 +283,7 @@ namespace MDSF.Forms.Target
             {
                               
                     //insert DVD_target
-                    String route_mst = "insert into  route_mst_y (sales_ter_id,curr_sales_id,route_mst_id,route_mst_name,active,branch_code)" +
+                    String route_mst = "insert into  route (sales_ter_id,curr_sales_id,route_mst_id,route_mst_name,active,branch_code)" +
                     "values("+txt_sales_ter_id_mst.Text+","+txt_salesrep_id_mst.Text+","+txt_route_mst_id_mst.Text+",'"+txt_route_mst_name_mst.Text+"',"+txt_active_mst.Text+","+txt_branch_code_mst.Text+")";
                     DataAccessCS.insert(route_mst);
                     DataAccessCS.conn.Close();
@@ -287,7 +294,7 @@ namespace MDSF.Forms.Target
                 //----------------RGV Route MST----------------------
                DataSet ds = new DataSet();
                 //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                ds = DataAccessCS.getdata("select * from route_mst_y order by route_mst_id desc");
+                ds = DataAccessCS.getdata("select * from route order by route_mst_id desc");
 
                 dgv_route_mst.DataSource = ds.Tables[0];
                 dgv_route_mst.AutoResizeColumns();
@@ -310,7 +317,7 @@ namespace MDSF.Forms.Target
             try
             {
                 string check = DataAccessCS.getvalue("select nvl(count(*),0) " +
-                    "from route_mst_y  where route_mst_id =" + txt_route_mst_id_rout.Text + " ");
+                    "from route  where route_mst_id =" + txt_route_mst_id_rout.Text + " ");
                 DataAccessCS.conn.Close();
                 if (check == "0")
                 {
@@ -321,7 +328,7 @@ namespace MDSF.Forms.Target
                     //----------------RGV Route MST----------------------
                     DataSet ds = new DataSet();
                     //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                    ds = DataAccessCS.getdata("select * from routes_y where route_mst_id =" + txt_route_mst_id_rout.Text + "order by route_mst_id desc");
+                    ds = DataAccessCS.getdata("select * from routes where route_mst_id =" + txt_route_mst_id_rout.Text + "order by route_mst_id desc");
 
                     dgv_routs.DataSource = ds.Tables[0];
                     dgv_routs.AutoResizeColumns();
@@ -461,7 +468,7 @@ namespace MDSF.Forms.Target
                 }
                 else
                 {
-                     String insertRoute = "Insert into routes_y ( sales_ter_id ,route_id,route_code,route_type,name,prod_group_id,curr_sales_id,entry_date,active,action,trans_flag,branch_code, route_mst_id) VALUES (' "
+                     String insertRoute = "Insert into routes ( sales_ter_id ,route_id,route_code,route_type,name,prod_group_id,curr_sales_id,entry_date,active,action,trans_flag,branch_code, route_mst_id) VALUES (' "
                     + cmb_sales_ter_source.SelectedValue + "','" + cmb_route_id.SelectedValue + "','" + txt_route_code.Text + "','" + cmb_routeType.SelectedValue + "','" + txt_name.Text + "','" + cmb_prodGroup.SelectedValue + "','" + cmb_salesrep_source.SelectedValue + "' , trunc(sysdate)  ,'"+ cmb_active.SelectedIndex+"','I','1', '" + cmb_Region_source.SelectedValue + "','"+ txt_route_mst_id_rout .Text+ "' )";
                    // String insertRoute = $"Insert into routes_y ( sales_ter_id ,route_id,route_code,route_type,name,prod_group_id,curr_sales_id,entry_date,active,action,trans_flag,branch_code, route_mst_id) VALUES ('
                    //{ cmb_sales_ter_source.SelectedValue}','{ cmb_route_id.SelectedValue } ','{ txt_route_code.Text } ','{ cmb_routeType.SelectedValue } ','{ txt_name.Text} ','{ cmb_prodGroup.SelectedValue} ','{ cmb_salesrep_source.SelectedValue} ' , trunc(sysdate)  ,'{ cmb_active.SelectedIndex} ','I','1', '{ cmb_Region_source.SelectedValue } ','{ txt_route_mst_id_rout.Text } ' )";
@@ -471,7 +478,7 @@ namespace MDSF.Forms.Target
                 }
                 ds = new DataSet();
                 //ds = DataAccessCS.getdata("select b.branch_code,b.Region from regions_bi b ");
-                ds = DataAccessCS.getdata("select * from routes_y where route_mst_id =" + txt_route_mst_id_rout.Text + "order by route_mst_id desc");
+                ds = DataAccessCS.getdata("select * from routes where route_mst_id =" + txt_route_mst_id_rout.Text + "order by route_mst_id desc");
 
                 dgv_routs.DataSource = ds.Tables[0];
                 dgv_routs.AutoResizeColumns();

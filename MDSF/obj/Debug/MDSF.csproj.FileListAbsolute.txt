@@ -4983,7 +4983,6 @@ E:\MDSF Sources\MDSFGit_hub\MDSF\bin\Debug\pt\Microsoft.ReportViewer.WinForms.re
 E:\MDSF Sources\MDSFGit_hub\MDSF\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 E:\MDSF Sources\MDSFGit_hub\MDSF\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 E:\MDSF Sources\MDSFGit_hub\MDSF\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.csprojAssemblyReference.cache
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.Form1.resources
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Android_Support.frm_Android_sales_support_Dev.resources
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.Forms.Android_Support.frm_android_support_manag.resources
@@ -5042,3 +5041,4 @@ E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.application
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.csproj.CopyComplete
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.exe
 E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.pdb
+E:\MDSF Sources\MDSFGit_hub\MDSF\obj\Debug\MDSF.csprojAssemblyReference.cache
